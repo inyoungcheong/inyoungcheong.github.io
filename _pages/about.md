@@ -7,10 +7,10 @@ subtitle: University of Washington <a href='https://www.law.uw.edu/directory/aff
 =======
 profile:
   align: right
-  image: inyoung (2).png
-  image_circular: false # crops the image to make it circular
+  image: inyoung.jpg
+  image_circular: true # crops the image to make it circular
   address: >
-    <p>Bill & Melinda Gates Building #</p>
+    <p>Bill & Melinda Gates Building </p>
     <p>123 your address street</p>
     <p>Your City, State 12345</p>
 
