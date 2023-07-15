@@ -2,11 +2,11 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+subtitle: University of Washington <a href='https://www.law.uw.edu/directory/affiliate-faculty/cheong-inyoung'>School of Law</a>. <a href='https://seclab.cs.washington.edu/people/'>Privacy & Security Lab</a>. <a href='https://techpolicylab.uw.edu/about/#our-people'>Tech Policy Lab</a> 
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: inyoung (2).png
   image_circular: false # crops the image to make it circular
   address: >
     <p>555 your office number</p>
