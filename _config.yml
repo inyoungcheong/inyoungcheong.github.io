@@ -31,7 +31,7 @@ highlight_theme_light: murphy   # https://github.com/jwarby/jekyll-pygments-them
 highlight_theme_dark: native    # https://github.com/jwarby/jekyll-pygments-themes
 
 # repo color theme
-repo_theme_light: default       # https://github.com/anuraghazra/github-readme-stats/blob/master/themes/README.md
+repo_theme_light: shadow_blue      # https://github.com/anuraghazra/github-readme-stats/blob/master/themes/README.md
 repo_theme_dark: apprentice           # https://github.com/anuraghazra/github-readme-stats/blob/master/themes/README.md
 repo_trophies:
   enabled: true
@@ -70,53 +70,51 @@ og_image: # The site-wide (default for all links) Open Graph preview image
 # Social integration
 # -----------------------------------------------------------------------------
 
-github_username: # your GitHub user name
-gitlab_username: # your GitLab user name
-twitter_username: # your Twitter handle
-mastodon_username: # your mastodon instance+username in the format instance.tld/@username
-linkedin_username: # your LinkedIn user name
-telegram_username: # your Telegram user name
-scholar_userid: # your Google Scholar ID
-semanticscholar_id: # your Semantic Scholar ID
-whatsapp_number: # your WhatsApp number (full phone number in international format. Omit any zeroes, brackets, or dashes when adding the phone number in international format.)
-orcid_id: # your ORCID ID
-medium_username: # your Medium username
-quora_username: # your Quora username
-publons_id: # your ID on Publons
-lattes_id: # your ID on Lattes (Brazilian Lattes CV)
-osf_id: # your OSF ID
-research_gate_profile: # your profile on ResearchGate
-scopus_id: # your profile on Scopus
-blogger_url: # your blogger URL
-work_url: # work page URL
-keybase_username: # your keybase user name
-wikidata_id: # your wikidata id
-wikipedia_id: # your wikipedia id (Case sensitive)
-dblp_url: # your DBLP profile url
-stackoverflow_id: # your stackoverflow id
-kaggle_id: # your kaggle id
-lastfm_id: # your lastfm id
-spotify_id: # your spotify id
-pinterest_id: # your pinterest id
-unsplash_id: # your unsplash id
-instagram_id: # your instagram id
-facebook_id: # your facebook id
-youtube_id: # your youtube channel id (youtube.com/@<youtube_id>)
-discord_id: # your discord id (18-digit unique numerical identifier)
+github_username: inyoungcheong
+#twitter_username: # your Twitter handle
+#mastodon_username: # your mastodon instance+username in the format instance.tld/@username
+linkedin_username: inyoungcheong
+scholar_userid: icheon@uw.edu
+#semanticscholar_id: # your Semantic Scholar ID
+#whatsapp_number: # your WhatsApp number (full phone number in international format. Omit any zeroes, brackets, or dashes when adding the phone number in international format.)
+#orcid_id: # your ORCID ID
+#medium_username: # your Medium username
+#quora_username: # your Quora username
+#publons_id: # your ID on Publons
+#lattes_id: # your ID on Lattes (Brazilian Lattes CV)
+#osf_id: # your OSF ID
+#research_gate_profile: # your profile on ResearchGate
+#scopus_id: # your profile on Scopus
+#blogger_url: # your blogger URL
+#work_url: # work page URL
+#keybase_username: # your keybase user name
+#wikidata_id: # your wikidata id
+#wikipedia_id: # your wikipedia id (Case sensitive)
+#dblp_url: # your DBLP profile url
+#stackoverflow_id: # your stackoverflow id
+#kaggle_id: # your kaggle id
+#lastfm_id: # your lastfm id
+#spotify_id: # your spotify id
+#pinterest_id: # your pinterest id
+#unsplash_id: # your unsplash id
+#instagram_id: # your instagram id
+#facebook_id: # your facebook id
+#youtube_id: # your youtube channel id (youtube.com/@<youtube_id>)
+#discord_id: # your discord id (18-digit unique numerical identifier)
 
 contact_note: >
-  You can even add a little note about which of these is the best way to reach you.
+  Please reach out to me at icheon [at] uw.edu. 
 
 # -----------------------------------------------------------------------------
 # Analytics and search engine verification
 # -----------------------------------------------------------------------------
 
-google_analytics:  # your Google Analytics measurement ID (format: G-XXXXXXXXXX)
+google_analytics: G-KB3EZ5YVPD
 panelbear_analytics:  # panelbear analytics site ID (format: XXXXXXXXX)
 
 google_site_verification:  # your google-site-verification ID (Google Search Console)
 bing_site_verification:  # out your bing-site-verification ID (Bing Webmaster)
-
+google-site-verification= r_j_Vx3bXyzhgNP8CF8wq_3IoXfgcu4mE5jQ3stD5yg
 # -----------------------------------------------------------------------------
 # Blog
 # -----------------------------------------------------------------------------
