@@ -2,18 +2,16 @@
   type: map
   contents:
     - name: Full Name
-      value: Albert Einstein
-    - name: Date of Birth
-      value: 14th March 1879
+      value: Inyoung Cheong
     - name: Languages
-      value: English, German
+      value: English, Korean
 
 - title: Education
   type: time_table
   contents:
     - title: PhD
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1905
+      institution: University of Washington, Seattle, WA, U.S.
+      year: 2024 
       description:
         - Description 1.
         - Description 2.
@@ -21,12 +19,54 @@
           contents:
             - Sub-description 1.
             - Sub-description 2.
-    - title: Federal teaching diploma
-      institution: Eidgenössische Technische Hochschule, Zurich, Switzerland
-      year: 1900
+    - title: Affiliate Faculty
+      institution: University of Washington School of Law, Seattle, WA
+      year: 2023-
       description:
         - Description 1.
         - Description 2.
+- title: "Education"
+  type: "time_table"
+  contents:
+    - title: "Ph.D. Candidate, University of Washington School of Law"
+      year: "Expected 2024"
+      description: "Advisor: Tadayoshi Kohno, Affiliations: Security & Privacy Lab at UW School of Computer Science & Engineering (Member, 2022-), UW Tech Policy Lab (Member, 2022-), Science, Technology & Society Studies (Member, 2021-), Global Business Law Institute (Fellow, 2021-2022), Washington Journal of Law, Technology & Arts (Submission Editor, 2021-2023), UW Asia-Pacific Law Student Association (VP, 2020-2021)"
+    - title: "Master of Law (LL.M.), Seoul National University School of Law"
+      year: "Feb. 2018"
+      description: "Major: Administrative Law, Achievements: Academic Excellence Award, Dissertation: 'Alternative Dispute Resolution and the Right to Fair Trial'"
+    - title: "Bachelor of Arts (B.A.), Hongik University"
+      year: "Feb. 2012"
+      description: "Major: Economics, Art Philosophy, Achievements: Academic Excellence Award (12/13 Semesters), Dissertation: 'Justice Sentiment and Aesthetic Judgment: Immanuel Kant's and David Hume's Moral Theories'"
+ 
+
+- title: "PROFESSIONAL EXPERIENCE"
+  type: "time_table"
+  contents:
+    - title: "Affiliate Instructor, UW School of Law"
+      date: "Jan. 2023 - Mar. 2023"
+      description: "Taught 'Technology Law and Public Policy Seminar' to 25 J.D. and LL.M. students with a specific focus on algorithms as speech, different notions of privacy, and content moderation."
+    - title: "Research Assistant, UW School of Computer Science & Engineering"
+      date: "Sep. 2022 - present"
+      description: "Advised by Tadayoshi Kohno, have explored collaborative governance models that leverage the expertise and incentives of various stakeholders to promote trust and safety through legal and qualitative methods."
+    - title: "Deputy Director, Ministry of Culture, Sports, and Tourism"
+      date: "May 2016 - Aug. 2019"
+      description: "Formulated a strategic plan, 'Future Technology for Culture & Arts,' by gathering the opinions of businesses, researchers, academics, and civil society, leading to a record-setting budget increase ($100 million a year). Executed art funds for Webtoon and Fashion design. Supported Webtoon (digital comics) artists to formulate the industry's self-regulatory body in a collaboration with major Webtoon platforms."
+    - title: "Deputy Director, Korea Communications Commission"
+      date: "Oct. 2012 - May 2016"
+      description: "Interpreted relevant laws, implemented user experiments, and coordinated conflicting political views to ensure the successful grant of a license to operate to a public broadcasting channel. Reviewed bills related to media convergence and digital platforms and drafted over 200 Commission statements about their impacts on users' fundamental rights including free speech and privacy. Led an investigation into a deceptive advertising scandal involving the leading national newspaper. Upon uncovering evidence of violations, took decisive action by imposing injunctions and fines on the newspaper."
+    - title: "Summer Associate (Intern), Administrative Conference of the United States"
+      date: "Summer 2021"
+      description: "Performed comprehensive research on complex case law and statutes, and global regulations on the removal of agency heads and legal implications of automated decisions within the U.S. federal government."
+    - title: "Summer Associate (Intern), United Nations"
+      date: "Summer 2020"
+      description: "Formulated and cultivated sustainable development goals-conscious strategic regional partnerships, called 'UN75 Cities,' with South Korean local governments, while directly reporting to the Under-Secretary-General."
+    - title: "Administrator Apprentice, National Institute of Policy Training"
+      date: "April 2012 - Oct. 2012"
+      description: "Achieved the honor of being one of 100 candidates selected from a pool of 5,500 to pass the national exam. Undertook a rigorous 6-month law and foreign affairs training and graduated 2nd place out of 100 candidates."
+    - title: "Intern Curator, Pyo Gallery Seoul"
+      date: "Dec. 2008 - Feb. 2009"
+      description: "Assisted in curating Jonathan Borofsky's exhibition, 'Human Structures and the Light of Consciousness.'"
+
 
 - title: Experience
   type: time_table

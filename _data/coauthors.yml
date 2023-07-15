@@ -1,12 +1,14 @@
-"Adams":
-  - firstname: ["Edwin", "E.", "E. P.", "Edwin Plimpton"]
-    url: https://en.wikipedia.org/wiki/Edwin_Plimpton_Adams
+"Yoshi":
+  - firstname: ["Tadayoshi," "T.""]
+    lastname: ["Kohno"]
+    url: https://homes.cs.washington.edu/~yoshi
 
-"Podolsky":
-  - firstname: ["Boris", "B.", "B. Y.", "Boris Yakovlevich"]
-    url: https://en.wikipedia.org/wiki/Boris_Podolsky
+"Aylin":
+  - firstname: ["Aylin", "A."]
+    lastname: ["Caliskan"]
+    url: https://faculty.washington.edu/aylin/index.html
 
-"Rosen":
+"Pardis":
   - firstname: ["Nathan", "N."]
     url: https://en.wikipedia.org/wiki/Nathan_Rosen
 
