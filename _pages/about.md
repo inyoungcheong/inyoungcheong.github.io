@@ -2,9 +2,7 @@
 layout: about
 title: about
 permalink: /
-<<<<<<< HEAD
 subtitle: University of Washington <a href='https://www.law.uw.edu/directory/affiliate-faculty/cheong-inyoung'>School of Law</a>. <a href='https://seclab.cs.washington.edu/people/'>Security & Privacy Lab</a>. <a href='https://techpolicylab.uw.edu/about/#our-people'>Tech Policy Lab.
-=======
 profile:
   align: right
   image: inyoung.jpg
