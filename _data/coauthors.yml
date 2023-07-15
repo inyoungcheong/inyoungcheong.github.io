@@ -1,11 +1,9 @@
 "Yoshi":
-  - firstname: ["Tadayoshi"," "T."]
-    lastname: ["Kohno"]
+  - firstname: ["Tadayoshi Kohno"," "T. K."]
     url: https://homes.cs.washington.edu/~yoshi
 
 "Aylin":
-  - firstname: ["Aylin", "A."]
-    lastname: ["Caliskan"]
+  - firstname: ["Aylin Caliskan", "A. C."]
     url: https://faculty.washington.edu/aylin/index.html
 
 "Pardis":
