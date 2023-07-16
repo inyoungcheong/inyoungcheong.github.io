@@ -5,12 +5,12 @@ permalink: /
 subtitle: University of Washington <a href='https://www.law.uw.edu/directory/affiliate-faculty/cheong-inyoung'>School of Law</a>. <a href='https://seclab.cs.washington.edu/people/'>Security & Privacy Lab</a>. <a href='https://techpolicylab.uw.edu/about/#our-people'>Tech Policy Lab.
 profile:
   align: right
-  image: inyoung.png
+  image: prof_pic.jpg
   image_circular: true # crops the image to make it circular
   address: >
-    <p>Bill & Melinda Gates Building </p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+    <p>CSE2 #322 </p>
+    <p>3800 E Stevens Way NE</p>
+    <p>Seattle, WA 98195</p>
 
 news: true  # includes a list of news items
 latest_posts: true  # includes a list of the newest posts
