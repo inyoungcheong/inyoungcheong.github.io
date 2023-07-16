@@ -18,7 +18,6 @@
     "education": [
       {
         "institution": "University of Washington, Seattle, WA, United States",
-        "url": "https://www.uw.edu",
         "area": "Law",
         "studyType": "PhD",
         "startDate": "2019-09",
@@ -30,7 +29,6 @@
       },
       {
         "institution": "Seoul National University, Seoul, South Korea",
-        "url": "https://www.snu.ac.kr",
         "area": "Administrative Law",
         "studyType": "LL.M. (Master of Law)",
         "startDate": "2012-03",
@@ -42,7 +40,6 @@
       },
       {
         "institution": "Hongik University, Seoul, South Korea",
-        "url": "https://www.hongik.ac.kr",
         "area": "Art studies, Economics",
         "studyType": "B.A.",
         "startDate": "2007-03",
@@ -58,7 +55,6 @@
     {
       "name": "University of Washington School of Law",
       "position": "Affiliate Faculty",
-      "url": "https://www.law.uw.edu/directory/affiliate-faculty/cheong-inyoung",
       "startDate": "2023-01",
       "endDate": "present",
       "summary": "Taught \"Technology Law and Public Policy Seminar\" to 25 J.D. and LL.M. students with a specific focus on algorithms as speech, different notions of privacy, and content moderation."
@@ -66,7 +62,6 @@
     {
       "name": "University of Washington School of Computer Science & Engineering",
       "position": "Research Assistant",
-      "url": "https://seclab.cs.washington.edu/people/",
       "startDate": "2022-09",
       "endDate": "present",
       "summary": "Advised by Tadayoshi Kohno, have explored collaborative governance models that leverage the expertise and incentives of various stakeholders to promote trust and safety through legal and qualitative methods."
@@ -74,7 +69,6 @@
     {
       "name": "Administrative Conference of the United States",
       "position": "Legal Intern",
-      "url": "https://www.acus.gov",
       "startDate": "2021-07",
       "endDate": "2021-09",
       "summary": "Performed comprehensive research on complex case law and statutes, and global regulations on the removal of agency heads and legal implications of automated decisions within the U.S. federal government."
@@ -82,7 +76,6 @@
     {
       "name": "United Nations Office of Under Secretary-General",
       "position": "Intern",
-      "url": "https://www.un.org/en",
       "startDate": "2020-07",
       "endDate": "2020-09",
       "summary": "Formulated and cultivated sustainable development goals-conscious strategic regional partnerships, called \"UN75 Cities,\" with South Korean local governments, while directly reporting to the Under-Secretary-General."
@@ -90,7 +83,6 @@
     {
       "name": "Ministry of Culture, Sports, and Tourism",
       "position": "Deputy Director",
-      "url": "https://www.mcst.go.kr/english/index.jsp",
       "startDate": "2016-05",
       "endDate": "present",
       "summary": "Established a strategic plan, \"Future Technology for Culture & Arts,\" by gathering the opinions of businesses, researchers, academics, and civil society, leading to a record-setting budget increase ($100 million a year)."
@@ -98,7 +90,6 @@
     {
       "name": "Korea Communications Commission",
       "position": "Deputy Director",
-      "url": "https://kcc.go.kr/user/ehpMain.do",
       "startDate": "2012-10",
       "endDate": "2016-05",
       "summary": "Interpreted relevant laws, implemented user experiments and coordinated conflicting political views to ensure the successful grant of a license to operate to a public broadcasting channel. Led an investigation into a deceptive advertising scandal involving the leading national newspaper. Upon uncovering evidence of violations, took decisive action by imposing injunctions and fines on the newspaper. Executed art funds for Webtoon and Fashion design. Supported Webtoon (digital comics) artists to formulate the industry's self-regulatory body in a collaboration with major Webtoon platforms."
