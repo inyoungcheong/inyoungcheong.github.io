@@ -1,14 +1,14 @@
 {
   "basics": {
-    "name": "Albert Einstein",
-    "label": "Scientist",
+    "name": "Inyoung Cheong",
+    "label": "Tech law scholar",
     "image": "",
-    "email": "albert@einstein.de",
+    "email": "icheon at uw.edu",
     "phone": "(912) 123-4567",
-    "url": "https://alshedivat.github.io/al-folio/",
-    "summary": "A German-born theoretical physicist, widely ranked among the greatest and most influential scientists of all time",
+    "url": "https://inyoungcheong.github.io",
+    "research topics": "Free speech, Privacy, Generative AI, Large language models, Content Moderation, Platform Governance",
     "location": {
-      "address": "2712 Broadway St",
+      "address": "CSE2, ",
       "postalCode": "CA 94115",
       "city": "San Francisco",
       "countryCode": "US",
