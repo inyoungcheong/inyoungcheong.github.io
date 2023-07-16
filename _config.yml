@@ -3,14 +3,13 @@
 # -----------------------------------------------------------------------------
 
 title:  Inyoung Cheong  # the website title (if blank, full name will be used instead)
-first_name: Inyoung Cheong
+first_name: Inyoung
 # middle_name: R.
 last_name: Cheong
 email: icheon@uw.edu
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
-footer_text: Inyoung Cheong>
-  Powered by <a href="https://inyoungcheong.github.io/" target="_blank">Inyoung</a>, <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> & <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
+#footer_text: Powered by <a href="https://inyoungcheong.github.io/" target="_blank">Inyoung</a>, <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> & <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   #Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
 keywords: jekyll, jekyll-theme, academic-website, portfolio-website  # add your own keywords or leave empty
 
