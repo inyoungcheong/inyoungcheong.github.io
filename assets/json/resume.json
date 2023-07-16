@@ -1,126 +1,61 @@
 {
   "basics": {
-    "name": "Inyoung Cheong",
-    "label": "",
-    "image": "AI law scholar",
-    "email": "icheon at uw.edu",
-    "phone": "",
-    "url": "https://inyoungcheong.github.io",
-    "Topics": "Free speech, Privacy, Generative AI, Large language models, Content Moderation, Platform Governance",
+    "name": "Albert Einstein",
+    "label": "Scientist",
+    "image": "",
+    "email": "albert@einstein.de",
+    "phone": "(912) 123-4567",
+    "url": "https://alshedivat.github.io/al-folio/",
+    "summary": "A German-born theoretical physicist, widely ranked among the greatest and most influential scientists of all time",
     "location": {
-      "address": "CSE2 #331, 3800 E Stevens Way NE",
-      "postalCode": "WA 98195",
-      "city": "Seattle",
+      "address": "2712 Broadway St",
+      "postalCode": "CA 94115",
+      "city": "San Francisco",
       "countryCode": "US",
-      "region": "Washington"
+      "region": "California"
     },
-
-    "education": [
+    "profiles": [
       {
-        "institution": "University of Washington, Seattle, WA, United States",
-        "area": "Law",
-        "studyType": "PhD",
-        "startDate": "2019-09",
-        "endDate": "2024-06",
-        "score": "3.9/4.0",
-        "courses": [
-          "AI ethics", "Free speech", "Content moderation", "Generative AI", "Explainable AI", "Algorithmic decision-making", "Privacy", "Platform governance" 
-        ]
-      },
-      {
-        "institution": "Seoul National University, Seoul, South Korea",
-        "area": "Administrative Law",
-        "studyType": "LL.M. (Master of Law)",
-        "startDate": "2012-03",
-        "endDate": "2018-02",
-        "score": "3.9/4.0",
-        "courses": [
-          "Alternative Dispute Resolution and the Right to Fair Trial" 
-        ]
-      },
-      {
-        "institution": "Hongik University, Seoul, South Korea",
-        "area": "Art studies, Economics",
-        "studyType": "B.A.",
-        "startDate": "2007-03",
-        "endDate": "2012-02",
-        "score": "3.7/4.0",
-        "courses": [
-          "Justice Sentiment and Aesthetic Judgment: Moral Theories of Immanuel Kant and David Hume" 
-        ]
+        "network": "Twitter",
+        "username": "AlbertEinstein",
+        "url": "https://twitter.com/AlbertEinstein"
       }
     ]
   },
   "work": [
     {
-      "name": "University of Washington School of Law",
-      "position": "Affiliate Faculty",
-      "startDate": "2023-01",
-      "endDate": "present",
-      "summary": "Taught \"Technology Law and Public Policy Seminar\" to 25 J.D. and LL.M. students with a specific focus on algorithms as speech, different notions of privacy, and content moderation."
-    },
-    {
-      "name": "University of Washington School of Computer Science & Engineering",
-      "position": "Research Assistant",
-      "startDate": "2022-09",
-      "endDate": "present",
-      "summary": "Advised by Tadayoshi Kohno, have explored collaborative governance models that leverage the expertise and incentives of various stakeholders to promote trust and safety through legal and qualitative methods."
-    },
-    {
-      "name": "Administrative Conference of the United States",
-      "position": "Legal Intern",
-      "startDate": "2021-07",
-      "endDate": "2021-09",
-      "summary": "Performed comprehensive research on complex case law and statutes, and global regulations on the removal of agency heads and legal implications of automated decisions within the U.S. federal government."
-    },
-    {
-      "name": "United Nations Office of Under Secretary-General",
-      "position": "Intern",
-      "startDate": "2020-07",
-      "endDate": "2020-09",
-      "summary": "Formulated and cultivated sustainable development goals-conscious strategic regional partnerships, called \"UN75 Cities,\" with South Korean local governments, while directly reporting to the Under-Secretary-General."
-    },
-    {
-      "name": "Ministry of Culture, Sports, and Tourism",
-      "position": "Deputy Director",
-      "startDate": "2016-05",
-      "endDate": "present",
-      "summary": "Established a strategic plan, \"Future Technology for Culture & Arts,\" by gathering the opinions of businesses, researchers, academics, and civil society, leading to a record-setting budget increase ($100 million a year)."
-    },
-    {
-      "name": "Korea Communications Commission",
-      "position": "Deputy Director",
-      "startDate": "2012-10",
-      "endDate": "2016-05",
-      "summary": "Interpreted relevant laws, implemented user experiments and coordinated conflicting political views to ensure the successful grant of a license to operate to a public broadcasting channel. Led an investigation into a deceptive advertising scandal involving the leading national newspaper. Upon uncovering evidence of violations, took decisive action by imposing injunctions and fines on the newspaper. Executed art funds for Webtoon and Fashion design. Supported Webtoon (digital comics) artists to formulate the industry's self-regulatory body in a collaboration with major Webtoon platforms."
+      "name": "Institute for Advanced Study, Princeton University",
+      "position": "Professor of Theoretical Physics",
+      "url": "https://example.com",
+      "startDate": "1933-01-01",
+      "endDate": "1955-01-01",
+      "summary": "Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus.",
+      "highlights": [
+        "Relativity"
+      ]
     }
   ],
   "volunteer": [],
+  "education": [
+    {
+      "institution": "University of Zurich, Zurich, Switzerland",
+      "url": "https://www.uzh.ch/",
+      "area": "Software Development",
+      "studyType": "PhD",
+      "startDate": "1905-01-01",
+      "endDate": "1905-01-01",
+      "score": "",
+      "courses": [
+        "Theory of Relativity"
+      ]
+    }
+  ],
   "awards": [
     {
-      "title": "Fulbright Graduate Scholarship",
-      "date": "2019-09-01",
-      "awarder": "U.S. Department of State"
-    },
-    {
-      "title": "Global Business Law Institute Fellowship",
-      "date": "2020-09",
-      "awarder": "University of Washington School of Law"
-    },
-    {
-      "title": "Homecoming Scholarship 2021",
-      "date": "2021-10",
-      "awarder": "University of Washington Alumni Association"
-    },
-    {
-      "title": "SHK Group Scholarship",
-      "date": "2021-03",
-      "awarder": "Korean Bar Association of Washington"
-    },
-    {
-      "title": "Distinguished Public Service Award",
-      "date": "2019-07",
-      "awarder": "Korea Comic Studies Association"
+      "title": "Nobel Prize in Physics",
+      "date": "1921-11-01",
+      "awarder": "Royal Swedish Academy of Sciences",
+      "summary": "The Nobel Prizes are five separate prizes that, according to Alfred Nobel's will of 1895, are awarded to 'those who, during the preceding year, have conferred the greatest benefit to humankind.'"
     }
   ],
   "certificates": [],
@@ -128,7 +63,7 @@
   "skills": [],
   "languages": [
     {
-      "language": "Korean",
+      "language": "German",
       "fluency": "Native speaker"
     },
     {
