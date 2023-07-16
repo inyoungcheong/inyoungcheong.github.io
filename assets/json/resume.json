@@ -1,10 +1,10 @@
 {
   "basics": {
     "name": "Inyoung Cheong",
-    "label": "Tech law scholar",
-    "image": "",
+    "label": "",
+    "image": "AI law scholar",
     "email": "icheon at uw.edu",
-    "phone": "(912) 123-4567",
+    "phone": "",
     "url": "https://inyoungcheong.github.io",
     "Topics": "Free speech, Privacy, Generative AI, Large language models, Content Moderation, Platform Governance",
     "location": {
