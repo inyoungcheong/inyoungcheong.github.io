@@ -2,13 +2,13 @@
 layout: about
 title: about
 permalink: /
-subtitle: University of Washington <a href='https://www.law.uw.edu/directory/affiliate-faculty/cheong-inyoung'>School of Law</a>. <a href='https://seclab.cs.washington.edu/people/'>Security & Privacy Lab</a>. <a href='https://techpolicylab.uw.edu/about/#our-people'>Tech Policy Lab.
+subtitle: University of Washington <a href='https://www.law.uw.edu/directory/affiliate-faculty/cheong-inyoung'>School of Law</a>. <a href='https://seclab.cs.washington.edu/people/'>Security & Privacy Lab</a>. <a href='https://techpolicylab.uw.edu/about/#our-people'>Tech Policy Lab</a>.
 profile:
   align: right
-  image: prof_pic.jpg
+  image: face.jpg
   image_circular: true # crops the image to make it circular
   address: >
-    <p>CSE2 #322 </p>
+    <p>CSE2 #322</p>
     <p>3800 E Stevens Way NE</p>
     <p>Seattle, WA 98195</p>
 
@@ -18,8 +18,9 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-ell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+Inyoung Cheong is an Affiliate Faculty and a Fulbright Scholar at the University of Washington School of Law. She conducts her multi-disciplinary research with her peers and her advisor, [Tadayoshi Kohno](https://homes.cs.washington.edu/~yoshi/), at the [Security & Privacy Lab](https://seclab.cs.washington.edu/people/) and [Tech Policy Lab](https://techpolicylab.uw.edu/about/#our-people).
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](http://fortawesome.github.io/Font-Awesome/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+Her research focuses on how algorithmic decision-making has impacted the norms of free speech and privacy. She wrote an article called "Freedom of Algorithmic Expression" (University of Cincinnati Law Review, 2023), which explored whether social media platforms' content moderation algorithms can be considered a form of speech under the First Amendment. She is currently working on "Generative AI and Law for Humanities." Her thoughts on Generative AI and Fair Use appeared in the [Wall Street Journal](https://www.wsj.com/amp/articles/ai-chatgpt-dall-e-microsoft-rutkowski-github-artificial-intelligence-11675466857?mod=latest_headlines).
+
+Before arriving in Seattle, she was Deputy Director at the Ministry of Culture, Sports, and Tourism and the Korea Communications Commission from 2012 to 2019. She also assisted the United Nations' Under-Secretary-General in formulating strategic partnerships with South Korean local governments in 2020.
