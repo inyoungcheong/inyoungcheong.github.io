@@ -1,9 +1,13 @@
 ---
-layout: cv
+layout: default
 permalink: /cv/
 title: cv
 nav: true
 nav_order: 4
-cv_pdf: cv20230715.pdf
-description: Please click the button to download the pdf version of my CV. :point_right:
+ 
 ---
+
+## CV
+
+This CV is updated on {{ "now" | date: "%B %-d, %Y" }}.
+<object data="{{inyoungcheong.github.io}}/assets/pdf/cv20230715.pdf" width="1000" height="1000" type="application/pdf"></object>
