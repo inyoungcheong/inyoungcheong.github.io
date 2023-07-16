@@ -1,8 +1,9 @@
 ---
-layout: post
+layout: cv
 permalink: /cv/
 title: cv
 nav: true
 nav_order: 4
-redirect: /assets/pdf/cv20230715.pdf
+cv_pdf: cv20230715.pdf
+description: Please click the button above to download the pdf version of my CV. 
 ---
