@@ -4,6 +4,7 @@
     "label": "Tech law scholar",
     "image": "",
     "email": "icheon at uw.edu",
+    "phone": "(912) 123-4567",
     "url": "https://inyoungcheong.github.io",
     "Topics": "Free speech, Privacy, Generative AI, Large language models, Content Moderation, Platform Governance",
     "location": {
@@ -11,250 +12,140 @@
       "postalCode": "WA 98195",
       "city": "Seattle",
       "countryCode": "US",
-      "region": "Washington"}
+      "region": "Washington"
     },
-
 
     "education": [
       {
-        "degree": "Ph.D. Candidate",
-        "university": "University of Washington School of Law",
-        "expected_completion": "2024",
-        "advisor": "Tadayoshi Kohno",
-        "affiliations": [
-          "Security & Privacy Lab at UW School of Computer Science & Engineering (Member, 2022-)",
-          "UW Tech Policy Lab (Member, 2022-)",
-          "Science, Technology & Society Studies (Member, 2021-)",
-          "Global Business Law Institute (Fellow, 2021-2022)",
-          "Washington Journal of Law, Technology & Arts (Submission Editor, 2021-2023)",
-          "UW Asia-Pacific Law Student Association (VP, 2020-2021)"
-        ],
-        "dissertation_topic": "Free Speech, Content Moderation, and Algorithmic Decision-making"
-      },
+        "institution": "University of Washington, Seattle, WA, United States",
+        "url": "https://www.uw.edu",
+        "area": "Law",
+        "studyType": "PhD",
+        "startDate": "2019-09",
+        "endDate": "2024-06",
+        "score": "3.9/4.0",
+        "courses": [
+          "AI ethics", "Free speech", "Content moderation", "Generative AI", "Explainable AI", "Algorithmic decision-making", "Privacy", "Platform governance" 
+        ]
+      }
       {
-        "degree": "Master of Law (LL.M.)",
-        "university": "Seoul National University School of Law",
-        "url": 
-        "completion_date": "Feb. 2018",
-        "major": "Administrative Law",
-        "achievements": "Academic Excellence Award",
-        "dissertation": "Alternative Dispute Resolution and the Right to Fair Trial"
-      },
+        "institution": "Seoul National University, Seoul, South Korea",
+        "url": "https://www.snu.ac.kr",
+        "area": "Administrative Law",
+        "studyType": "LL.M. (Master of Law)",
+        "startDate": "2012-03",
+        "endDate": "2018-02",
+        "score": "3.9/4.0",
+        "courses": [
+          "Alternative Dispute Resolution and the Right to Fair Trial" 
+        ]
+      }
       {
-        "degree": "Bachelor of Arts (B.A.)",
-        "university": "Hongik University",
-        "completion_date": "Feb. 2012",
-        "majors": ["Economics", "Art Philosophy"],
-        "achievements": "Academic Excellence Award (12/13 Semesters)",
-        "dissertation": "Justice Sentiment and Aesthetic Judgment: Immanuel Kant's and David Hume's Moral Theories"
+        "institution": "Hongik University, Seoul, South Korea",
+        "url": "https://www.hongik.ac.kr",
+        "area": "Art studies, Economics",
+        "studyType": "B.A.",
+        "startDate": "2007-03",
+        "endDate": "2012-02",
+        "score": "3.7/4.0",
+        "courses": [
+          "Justice Sentiment and Aesthetic Judgment: Moral Theories of Immanuel Kant and David Hume" 
+        ]
       }
     ],
-    "professional_experience": [
-      {
-        "position": "Affiliate Instructor",
-        "institution": "UW School of Law",
-        "start_date": "Jan. 2023",
-        "end_date": "Mar. 2023",
-        "summary": "Taught \"Technology Law and Public Policy Seminar\" to 25 J.D. and LL.M. students with a specific focus on algorithms as speech, different notions of privacy, and content moderation."
-      },
-      {
-        "position": "Research Assistant",
-        "institution": "UW School of Computer Science & Engineering",
-        "start_date": "Sep. 2022",
-        "summary": "Advised by Tadayoshi Kohno, have explored collaborative governance models that leverage the expertise and incentives of various stakeholders to promote trust and safety through legal and qualitative methods."
-      },
-      {
-        "position": "Deputy Director",
-        "institution": "Ministry of Culture, Sports, and Tourism",
-        "start_date": "May 2016",
-        "end_date": "Aug. 2019",
-        "location": "Sejong, South Korea",
-        "summary": "Formulated a strategic plan, \"Future Technology for Culture & Arts,\" by gathering the opinions of businesses, researchers, academics, and civil society, leading to a record-setting budget increase ($100 million a year).\nExecuted art funds for Webtoon and Fashion design. Supported Webtoon (digital comics) artists to formulate the industry's self-regulatory body in a collaboration with major Webtoon platforms."
-      },
-      {
-        "position": "Deputy Director",
-        "institution": "Korea Communications Commission",
-        "start_date": "Oct. 2012",
-        "end_date": "May 2016",
-        "location": "Gwachun, South Korea",
-        "summary": "Interpreted relevant laws, implemented user experiments and coordinated conflicting political views to ensure the successful grant of a license to operate to a public broadcasting channel.\nReviewed bills related to media convergence and digital platforms and drafted over 200 Commission statements about their impacts on users' fundamental rights including free speech and privacy.\nLed an investigation into a deceptive advertising scandal involving the leading national newspaper. Upon uncovering evidence of violations, took decisive action by imposing injunctions and fines on the newspaper."
-      },
-      {
-        "position": "Summer Associate (Intern)",
-        "institution": {
-          "name": "Administrative Conference of the United States",
-          "url": "https://www.acus.gov/"}, 
-        "start_date": "Summer 2021",
-        "location": "Washington DC",
-        "summary": "Performed comprehensive research on complex case law and statutes, and global regulations on the removal of agency heads and legal implications of automated decisions within the U.S. federal government."
-      },
-      {
-        "position": "Summer Associate (Intern)",
-        "institution": "United Nations",
-        "start_date": "Summer 2020",
-        "location": "New York, NY",
-        "summary": "Formulated and cultivated sustainable development goals-conscious strategic regional partnerships, called \"UN75 Cities,\" with South Korean local governments, while directly reporting to the Under-Secretary-General."
-      },
-      {
-        "position": "Administrator Apprentice",
-        "institution": "National Institute of Policy Training",
-        "start_date": "April 2012",
-        "end_date": "Oct. 2012",
-        "location": "Gwachun, South Korea",
-        "summary": "Achieved the honor of being one of 100 candidates selected from a pool of 5,500 to pass the national exam.\nUndertook a rigorous 6-month law and foreign affairs training and graduated 2nd place out of 100 candidates."
-      },
-      {
-        "position": "Intern Curator",
-        "institution": "Pyo Gallery Seoul",
-        "start_date": "Dec. 2008",
-        "end_date": "Feb. 2009",
-        "location": "Seoul, South Korea",
-        "summary": "Assisted in curating Jonathan Borofsky's exhibition, \"Human Structures and the Light of Consciousness.\""
-      }
-    ],
-    "projects": [
-      {
-        "title": "Comparative Analysis of Civil Penalties",
-        "organization": "Korea Legislation Research Institute",
-        "year": "2022",
-        "role": "Co-Principal Investigator"
-      },
-      {
-        "title": "The EU Artificial Intelligence Act",
-        "organization": "Korea Legislation Research Institute",
-        "year": "2021",
-        "role": "Legal Translator"
-      },
-      {
-        "title": "Historical Analysis of South Korea's Regulatory Innovation",
-        "organization": "Korea Legislation Research Institute & Korea Public Law Association",
-        "year": "2020",
-        "role": "Co-Principal Investigator"
-      },
-      {
-        "title": "Reforming the Cloud Computing Act",
-        "organization": "Ministry of Science, Technology, and ICT",
-        "year": "2020",
-        "role": "Investigator"
-      },
-      {
-        "title": "Innovations in Global Smart Farms",
-        "organization": "Rural Development Administration of Korea",
-        "year": "2020",
-        "role": "Investigator"
-      }
-    ],
-    "awards": [
-      {
-        "title": "Fulbright Grant for Ph.D. Program",
-        "agency": "U.S. Department of State",
-        "year": "2019-2021",
-        "amount": "$70,000"
-      },
-      {
-        "title": "Best Poster Award",
-        "organization": "Korean-American Scientists and Engineers Association",
-        "year": "Nov. 2022"
-      },
-      {
-        "title": "Global Business Law Institute Fellowship",
-        "organization": "University of Washington School of Law",
-        "year": "2020-2021"
-      },
-      {
-        "title": "Homecoming Scholarship 2021",
-        "organization": "University of Washington Alumni Association",
-        "year": "Oct. 2021"
-      },
-      {
-        "title": "SHK Group Scholarship",
-        "organization": "Korean Bar Association of Washington",
-        "year": "May 2021",
-        "amount": "$3,000"
-      },
-      {
-        "title": "Distinguished Public Service Award",
-        "organization": "Korea Comic Studies Association",
-        "year": "Jul. 2019"
-      },
-      {
-        "title": "Distinguished Public Service Award",
-        "organization": "Education Broadcasting Service, Inc.",
-        "year": "Feb. 2016"
-      }
-    ],
-    "conferences": [
-      {
-        "title": "Social Media's Algorithmic Freedom?",
-        "event": "Northwest Research Conference 2022",
-        "date": "Nov. 2022",
-        "location": "Seattle, United States",
-        "presentation_type": "Poster",
-        "award": "Best Poster Award",
-        "url": null
-      },
-      {
-        "title": "Social Media's Algorithmic Freedom?",
-        "event": "Trust and Safety Research Conference 2022",
-        "date": "Sep. 2022",
-        "location": "San Francisco, United States",
-        "presentation_type": "Poster",
-        "award": null,
-        "url": null
-      },
-      {
-        "title": "Online Content Co-regulation: Case Study of South Korea",
-        "event": "TrustCon 2022",
-        "date": "Sep. 2022",
-        "location": "Stanford, United States",
-        "presentation_type": "Presenter",
-        "award": null,
-        "url": null
-      },
-      {
-        "title": "Dichotomy of Automated Algorithmic Decisions",
-        "event": "International Symposium Governing Artificial Intelligence: Designing Legal and Regulatory Responses",
-        "date": "June 2022",
-        "location": "Dublin, Ireland",
-        "presentation_type": "Presenter",
-        "award": null,
-        "url": null
-      },
-      {
-        "title": "Unpacking Government R&D Processes: Do's and Don'ts when applying for R&D Funds",
-        "event": "Metaverse and Future of Media Workshop Conference",
-        "date": "Oct. 2021",
-        "location": "Seoul, South Korea",
-        "presentation_type": "Keynote Speaker",
-        "award": null,
-        "url": null
-      },
-      {
-        "title": "Advanced Digital Technology and Regulatory Innovation",
-        "event": "Korea Public Law Association Conference",
-        "date": "Dec. 2020",
-        "location": "Seoul, South Korea",
-        "presentation_type": "Presenter",
-        "award": null,
-        "url": null
-      },
-      {
-        "title": "Why I came back to School from Government",
-        "event": "Fulbright Scholars Western Chapter Conference",
-        "date": "Feb. 2020",
-        "location": "Seattle, Washington",
-        "presentation_type": "Presenter",
-        "award": null,
-        "url": null
-      }
-    ],
-    "skills": [
-      "Legal research",
-      "Policy analysis",
-      "Qualitative research",
-      "Public speaking",
-      "Project management",
-      "Data analysis",
-      "Writing and editing"
-    ],
-    "languages": ["English", "Korean"]}
+  },
+  "work": [
+    {
+      "name": "University of Washington School of Law",
+      "position": "Affiliate Faculty",
+      "url": "https://www.law.uw.edu/directory/affiliate-faculty/cheong-inyoung",
+      "startDate": "2023-01",
+      "endDate": "present",
+      "summary": "Taught ``Technology Law and Public Policy Seminar'' to 25 J.D. and LL.M. students with a specific focus on algorithms as speech, different notions of privacy, and content moderation.",
+    }
+    {
+      "name": "University of Washington School of Computer Science & Engineering",
+      "position": "Research Assistant",
+      "url": "https://seclab.cs.washington.edu/people/",
+      "startDate": "2022-09",
+      "endDate": "present",
+      "summary": "Advised by Tadayoshi Kohno, have explored collaborative governance models that leverage the expertise and incentives of various stakeholders to promote trust and safety through legal and qualitative methods.",
+    }
+    {
+      "name": "Administrative Conference of the United States",
+      "position": "Legal Intern",
+      "url": "https://www.acus.gov",
+      "startDate": "2021-07",
+      "endDate": "2021-09",
+      "summary": "Performed comprehensive research on complex case law and statutes, and global regulations on the removal of agency heads and legal implications of automated decisions within the U.S. federal government."}
+    {
+      "name": "United Nations Office of Under Secretary-General",
+      "position": "Intern",
+      "url": "https://www.un.org/en",
+      "startDate": "2020-07",
+      "endDate": "2020-09",
+      "summary": "Formulated and cultivated sustainable development goals-conscious strategic regional partnerships, called ``UN75 Cities,'' with South Korean local governments, while directly reporting to the Under-Secretary-General.",
+    }
+    {
+      "name": "Ministry of Culture, Sports, and Tourism",
+      "position": "Deputy Director",
+      "url": "https://www.mcst.go.kr/english/index.jsp",
+      "startDate": "2016-05",
+      "endDate": "present",
+      "summary": "Established a strategic plan, ``Future Technology for Culture & Arts,'' by gathering the opinions of businesses, researchers, academics, and civil society, leading to a record-setting budget increase ($100 million a year)."
+    }
+    {
+      "name": "Korea Communications Commission",
+      "position": "Deputy Director",
+      "url": "https://kcc.go.kr/user/ehpMain.do",
+      "startDate": "2012-10",
+      "endDate": "2016-05",
+      "summary": "Interpreted relevant laws, implemented user experiments and coordinated conflicting political views to ensure the successful grant of a license to operate to a public broadcasting channel. Led an investigation into a deceptive advertising scandal involving the leading national newspaper. Upon uncovering evidence of violations, took decisive action by imposing injunctions and fines on the newspaper. Executed art funds for Webtoon and Fashion design. Supported Webtoon (digital comics) artists to formulate the industry's self-regulatory body in a collaboration with major Webtoon platforms."}
+
+  ],
+  "volunteer": [],
+  
+  "awards": [
+    {
+      "title": "Fulbright Graduate Scholarship",
+      "date": "2019-09-01",
+      "awarder": "U.S. Department of State"
+    },
+    {
+      "title": "Global Business Law Institute Fellowship",
+      "date": "2020-09",
+      "awarder": "University of Washington School of Law"
+    },
+    {
+      "title": "Homecoming Scholarship 2021",
+      "date": "2021-10",
+      "awarder": "University of Washington Alumni Association"
+    }
+    {
+      "title": "SHK Group Scholarship",
+      "date": "2021-03",
+      "awarder": "Korean Bar Association of Washington"
+    }
+    {
+      "title": "Distinguished Public Service Award",
+      "date": "2019-07",
+      "awarder": "Korea Comic Studies Association"
+    }
+  ],
+  "certificates": [],
+  "publications": [],
+  "skills": [],
+  "languages": [
+    {
+      "language": "Korean",
+      "fluency": "Native speaker"
+    },
+    {
+      "language": "English",
+      "fluency": "Fluent"
+    }
+  ],
+  "interests": [],
+  "references": [],
+  "projects": []
+}
