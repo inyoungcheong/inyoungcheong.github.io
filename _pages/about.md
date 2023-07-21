@@ -9,8 +9,6 @@ profile:
   image_circular: true # crops the image to make it circular
   address: >
     <p>Seattle, WA</p>
-    <p>[LinkedIn](https://www.linkedin.com/in/inyoung-cheong)</p>
-    <p>[UW Law](https://www.law.uw.edu/directory/affiliate-faculty/cheong-inyoung)</p>
     <p>icheon [at] uw.edu</p>
 
 news: true  # includes a list of news items
