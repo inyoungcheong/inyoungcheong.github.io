@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-A new home using Github pages! :sparkles: :smile: I have grown tired of WordPress, and I finally checked one item off my wishlist: writing code for my website.
+A new home using Github pages! :sparkles: :smile: I have grown tired of WordPress.
