@@ -26,15 +26,7 @@ Before arriving in Seattle, she was Deputy Director at the Ministry of Culture, 
 
 👇 Get in touch with me! 
 
-🕸️[LinkedIn](https://www.linkedin.com/in/inyoungcheong)
-
-🥽[Google Scholar](https://scholar.google.com/citations?user=xwZI_jcAAAAJ)
-
-📖[SSRN](https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=3864423)
-
-🧵[Threads](https://www.threads.net/@inyoungcheong)
-
-🌐[Github](https://github.com/inyoungcheong)
+🕸️ <a href=https://www.linkedin.com/in/inyoungcheong><strong>LinkedIn</strong></a>   🥽 <a href=https://scholar.google.com/citations?user=xwZI_jcAAAAJ><strong>Google Scholar</strong></a>   📖 <a href=https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=3864423><strong>SSRN</strong></a>   🧵 <a href=https://www.threads.net/@inyoungcheong><strong>Threads</strong></a>   🌐 <a href=https://github.com/inyoungcheong><strong>GitHub</strong></a>
 
 
 
