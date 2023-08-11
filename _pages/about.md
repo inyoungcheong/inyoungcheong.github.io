@@ -23,3 +23,10 @@ Inyoung Cheong is an Affiliate Faculty and a Fulbright Scholar at the University
 Her research focuses on how algorithmic decision-making has impacted the norms of free speech and privacy. She wrote an article called "[Freedom of Algorithmic Expression](https://scholarship.law.uc.edu/uclr/vol91/iss3/2/)" (University of Cincinnati Law Review, 2023), which explored whether social media platforms' content moderation algorithms can be considered a form of speech under the First Amendment. She is currently working on "Generative AI and Law for Humanities." Her thoughts on Generative AI and Fair Use appeared in the [Wall Street Journal](https://www.wsj.com/amp/articles/ai-chatgpt-dall-e-microsoft-rutkowski-github-artificial-intelligence-11675466857?mod=latest_headlines).
 
 Before arriving in Seattle, she was Deputy Director at the Ministry of Culture, Sports, and Tourism and the Korea Communications Commission from 2012 to 2019. She also assisted the United Nations' Under-Secretary-General in formulating strategic partnerships with South Korean local governments in 2020.
+
+👇Get in touch with me! 
+[LinkedIn](https://www.linkedin.com/in/inyoungcheong)
+[Google Scholar](https://scholar.google.com/citations?user=xwZI_jcAAAAJ)
+[SSRN](https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=3864423)
+[Threads](https://www.threads.net/@inyoungcheong)
+[Github](https://github.com/inyoungcheong)
