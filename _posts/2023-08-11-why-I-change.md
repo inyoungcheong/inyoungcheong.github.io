@@ -22,13 +22,30 @@ I knew that Wix.com has a student discount, a free one-year premium membership. 
 
 After some trials and errors, I managed to create this website.
 
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/blog/wordpress.jpg" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Not bad for a start, right?
+</div>
 
-## My mentor was right.
+
+### My mentor was right.
 
 To my surprise, the link to my website in my email signature started getting clicks, and my WordPress stat graph reflected this impact. About 10-20 visitors consistently visited my site. Hah!
 
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/blog/view.jpg" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Hmm, who are these people?
+</div>
 
-## Yearning for More: My WordPress Quandary
+### Yearning for More
 
 Despite WordPress's user-friendly interface, template restrictions hindered my creative expression. Certain design elements were frustratingly out of reach. Gradually, my enthusiasm for updates waned, fuelling my desire for a self-designed, unrestricted website.
 
@@ -54,3 +71,11 @@ No longer bound by the constraints of pre-designed themes and templates, I found
 
 Perhaps the most gratifying aspect is the assurance that this website will endure, even in times when financial constraints might arise. As long as I have my trusty computer by my side, this digital haven will stand strong. The thought of this self-sufficiency – a testament to both my commitment and the power of open-source tools – brings a hearty chuckle and a reassuring sigh of relief.
 
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/blog/website.jpg" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    The version of 08-11-2023. Please don't break again. 🙏
+</div>
