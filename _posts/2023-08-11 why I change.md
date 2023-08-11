@@ -2,10 +2,11 @@
 layout: post
 title: Adieu, WordPress! A New Home with GitHub Pages 🚀🌟
 date: 2023-7-21 10:14:00-0400
-description: Tired of WordPress and ready for something new, exciting, and more "me."
+description: I finally built my own website from scratch...? 
 giscus_comments: true
-categories: Academic Life
-tag: personal_website, coding
+categories: Academic_Life
+tag: coding
+published: true
 related_posts: false
 toc:
   sidebar: left
