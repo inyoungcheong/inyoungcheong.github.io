@@ -25,8 +25,13 @@ Her research focuses on how algorithmic decision-making has impacted the norms o
 Before arriving in Seattle, she was Deputy Director at the Ministry of Culture, Sports, and Tourism and the Korea Communications Commission from 2012 to 2019. She also assisted the United Nations' Under-Secretary-General in formulating strategic partnerships with South Korean local governments in 2020.
 
 👇Get in touch with me! 
-[LinkedIn](https://www.linkedin.com/in/inyoungcheong)
-[Google Scholar](https://scholar.google.com/citations?user=xwZI_jcAAAAJ)
-[SSRN](https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=3864423)
-[Threads](https://www.threads.net/@inyoungcheong)
-[Github](https://github.com/inyoungcheong)
+<ul>
+    <li>[LinkedIn](https://www.linkedin.com/in/inyoungcheong)</li>
+    <li>[Google Scholar](https://scholar.google.com/citations?user=xwZI_jcAAAAJ)</li>
+    <li>[SSRN](https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=3864423)</li>
+    <li>[Threads](https://www.threads.net/@inyoungcheong)</li>
+    <li>[Github](https://github.com/inyoungcheong)
+</ul>
+
+
+
