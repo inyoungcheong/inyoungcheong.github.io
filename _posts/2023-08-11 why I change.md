@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Adieu, WordPress! A New Home with GitHub Pages 🚀🌟
-date: 2023-7-21 10:14:00-0400
+date: 2023-08-11 10:14:00-0400
 description: I finally built my own website from scratch...? 
 giscus_comments: true
 categories: Academic_Life
@@ -61,9 +61,14 @@ During this journey, I somewhat relinquished my pursuit of fully comprehending t
 
 Transitioning into a code-centered environment was no minor undertaking. I embarked on a quest to acquaint myself with terminals, commands, and tools like Visual Studio Code (VS Code). Learning to write in Markdown, grasping YAML front matter, and deftly navigating the intricacies of version control swiftly became part of my daily routine.
 
+## It's Not Always Pretty. 
+
+Of course, no journey is without its bumps and hurdles. Along the way, I encountered my fair share of bugs and experienced website breakdowns that tested my patience and problem-solving skills. Just before ICML 2023, my website finally teared apart, helplessly displaying the basic template (alfolio) website! Whew. I coudln't figure out what I did wrong, and didn't know how to revert Git, thus I just spent a conference week with my out-of-date WordPress website. 
+
+
 ## I Will Not Go Back. 
 
-Of course, no journey is without its bumps and hurdles. Along the way, I encountered my fair share of bugs and experienced website breakdowns that tested my patience and problem-solving skills. As I write these words, I must acknowledge that my website is still a work in progress – a dynamic, living entity that continually transforms with every line of code I craft and every bug I mend. Imperfections notwithstanding, I take pride in what I have achieved thus far.
+As I write these words, I must acknowledge that my website is still a work in progress – a dynamic, living entity that continually transforms with every line of code I craft and every bug I mend. Imperfections notwithstanding, I take pride in what I have achieved thus far.
 
 No longer bound by the constraints of pre-designed themes and templates, I found myself empowered to forge my website's identity from the ground up. The journey of customization, though often arduous, was richly rewarding. Each tweak, every adjustment, seemed to align like pieces of a puzzle, gradually materializing the vision I had in mind. The sense of accomplishment I derived from this journey was nothing short of exhilarating. 😄🌟
 
