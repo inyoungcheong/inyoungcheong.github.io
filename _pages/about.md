@@ -21,7 +21,7 @@ social: true  # includes social icons at the bottom of the page
 
 
 
-Inyoung Cheong is an Affiliate Faculty and a Fulbright Scholar at the University of Washington School of Law. She conducts her multi-disciplinary research with her peers and her advisor, [Tadayoshi Kohno](https://homes.cs.washington.edu/~yoshi/), at the [Security & Privacy Lab](https://seclab.cs.washington.edu/people/) and [Tech Policy Lab](https://techpolicylab.uw.edu/about/#our-people).
+Inyoung Cheong is an Affiliate Faculty and a Fulbright Scholar at the University of Washington School of Law. She conducts her multi-disciplinary research with her peers and her advisor, [Tadayoshi Kohno](https://homes.cs.washington.edu/~yoshi/), at the [Security & Privacy Lab](https://seclab.cs.washington.edu/people/), [Tech Policy Lab](https://techpolicylab.uw.edu/about/#our-people), and [Social Futures Lab](https://social.cs.washington.edu/). 
 
 Her research focuses on how algorithmic decision-making has impacted the norms of free speech and privacy. She wrote an article called "[Freedom of Algorithmic Expression](https://scholarship.law.uc.edu/uclr/vol91/iss3/2/)" (University of Cincinnati Law Review, 2023), which explored whether social media platforms' content moderation algorithms can be considered a form of speech under the First Amendment. She is currently working on "Generative AI and Law for Humanities." Her thoughts on Generative AI and Fair Use appeared in the [Wall Street Journal](https://www.wsj.com/amp/articles/ai-chatgpt-dall-e-microsoft-rutkowski-github-artificial-intelligence-11675466857?mod=latest_headlines).
 
