@@ -61,7 +61,7 @@ max_width: 800px
 # Open Graph & Schema.org
 # -----------------------------------------------------------------------------
 # Display links to the page with a preview object on social media.
-serve_og_meta: false # Include Open Graph meta tags in the HTML head
+serve_og_meta: true # Include Open Graph meta tags in the HTML head
 serve_schema_org: false # Include Schema.org in the HTML head
 og_image: # The site-wide (default for all links) Open Graph preview image
 
@@ -72,15 +72,15 @@ og_image: # The site-wide (default for all links) Open Graph preview image
 
 #twitter_username: # your Twitter handle
 #mastodon_username: # your mastodon instance+username in the format instance.tld/@username
-linkedin_username: inyoungcheong
-ssrn_url: https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=3864423 
-work_url: https://www.law.uw.edu/directory/affiliate-faculty/cheong-inyoung
-scholar_userid: xwZI_jcAAAAJ
-github_username: inyoungcheong
+#linkedin_username: inyoungcheong
+#ssrn_url: https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=3864423
+#work_url: https://www.law.uw.edu/directory/affiliate-faculty/cheong-inyoung
+#scholar_userid: xwZI_jcAAAAJ
+#github_username: inyoungcheong
 #semanticscholar_id: # your Semantic Scholar ID
 #whatsapp_number: # your WhatsApp number (full phone number in international format. Omit any zeroes, brackets, or dashes when adding the phone number in international format.)
 #orcid_id: # your ORCID ID
-medium_username: inyoungcheong
+#medium_username: inyoungcheong
 #quora_username: # your Quora username
 #publons_id: # your ID on Publons
 #lattes_id: # your ID on Lattes (Brazilian Lattes CV)
@@ -103,8 +103,8 @@ medium_username: inyoungcheong
 #youtube_id: # your youtube channel id (youtube.com/@<youtube_id>)
 #discord_id: # your discord id (18-digit unique numerical identifier)
 
-contact_note: >
-  Click icons above to get in touch with me! :sparkles: :smile:
+#contact_note: >
+#  Click icons above to get in touch with me! :sparkles: :smile:
 
 # -----------------------------------------------------------------------------
 # Analytics and search engine verification
@@ -120,9 +120,9 @@ google-site-verification: r_j_Vx3bXyzhgNP8CF8wq_3IoXfgcu4mE5jQ3stD5yg
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name: al-folio # blog_name will be displayed in your blog page
+blog_name: Law, Tech, and Academic Life # blog_name will be displayed in your blog page
 blog_nav_title: blog # your blog must have a title for it to be displayed in the nav bar
-blog_description: a simple whitespace theme for academics
+blog_description: Law, Tech, and Academic Life 
 permalink: /blog/:year/:title/
 
 # Pagination
