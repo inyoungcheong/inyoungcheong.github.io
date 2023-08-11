@@ -120,9 +120,9 @@ google-site-verification: r_j_Vx3bXyzhgNP8CF8wq_3IoXfgcu4mE5jQ3stD5yg
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name: Law, Tech, and Academic Life # blog_name will be displayed in your blog page
+#blog_name: Law, Tech, and Academic Life # blog_name will be displayed in your blog page
 blog_nav_title: blog # your blog must have a title for it to be displayed in the nav bar
-blog_description: Law, Tech, and Academic Life 
+blog_description: Law, Tech, and Life 
 permalink: /blog/:year/:title/
 
 # Pagination
