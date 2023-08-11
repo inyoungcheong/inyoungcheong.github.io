@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Adieu, WordPress! Embracing GitHub Pages for a Fresh Start 🚀🌟
+title: Adieu, WordPress! GitHub Pages for a Fresh Start. 
 date: 2023-08-11 10:14:00-0400
 description: Finally building my own website from scratch... 
 giscus_comments: true
