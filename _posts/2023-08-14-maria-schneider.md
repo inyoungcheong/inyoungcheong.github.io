@@ -53,11 +53,8 @@ Two influential men in the film industry conspired to humiliate her for artistic
 I watched a couple of video clips from Tango, and she appeared as a benign, docile, awakwardly-English-speaking actress. But in the following video, she looked like a mature, cool French woman who doesn't care much about others' judgment. 
 
 
-<div class="row mt-3">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include video.html path="https://www.youtube.com/embed/9HKWTSAskXs" class="img-fluid rounded z-depth-1" %}
+<div style="text-align: center;"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/9HKWTSAskXs" title="Maria Schneider speaking about female objectification" width="560"></iframe>
     </div>
-</div>
 
 It's truly disheartening that such a talented young woman, skilled in painting, dancing through the night, and never being intimidated by famous individuals, had to gradually succumb to a world that reduced her to the size of her breasts and trapped her in the role imposed upon her at the age of 19.
 
