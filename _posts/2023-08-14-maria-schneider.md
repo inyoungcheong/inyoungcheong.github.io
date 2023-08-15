@@ -25,7 +25,7 @@ The book assumed everyone knew Maria Schneider, yet I had never heard of her. Ev
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/blog/maria1.jpg" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/blog/maria1.jpg" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
@@ -54,7 +54,7 @@ I watched a couple of video clips from Tango, and she appeared as a benign, doci
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include video.html path="https://www.youtube.com/watch?v=9HKWTSAskXs&feature=youtu.be" class="img-fluid rounded z-depth-1" %}
+        {% include video.html path="https://youtu.be/9HKWTSAskXs" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -67,7 +67,7 @@ While she didn't often engage in photoshoots, she did agree to pose for Nan Gold
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/blog/maria2.jpg" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/blog/maria2.jpg" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -80,7 +80,7 @@ Maria doesn't have parental figures in her life. Her biological father was a fam
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/blog/vanessa2.jpg" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/blog/vanessa2.jpg" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -102,7 +102,7 @@ I found gratitude in being surrounded by people who could create a fruit punch f
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/blog/maria.jpg" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/blog/maria.jpg" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
