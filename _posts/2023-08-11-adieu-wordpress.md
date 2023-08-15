@@ -14,7 +14,7 @@ toc:
 
 ## Why Having My Own Website Matters
 
-Soon after I embarked on my academic journey, my mentor wisely advised that building a portfolio website is a crucial first step towards carving a distinct niche in the vast landscape of academia. This digital space, akin to a dynamic CV, offers more than just information; it presents a glimpse of your authenticity as a "real person" affiliated with a legitimate institution.
+Soon after I started my academic journey, one of my mentors advised that building a portfolio website is a crucial first step to claim a bit of visibility in academia. This digital space offers more than just information; it presents a glimpse of your authenticity as a "real person" affiliated with a legitimate institution.
 
 ## I started with WordPress
 
@@ -47,7 +47,7 @@ To my surprise, the link to my website in my email signature started getting cli
 
 ### Yearning for More
 
-Despite WordPress's user-friendly interface, template restrictions hindered my creative expression. Certain design elements were frustratingly out of reach. Gradually, my enthusiasm for updates waned, fuelling my desire for a self-designed, unrestricted website.
+Despite WordPress's user-friendly interface, template restrictions hindered my expression. Certain design elements were frustratingly out of reach. Gradually, my enthusiasm for updates waned, fuelling my desire for a self-designed, unrestricted website.
 
 ## Building My Own Website?
 
@@ -67,9 +67,9 @@ Of course, no journey is without its bumps and hurdles. Along the way, I encount
 
 As I write these words, I must acknowledge that my website is still a work in progress – a dynamic, living entity that continually transforms with every line of code I craft and every bug I mend. Imperfections notwithstanding, I take pride in what I have accomplished thus far.
 
-No longer bound by the constraints of pre-designed themes and templates, I found myself empowered to forge my website's identity from the ground up. The journey of customisation, though often arduous, was richly rewarding. Each tweak, every adjustment, seemed to align like pieces of a puzzle, gradually materialising the vision I had in mind. The sense of accomplishment I derived from this journey was nothing short of exhilarating. 😄🌟
+No longer bound by the constraints of pre-designed themes and templates, I found myself empowered to forge my website's identity from the ground up. The journey of customization, though often arduous, was richly rewarding. Each tweak, every adjustment, seemed to align like pieces of a puzzle, gradually materialising the vision I had in mind. The sense of accomplishment I derived from this journey was nothing short of exhilarating. 😄🌟
 
-Perhaps the most gratifying aspect is the assurance that this website will endure, even in times when financial constraints might arise. As long as I have my trusty computer by my side, this digital haven will stand strong. The thought of this self-sufficiency – a testament to both my commitment and the power of open-source tools – brings a hearty chuckle and a reassuring sigh of relief.
+The coolest thing is knowing that this website will keep going for free. As long as I've got my computer, this online haven isn't going anywhere. The idea that it can hold its own just makes me grin and feel all relaxed.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
