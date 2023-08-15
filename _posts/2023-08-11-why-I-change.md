@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Adieu, WordPress! GitHub Pages for a Fresh Start. 
+title: Adieu, WordPress!
 date: 2023-08-11
-description: Finally building my own website from scratch. 
+description: Finally built my GitHub Page from scratch. 
 giscus_comments: true
 categories: Academic_Life
 tag: coding
