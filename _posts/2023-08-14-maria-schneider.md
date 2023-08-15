@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Maria Schneider; A Lost Star
-date: 2023-08-11
+date: 2023-08-14
 description: Finally building my own website from scratch. 
 giscus_comments: true
 categories: Personal_Life
