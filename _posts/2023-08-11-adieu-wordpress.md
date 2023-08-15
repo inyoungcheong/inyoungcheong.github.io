@@ -69,7 +69,7 @@ As I write these words, I must acknowledge that my website is still a work in pr
 
 No longer bound by the constraints of pre-designed themes and templates, I found myself empowered to forge my website's identity from the ground up. The journey of customization, though often arduous, was richly rewarding. Each tweak, every adjustment, seemed to align like pieces of a puzzle, gradually materialising the vision I had in mind. The sense of accomplishment I derived from this journey was nothing short of exhilarating. 😄🌟
 
-The coolest thing is knowing that this website will keep going for free. As long as I've got my computer, this online haven isn't going anywhere. The idea that it can hold its own just makes me grin and feel all relaxed.
+The most fascinating aspect is realizing that this website will continue to operate for free. As long as I have my computer, this online sanctuary isn't going anywhere. I've had to change my virtual abode multiple times: Cyworld (a Korean version of Facebook) vanished, Facebook waned in significance, and Twitter was partially superseded by Mastodon (now re-branded as "X"). Unlike these platforms that were susceptible to shifts in popularity, I don't need to rely on the fortunes of this website, for it is uniquely mine. It will persist unless I choose to give up on it, providing me with an unusual sense of security.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
