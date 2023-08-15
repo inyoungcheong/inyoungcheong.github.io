@@ -52,6 +52,7 @@ Two influential men in the film industry conspired to humiliate her for artistic
 
 I watched a couple of video clips from Tango, and she appeared as a benign, docile, awakwardly-English-speaking actress. But in the following video, she looked like a mature, cool French woman who doesn't care much about others' judgment. 
 
+
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include video.html path="https://youtu.be/9HKWTSAskXs" class="img-fluid rounded z-depth-1" %}
@@ -70,7 +71,9 @@ While she didn't often engage in photoshoots, she did agree to pose for Nan Gold
         {% include figure.html path="assets/img/blog/maria2.jpg" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
-
+<div class="caption">
+    Maria Schneider taken by Nan Goldin 
+</div>
 
 ### Vanessa, another main figure in this memoir. 
 
@@ -83,6 +86,8 @@ Maria doesn't have parental figures in her life. Her biological father was a fam
         {% include figure.html path="assets/img/blog/vanessa2.jpg" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
+
+
 
 Vanessa felt guilty that she was the cause for Maria moving out from the safest place. Vanessa's family has been impacted by Maria's fame. Vanessa was secretly proud and fond of Maria, but other family members were embarrassed by her spoiled and spontaneous lifestyle, which everyone around them was observing. Vanessa's parents were socialists heavily inspired by Mao. They were poor and wore unconventional clothes like gypsies. Furthermore, having a sex symbol in their extended family, who would occasionally break into their house, create disturbances, and then suddenly disappear to find more drugs, complicated Vanessa's mental health when she was younger.
 
