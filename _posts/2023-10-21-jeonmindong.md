@@ -47,5 +47,5 @@ related_posts: false
     </div>
 </div>
 
-
+*이말년 님의 이미지를 가져옴. 
 
