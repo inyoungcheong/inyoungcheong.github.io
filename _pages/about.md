@@ -11,7 +11,7 @@ social: true  # includes social icons at the bottom of the page
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/blog/profile.png" class="img-fluid rounded z-depth-1" %}
+       {% include figure.html path="assets/img/blog/profile2.png" class="img-fluid rounded z-depth-1" style="width: 150px; height: 150px;" zoomable=true %}
     </div>
 </div>
 <div class="caption">
