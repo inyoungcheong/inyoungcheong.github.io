@@ -20,7 +20,7 @@ social: true  # includes social icons at the bottom of the page
 🔗 <a href="https://www.linkedin.com/in/inyoungcheong"><strong>LinkedIn</strong></a>   🎓 <a href="https://scholar.google.com/citations?user=xwZI_jcAAAAJ"><strong>Google Scholar</strong></a>   📖 <a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=3864423"><strong>SSRN</strong></a>   🧵 <a href="https://www.threads.net/@inyoungcheong"><strong>Threads</strong></a>   🌐 <a href="https://github.com/inyoungcheong"><strong>GitHub</strong></a>
 
 <br>
-I am a PhD Candidate and Affiliate Faculty at the UW School of Law, teaching Technology Law and Public Policy Seminar (<strong>[syllabus](https://inyoungcheong.notion.site/LAW-E553-79718cccf6f54679a2b0c7a08eaf6d5f)</strong>). Advised by <strong>[Tadayoshi Kohno](https://homes.cs.washington.edu/~yoshi/)</strong>, I conduct multi-disciplinary research on AI safety, alignment, and regulatory principles at the <strong>[Security & Privacy Lab](https://seclab.cs.washington.edu/people/)</strong>,<strong> [Tech Policy Lab](https://techpolicylab.uw.edu/about/#our-people)</strong>, and <strong>[Social Futures Lab](https://social.cs.washington.edu/)</strong>. I received prestigious grants from <strong>[Fulbright](https://fulbright.org/)</strong>, <strong>[OpenAI](https://openai.com/blog/democratic-inputs-to-ai)</strong>, and <strong>UW Alumni</strong>. My research was presented at major conferences like ICML, KSEA, and Trust & Safety Research Conference.  
+I am a PhD Candidate and Affiliate Faculty at the UW School of Law, teaching Technology Law and Public Policy Seminar (<strong>[syllabus](https://inyoungcheong.notion.site/LAW-E553-79718cccf6f54679a2b0c7a08eaf6d5f)</strong>). Advised by <strong>[Tadayoshi Kohno](https://homes.cs.washington.edu/~yoshi/)</strong>, I conduct multi-disciplinary research on AI safety, alignment, and regulatory principles at the <strong>[Security & Privacy Lab](https://seclab.cs.washington.edu/people/)</strong>,<strong> [Tech Policy Lab](https://techpolicylab.uw.edu/about/#our-people)</strong>, and <strong>[Social Futures Lab](https://social.cs.washington.edu/)</strong>. I received prestigious grants from <strong>[Fulbright](https://fulbright.org/)</strong>, <strong>[OpenAI](https://openai.com/blog/democratic-inputs-to-ai)</strong>, and <strong>[UW Alumni](https://www.washington.edu/alumni/meet-the-2021-homecoming-scholars/)</strong>. My research was presented at major conferences like ICML, KSEA, and Trust & Safety Research Conference.  
 
 I wrote <strong>[Freedom of Algorithmic Expression](https://scholarship.law.uc.edu/uclr/vol91/iss3/2/)</strong> (2023), which explored whether social media platforms' content moderation algorithms can be considered a form of speech under the First Amendment. My current focus is on <strong>[Generative AI and Law for Humanities](https://genlaw.github.io/CameraReady/32.pdf)</strong>. My thoughts on Generative AI and Fair Use appeared in the <strong>[Wall Street Journal](https://www.wsj.com/amp/articles/ai-chatgpt-dall-e-microsoft-rutkowski-github-artificial-intelligence-11675466857?mod=latest_headlines)</strong>.
 
@@ -34,34 +34,12 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
 <br>
 <i><strong>On Generative AI and Algorithmic Decisions</strong></i>
 <br>
-<table>
-  <colgroup>
-    <col width="20%" />
-    <col width="80%" />
-  </colgroup>
-  <tbody>
-    <tr>
-      <td markdown="span">2023</td>
-      <td markdown="span">[Is the U.S. Legal System Ready for AI’s Challenges to Human Values](https://arxiv.org/pdf/2308.15906.pdf), preprint.</td>
-    </tr>
-    <tr>
-      <td markdown="span">2023</td>
-      <td markdown="span">[Envisioning Legal Mitigations for Intentional and Unintentional Harms Associated with Large Language Models (Extended Abstract)](https://genlaw.github.io/CameraReady/32.pdf), ICML 2023 GenLaw Workshop.</td>
-    </tr>
-    <tr>
-      <td markdown="span">2023</td>
-      <td markdown="span">[Freedom of Algorithmic Expression](https://scholarship.law.uc.edu/uclr/vol91/iss3/2/), University of Cincinnati Law Review.</td>
-    </tr>
-    <tr>
-      <td markdown="span">2022</td>
-      <td markdown="span">[Social Media's Algorithmic Freedom?](/assets/pdf/poster-2022.png), Trust & Safety Research Conference.</td>
-    </tr>
-    <tr>
-      <td markdown="span">2022</td>
-      <td markdown="span">[Social Media's Algorithmic Freedom?](/assets/pdf/poster-2022.png), KSEA NWRC 2022. 🏅<strong>Best Poster Award</strong></td>
-    </tr>
-  </tbody>
-</table>
+| 2023 | [Is the U.S. Legal System Ready for AI’s Challenges to Human Values](https://arxiv.org/pdf/2308.15906.pdf), preprint. |
+| 2023 | [Envisioning Legal Mitigations for Intentional and Unintentional Harms Associated with Large Language Models (Extended Abstract)](https://genlaw.github.io/CameraReady/32.pdf), ICML 2023 GenLaw Workshop. |
+| 2023 | [Freedom of Algorithmic Expression](https://scholarship.law.uc.edu/uclr/vol91/iss3/2/), University of Cincinnati Law Review. |
+| 2022 | [Social Media's Algorithmic Freedom?](/assets/pdf/poster-2022.png), Trust & Safety Research Conference. |
+| 2022 | [Social Media's Algorithmic Freedom?](/assets/pdf/poster-2022.png), KSEA NWRC 2022. 🏅<strong>Best Poster Award</strong> |
+
 <br>
 <i><strong>On Information Privacy</strong></i><br>
 <table>
