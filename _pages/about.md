@@ -42,8 +42,7 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
 
 <br>
 
-<i><strong>My Latest Highlights 🎵 </strong></i>
-<br>
+<p><strong><i> My Latest Highlights 🎵 </i></strong></p>
 <table>
   <colgroup>
     <col width="30%" />
@@ -65,8 +64,7 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
   </tbody>
 </table>
 <br>
-<p><strong>My Research and Publications 📝</strong></p>
-<br>
+### My Research and Publications 📝
 <i><strong>On Generative AI and Algorithmic Decisions</strong></i>
 <br>
 <table>
@@ -146,7 +144,8 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
     </tr>
   </tbody>
 </table>
-<p><strong> Selected Talks 💡 </strong></p>
+<br>
+### Selected Talks 💡
 <table>
   <colgroup>
     <col width="20%" />
@@ -171,7 +170,8 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
     </tr>
   </tbody>
 </table>
-<p><strong> My Books ✍️ </strong></p>
+<br>
+### My Books ✍️
 <table>
   <colgroup>
     <col width="20%" />
@@ -188,7 +188,8 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
     </tr>
   </tbody>
 </table>
-<p><strong> My Musings in the News 📰 </strong></p>
+<br>
+### My Musings in the News 📰 
 <table>
   <colgroup>
     <col width="20%" />
