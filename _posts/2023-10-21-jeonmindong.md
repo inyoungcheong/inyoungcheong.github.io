@@ -82,7 +82,7 @@ toc:
 
 한국예술종합학교에서 현대무용을 전공한 환성이는 예술감독이 되었다. 대전 유성에서 "Friends"라는 밤 늦게까지 열던 카페를 운영하던 땐, 가끔 내가 퇴근한 후 커피나 술을 마시면서 사는 이야기를 하기도 했었다. 2022년 "강  The River"이라는 작품으로 '보르도 쇼츠 비엔날레'에서 57개국 447개 작품 중 1위를 해 '그랑프리 로얄' 상을 받았다고 한다! 같은 제목으로 2023년 10월 문화비축기지에서 장장 6시간 동안 즉흥 공연을 하기도 했다. 
 
-<div style="text-align: center;"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/11Nw8BGzcaI?si=vkxEcfseGMB70SYK" title="강 by 전환성 (초고화질)" width="560"></iframe>
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/11Nw8BGzcaI?si=2JQSDTo09L8lGMf8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
 
 <br>
