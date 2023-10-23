@@ -37,19 +37,44 @@ css
 
 <p><strong>My Research and Publications</strong></p> 
 <i><strong>On Generative AI and Algorithmic Decisions</strong></i>. <br>
-{:style="width:100px"} 
-2023.<strong>[Is the U.S. Legal System Ready for AI’s Challenges to Human Values?](https://arxiv.org/pdf/2308.15906.pdf)</strong>, preprint.<br>
-2023.<strong>[Envisioning Legal Mitigations for Intentional and Unintentional Harms Associated with Large Language Models (Extended Abstract)](https://genlaw.github.io/CameraReady/32.pdf)</strong>, ICML 2023 GenLaw Workshop.<br>
-2023. <strong>[Freedom of Algorithmic Expression](https://scholarship.law.uc.edu/uclr/vol91/iss3/2/)</strong>, University of Cincinnati Law Review.<br>
-2022. <strong>[Social Media's Algorithmic Freedom?]({{ "/assets/pdf/poster-2022.png" | relative_url }})</strong>, Trust & Safety Research Conference.<br>
-2022. <strong>[Social Media's Algorithmic Freedom?]({{ "/assets/pdf/poster-2022.png" | relative_url }})</strong>, KSEA NWRC 2022. 🏅<strong>Best Poster Award</strong> <br> 
-<br>
+<div style="display:flex">
+
+<div style="width:100px">
+
+2023.  
+2023.  
+2023.
+2022.
+2022.  
+</div>
+
+<div>
+
+<strong>[Is the U.S. Legal System Ready for AI’s Challenges to Human Values?](https://arxiv.org/pdf/2308.15906.pdf)</strong>, preprint. 
+<strong>[Envisioning Legal Mitigations for Intentional and Unintentional Harms Associated with Large Language Models (Extended Abstract)](https://genlaw.github.io/CameraReady/32.pdf)</strong>, ICML 2023 GenLaw Workshop. 
+<strong>[Freedom of Algorithmic Expression](https://scholarship.law.uc.edu/uclr/vol91/iss3/2/)</strong>, University of Cincinnati Law Review.
+<strong>[Social Media's Algorithmic Freedom?]({{ "/assets/pdf/poster-2022.png" | relative_url }})</strong>, Trust & Safety Research Conference.
+<strong>[Social Media's Algorithmic Freedom?]({{ "/assets/pdf/poster-2022.png" | relative_url }})</strong>, KSEA NWRC 2022. 🏅<strong>Best Poster Award</strong>
+</div>
+
 <i><strong>On Information Privacy</strong></i>. <br>
-{:style="width:100px"} 
-2021. <strong>[After Facebook's 2016 Data Breach III: The FTC's 5-Billion Dollar Settlement]({{ "/assets/pdf/2021-facebook3.pdf" | relative_url }})</strong> <i>(Korean)</i>, The Journal of Law and Economic Regulation.<br>
-2020. <strong>[After Facebook's 2016 Data Breach II: The U.S. Federal Courts' Consumer Class Actions]({{ "/assets/pdf/2020-facebook2.pdf" | relative_url }})</strong><i>(Korean)</i>, The Journal of Law and Economic Regulation.<br>
-2019. <strong>[After Facebook's 2016 Data Breach I: The California Consumer Privacy Act of 2018]({{ "/assets/pdf/2019-facebook1.pdf" | relative_url }})</strong><i>(Korean)</i>, The Journal of Law and Economic Regulation.<br>
-<br>
+<div style="display:flex">
+
+<div style="width:100px">
+
+2021.
+2020.
+2019. 
+</div>
+
+<div>
+
+<strong>[After Facebook's 2016 Data Breach III: The FTC's 5-Billion Dollar Settlement]({{ "/assets/pdf/2021-facebook3.pdf" | relative_url }})</strong> <i>(Korean)</i>, The Journal of Law and Economic Regulation. 
+<strong>[After Facebook's 2016 Data Breach II: The U.S. Federal Courts' Consumer Class Actions]({{ "/assets/pdf/2020-facebook2.pdf" | relative_url }})</strong><i>(Korean)</i>, The Journal of Law and Economic Regulation.
+<strong>[After Facebook's 2016 Data Breach I: The California Consumer Privacy Act of 2018]({{ "/assets/pdf/2019-facebook1.pdf" | relative_url }})</strong><i>(Korean)</i>, The Journal of Law and Economic Regulation.
+</div>
+
+
 <i><strong>On Administrative Law</strong></i>. <br>
 {:style="width:100px"} 
 2022. <strong>[The US Administrative Law and Civil Penalties]({{ "/assets/pdf/civil-penalty.pdf" | relative_url }})</strong><i>(Korean)</i>, Administrative Law Journal.<br>
