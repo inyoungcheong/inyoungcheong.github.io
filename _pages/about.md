@@ -28,7 +28,7 @@ Before arriving in Seattle, I was a <strong>regulator and policymaker</strong> i
 
 <br>
 
-### My Research and Publications 
+<p><strong>My Research and Publications</strong></p> 
 Cheong, Caliskan, and Kohno, [Is the U.S. Legal System Ready for AI’s Challenges to Human Values?](https://arxiv.org/pdf/2308.15906.pdf), preprint, 2023.<br>
 Cheong, Caliskan, and Kohno, [Envisioning Legal Mitigations for Intentional and Unintentional Harms Associated with Large Language Models (Extended Abstract)](https://genlaw.github.io/CameraReady/32.pdf), ICML 2023 GenLaw Workshop, 2023.<br>
 Cheong, [Freedom of Algorithmic Expression](https://scholarship.law.uc.edu/uclr/vol91/iss3/2/), University of Cincinnati Law Review, 2023.<br>
@@ -42,16 +42,16 @@ Cheong, [Korea's New Trends in Culture and Art Legislation]({{ "/assets/pdf/2017
 Cheong, [Korea Communications Commission's Adjudication on Deceptive News Reports]({{ "/assets/pdf/2016-deceptive-ad.pdf" | relative_url }}), The Journal of Law and Economic Regulation, 2016.<br>
 Cheong, [Amendments to the Broadcasting Act in 2013-2014]({{ "/assets/pdf/2013-broadcasting-law.pdf" | relative_url }}), The Journal of Law and Economic Regulation, 2014.<br>
 
-### Selected Talks
+<p><strong>Selected Talks</strong></p> 
 [Generative AI's Potential Harms and Legal Metigations](https://inyoungcheong.github.io/news/230721trustnet/), TrustLab, 2023. <br>
 [Overcoming Academic Frustrations](https://inyoungcheong.github.io/blog/2023/handling-rejections/), KSEA UKC 2023. 🏅<strong>Best Talk Award</strong>  <br>
 [Multistakeholder Content Governance in South Korea](https://conferences.law.stanford.edu/tsrc/sessions/research-session-6/), Trust & Safety Research Conference, 2023.  <br>
 [Online Content Co-regulation: Case Study of South Korea](https://youtu.be/U1ShVhIDlI8), TrustCon 2022.<br> 
 
 
-### My Books
+<p><strong>My Books</strong></p>
 Cheong, [Moving Forward: Life in US Grad School](https://brunch.co.kr/brunchbook/moving-forward) <span class="gray">(Korean)</span>, Brunch, 2023.<br>
 Cheong, [Privacy and the Role of the State]({{ "/assets/pdf/2022-divertas.pdf" | relative_url }}) <span class="gray">(Korean)</span>, Korea Diversity Press, 2022.<br>
 
-### My Musings in the News
+<p><strong>My Musings in the News</strong></p>
 Generative AI and Fair Use Doctrine, [Wall Street Journal: AI Tech Enables Industrial-Scale Intellectual-Property Theft, Say Critics](https://www.wsj.com/amp/articles/ai-chatgpt-dall-e-microsoft-rutkowski-github-artificial-intelligence-11675466857?mod=latest_headlines), February 2023.<br>
