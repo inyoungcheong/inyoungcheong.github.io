@@ -28,18 +28,62 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
 
 <br>
 
+### My Latest Highlights
+<br>
+<table>
+  <colgroup>
+    <col width="30%" />
+    <col width="70%" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <td markdown="span">Sep. 2023</td>
+      <td markdown="span">Gave a talk on South Korea's multistakeholder content governance at the [Trust & Safety Research Conference](https://conferences.law.stanford.edu/tsrc/sessions/research-session-6/) at Stanford Observatory. </td>
+    </tr>
+    <tr>
+      <td markdown="span">Aug. 2023</td>
+      <td markdown="span">Glad that [my team](https://social-futures-lab.github.io/openai-case-law/#) was selected to the OpenAI:robot_face:'s [Democratic Input to AI](https://openai.com/blog/democratic-inputs-to-ai) grant receipient among over 800 candidate teams! </td>
+    </tr>
+    <tr>
+      <td markdown="span">Aug. 2023</td>
+      <td markdown="span">Honored to share my insights on Generative AI's various types of potential harms and legal mitigations with [TrustLab](https://www.trustlab.com/)'s engineers and researchers.</td>
+    </tr>
+  </tbody>
+</table>
 
 
 ### My Research and Publications 📝
 <br>
 <i><strong>On Generative AI and Algorithmic Decisions</strong></i>
 <br>
-| 2023 | [Is the U.S. Legal System Ready for AI’s Challenges to Human Values](https://arxiv.org/pdf/2308.15906.pdf), preprint. |
-| 2023 | [Envisioning Legal Mitigations for Intentional and Unintentional Harms Associated with Large Language Models (Extended Abstract)](https://genlaw.github.io/CameraReady/32.pdf), ICML 2023 GenLaw Workshop. |
-| 2023 | [Freedom of Algorithmic Expression](https://scholarship.law.uc.edu/uclr/vol91/iss3/2/), University of Cincinnati Law Review. |
-| 2022 | [Social Media's Algorithmic Freedom?](/assets/pdf/poster-2022.png), Trust & Safety Research Conference. |
-| 2022 | [Social Media's Algorithmic Freedom?](/assets/pdf/poster-2022.png), KSEA NWRC 2022. 🏅<strong>Best Poster Award</strong> |
-
+<table>
+  <colgroup>
+    <col width="20%" />
+    <col width="80%" />
+  </colgroup>
+  <tbody>
+    <tr>
+      <td markdown="span">2023</td>
+      <td markdown="span">[Is the U.S. Legal System Ready for AI’s Challenges to Human Values](https://arxiv.org/pdf/2308.15906.pdf), preprint.</td>
+    </tr>
+    <tr>
+      <td markdown="span">2023</td>
+      <td markdown="span">[Envisioning Legal Mitigations for Intentional and Unintentional Harms Associated with Large Language Models (Extended Abstract)](https://genlaw.github.io/CameraReady/32.pdf), ICML 2023 GenLaw Workshop.</td>
+    </tr>
+    <tr>
+      <td markdown="span">2023</td>
+      <td markdown="span">[Freedom of Algorithmic Expression](https://scholarship.law.uc.edu/uclr/vol91/iss3/2/), University of Cincinnati Law Review.</td>
+    </tr>
+    <tr>
+      <td markdown="span">2022</td>
+      <td markdown="span">[Social Media's Algorithmic Freedom?](/assets/pdf/poster-2022.png), Trust & Safety Research Conference.</td>
+    </tr>
+    <tr>
+      <td markdown="span">2022</td>
+      <td markdown="span">[Social Media's Algorithmic Freedom?](/assets/pdf/poster-2022.png), KSEA NWRC 2022. 🏅<strong>Best Poster Award</strong></td>
+    </tr>
+  </tbody>
+</table>
 <br>
 <i><strong>On Information Privacy</strong></i><br>
 <table>
