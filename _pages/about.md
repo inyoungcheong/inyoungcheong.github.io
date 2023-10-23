@@ -30,48 +30,41 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
 
 
 
-
-<p><strong>My Research and Publications</strong></p> 
-<i><strong>On Generative AI and Algorithmic Decisions</strong></i>. <br>
-<div style="display: flex;">
+<p><strong>My Research and Publications</strong></p>
+<i><strong>On Generative AI and Algorithmic Decisions</strong></i>
+<div style="display: flex; align-items: flex-start;">
   <div style="width: 100px; text-align: right;"> <!-- Year Column -->
-
-2023<br> 
-2023<br>
-2023<br>
-2022<br>
-2022<br>
-</div>
-
-<div>
-
+    2023.<br>
+    2023.<br>
+    2023.<br>
+    2022.<br>
+    2022.<br>
+  </div>
+  <div> <!-- Main Content Column -->
     <strong>[Is the U.S. Legal System Ready for AI’s Challenges to Human Values](https://arxiv.org/pdf/2308.15906.pdf)</strong>, preprint.<br>
     <strong>[Envisioning Legal Mitigations for Intentional and Unintentional Harms Associated with Large Language Models (Extended Abstract)](https://genlaw.github.io/CameraReady/32.pdf)</strong>, ICML 2023 GenLaw Workshop.<br>
     <strong>[Freedom of Algorithmic Expression](https://scholarship.law.uc.edu/uclr/vol91/iss3/2/)</strong>, University of Cincinnati Law Review.<br>
     <strong>[Social Media's Algorithmic Freedom?](/assets/pdf/poster-2022.png)</strong>, Trust & Safety Research Conference.<br>
-    <strong>[Social Media's Algorithmic Freedom?](/assets/pdf/poster-2022.png)</strong>, KSEA NWRC 2022. 🏅<strong>Best Poster Award</strong><br>
+    <strong>[Social Media's Algorithmic Freedom?](/assets/pdf/poster-2022.png)</strong>, KSEA NWRC 2022. 🏅Best Poster Award<br>
   </div>
 </div>
 
-<i><strong>On Information Privacy</strong></i>. <br>
 <i><strong>On Information Privacy</strong></i>
-<div style="display: flex;">
+<div style="display: flex; align-items: flex-start;">
   <div style="width: 100px; text-align: right;"> <!-- Year Column -->
     2021.<br>
     2020.<br>
     2019.<br>
   </div>
   <div> <!-- Main Content Column -->
-    <strong>[After Facebook's 2016 Data Breach III: The FTC's 5-Billion Dollar Settlement](/assets/pdf/2021-facebook3.pdf)</strong> <i>(Korean)</i>, The Journal of Law and Economic Regulation.<br>
-    <strong>[After Facebook's 2016 Data Breach II: The U.S. Federal Courts' Consumer Class Actions](/assets/pdf/2020-facebook2.pdf)</strong><i>(Korean)</i>, The Journal of Law and Economic Regulation.<br>
-    <strong>[After Facebook's 2016 Data Breach I: The California Consumer Privacy Act of 2018](/assets/pdf/2019-facebook1.pdf)</strong><i>(Korean)</i>, The Journal of Law and Economic Regulation.<br>
+    <strong>[After Facebook's 2016 Data Breach III: The FTC's 5-Billion Dollar Settlement](/assets/pdf/2021-facebook3.pdf)</strong> (Korean), The Journal of Law and Economic Regulation.<br>
+    <strong>[After Facebook's 2016 Data Breach II: The U.S. Federal Courts' Consumer Class Actions](/assets/pdf/2020-facebook2.pdf) (Korean), The Journal of Law and Economic Regulation.<br>
+    <strong>[After Facebook's 2016 Data Breach I: The California Consumer Privacy Act of 2018](/assets/pdf/2019-facebook1.pdf) (Korean), The Journal of Law and Economic Regulation.<br>
   </div>
 </div>
 
-
-
 <i><strong>On Administrative Law</strong></i>
-<div style="display: flex;">
+<div style="display: flex; align-items: flex-start;">
   <div style="width: 100px; text-align: right;"> <!-- Year Column -->
     2022.<br>
     2017.<br>
@@ -79,16 +72,15 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
     2014.<br>
   </div>
   <div> <!-- Main Content Column -->
-    <strong>[The US Administrative Law and Civil Penalties](/assets/pdf/civil-penalty.pdf)</strong><i>(Korean)</i>, Administrative Law Journal.<br>
-    <strong>[Korea's New Trends in Culture and Art Legislation](/assets/pdf/2017-cultural-law.pdf)</strong><i>(Korean)</i>, The Journal of Law and Economic Regulation.<br>
-    <strong>[Korea Communications Commission's Adjudication on Deceptive News Reports](/assets/pdf/2016-deceptive-ad.pdf)</strong>, The Journal of Law and Economic Regulation.<br>
-    <strong>[Amendments to the Broadcasting Act in 2013-2014](/assets/pdf/2013-broadcasting-law.pdf)</strong>, The Journal of Law and Economic Regulation.<br>
+    <strong>[The US Administrative Law and Civil Penalties](/assets/pdf/civil-penalty.pdf) (Korean), Administrative Law Journal.<br>
+    <strong>[Korea's New Trends in Culture and Art Legislation](/assets/pdf/2017-cultural-law.pdf) (Korean), The Journal of Law and Economic Regulation.<br>
+    <strong>[Korea Communications Commission's Adjudication on Deceptive News Reports](/assets/pdf/2016-deceptive-ad.pdf), The Journal of Law and Economic Regulation.<br>
+    <strong>[Amendments to the Broadcasting Act in 2013-2014](/assets/pdf/2013-broadcasting-law.pdf), The Journal of Law and Economic Regulation.<br>
   </div>
 </div>
-
 
 <p><strong>Selected Talks</strong></p>
-<div style="display: flex;">
+<div style="display: flex; align-items: flex-start;">
   <div style="width: 100px; text-align: right;"> <!-- Year Column -->
     2023.<br>
     2023.<br>
@@ -96,30 +88,27 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
     2022.<br>
   </div>
   <div> <!-- Main Content Column -->
-    <strong>[Generative AI's Potential Harms and Legal Mitigations](https://inyoungcheong.github.io/news/230721trustnet/)</strong>, TrustLab.<br>
-    <strong>[Overcoming Academic Frustrations](https://inyoungcheong.github.io/blog/2023/handling-rejections/)</strong>, KSEA UKC. 🏅<strong>Best Talk Award</strong><br>
-    <strong>[Multistakeholder Content Governance in South Korea](https://conferences.law.stanford.edu/tsrc/sessions/research-session-6/)</strong>, Trust & Safety Research Conference.<br>
-    <strong>[Online Content Co-regulation: Case Study of South Korea](https://youtu.be/U1ShVhIDlI8)</strong>, TrustCon 2022.<br>
+    <strong>[Generative AI's Potential Harms and Legal Mitigations](https://inyoungcheong.github.io/news/230721trustnet/), TrustLab.<br>
+    <strong>[Overcoming Academic Frustrations](https://inyoungcheong.github.io/blog/2023/handling-rejections/), KSEA UKC. 🏅Best Talk Award<br>
+    <strong>[Multistakeholder Content Governance in South Korea](https://conferences.law.stanford.edu/tsrc/sessions/research-session-6/), Trust & Safety Research Conference.<br>
+    <strong>[Online Content Co-regulation: Case Study of South Korea](https://youtu.be/U1ShVhIDlI8), TrustCon 2022.<br>
   </div>
 </div>
-
-
 
 <p><strong>My Books</strong></p>
-<div style="display: flex;">
+<div style="display: flex; align-items: flex-start;">
   <div style="width: 100px; text-align: right;"> <!-- Year Column -->
     2023.<br>
     2022.<br>
   </div>
   <div> <!-- Main Content Column -->
-    <strong>[Moving Forward: Life in US Grad School](https://brunch.co.kr/brunchbook/moving-forward)</strong><i>(Korean)</i>, Brunch.<br>
-    <strong>[Privacy and the Role of the State](/assets/pdf/2022-divertas.pdf)</strong><i>(Korean)</i>, Korea Diversity Press.<br>
+    <strong>[Moving Forward: Life in US Grad School](https://brunch.co.kr/brunchbook/moving-forward) (Korean), Brunch.<br>
+    <strong>[Privacy and the Role of the State](/assets/pdf/2022-divertas.pdf) (Korean), Korea Diversity Press.<br>
   </div>
 </div>
 
-
 <p><strong>My Musings in the News</strong></p>
-<div style="display: flex;">
+<div style="display: flex; align-items: flex-start;">
   <div style="width: 100px; text-align: right;"> <!-- Year Column -->
     2023.<br>
   </div>
