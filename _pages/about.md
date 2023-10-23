@@ -3,22 +3,22 @@ layout: about
 title: about
 permalink: /
 subtitle: University of Washington
-profile:
-  align: right
-  image: face.jpg
-  image_circular: true # crops the image to make it circular
-  address: >
-    <p>Seattle, WA</p>
-    <p>icheon [at] uw.edu</p>
-
 news: true  # includes a list of news items
 latest_posts: true  # includes a list of the newest posts
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/blog/profile.png" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    AI Policy researcher   
+</div>
 <br>
+
 I am a PhD Candidate and Affiliate Faculty at the UW School of Law, teaching Technology Law and Public Policy Seminar (<strong>[syllabus](https://inyoungcheong.notion.site/LAW-E553-79718cccf6f54679a2b0c7a08eaf6d5f)</strong>). Advised by <strong>[Tadayoshi Kohno](https://homes.cs.washington.edu/~yoshi/)</strong>, I conduct multi-disciplinary research on AI safety, alignment, and regulatory principles at the <strong>[Security & Privacy Lab](https://seclab.cs.washington.edu/people/)</strong>,<strong> [Tech Policy Lab](https://techpolicylab.uw.edu/about/#our-people)</strong>, and <strong>[Social Futures Lab](https://social.cs.washington.edu/)</strong>. I received prestigious grants from <strong>[Fulbright](https://fulbright.org/)</strong>, <strong>[OpenAI](https://openai.com/blog/democratic-inputs-to-ai)</strong>, and <strong>[UW Alumni](https://www.washington.edu/alumni/meet-the-2021-homecoming-scholars/)</strong>. My research was presented at major conferences like ICML, KSEA, and Trust & Safety Research Conference.  
 
 I wrote <strong>[Freedom of Algorithmic Expression](https://scholarship.law.uc.edu/uclr/vol91/iss3/2/)</strong> (2023), which explored whether social media platforms' content moderation algorithms can be considered a form of speech under the First Amendment. My current focus is on <strong>[Generative AI and Law for Humanities](https://genlaw.github.io/CameraReady/32.pdf)</strong>. My thoughts on Generative AI and Fair Use appeared in the <strong>[Wall Street Journal](https://www.wsj.com/amp/articles/ai-chatgpt-dall-e-microsoft-rutkowski-github-artificial-intelligence-11675466857?mod=latest_headlines)</strong>.
