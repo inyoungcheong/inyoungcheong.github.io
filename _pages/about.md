@@ -45,8 +45,8 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
 <p><strong><i> My Latest Highlights 🎵 </i></strong></p>
 <table>
   <colgroup>
-    <col width="30%" />
-    <col width="70%" />
+    <col width="20%" />
+    <col width="80%" />
   </colgroup>
   <tbody>
     <tr>
