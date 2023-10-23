@@ -58,7 +58,7 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
     </tr>
     <tr>
       <td markdown="span">2022</td>
-      <td markdown="span">[Social Media's Algorithmic Freedom?](/assets/pdf/poster-2022.png), KSEA NWRC 2022. 🏅Best Poster Award</td>
+      <td markdown="span">[Social Media's Algorithmic Freedom?](/assets/pdf/poster-2022.png), KSEA NWRC 2022. 🏅<strong>Best Poster Award</strong></td>
     </tr>
   </tbody>
 </table>
@@ -84,6 +84,7 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
     </tr>
   </tbody>
 </table>
+
 <br>
 <i><strong>On Administrative Law</strong></i><br>
 <table>
@@ -102,11 +103,11 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
     </tr>
     <tr>
       <td markdown="span">2016</td>
-      <td markdown="span">[Korea Communications Commission's Adjudication on Deceptive News Reports](/assets/pdf/2016-deceptive-ad.pdf), The Journal of Law and Economic Regulation.</td>
+      <td markdown="span">[Korea Communications Commission's Adjudication on Deceptive News Reports](/assets/pdf/2016-deceptive-ad.pdf) (Korean), The Journal of Law and Economic Regulation.</td>
     </tr>
     <tr>
       <td markdown="span">2014</td>
-      <td markdown="span">[Amendments to the Broadcasting Act in 2013-2014](/assets/pdf/2013-broadcasting-law.pdf), The Journal of Law and Economic Regulation.</td>
+      <td markdown="span">[Amendments to the Broadcasting Act in 2013-2014](/assets/pdf/2013-broadcasting-law.pdf) (Korean), The Journal of Law and Economic Regulation.</td>
     </tr>
   </tbody>
 </table>
@@ -125,7 +126,7 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
     </tr>
     <tr>
       <td markdown="span">2023</td>
-      <td markdown="span">[Overcoming Academic Frustrations](https://inyoungcheong.github.io/blog/2023/handling-rejections/), KSEA UKC. 🏅Best Talk Award.</td>
+      <td markdown="span">[Overcoming Academic Frustrations](https://inyoungcheong.github.io/blog/2023/handling-rejections/), KSEA UKC. 🏅<strong>Best Talk Award</strong>.</td>
     </tr>
     <tr>
       <td markdown="span">2023</td>
@@ -139,8 +140,9 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
 </table>
 <br>
 ### My Books ✍️
-<br>  
-<colgroup>
+<br>
+<table>
+  <colgroup>
     <col width="20%" />
     <col width="80%" />
   </colgroup>
