@@ -29,10 +29,23 @@ Before arriving in Seattle, I was a <strong>regulator and policymaker</strong> i
 <br>
 
 <p><strong>My Research and Publications</strong></p> 
-<i><strong>On Generative AI</strong></i>. <br>
-2023. <strong>[Is the U.S. Legal System Ready for AI’s Challenges to Human Values?](https://arxiv.org/pdf/2308.15906.pdf)</strong>, preprint.<br>
-2023. <strong>[Envisioning Legal Mitigations for Intentional and Unintentional Harms Associated with Large Language Models (Extended Abstract)](https://genlaw.github.io/CameraReady/32.pdf)</strong>, ICML 2023 GenLaw Workshop.<br>
+<i><strong>On Generative AI and Algorithmic Decisions</strong></i>. <br>
+<div class="year">
+  <strong>2023</strong>
+</div>
 
+<div class="content">
+  <strong>[Is the U.S. Legal System Ready for AI’s Challenges to Human Values?](https://arxiv.org/pdf/2308.15906.pdf)</strong>, preprint.
+</div>
+<div class="year">
+  <strong>2023</strong>
+</div>
+
+<div class="content">
+  <strong><strong>[Envisioning Legal Mitigations for Intentional and Unintentional Harms Associated with Large Language Models (Extended Abstract)](https://genlaw.github.io/CameraReady/32.pdf)</strong>, ICML 2023 GenLaw Workshop.
+</div>
+2023. <br>
+2023. <br>
 <i><strong>On Social Media and Algorithms</strong></i>. <br>
 2023. <strong>[Freedom of Algorithmic Expression](https://scholarship.law.uc.edu/uclr/vol91/iss3/2/)</strong>, University of Cincinnati Law Review.<br>
 2022. <strong>[Social Media's Algorithmic Freedom?]({{ "/assets/pdf/poster-2022.png" | relative_url }})</strong>, Trust & Safety Research Conference.<br>
@@ -42,7 +55,6 @@ Before arriving in Seattle, I was a <strong>regulator and policymaker</strong> i
 2021. <strong>[After Facebook's 2016 Data Breach III: The FTC's 5-Billion Dollar Settlement]({{ "/assets/pdf/2021-facebook3.pdf" | relative_url }})</strong> <i>(Korean)</i>, The Journal of Law and Economic Regulation.<br>
 2020. <strong>[After Facebook's 2016 Data Breach II: The U.S. Federal Courts' Consumer Class Actions]({{ "/assets/pdf/2020-facebook2.pdf" | relative_url }})</strong><i>(Korean)</i>, The Journal of Law and Economic Regulation.<br>
 2019. <strong>[After Facebook's 2016 Data Breach I: The California Consumer Privacy Act of 2018]({{ "/assets/pdf/2019-facebook1.pdf" | relative_url }})</strong><i>(Korean)</i>, The Journal of Law and Economic Regulation.<br>
-
 <br>
 <i><strong>On Administrative Law</strong></i>. <br>
 2022. <strong>[The US Administrative Law and Civil Penalties]({{ "/assets/pdf/civil-penalty.pdf" | relative_url }})</strong><i>(Korean)</i>, Administrative Law Journal.<br>
