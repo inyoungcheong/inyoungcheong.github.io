@@ -26,25 +26,6 @@ body.sticky-bottom-footer {
   max-width: $max-content-width;
 }
 
-// Add floated layout
-
-.year {
-  width: 15%;
-  float: left; 
-}
-
-.content {
-  width: 75%;
-  float: right;
-}
-
-@media (max-width: 600px) {
-  .year,
-  .content {
-    width: 100%;
-    float: none;
-  }
-}  
 
 // Profile
 .profile {

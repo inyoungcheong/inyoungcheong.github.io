@@ -30,23 +30,8 @@ Before arriving in Seattle, I was a <strong>regulator and policymaker</strong> i
 
 <p><strong>My Research and Publications</strong></p> 
 <i><strong>On Generative AI and Algorithmic Decisions</strong></i>. <br>
-<div class="year">
-  <strong>2023</strong>
-</div>
-
-<div class="content">
-  <strong>[Is the U.S. Legal System Ready for AI’s Challenges to Human Values?](https://arxiv.org/pdf/2308.15906.pdf)</strong>, preprint.
-</div>
-<div class="year">
-  <strong>2023</strong>
-</div>
-
-<div class="content">
-  <strong><strong>[Envisioning Legal Mitigations for Intentional and Unintentional Harms Associated with Large Language Models (Extended Abstract)](https://genlaw.github.io/CameraReady/32.pdf)</strong>, ICML 2023 GenLaw Workshop.
-</div>
-2023. <br>
-2023. <br>
-<i><strong>On Social Media and Algorithms</strong></i>. <br>
+2023.<strong>[Is the U.S. Legal System Ready for AI’s Challenges to Human Values?](https://arxiv.org/pdf/2308.15906.pdf)</strong>, preprint.<br>
+2023.<strong>[Envisioning Legal Mitigations for Intentional and Unintentional Harms Associated with Large Language Models (Extended Abstract)](https://genlaw.github.io/CameraReady/32.pdf)</strong>, ICML 2023 GenLaw Workshop.<br>
 2023. <strong>[Freedom of Algorithmic Expression](https://scholarship.law.uc.edu/uclr/vol91/iss3/2/)</strong>, University of Cincinnati Law Review.<br>
 2022. <strong>[Social Media's Algorithmic Freedom?]({{ "/assets/pdf/poster-2022.png" | relative_url }})</strong>, Trust & Safety Research Conference.<br>
 2022. <strong>[Social Media's Algorithmic Freedom?]({{ "/assets/pdf/poster-2022.png" | relative_url }})</strong>, KSEA NWRC 2022. 🏅<strong>Best Poster Award</strong> <br> 
