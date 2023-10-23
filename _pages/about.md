@@ -32,87 +32,183 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
 
 <p><strong>My Research and Publications</strong></p>
 <i><strong>On Generative AI and Algorithmic Decisions</strong></i>
-<div style="display: flex; align-items: flex-start;">
-  <div style="width: 100px; text-align: right;"> <!-- Year Column -->
-    2023.<br>
-    2023.<br>
-    2023.<br>
-    2022.<br>
-    2022.<br>
-  </div>
-  <div> <!-- Main Content Column -->
-    - [Is the U.S. Legal System Ready for AI’s Challenges to Human Values](https://arxiv.org/pdf/2308.15906.pdf), preprint.<br>
-    - [Envisioning Legal Mitigations for Intentional and Unintentional Harms Associated with Large Language Models (Extended Abstract)](https://genlaw.github.io/CameraReady/32.pdf), ICML 2023 GenLaw Workshop.<br>
-    - [Freedom of Algorithmic Expression](https://scholarship.law.uc.edu/uclr/vol91/iss3/2/), University of Cincinnati Law Review.<br>
-    - [Social Media's Algorithmic Freedom?](/assets/pdf/poster-2022.png), Trust & Safety Research Conference.<br>
-    - [Social Media's Algorithmic Freedom?](/assets/pdf/poster-2022.png), KSEA NWRC 2022. 🏅Best Poster Award<br>
-  </div>
-</div>
+<table>
+  <colgroup>
+    <col width="20%" />
+    <col width="80%" />
+  </colgroup>
+  <thead>
+    <tr class="header">
+      <th>Year</th>
+      <th>Publication</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td markdown="span">2023</td>
+      <td markdown="span">[Is the U.S. Legal System Ready for AI’s Challenges to Human Values](https://arxiv.org/pdf/2308.15906.pdf), preprint.</td>
+    </tr>
+    <tr>
+      <td markdown="span">2023</td>
+      <td markdown="span">[Envisioning Legal Mitigations for Intentional and Unintentional Harms Associated with Large Language Models (Extended Abstract)](https://genlaw.github.io/CameraReady/32.pdf), ICML 2023 GenLaw Workshop.</td>
+    </tr>
+    <tr>
+      <td markdown="span">2023</td>
+      <td markdown="span">[Freedom of Algorithmic Expression](https://scholarship.law.uc.edu/uclr/vol91/iss3/2/), University of Cincinnati Law Review.</td>
+    </tr>
+    <tr>
+      <td markdown="span">2022</td>
+      <td markdown="span">[Social Media's Algorithmic Freedom?](/assets/pdf/poster-2022.png), Trust & Safety Research Conference.</td>
+    </tr>
+    <tr>
+      <td markdown="span">2022</td>
+      <td markdown="span">[Social Media's Algorithmic Freedom?](/assets/pdf/poster-2022.png), KSEA NWRC 2022. 🏅Best Poster Award</td>
+    </tr>
+  </tbody>
+</table>
 
 <i><strong>On Information Privacy</strong></i>
-<div style="display: flex; align-items: flex-start;">
-  <div style="width: 100px; text-align: right;"> <!-- Year Column -->
-    2021.<br>
-    2020.<br>
-    2019.<br>
-  </div>
-  <div> <!-- Main Content Column -->
-    - [After Facebook's 2016 Data Breach III: The FTC's 5-Billion Dollar Settlement](/assets/pdf/2021-facebook3.pdf) (Korean), The Journal of Law and Economic Regulation.<br>
-    - [After Facebook's 2016 Data Breach II: The U.S. Federal Courts' Consumer Class Actions](/assets/pdf/2020-facebook2.pdf) (Korean), The Journal of Law and Economic Regulation.<br>
-    - [After Facebook's 2016 Data Breach I: The California Consumer Privacy Act of 2018](/assets/pdf/2019-facebook1.pdf) (Korean), The Journal of Law and Economic Regulation.<br>
-  </div>
-</div>
+<table>
+  <colgroup>
+    <col width="20%" />
+    <col width="80%" />
+  </colgroup>
+  <thead>
+    <tr class="header">
+      <th>Year</th>
+      <th>Publication</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td markdown="span">2023</td>
+      <td markdown="span">[Is the U.S. Legal System Ready for AI’s Challenges to Human Values](https://arxiv.org/pdf/2308.15906.pdf), preprint.</td>
+    </tr>
+    <tr>
+      <td markdown="span">2023</td>
+      <td markdown="span">[Envisioning Legal Mitigations for Intentional and Unintentional Harms Associated with Large Language Models (Extended Abstract)](https://genlaw.github.io/CameraReady/32.pdf), ICML 2023 GenLaw Workshop.</td>
+    </tr>
+    <tr>
+      <td markdown="span">2023</td>
+      <td markdown="span">[Freedom of Algorithmic Expression](https://scholarship.law.uc.edu/uclr/vol91/iss3/2/), University of Cincinnati Law Review.</td>
+    </tr>
+    <tr>
+      <td markdown="span">2022</td>
+      <td markdown="span">[Social Media's Algorithmic Freedom?](/assets/pdf/poster-2022.png), Trust & Safety Research Conference.</td>
+    </tr>
+    <tr>
+      <td markdown="span">2022</td>
+      <td markdown="span">[Social Media's Algorithmic Freedom?](/assets/pdf/poster-2022.png), KSEA NWRC 2022. 🏅Best Poster Award</td>
+    </tr>
+  </tbody>
+</table>
+
 
 <i><strong>On Administrative Law</strong></i>
-<div style="display: flex; align-items: flex-start;">
-  <div style="width: 100px; text-align: right;"> <!-- Year Column -->
-    2022.<br>
-    2017.<br>
-    2016.<br>
-    2014.<br>
-  </div>
-  <div> <!-- Main Content Column -->
-    - [The US Administrative Law and Civil Penalties](/assets/pdf/civil-penalty.pdf) (Korean), Administrative Law Journal.<br>
-    - [Korea's New Trends in Culture and Art Legislation](/assets/pdf/2017-cultural-law.pdf) (Korean), The Journal of Law and Economic Regulation.<br>
-    - [Korea Communications Commission's Adjudication on Deceptive News Reports](/assets/pdf/2016-deceptive-ad.pdf), The Journal of Law and Economic Regulation.<br>
-    - [Amendments to the Broadcasting Act in 2013-2014](/assets/pdf/2013-broadcasting-law.pdf), The Journal of Law and Economic Regulation.<br>
-  </div>
-</div>
+<table>
+  <colgroup>
+    <col width="20%" />
+    <col width="80%" />
+  </colgroup>
+  <thead>
+    <tr class="header">
+      <th>Year</th>
+      <th>Publication</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td markdown="span">2022</td>
+      <td markdown="span">[The US Administrative Law and Civil Penalties](/assets/pdf/civil-penalty.pdf) (Korean), Administrative Law Journal.</td>
+    </tr>
+    <tr>
+      <td markdown="span">2017</td>
+      <td markdown="span">[Korea's New Trends in Culture and Art Legislation](/assets/pdf/2017-cultural-law.pdf) (Korean), The Journal of Law and Economic Regulation.</td>
+    </tr>
+    <tr>
+      <td markdown="span">2016</td>
+      <td markdown="span">[Korea Communications Commission's Adjudication on Deceptive News Reports](/assets/pdf/2016-deceptive-ad.pdf), The Journal of Law and Economic Regulation.</td>
+    </tr>
+    <tr>
+      <td markdown="span">2014</td>
+      <td markdown="span">[Amendments to the Broadcasting Act in 2013-2014](/assets/pdf/2013-broadcasting-law.pdf), The Journal of Law and Economic Regulation.</td>
+    </tr>
+  </tbody>
+</table>
 
 <p><strong>Selected Talks</strong></p>
-<div style="display: flex; align-items: flex-start;">
-  <div style="width: 100px; text-align: right;"> <!-- Year Column -->
-    2023.<br>
-    2023.<br>
-    2023.<br>
-    2022.<br>
-  </div>
-  <div> <!-- Main Content Column -->
-    - [Generative AI's Potential Harms and Legal Mitigations](https://inyoungcheong.github.io/news/230721trustnet/), TrustLab.<br>
-    - [Overcoming Academic Frustrations](https://inyoungcheong.github.io/blog/2023/handling-rejections/), KSEA UKC. 🏅Best Talk Award<br>
-    - [Multistakeholder Content Governance in South Korea](https://conferences.law.stanford.edu/tsrc/sessions/research-session-6/), Trust & Safety Research Conference.<br>
-    - [Online Content Co-regulation: Case Study of South Korea](https://youtu.be/U1ShVhIDlI8), TrustCon 2022.<br>
-  </div>
-</div>
+<table>
+  <colgroup>
+    <col width="20%" />
+    <col width="80%" />
+  </colgroup>
+  <thead>
+    <tr class="header">
+      <th>Year</th>
+      <th>Talk</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td markdown="span">2023</td>
+      <td markdown="span">[Generative AI's Potential Harms and Legal Mitigations](https://inyoungcheong.github.io/news/230721trustnet/), TrustLab.</td>
+    </tr>
+    <tr>
+      <td markdown="span">2023</td>
+      <td markdown="span">[Overcoming Academic Frustrations](https://inyoungcheong.github.io/blog/2023/handling-rejections/), KSEA UKC. 🏅Best Talk Award.</td>
+    </tr>
+    <tr>
+      <td markdown="span">2023</td>
+      <td markdown="span">[Multistakeholder Content Governance in South Korea](https://conferences.law.stanford.edu/tsrc/sessions/research-session-6/), Trust & Safety Research Conference.</td>
+    </tr>
+    <tr>
+      <td markdown="span">2022</td>
+      <td markdown="span">[Online Content Co-regulation: Case Study of South Korea](https://youtu.be/U1ShVhIDlI8), TrustCon 2022.</td>
+    </tr>
+  </tbody>
+</table>
+
 
 <p><strong>My Books</strong></p>
-<div style="display: flex; align-items: flex-start;">
-  <div style="width: 100px; text-align: right;"> <!-- Year Column -->
-    2023.<br>
-    2022.<br>
-  </div>
-  <div> <!-- Main Content Column -->
-    - [Moving Forward: Life in US Grad School](https://brunch.co.kr/brunchbook/moving-forward) (Korean), Brunch.<br>
-    - [Privacy and the Role of the State](/assets/pdf/2022-divertas.pdf) (Korean), Korea Diversity Press.<br>
-  </div>
-</div>
+<table>
+  <colgroup>
+    <col width="20%" />
+    <col width="80%" />
+  </colgroup>
+  <thead>
+    <tr class="header">
+      <th>Year</th>
+      <th>Book</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td markdown="span">2023</td>
+      <td markdown="span">[Moving Forward: Life in US Grad School](https://brunch.co.kr/brunchbook/moving-forward) (Korean), Brunch.</td>
+    </tr>
+    <tr>
+      <td markdown="span">2022</td>
+      <td markdown="span">[Privacy and the Role of the State](/assets/pdf/2022-divertas.pdf) (Korean), Korea Diversity Press.</td>
+    </tr>
+  </tbody>
+</table>
 
 <p><strong>My Musings in the News</strong></p>
-<div style="display: flex; align-items: flex-start;">
-  <div style="width: 100px; text-align: right;"> <!-- Year Column -->
-    2023.<br>
-  </div>
-  <div> <!-- Main Content Column -->
-    - Generative AI and Fair Use Doctrine, [Wall Street Journal: AI Tech Enables Industrial-Scale Intellectual-Property Theft, Say Critics](https://www.wsj.com/amp/articles/ai-chatgpt-dall-e-microsoft-rutkowski-github-artificial-intelligence-11675466857?mod=latest_headlines), February 2023.<br>
-  </div>
-</div>
+<table>
+  <colgroup>
+    <col width="20%" />
+    <col width="80%" />
+  </colgroup>
+  <thead>
+    <tr class="header">
+      <th>Year</th>
+      <th>News Article</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td markdown="span">2023</td>
+      <td markdown="span">Generative AI and Fair Use Doctrine, [Wall Street Journal: AI Tech Enables Industrial-Scale Intellectual-Property Theft, Say Critics](https://www.wsj.com/amp/articles/ai-chatgpt-dall-e-microsoft-rutkowski-github-artificial-intelligence-11675466857?mod=latest_headlines), February 2023.</td>
+    </tr>
+  </tbody>
+</table>
