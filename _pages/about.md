@@ -15,14 +15,14 @@ social: true  # includes social icons at the bottom of the page
   <img src="assets/img/blog/profile3.png" class="img-fluid rounded z-depth-1" width="350" height="350"> 
 </div>
 <br>
-<p style="font-family: 'Courier New', monospace; font-size: 15px; text-align: center;"># AI safety / alignment / regulation 🤖⚖️</p>
-<p style="font-family: 'Courier New', monospace; font-size: 15px; text-align: center;"># PhD Candidate / Faculty Affiliate at UW Law</p>
-<p style="font-family: 'Courier New', monospace; font-size: 17px; text-align: center;">
+<p style="font-family: 'Space Mono', monospace; font-size: 15px; text-align: center;"># AI safety / alignment / regulation 🤖⚖️</p>
+<p style="font-family: 'Space Mono', monospace; font-size: 15px; text-align: center;"># PhD Candidate / Faculty Affiliate at UW Law</p>
+<p style="font-family: 'Space Mono', monospace; font-size: 17px; text-align: center;">
   # <a href="https://scholarship.law.uc.edu/uclr/vol91/iss3/2/">Freedom of Algorithmic Expression</a>
 </p>
-<p style="font-family: 'Courier New', monospace; font-size: 15px; text-align: center;"># Fulbright / OpenAI Grant recipients </p>
-<p style="font-family: 'Courier New', monospace; 14px; text-align: center;"># 🇰🇷 gov't Regulator</p>
-<p style="font-family: 'Courier New', monospace; font-size: 14px; text-align: center;"># UN Intern</p>
+<p style="font-family: 'Space Mono', monospace; font-size: 15px; text-align: center;"># Fulbright / OpenAI Grant recipients </p>
+<p style="font-family: 'Space Mono', monospace; 14px; text-align: center;"># 🇰🇷 gov't Regulator</p>
+<p style="font-family: 'Space Mono', monospace; font-size: 14px; text-align: center;"># UN Intern</p>
 
 <br>
 <br>

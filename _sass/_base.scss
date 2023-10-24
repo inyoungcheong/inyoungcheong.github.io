@@ -4,10 +4,17 @@
 
 // Typography
 
-p,
-h1,
+p {
+  color: var(--global-text-color);
+  font-family: 'Exo 2', sans-serif;
+}
+h1 {color: var(--global-text-color);
+  font-family: 'PT Serif', serif;
+}
 h2,
-h3,
+h3 {color: var(--global-text-color);
+  font-family: 'Titillium Web', sans-serif;
+},
 h4,
 h5,
 h6,
@@ -17,6 +24,7 @@ li,
 span,
 strong {
   color: var(--global-text-color);
+  font-family: 'Source Sans 3', sans-serif;
 }
 
 hr {
