@@ -23,23 +23,12 @@ body {
   padding-bottom: 70px;
   color: var(--global-text-color);
   background-color: var(--global-bg-color);
-  font-family: 'Your Chosen Font', sans-serif; /* Replace 'Your Chosen Font' with the actual font you want to use */
+  font-family: 'Source Sans 3', sans-serif; /* Replace 'Your Chosen Font' with the actual font you want to use */
   h1, h2, h3, h4, h5, h6 {
     scroll-margin-top: 66px;
   }
 }
 
-h4,
-h5,
-h6,
-em,
-div,
-li,
-span,
-strong {
-  color: var(--global-text-color);
-  font-family: 'Source Sans 3', sans-serif;
-}
 
 hr {
   border-top: 1px solid var(--global-divider-color);
