@@ -12,7 +12,7 @@ social: true  # includes social icons at the bottom of the page
 <br>
 <br>
 <div style="text-align: center;">
-  <img src="assets/img/blog/profile7.png" width="350" height="350"> 
+  <img src="assets/img/blog/profile8.png" width="350" height="350"> 
 </div>
 <br>
 <p style="font-family: 'Space Mono', monospace; font-size: 15px; text-align: center;"># AI safety / alignment / regulation 🤖⚖️</p>
@@ -21,8 +21,8 @@ social: true  # includes social icons at the bottom of the page
   # <a href="https://scholarship.law.uc.edu/uclr/vol91/iss3/2/">Freedom of Algorithmic Expression</a>
 </p>
 <p style="font-family: 'Space Mono', monospace; font-size: 15px; text-align: center;"># Fulbright / OpenAI Grant recipient </p>
-<p style="font-family: 'Space Mono', monospace; 14px; text-align: center;"># 🇰🇷 gov't Regulator :kr:</p>
-<p style="font-family: 'Space Mono', monospace; font-size: 14px; text-align: center;"># 🇺🇳75 🗺️ </p>
+<p style="font-family: 'Space Mono', monospace; 14px; text-align: center;"># <i>former</i> South Korean gov't Regulator :kr:</p>
+<p style="font-family: 'Space Mono', monospace; font-size: 14px; text-align: center;"># <i>former</i> UN75 🗺️ </p>
 
 <br>
 <br>
@@ -71,8 +71,8 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
   </tbody>
 </table>
 <br>
-### My Research and Publications 📝
-<i><strong>On Generative AI and Algorithmic Decisions</strong></i>
+### Research and Publications
+<i><strong>On Generative AI and Algorithmic Decisions.</strong></i>
 <br>
 <table>
   <colgroup>
@@ -103,7 +103,7 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
   </tbody>
 </table>
 <br>
-<i><strong>On Information Privacy</strong></i><br>
+<i><strong>On Information Privacy.</strong></i><br>
 <table>
   <colgroup>
     <col width="20%" />
@@ -126,7 +126,7 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
 </table>
 
 <br>
-<i><strong>On Administrative Law</strong></i><br>
+<i><strong>On Administrative Law.</strong></i><br>
 <table>
   <colgroup>
     <col width="20%" />
@@ -152,7 +152,7 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
   </tbody>
 </table>
 <br>
-### Selected Talks 💡
+### Talks 
 <table>
   <colgroup>
     <col width="20%" />
@@ -178,7 +178,7 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
   </tbody>
 </table>
 <br>
-### My Books ✍️
+### Books 
 <table>
   <colgroup>
     <col width="20%" />
@@ -196,7 +196,7 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
   </tbody>
 </table>
 <br>
-### My Musings in the News 📰 
+### Musings in the News  
 <table>
   <colgroup>
     <col width="20%" />
