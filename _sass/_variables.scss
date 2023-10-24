@@ -15,6 +15,8 @@ $light-cyan-color:    lighten($cyan-color, 25%);
 $green-color:         #00ab37 !default;
 $green-color-lime:    #B7D12A !default;
 $green-color-dark:    #009f06 !default;
+$emerald-color:       #00a170 !default;
+$magenta-color:       #be3455 !default;
 $green-color-light:   #ddffdd !default;
 $green-color-bright:  #11D68B !default;
 $purple-color:        #B509AC !default;
@@ -34,5 +36,5 @@ $black-color: #000000 !default;
 
 // Theme colors
 
-$code-bg-color-light:     rgba($cyan-color, 0.05);
+$code-bg-color-light:     #be3455 !default;
 $code-bg-color-dark:      #2c3237 !default;
