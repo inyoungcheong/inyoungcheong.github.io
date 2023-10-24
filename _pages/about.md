@@ -9,10 +9,21 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
+<br>
+AI safety, Free speech, and Regulation | Law X Computer Science 🤖 | Former regulator at 🇰🇷 gov't
+<br>
 <div style="text-align: center;">
-  <img src="assets/img/blog/profile2.png" class="img-fluid rounded z-depth-1" width="350" height="350"> 
+  <img src="assets/img/blog/profile3.png" class="img-fluid rounded z-depth-1" width="350" height="350"> 
 </div>
+<br>
+<p style="font-family: 'Verdana'; font-size: 14px; text-align: center;"># AI safety, alignment, and regulation</p>
+<p style="font-family: 'Verdana'; font-size: 14px; text-align: center;"># PhD Candidate / Faculty Affiliate at UW Law</p>
+<p style="font-family: 'Verdana'; font-size: 16px; text-align: center;"># [Freedom of Algorithmic Expression](https://scholarship.law.uc.edu/uclr/vol91/iss3/2/)</p>
+<p style="font-family: 'Verdana'; font-size: 14px; text-align: center;"># ex-🇰🇷 gov't</p>
+<p style="font-family: 'Verdana'; font-size: 14px; text-align: center;"># ex-United Nations</p>
 
+<br>
+<br>
 I am a PhD Candidate and Affiliate Faculty at the UW School of Law, teaching Technology Law and Public Policy Seminar (<strong>[syllabus](https://inyoungcheong.notion.site/LAW-E553-79718cccf6f54679a2b0c7a08eaf6d5f)</strong>). Advised by <strong>[Tadayoshi Kohno](https://homes.cs.washington.edu/~yoshi/)</strong>, I conduct multi-disciplinary research on AI safety, alignment, and regulatory principles at the <strong>[Security & Privacy Lab](https://seclab.cs.washington.edu/people/)</strong>,<strong> [Tech Policy Lab](https://techpolicylab.uw.edu/about/#our-people)</strong>, and <strong>[Social Futures Lab](https://social.cs.washington.edu/)</strong>. I received prestigious grants from <strong>[Fulbright](https://fulbright.org/)</strong>, <strong>[OpenAI](https://openai.com/blog/democratic-inputs-to-ai)</strong>, and <strong>[UW Alumni](https://www.washington.edu/alumni/meet-the-2021-homecoming-scholars/)</strong>. My research was presented at major conferences like ICML, KSEA, and Trust & Safety Research Conference.  
 
 I wrote <strong>[Freedom of Algorithmic Expression](https://scholarship.law.uc.edu/uclr/vol91/iss3/2/)</strong> (2023), which explored whether social media platforms' content moderation algorithms can be considered a form of speech under the First Amendment. My current focus is on <strong>[Generative AI and Law for Humanities](https://genlaw.github.io/CameraReady/32.pdf)</strong>. My thoughts on Generative AI and Fair Use appeared in the <strong>[Wall Street Journal](https://www.wsj.com/amp/articles/ai-chatgpt-dall-e-microsoft-rutkowski-github-artificial-intelligence-11675466857?mod=latest_headlines)</strong>.
@@ -49,7 +60,7 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
     </tr>
     <tr>
       <td markdown="span">Aug. 2023</td>
-      <td markdown="span">Glad that [my team](https://social-futures-lab.github.io/openai-case-law/#) was selected to the OpenAI:robot_face:'s [Democratic Input to AI](https://openai.com/blog/democratic-inputs-to-ai) grant receipient among over 800 candidate teams! </td>
+      <td markdown="span">Glad that [my team](https://social-futures-lab.github.io/openai-case-law/#) was selected to the OpenAI🤖's [Democratic Input to AI](https://openai.com/blog/democratic-inputs-to-ai) grant receipient among over 800 candidate teams! </td>
     </tr>
     <tr>
       <td markdown="span">Aug. 2023</td>
