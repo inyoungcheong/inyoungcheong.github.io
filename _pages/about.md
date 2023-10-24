@@ -12,7 +12,7 @@ social: true  # includes social icons at the bottom of the page
 <br>
 <br>
 <div style="text-align: center;">
-  <img src="assets/img/blog/profile4.png" class="img-fluid rounded z-depth-1" width="350" height="350"> 
+  <img src="assets/img/blog/profile5.png" class="img-fluid rounded z-depth-1" width="350" height="350"> 
 </div>
 <br>
 <p style="font-family: 'Space Mono', monospace; font-size: 15px; text-align: center;"># AI safety / alignment / regulation 🤖⚖️</p>
@@ -20,9 +20,9 @@ social: true  # includes social icons at the bottom of the page
 <p style="font-family: 'Space Mono', monospace; font-size: 17px; text-align: center;">
   # <a href="https://scholarship.law.uc.edu/uclr/vol91/iss3/2/">Freedom of Algorithmic Expression</a>
 </p>
-<p style="font-family: 'Space Mono', monospace; font-size: 15px; text-align: center;"># Fulbright / OpenAI Grant recipients </p>
+<p style="font-family: 'Space Mono', monospace; font-size: 15px; text-align: center;"># Fulbright / OpenAI Grant recipient </p>
 <p style="font-family: 'Space Mono', monospace; 14px; text-align: center;"># 🇰🇷 gov't Regulator :kr:</p>
-<p style="font-family: 'Space Mono', monospace; font-size: 14px; text-align: center;"># UN75 🗺️ </p>
+<p style="font-family: 'Space Mono', monospace; font-size: 14px; text-align: center;"># 🇺🇳75 🗺️ </p>
 
 <br>
 <br>
