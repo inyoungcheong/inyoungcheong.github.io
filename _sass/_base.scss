@@ -8,13 +8,27 @@ p {
   color: var(--global-text-color);
   font-family: 'Exo 2', sans-serif;
 }
-h1 {color: var(--global-text-color);
+h1 {
+  color: var(--global-text-color);
   font-family: 'PT Serif', serif;
 }
 h2,
-h3 {color: var(--global-text-color);
+h3 {
+  color: var(--global-text-color);
   font-family: 'Titillium Web', sans-serif;
-},
+}
+
+/* Add the following lines to set the font for the body content */
+body {
+  padding-bottom: 70px;
+  color: var(--global-text-color);
+  background-color: var(--global-bg-color);
+  font-family: 'Your Chosen Font', sans-serif; /* Replace 'Your Chosen Font' with the actual font you want to use */
+  h1, h2, h3, h4, h5, h6 {
+    scroll-margin-top: 66px;
+  }
+}
+
 h4,
 h5,
 h6,
