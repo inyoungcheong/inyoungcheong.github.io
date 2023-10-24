@@ -15,12 +15,12 @@ social: true  # includes social icons at the bottom of the page
   <img src="assets/img/blog/profile9.png" width="350" height="350"> 
 </div>
 <br>
-<p style="font-family: 'Space Mono', monospace; font-size: 15px; text-align: center;"># AI safety / alignment / regulation 🤖⚖️</p>
+<p style="font-family: 'Space Mono', monospace; font-size: 15px; text-align: center;"># AI safety / Alignment / Regulation 🤖⚖️</p>
 <p style="font-family: 'Space Mono', monospace; font-size: 15px; text-align: center;"># PhD Candidate / Faculty Affiliate at UW Law</p>
 <p style="font-family: 'Space Mono', monospace; font-size: 17px; text-align: center;">
   # <a href="https://scholarship.law.uc.edu/uclr/vol91/iss3/2/">Freedom of Algorithmic Expression</a>
 </p>
-<p style="font-family: 'Space Mono', monospace; font-size: 15px; text-align: center;"># Fulbright / OpenAI Grant recipient </p>
+<p style="font-family: 'Space Mono', monospace; font-size: 15px; text-align: center;"># Fulbright / OpenAI Grant Recipient </p>
 <p style="font-family: 'Space Mono', monospace; 14px; text-align: center;"># <i>former</i> South Korean gov't Regulator :kr:</p>
 <p style="font-family: 'Space Mono', monospace; font-size: 14px; text-align: center;"># <i>former</i> UN75 🗺️ </p>
 
