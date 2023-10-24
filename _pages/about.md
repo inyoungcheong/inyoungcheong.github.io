@@ -10,17 +10,19 @@ social: true  # includes social icons at the bottom of the page
 ---
 
 <br>
-AI safety, Free speech, and Regulation | Law X Computer Science 🤖 | Former regulator at 🇰🇷 gov't
 <br>
 <div style="text-align: center;">
   <img src="assets/img/blog/profile3.png" class="img-fluid rounded z-depth-1" width="350" height="350"> 
 </div>
 <br>
-<p style="font-family: 'Verdana'; font-size: 14px; text-align: center;"># AI safety, alignment, and regulation</p>
-<p style="font-family: 'Verdana'; font-size: 14px; text-align: center;"># PhD Candidate / Faculty Affiliate at UW Law</p>
-<p style="font-family: 'Verdana'; font-size: 16px; text-align: center;"># [Freedom of Algorithmic Expression](https://scholarship.law.uc.edu/uclr/vol91/iss3/2/)</p>
-<p style="font-family: 'Verdana'; font-size: 14px; text-align: center;"># ex-🇰🇷 gov't</p>
-<p style="font-family: 'Verdana'; font-size: 14px; text-align: center;"># ex-United Nations</p>
+<p style="font-family: 'Courier New', monospace; font-size: 14px; text-align: center;"># AI safety, alignment, and regulation 🤖⚖️</p>
+<p style="font-family: 'Courier New', monospace; font-size: 14px; text-align: center;"># PhD Candidate / Faculty Affiliate at UW Law</p>
+<p style="font-family: 'Courier New', monospace; font-size: 16px; text-align: center;">
+  # <a href="https://scholarship.law.uc.edu/uclr/vol91/iss3/2/">Freedom of Algorithmic Expression</a>
+</p>
+<p style="font-family: 'Courier New', monospace; font-size: 14px; text-align: center;"># Fulbright & OpenAI Grant recipients </p>
+<p style="font-family: 'Courier New', monospace; 14px; text-align: center;"># 🇰🇷 gov't Regulatory</p>
+<p style="font-family: 'Courier New', monospace; font-size: 14px; text-align: center;"># UN Intern</p>
 
 <br>
 <br>
