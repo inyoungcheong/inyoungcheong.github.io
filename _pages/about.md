@@ -22,7 +22,7 @@ social: true  # includes social icons at the bottom of the page
 </p>
 <p style="font-family: 'Space Mono', monospace; font-size: 15px; text-align: center;"># Fulbright / OpenAI Grant recipients </p>
 <p style="font-family: 'Space Mono', monospace; 14px; text-align: center;"># 🇰🇷 gov't Regulator :kr:</p>
-<p style="font-family: 'Space Mono', monospace; font-size: 14px; text-align: center;"># UN :flag-un: </p>
+<p style="font-family: 'Space Mono', monospace; font-size: 14px; text-align: center;"># UN75 🗺️ </p>
 
 <br>
 <br>
