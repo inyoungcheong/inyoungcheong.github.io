@@ -12,7 +12,7 @@ social: true  # includes social icons at the bottom of the page
 <br>
 <br>
 <div style="text-align: center;">
-  <img src="assets/img/blog/profile3.png" class="img-fluid rounded z-depth-1" width="350" height="350"> 
+  <img src="assets/img/blog/profile4.png" class="img-fluid rounded z-depth-1" width="350" height="350"> 
 </div>
 <br>
 <p style="font-family: 'Space Mono', monospace; font-size: 15px; text-align: center;"># AI safety / alignment / regulation 🤖⚖️</p>
