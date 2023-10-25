@@ -4,7 +4,7 @@ title: Get togehter, Jeonmin-dong!
 date: 2023-10-21
 description: Haven't been to South Korea for a while, wanna meet up my friends!   
 giscus_comments: false
-categories: Personal life
+categories: Personal_life
 tag: fun
 published: true
 related_posts: false

@@ -4,7 +4,7 @@ title: How I Handle Academic Rejections
 date: 2023-07-21 10:14:00-0400
 description: My personal reflection on overcoming rejections 
 giscus_comments: true
-categories: Academic life
+categories: Academic_life
 tag: frustrations
 related_posts: false
 published: true
