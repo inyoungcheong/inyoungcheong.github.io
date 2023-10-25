@@ -263,7 +263,7 @@ jekyll-archives:
     category: '/blog/category/:name/'
 
 #display_tags: ['formatting', 'images', 'links', 'math', 'code'] # these tags will be displayed on the front page of your blog
-display_categories: ['Musings_on_AI', 'Academic_Life', 'Personal_Life'] # these categories will be displayed on the front page of your blog
+display_categories: ['Musings on AI', 'Academic life', 'Book review', 'Personal life'] # these categories will be displayed on the front page of your blog
 
 # -----------------------------------------------------------------------------
 # Jekyll Scholar

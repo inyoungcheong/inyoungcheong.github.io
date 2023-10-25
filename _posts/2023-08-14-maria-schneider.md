@@ -4,7 +4,7 @@ title: Maria Schneider; A Lost Star
 date: 2023-08-14
 description: A refelction on biography. 
 giscus_comments: true
-categories: Personal_Life
+categories: Book review
 tag: books
 published: true
 related_posts: false

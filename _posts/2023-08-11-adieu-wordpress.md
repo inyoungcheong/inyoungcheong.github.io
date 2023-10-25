@@ -4,7 +4,7 @@ title: Adieu, WordPress!
 date: 2023-08-11
 description: Finally built my GitHub Page from scratch. 
 giscus_comments: true
-categories: Academic_Life
+categories: Academic life
 tag: coding
 published: true
 related_posts: false
