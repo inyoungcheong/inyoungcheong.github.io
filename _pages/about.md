@@ -138,6 +138,10 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
       <td markdown="span">[The US Administrative Law and Civil Penalties](/assets/pdf/civil-penalty.pdf) (Korean), Administrative Law Journal.</td>
     </tr>
     <tr>
+      <td markdown="span">2021</td>
+      <td markdown="span">[Epic Games v. Apple on App Store Payment Systems in South Korea](https://wjlta.com/2021/12/05/epic-games-v-apple-on-app-store-payment-systems-in-south-korea/), Washington Journal of Law, Technology & Arts.</td>
+    </tr>
+    <tr>
       <td markdown="span">2017</td>
       <td markdown="span">[Korea's New Trends in Culture and Art Legislation](/assets/pdf/2017-cultural-law.pdf) (Korean), The Journal of Law and Economic Regulation.</td>
     </tr>
@@ -209,3 +213,8 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
     </tr>
   </tbody>
 </table>
+
+
+<div style="text-align: center;">
+  <img src="assets/img/blog/moving.gif"> 
+</div>
