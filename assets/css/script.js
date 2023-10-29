@@ -1,0 +1,1 @@
+function rotateText(){rows[currentRow].style.display="none",currentRow=(currentRow+1)%rows.length,rows[currentRow].style.display="block"}const rows=document.querySelectorAll(".row");let currentRow=0;setInterval(rotateText,2e3);
