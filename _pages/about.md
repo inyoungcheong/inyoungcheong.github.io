@@ -235,7 +235,6 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
             <div class="text">Large Language Models</div>
             <div class="text">AI regualtion</div>
             <div class="text">Trust & Safety</div>
-            <div class="text">Civil rights law</div>
         </div>
         <div class="row">
             <div class="text">UW Privacy & Security Lab</div>
