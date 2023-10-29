@@ -30,7 +30,7 @@ Although my talk is entitled "Career Flash Talk," I didn't much to share my "hig
 
 Thus, I decided to share my genuine frustrations (that potentially relate to many people across disciplines) and small tips that I have tried to familarize myself with. Here is my presentation file. I hope that I will break down each tips into the blog post soon. The presentation has my hand-drawings, lol. 
 
-<object data="{{inyoungcheong.github.io}}/assets/pdf/UKCFIRE2024.pdf" width="1000" height="1000" type="application/pdf"></object>
+<object data="{{inyoungcheong.github.io}}/assets/pdf/UKCFIRE2024.pdf" width="800" height="600" type="application/pdf"></object>
 
 ### Wow, Award! 
 

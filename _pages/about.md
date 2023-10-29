@@ -214,7 +214,42 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
   </tbody>
 </table>
 
+### Meme-making
 
 <div style="text-align: center;">
-  <img src="assets/img/blog/moving.gif"> 
+  <img src="assets/img/blog/moving.gif" style="width: 300px; height: 200px;">
 </div>
+
+### What I like 
+
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="banner">
+        <div class="row">
+            <div class="text">I’m Inyoung Cheong.</div>
+        </div>
+        <div class="row">
+            <div class="text">Freedom of Expression</div>
+            <div class="text">Large Language Models</div>
+            <div class="text">AI regualtion</div>
+            <div class="text">Trust & Safety</div>
+            <div class="text">Civil rights law</div>
+        </div>
+        <div class="row">
+            <div class="text">UW Privacy & Security Lab</div>
+            <div class="text">Fulbright</div>
+            <div class="text">United Nations</div>
+            <div class="text">Korean Government</div>
+        </div>
+        <div class="row">
+            <div class="text">Pluto</div>
+            <div class="text">Milan Kundera</div>
+            <div class="text">Potato Pasta 🍽️</div>
+            <div class="text">Soul Cycle 🚲</div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

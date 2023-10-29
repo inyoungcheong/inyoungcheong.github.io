@@ -1,0 +1,69 @@
+css
+.publications {
+  font-family: Arial, sans-serif; 
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  margin-bottom: 10px;
+}
+
+.year {
+  font-weight: bold;
+}
+
+
+.banner {
+  width: 100%;
+  height: 50px;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.row {
+  display: none;
+}
+
+/* First Row (Your Name) */
+.row:nth-child(1) .text {
+  font-family:'Space Mono', monospace;
+  font-size: 20px;
+  color: #333; /* Change to your desired color */
+}
+
+/* Second Row (Keywords) */
+.row:nth-child(2) .text {
+  font-family: 'Space Mono', monospace;
+  font-size: 20px;
+  color: #3f4040; /* Change to your desired color */
+}
+
+/* Third Row (Institutions) */
+.row:nth-child(3) .text {
+  font-family: 'Space Mono', monospace;
+  font-size: 20px;
+  color: #cc2e85; /* Change to your desired color */
+}
+
+
+.text {
+  padding: 0 20px;
+  display: inline-block;
+  animation: rotateText 10s linear infinite;
+}
+
+@keyframes rotateText {
+  0%, 100% {
+      transform: translateX(100%);
+  }
+  5%, 95% {
+      transform: translateX(-100%);
+  }
+}
+
+
+
+
+
