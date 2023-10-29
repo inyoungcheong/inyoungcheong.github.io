@@ -251,4 +251,3 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
     </div>
     <script src="script.js"></script>
 </body>
-</html>
