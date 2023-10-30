@@ -220,7 +220,30 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
   <img src="assets/img/blog/moving.gif" style="width: 300px; height: 200px;">
 </div>
 
-### What I like 
+<div class="text">
+  <p>﹛</p>
+  <p>
+    <span class="word wisteria">Freedom of Expression.</span>
+    <span class="word belize">Large Languge Models.</span>
+    <span class="word pomegranate">AI Regulation.</span>
+    <span class="word green">Online Trust & Safety.</span>
+  </p>
+  <p>
+    <span class="word wisteria">UW Law & Computer Science.</span>
+    <span class="word belize">Fulbright.</span>
+    <span class="word pomegranate">United Nations.</span>
+    <span class="word green">Korean Government.</span>
+  </p>
+  <p>
+    <span class="word wisteria">Pluto ⚛.</span>
+    <span class="word belize">Milan Kundera.</span>
+    <span class="word pomegranate">Potato Pasta 🍽️.</span>
+    <span class="word green">beautiful.</span>
+    <span class="word midnight">Soul Cycle 🚲.</span>
+  </p> 
+  <p>﹜</p>
+</div>
+
 
 <head>
     <link rel="stylesheet" type="text/css" href="styles.css">
