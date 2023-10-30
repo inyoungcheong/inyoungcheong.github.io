@@ -213,64 +213,52 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
     </tr>
   </tbody>
 </table>
-
+<p></p>
 ### Meme-making
 
 <div style="text-align: center;">
   <img src="assets/img/blog/moving.gif" style="width: 300px; height: 200px;">
 </div>
 
-<div class="text">
-  <p>﹛</p>
-  <p>
-    <span class="word wisteria">Freedom of Expression.</span>
-    <span class="word belize">Large Languge Models.</span>
-    <span class="word pomegranate">AI Regulation.</span>
-    <span class="word green">Online Trust & Safety.</span>
-  </p>
-  <p>
-    <span class="word wisteria">UW Law & Computer Science.</span>
-    <span class="word belize">Fulbright.</span>
-    <span class="word pomegranate">United Nations.</span>
-    <span class="word green">Korean Government.</span>
-  </p>
-  <p>
-    <span class="word wisteria">Pluto ⚛.</span>
-    <span class="word belize">Milan Kundera.</span>
-    <span class="word pomegranate">Potato Pasta 🍽️.</span>
-    <span class="word green">beautiful.</span>
-    <span class="word midnight">Soul Cycle 🚲.</span>
-  </p> 
-  <p>﹜</p>
-</div>
 
-
+<html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="_sass/_style.scss">
+    <title>About Me</title>
 </head>
 <body>
-    <div class="banner">
-        <div class="row">
-            <div class="text">I’m Inyoung Cheong.</div>
-        </div>
-        <div class="row">
-            <div class="text">Freedom of Expression</div>
-            <div class="text">Large Language Models</div>
-            <div class="text">AI regualtion</div>
-            <div class="text">Trust & Safety</div>
-        </div>
-        <div class="row">
-            <div class="text">UW Privacy & Security Lab</div>
-            <div class="text">Fulbright</div>
-            <div class="text">United Nations</div>
-            <div class="text">Korean Government</div>
-        </div>
-        <div class="row">
-            <div class="text">Pluto</div>
-            <div class="text">Milan Kundera</div>
-            <div class="text">Potato Pasta 🍽️</div>
-            <div class="text">Soul Cycle 🚲</div>
+    <div class="post">
+        <header class="post-header">
+            <h1 class="post-title">
+                {% if site.title == "blank" -%}<span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }} {{ site.last_name }}{%- else -%}{{ site.title }}{%- endif %}
+            </h1>
+            <p class="desc">{{ page.subtitle }}</p>
+        </header>
+        <div class="text">
+            <p>﹛</p>
+            <p>
+                <span class="word wisteria">Freedom of Expression.</span>
+                <span class="word belize">Large Language Models.</span>
+                <span class="word pomegranate">AI Regulation.</span>
+                <span class="word green">Online Trust & Safety.</span>
+            </p>
+            <p>
+                <span class="word wisteria">UW Law & Computer Science.</span>
+                <span class="word belize">Fulbright.</span>
+                <span class="word pomegranate">United Nations.</span>
+                <span class="word green">Korean Government.</span>
+            </p>
+            <p>
+                <span class="word wisteria">Pluto ⚛.</span>
+                <span class="word belize">Milan Kundera.</span>
+                <span class="word pomegranate">Potato Pasta 🍽️.</span>
+                <span class="word midnight">Soul Cycle 🚲.</span>
+            </p>
+            <p>﹜</p>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
+</html>
