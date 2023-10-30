@@ -8,6 +8,13 @@ latest_posts: true  # includes a list of the newest posts
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
+<div class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+     {% if site.title == "blank" -%}<span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }} {{ site.last_name }}{%- else -%}{{ site.title }}{%- endif %}
+    </h1>
+    <p class="desc">{{ page.subtitle }}</p>
+  </header>
 
 <br>
 <br>
