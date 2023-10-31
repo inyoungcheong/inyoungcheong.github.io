@@ -228,36 +228,14 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
     <title>About Me</title>
 </head>
 <body>
-    <div class="post">
-        <header class="post-header">
-            <h1 class="post-title">
-                {% if site.title == "blank" -%}<span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }} {{ site.last_name }}{%- else -%}{{ site.title }}{%- endif %}
-            </h1>
-            <p class="desc">{{ page.subtitle }}</p>
-        </header>
         <div class="text">
-            <p>﹛</p>
             <p>
                 <span class="word wisteria">Freedom of Expression.</span>
                 <span class="word belize">Large Language Models.</span>
                 <span class="word pomegranate">AI Regulation.</span>
                 <span class="word green">Online Trust & Safety.</span>
             </p>
-            <p>
-                <span class="word wisteria">UW Law & Computer Science.</span>
-                <span class="word belize">Fulbright.</span>
-                <span class="word pomegranate">United Nations.</span>
-                <span class="word green">Korean Government.</span>
-            </p>
-            <p>
-                <span class="word wisteria">Pluto ⚛.</span>
-                <span class="word belize">Milan Kundera.</span>
-                <span class="word pomegranate">Potato Pasta 🍽️.</span>
-                <span class="word midnight">Soul Cycle 🚲.</span>
-            </p>
-            <p>﹜</p>
         </div>
-    </div>
     <script src="assets/js/script.js"></script>
 </body>
 </html>
