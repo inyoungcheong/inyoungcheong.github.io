@@ -19,8 +19,8 @@ social: true  # includes social icons at the bottom of the page
 <p style="font-family: 'Space Mono', monospace; font-size: 19px; text-align: center;">
   # <a href="https://scholarship.law.uc.edu/uclr/vol91/iss3/2/">Freedom of Algorithmic Expression</a>
 </p>
-<p style="font-family: 'Space Mono', monospace; font-size: 17px; text-align: center;"># Fulbright / OpenAI Grant Recipient </p>
-<p style="font-family: 'Space Mono', monospace; font-size: 17px; text-align: center;"># <i>former</i> South Korean gov't Regulator :kr:</p>
+<p style="font-family: 'Space Mono', monospace; font-size: 16px; text-align: center;"># Fulbright / OpenAI Grant Recipient </p>
+<p style="font-family: 'Space Mono', monospace; font-size: 17px; text-align: center;"># <i>former</i> South Korean Gov't Regulator :kr:</p>
 <p style="font-family: 'Space Mono', monospace; font-size: 17px; text-align: center;"># <i>former</i> UN75 🗺️ </p>
 
 <br>
