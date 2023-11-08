@@ -29,7 +29,7 @@ I am a PhD Candidate and Affiliate Faculty at the UW School of Law, teaching Tec
 
 I wrote <strong>[Freedom of Algorithmic Expression](https://scholarship.law.uc.edu/uclr/vol91/iss3/2/)</strong> (2023), which explored whether social media platforms' content moderation algorithms can be considered a form of speech under the First Amendment. My current focus is on <strong>[Generative AI and Law for Humanities](https://genlaw.github.io/CameraReady/32.pdf)</strong>. My thoughts on Generative AI and Fair Use appeared in the <strong>[Wall Street Journal](https://www.wsj.com/amp/articles/ai-chatgpt-dall-e-microsoft-rutkowski-github-artificial-intelligence-11675466857?mod=latest_headlines)</strong>.
 
-Before arriving in Seattle, I was a regulator and policymaker in South Korea, as Deputy Director at the Ministry of Culture, Sports, and Tourism (2016-2019) and the Korea Communications Commission (2012-2016). In 2020, I assisted the <strong>[United Nations](https://www.hapskorea.com/busan-named-un75-partner-city/)</strong>' Under-Secretary-General in formulating strategic partnerships with South Korean local governments. More details re: my professional experience is outlined in my <strong>[CV](/assets/pdf/CV_20231022.pdf)</strong>. 
+Before arriving in Seattle, I was a regulator and policymaker in South Korea, as Deputy Director at the Ministry of Culture, Sports, and Tourism (2016-2019) and the Korea Communications Commission (2012-2016). In 2020, I assisted the <strong>[United Nations](https://www.hapskorea.com/busan-named-un75-partner-city/)</strong>' Under-Secretary-General in formulating strategic partnerships with South Korean local governments. More details are outlined in my <strong>[CV](/assets/pdf/CV_20231022.pdf)</strong>. 
 
 
 <table>
