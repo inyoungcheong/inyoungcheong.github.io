@@ -3,8 +3,7 @@ layout: post
 title: To Advise or Not to Advise? Lawyers Weigh in on AI’s Legal Guidance
 date: 2023-10-31
 description: Lawyers perspectives on when AI chatbots can appropriately provide legal guidance.  
-categories: AI, law 
-tags: [AI, law, ethics]
+categories: Musings_on_AI, Academic_life
 published: true
 comments: true
 toc: 
