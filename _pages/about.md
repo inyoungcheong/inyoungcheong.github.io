@@ -77,6 +77,7 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
 
 ### Research and Publications
 
+
 ##### On Generative AI and Algorithmic Decisions.
 <table>
   <colgroup>
