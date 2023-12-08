@@ -57,7 +57,7 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
   <tbody>
       <tr>
       <td markdown="span">Oct. 2023</td>
-      <td markdown="span">Thrilled to have returned to South Korea to present on "Legal Perspectives on AI Alignment, Evaluation & Interpretability" at the Korea Association for Telecom Policies Conference. 👩‍⚖️🌏 Wonderful reconnecting with experts across tech policy, industry and academia after years.</td>
+      <td markdown="span">Thrilled to have returned to South Korea to present on "Legal Perspectives on AI Alignment, Evaluation & Interpretability" at the Korea Association for Telecom Policies Conference. 👩‍⚖️🌏 Wonderful reconnecting with experts across tech policy, industry and academia after years. ([poster](https://inyoungcheong.github.io/assets/img/aikoreanposter.pdf), [paper](https://inyoungcheong.github.io/assets/pdf/ailawkorean.pdf))</td>
     </tr>
     <tr>
       <td markdown="span">Sep. 2023</td>
@@ -75,8 +75,8 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
 </table>
 <br>
 
-### Research and Publications
-<i><strong>On Generative AI and Algorithmic Decisions.</strong></i>
+## Research and Publications
+### On Generative AI and Algorithmic Decisions.
 <br>
 <table>
   <colgroup>
@@ -111,7 +111,8 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
   </tbody>
 </table>
 <br>
-<i><strong>On Information Privacy.</strong></i><br>
+
+### On Information Privacy.
 <table>
   <colgroup>
     <col width="20%" />
@@ -133,8 +134,8 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
   </tbody>
 </table>
 
-<br>
-<i><strong>On Administrative Law.</strong></i><br>
+
+### On Administrative Law.
 <table>
   <colgroup>
     <col width="20%" />
@@ -174,7 +175,7 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
   <tbody>
     <tr>
       <td markdown="span">2023</td>
-      <td markdown="span">Legal Perspectives on AI Alignment, Evaluation & Interpretability, The Korea Association for Telecom Policies Conference.</td>
+      <td markdown="span">[Legal Perspectives on AI Alignment, Evaluation & Interpretability](https://inyoungcheong.github.io/assets/pdf/ailawkorean.pdf), The Korea Association for Telecom Policies Conference.</td>
     </tr>
     <tr>
       <td markdown="span">2023</td>
