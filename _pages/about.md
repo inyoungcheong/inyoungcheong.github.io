@@ -55,6 +55,10 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
     <col width="80%" />
   </colgroup>
   <tbody>
+      <tr>
+      <td markdown="span">Oct. 2023</td>
+      <td markdown="span">Thrilled to have returned to South Korea to present on "Legal Perspectives on AI Alignment, Evaluation & Interpretability" at the Korea Association for Telecom Policies Conference. 👩‍⚖️🌏 Wonderful reconnecting with experts across tech policy, industry and academia after years.</td>
+    </tr>
     <tr>
       <td markdown="span">Sep. 2023</td>
       <td markdown="span">Gave a talk on South Korea's multistakeholder content governance at the [Trust & Safety Research Conference](https://conferences.law.stanford.edu/tsrc/sessions/research-session-6/) at Stanford Observatory. </td>
@@ -82,23 +86,27 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
   <tbody>
     <tr>
       <td markdown="span">2023</td>
-      <td markdown="span">[Is the U.S. Legal System Ready for AI’s Challenges to Human Values](https://arxiv.org/pdf/2308.15906.pdf), preprint.</td>
+      <td markdown="span">K. J. Kevin Feng, Quan Ze Chen, Inyoung Cheong, King Xia, Amy X. Zhang, [Case Repositories: Towards Case-Based Reasoning for AI Alignment](https://arxiv.org/abs/2311.10934), preprint.</td>
     </tr>
     <tr>
       <td markdown="span">2023</td>
-      <td markdown="span">[Envisioning Legal Mitigations for Intentional and Unintentional Harms Associated with Large Language Models (Extended Abstract)](https://genlaw.github.io/CameraReady/32.pdf), ICML 2023 GenLaw Workshop.</td>
+      <td markdown="span">Inyoung Cheong, Aylin Caliskan, and Tadayoshi Kohno, [Is the U.S. Legal System Ready for AI’s Challenges to Human Values](https://arxiv.org/pdf/2308.15906.pdf), preprint.</td>
     </tr>
     <tr>
       <td markdown="span">2023</td>
-      <td markdown="span">[Freedom of Algorithmic Expression](https://scholarship.law.uc.edu/uclr/vol91/iss3/2/), University of Cincinnati Law Review.</td>
+      <td markdown="span">Inyoung Cheong, Aylin Caliskan, and Tadayoshi Kohno, [Envisioning Legal Mitigations for Intentional and Unintentional Harms Associated with Large Language Models (Extended Abstract)](https://genlaw.github.io/CameraReady/32.pdf), ICML 2023 GenLaw Workshop.</td>
+    </tr>
+    <tr>
+      <td markdown="span">2023</td>
+      <td markdown="span">Inyoung Cheong, [Freedom of Algorithmic Expression](https://scholarship.law.uc.edu/uclr/vol91/iss3/2/), University of Cincinnati Law Review.</td>
     </tr>
     <tr>
       <td markdown="span">2022</td>
-      <td markdown="span">[Social Media's Algorithmic Freedom?](/assets/pdf/poster-2022.png), Trust & Safety Research Conference.</td>
+      <td markdown="span">Inyoung Cheong, [Social Media's Algorithmic Freedom?](/assets/pdf/poster-2022.png), Trust & Safety Research Conference.</td>
     </tr>
     <tr>
       <td markdown="span">2022</td>
-      <td markdown="span">[Social Media's Algorithmic Freedom?](/assets/pdf/poster-2022.png), KSEA NWRC 2022. 🏅<strong>Best Poster Award</strong></td>
+      <td markdown="span">Inyoung Cheong, [Social Media's Algorithmic Freedom?](/assets/pdf/poster-2022.png), KSEA NWRC 2022. 🏅<strong>Best Poster Award</strong></td>
     </tr>
   </tbody>
 </table>
@@ -112,15 +120,15 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
   <tbody>
     <tr>
       <td markdown="span">2021</td>
-      <td markdown="span">[After Facebook's 2016 Data Breach III: The FTC's 5-Billion Dollar Settlement](/assets/pdf/2021-facebook3.pdf) (Korean), The Journal of Law and Economic Regulation.</td>
+      <td markdown="span">Inyoung Cheong, [After Facebook's 2016 Data Breach III: The FTC's 5-Billion Dollar Settlement](/assets/pdf/2021-facebook3.pdf) (Korean), The Journal of Law and Economic Regulation.</td>
     </tr>
     <tr>
       <td markdown="span">2020</td>
-      <td markdown="span">[After Facebook's 2016 Data Breach II: The U.S. Federal Courts' Consumer Class Actions](/assets/pdf/2020-facebook2.pdf) (Korean), The Journal of Law and Economic Regulation.</td>
+      <td markdown="span">Inyoung Cheong, [After Facebook's 2016 Data Breach II: The U.S. Federal Courts' Consumer Class Actions](/assets/pdf/2020-facebook2.pdf) (Korean), The Journal of Law and Economic Regulation.</td>
     </tr>
     <tr>
       <td markdown="span">2019</td>
-      <td markdown="span">[After Facebook's 2016 Data Breach I: The California Consumer Privacy Act of 2018](/assets/pdf/2019-facebook1.pdf) (Korean), The Journal of Law and Economic Regulation.</td>
+      <td markdown="span">Inyoung Cheong, [After Facebook's 2016 Data Breach I: The California Consumer Privacy Act of 2018](/assets/pdf/2019-facebook1.pdf) (Korean), The Journal of Law and Economic Regulation.</td>
     </tr>
   </tbody>
 </table>
@@ -135,23 +143,23 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
   <tbody>
     <tr>
       <td markdown="span">2022</td>
-      <td markdown="span">[The US Administrative Law and Civil Penalties](/assets/pdf/civil-penalty.pdf) (Korean), Administrative Law Journal.</td>
+      <td markdown="span">Inyoung Cheong, [The US Administrative Law and Civil Penalties](/assets/pdf/civil-penalty.pdf) (Korean), Administrative Law Journal.</td>
     </tr>
     <tr>
       <td markdown="span">2021</td>
-      <td markdown="span">[Epic Games v. Apple on App Store Payment Systems in South Korea](https://wjlta.com/2021/12/05/epic-games-v-apple-on-app-store-payment-systems-in-south-korea/), Washington Journal of Law, Technology & Arts.</td>
+      <td markdown="span">Inyoung Cheong, [Epic Games v. Apple on App Store Payment Systems in South Korea](https://wjlta.com/2021/12/05/epic-games-v-apple-on-app-store-payment-systems-in-south-korea/), Washington Journal of Law, Technology & Arts.</td>
     </tr>
     <tr>
       <td markdown="span">2017</td>
-      <td markdown="span">[Korea's New Trends in Culture and Art Legislation](/assets/pdf/2017-cultural-law.pdf) (Korean), The Journal of Law and Economic Regulation.</td>
+      <td markdown="span">Inyoung Cheong, [Korea's New Trends in Culture and Art Legislation](/assets/pdf/2017-cultural-law.pdf) (Korean), The Journal of Law and Economic Regulation.</td>
     </tr>
     <tr>
       <td markdown="span">2016</td>
-      <td markdown="span">[Korea Communications Commission's Adjudication on Deceptive News Reports](/assets/pdf/2016-deceptive-ad.pdf) (Korean), The Journal of Law and Economic Regulation.</td>
+      <td markdown="span">Inyoung Cheong, [Korea Communications Commission's Adjudication on Deceptive News Reports](/assets/pdf/2016-deceptive-ad.pdf) (Korean), The Journal of Law and Economic Regulation.</td>
     </tr>
     <tr>
       <td markdown="span">2014</td>
-      <td markdown="span">[Amendments to the Broadcasting Act in 2013-2014](/assets/pdf/2013-broadcasting-law.pdf) (Korean), The Journal of Law and Economic Regulation.</td>
+      <td markdown="span">Inyoung Cheong, [Amendments to the Broadcasting Act in 2013-2014](/assets/pdf/2013-broadcasting-law.pdf) (Korean), The Journal of Law and Economic Regulation.</td>
     </tr>
   </tbody>
 </table>
@@ -164,6 +172,10 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
     <col width="80%" />
   </colgroup>
   <tbody>
+    <tr>
+      <td markdown="span">2023</td>
+      <td markdown="span">Legal Perspectives on AI Alignment, Evaluation & Interpretability, The Korea Association for Telecom Policies Conference.</td>
+    </tr>
     <tr>
       <td markdown="span">2023</td>
       <td markdown="span">[Generative AI's Potential Harms and Legal Mitigations](https://inyoungcheong.github.io/news/230721trustnet/), TrustLab.</td>
