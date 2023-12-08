@@ -77,8 +77,7 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
 
 ### Research and Publications
 
-#### On Generative AI and Algorithmic Decisions.
-<br>
+##### On Generative AI and Algorithmic Decisions.
 <table>
   <colgroup>
     <col width="20%" />
@@ -113,7 +112,7 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
 </table>
 <br>
 
-#### On Information Privacy.
+##### On Information Privacy.
 <table>
   <colgroup>
     <col width="20%" />
@@ -134,8 +133,9 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
     </tr>
   </tbody>
 </table>
+<br>
 
-#### On Administrative Law.
+##### On Administrative Law.
 <table>
   <colgroup>
     <col width="20%" />
