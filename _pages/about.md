@@ -55,6 +55,14 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
     <col width="80%" />
   </colgroup>
   <tbody>
+  <tr>
+      <td markdown="span">Dec. 2023</td>
+      <td markdown="span">Attending NeurIPS 2023 in NOLA🎹🎷, [our paper](https://arxiv.org/abs/2311.10934) will be presented at [MP2 Workshop](https://aipsychphil.github.io/) (Moral Philsophy meets AI). Feel free to shoot me an email if you'd like to have a chat! </td>
+    </tr>
+  <tr>
+      <td markdown="span">Nov. 2023</td>
+      <td markdown="span">Our project website on Case-based Reasoning on AI Alignment is [up](https://social.cs.washington.edu/case-law-ai-policy/)!⭐ </td>
+    </tr>
       <tr>
       <td markdown="span">Oct. 2023</td>
       <td markdown="span">Thrilled to have returned to South Korea to present on "Legal Perspectives on AI Alignment, Evaluation & Interpretability" at the Korea Association for Telecom Policies Conference. 👩‍⚖️🌏 Wonderful reconnecting with experts across tech policy, industry and academia after years. ([poster](https://inyoungcheong.github.io/assets/img/aikoreanposter.pdf), [paper](https://inyoungcheong.github.io/assets/pdf/ailawkorean.pdf))</td>
