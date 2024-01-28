@@ -56,8 +56,12 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
   </colgroup>
   <tbody>
   <tr>
+      <td markdown="span">Jan. 2024</td>
+      <td markdown="span">Gave a talk on AI regulation and interdisciplinary research culture in the US to South Korean scholars/attorneys/policymakers at the AI Law and Policy Association Symposium. ([presentation](https://inyoungcheong.github.io/assets/pdf/AIlawtech.pdf)) </td>
+    </tr>
+  <tr>
       <td markdown="span">Dec. 2023</td>
-      <td markdown="span">Attending NeurIPS 2023 in NOLA🎹🎷, [our paper](https://arxiv.org/abs/2311.10934) will be presented at [MP2 Workshop](https://aipsychphil.github.io/) (Moral Philsophy meets AI). Feel free to shoot me an email if you'd like to have a chat! </td>
+      <td markdown="span">Attended NeurIPS 2023 in NOLA🎹🎷, [our paper](https://arxiv.org/abs/2311.10934) will be presented at [MP2 Workshop](https://aipsychphil.github.io/) (Moral Philsophy meets AI). Feel free to shoot me an email if you'd like to have a chat! </td>
     </tr>
   <tr>
       <td markdown="span">Nov. 2023</td>
