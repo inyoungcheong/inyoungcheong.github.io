@@ -103,7 +103,7 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
     </tr>
     <tr>
       <td markdown="span">2023</td>
-      <td markdown="span">K. J. Kevin Feng, Quan Ze Chen, Inyoung Cheong, King Xia, Amy X. Zhang, [Case Repositories: Towards Case-Based Reasoning for AI Alignment](https://arxiv.org/abs/2311.10934), preprint.</td>
+      <td markdown="span">K. J. Kevin Feng, Quan Ze Chen, Inyoung Cheong, King Xia, Amy X. Zhang, [Case Repositories: Towards Case-Based Reasoning for AI Alignment](https://arxiv.org/abs/2311.10934), NeurIPS 2023 MP2 Workshop.</td>
     </tr>
     <tr>
       <td markdown="span">2023</td>
