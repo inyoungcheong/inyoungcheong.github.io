@@ -98,6 +98,10 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
   </colgroup>
   <tbody>
     <tr>
+      <td markdown="span">2024</td>
+      <td markdown="span">Inyoung Cheong, King Xia, K. J. Kevin Feng, Quan Ze Chen, and Amy X. Zhang, [(A)I Am Not a Lawyer, But...: Engaging Legal Experts towards Responsible LLM Policies for Legal Advice](https://arxiv.org/abs/2402.01864), preprint.</td>
+    </tr>
+    <tr>
       <td markdown="span">2023</td>
       <td markdown="span">K. J. Kevin Feng, Quan Ze Chen, Inyoung Cheong, King Xia, Amy X. Zhang, [Case Repositories: Towards Case-Based Reasoning for AI Alignment](https://arxiv.org/abs/2311.10934), preprint.</td>
     </tr>
