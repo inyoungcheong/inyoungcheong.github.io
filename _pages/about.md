@@ -56,6 +56,10 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
   </colgroup>
   <tbody>
   <tr>
+      <td markdown="span">Feb. 2023</td>
+      <td markdown="span">Invited to the Yale Conference on [Governing (with) AI](https://campuspress.yale.edu/governingx/governing-with-ai/participants/) as a panelist. Looking forward to visiting campus of Rory Gilmore! </td>
+    </tr>
+  <tr>
       <td markdown="span">Jan. 2024</td>
       <td markdown="span">Gave a talk on AI regulation and interdisciplinary research culture in the US to South Korean scholars/attorneys/policymakers at the AI Law and Policy Association Symposium. ([presentation](https://inyoungcheong.github.io/assets/pdf/AIlawtech.pdf)) </td>
     </tr>

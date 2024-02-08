@@ -12,4 +12,4 @@ nav_order: 4
 This CV is updated on February 4, 2024.<br> 
 Download <a href="{{inyoungcheong.github.io}}/assets/pdf/CV20240205.pdf">📑</a>!
 
-<object data="{{inyoungcheong.github.io}}/assets/pdf/CV20240205.pdf" width="1000" height="1000" type="application/pdf"></object>
+<object data="{{inyoungcheong.github.io}}/assets/pdf/CV20240205.pdf" width="600" height="800" type="application/pdf"></object>
