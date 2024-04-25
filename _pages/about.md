@@ -23,13 +23,16 @@ social: true  # includes social icons at the bottom of the page
 <p style="font-family: 'Space Mono', monospace; font-size: 17px; text-align: center;"># <i>former</i> South Korean Gov't Regulator :kr:</p>
 <p style="font-family: 'Space Mono', monospace; font-size: 17px; text-align: center;"># <i>former</i> UN75 🗺️ </p>
 
+I will be a postdoctral researcher at the <strong>[Princeton Center for Information Technology Policy](https://citp.princeton.edu/)</strong>, starting in October 2024!  
 <br>
 <br>
-I am a PhD Candidate and Affiliate Faculty at the UW School of Law, teaching Technology Law and Public Policy Seminar (<strong>[syllabus](https://inyoungcheong.notion.site/LAW-E553-79718cccf6f54679a2b0c7a08eaf6d5f)</strong>). Advised by <strong>[Tadayoshi Kohno](https://homes.cs.washington.edu/~yoshi/)</strong>, I conduct multi-disciplinary research on AI safety, alignment, and regulatory principles at the <strong>[Security & Privacy Lab](https://seclab.cs.washington.edu/people/)</strong>,<strong> [Tech Policy Lab](https://techpolicylab.uw.edu/about/#our-people)</strong>, and <strong>[Social Futures Lab](https://social.cs.washington.edu/)</strong>. My research has been funded by <strong>[Fulbright](https://fulbright.org/)</strong>, <strong>[OpenAI](https://openai.com/blog/democratic-inputs-to-ai)</strong>, and <strong>[UW Alumni](https://www.washington.edu/alumni/meet-the-2021-homecoming-scholars/)</strong> and presented at major conferences like ICML, KSEA, and Trust & Safety Research Conference.  
+I am a PhD Candidate and Affiliate Faculty member at the UW School of Law, teaching Technology Law and Public Policy Seminar (<strong>[syllabus](https://inyoungcheong.notion.site/LAW-E553-79718cccf6f54679a2b0c7a08eaf6d5f)</strong>). Advised by <strong>[Tadayoshi Kohno](https://homes.cs.washington.edu/~yoshi/)</strong>, I conduct multi-disciplinary research on AI safety, alignment, and regulatory principles at the <strong>[Security & Privacy Lab](https://seclab.cs.washington.edu/people/)</strong>,<strong> [Tech Policy Lab](https://techpolicylab.uw.edu/about/#our-people)</strong>, and <strong>[Social Futures Lab](https://social.cs.washington.edu/)</strong>. My research has been funded by <strong>[Fulbright](https://fulbright.org/)</strong>, <strong>[OpenAI](https://openai.com/blog/democratic-inputs-to-ai)</strong>, and <strong>[UW Alumni](https://www.washington.edu/alumni/meet-the-2021-homecoming-scholars/)</strong> and presented at major conferences like ICML, KSEA, and Trust & Safety Research Conference.  
 
 I wrote <strong>[Freedom of Algorithmic Expression](https://scholarship.law.uc.edu/uclr/vol91/iss3/2/)</strong> (2023), which explored whether social media platforms' content moderation algorithms can be considered a form of speech under the First Amendment. My current focus is on <strong>[Generative AI and Law for Humanities](https://genlaw.github.io/CameraReady/32.pdf)</strong>. My thoughts on Generative AI and Fair Use appeared in the <strong>[Wall Street Journal](https://www.wsj.com/amp/articles/ai-chatgpt-dall-e-microsoft-rutkowski-github-artificial-intelligence-11675466857?mod=latest_headlines)</strong>.
 
-Before arriving in Seattle, I was a regulator and policymaker in South Korea, as Deputy Director at the Ministry of Culture, Sports, and Tourism (2016-2019) and the Korea Communications Commission (2012-2016). In 2020, I assisted the <strong>[United Nations](https://www.hapskorea.com/busan-named-un75-partner-city/)</strong>' Under-Secretary-General in formulating strategic partnerships with South Korean local governments. More details are outlined in my <strong>[CV](/assets/pdf/CV_20231022.pdf)</strong>. 
+Before arriving in Seattle, I was a regulator and policymaker in South Korea, as Deputy Director at the Ministry of Culture, Sports, and Tourism (2016-2019) and the Korea Communications Commission (2012-2016). In 2020, I assisted the <strong>[United Nations](https://www.hapskorea.com/busan-named-un75-partner-city/)</strong>' Under-Secretary-General in formulating strategic partnerships with South Korean local governments. More details are outlined in my <strong>[CV](/assets/pdf/CV20240425.pdf)</strong>. 
+
+
 
 
 <table>
@@ -55,8 +58,17 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
     <col width="80%" />
   </colgroup>
   <tbody>
+    <tr>
+      <td markdown="span">April. 2024</td>
+      <td markdown="span">Will be in New Haven once again to present my manuscript on "Manipulative Technologies, Privacy, and Free Speech Values" at the [Freedom of Expression Scholars Conference 2024](https://law.yale.edu/isp/about/initiatives/floyd-abrams-institute-freedom-expression/freedom-expression-scholars-conference)! (if you want to read it, [here](https://inyoungcheong.github.io/assets/pdf/manipulative.pdf) it is!) </td>
+    </tr>
+    <tr>
+      <td markdown="span">Mar. 2024</td>
+      <td markdown="span">Our paper, [(A)I Am Not a Lawyer, But...: Engaging Legal Experts towards Responsible
+  LLM Policies for Legal Advice](https://arxiv.org/abs/2402.01864), was accepted for the <strong>ACM FAcct 2024</strong>!⭐ </td>
+    </tr>
   <tr>
-      <td markdown="span">Feb. 2023</td>
+      <td markdown="span">Feb. 2024</td>
       <td markdown="span">Invited to the Yale Conference on [Governing (with) AI](https://campuspress.yale.edu/governingx/governing-with-ai/participants/) as a panelist. Looking forward to visiting campus of Rory Gilmore! </td>
     </tr>
   <tr>
