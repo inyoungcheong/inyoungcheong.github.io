@@ -22,8 +22,9 @@ social: true  # includes social icons at the bottom of the page
 <p style="font-family: 'Space Mono', monospace; font-size: 16px; text-align: center;"># Fulbright / OpenAI Grant Recipient </p>
 <p style="font-family: 'Space Mono', monospace; font-size: 17px; text-align: center;"># <i>former</i> South Korean Gov't Regulator :kr:</p>
 <p style="font-family: 'Space Mono', monospace; font-size: 17px; text-align: center;"># <i>former</i> UN75 🗺️ </p>
-
-I will be a postdoctral researcher at the <strong>[Princeton Center for Information Technology Policy](https://citp.princeton.edu/)</strong>, starting in October 2024!  
+<br>
+<br>
+📢 I will be a postdoctral researcher at the <strong>[Princeton Center for Information Technology Policy](https://citp.princeton.edu/)</strong>, starting in October 2024!  
 <br>
 <br>
 I am a PhD Candidate and Affiliate Faculty member at the UW School of Law, teaching Technology Law and Public Policy Seminar (<strong>[syllabus](https://inyoungcheong.notion.site/LAW-E553-79718cccf6f54679a2b0c7a08eaf6d5f)</strong>). Advised by <strong>[Tadayoshi Kohno](https://homes.cs.washington.edu/~yoshi/)</strong>, I conduct multi-disciplinary research on AI safety, alignment, and regulatory principles at the <strong>[Security & Privacy Lab](https://seclab.cs.washington.edu/people/)</strong>,<strong> [Tech Policy Lab](https://techpolicylab.uw.edu/about/#our-people)</strong>, and <strong>[Social Futures Lab](https://social.cs.washington.edu/)</strong>. My research has been funded by <strong>[Fulbright](https://fulbright.org/)</strong>, <strong>[OpenAI](https://openai.com/blog/democratic-inputs-to-ai)</strong>, and <strong>[UW Alumni](https://www.washington.edu/alumni/meet-the-2021-homecoming-scholars/)</strong> and presented at major conferences like ICML, KSEA, and Trust & Safety Research Conference.  
@@ -115,7 +116,15 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
   <tbody>
     <tr>
       <td markdown="span">2024</td>
-      <td markdown="span">Inyoung Cheong, King Xia, K. J. Kevin Feng, Quan Ze Chen, and Amy X. Zhang, [(A)I Am Not a Lawyer, But...: Engaging Legal Experts towards Responsible LLM Policies for Legal Advice](https://arxiv.org/abs/2402.01864), preprint.</td>
+      <td markdown="span">Inyoung Cheong, King Xia, K. J. Kevin Feng, Quan Ze Chen, and Amy X. Zhang, [(A)I Am Not a Lawyer, But...: Engaging Legal Experts towards Responsible LLM Policies for Legal Advice](https://arxiv.org/abs/2402.01864), ACM FAccT 2024 (forthcoming).</td>
+    </tr>
+    <tr>
+      <td markdown="span">2024</td>
+      <td markdown="span">Inyoung Cheong, Aylin Caliskan, and Tadayoshi Kohno, [Safeguarding Human Values: Rethinking US Law for Generative AI’s Societal Impacts](https://inyoungcheong.github.io/assets/pdf/AIandEthics.pdf), Journal of AI and Ethics (forthcoming).</td>
+    </tr>
+    <tr>
+      <td markdown="span">2024</td>
+      <td markdown="span">Jimin Mun, Liwei Jiang, Jenny Liang, and Inyoung Cheong, Nicole DeCario, Yejin Choi, Tadayoshi Kohno, Maarten Sap, [Particip-AI: A Democratic Surveying Framework for Anticipating Future AI Use Cases, Harms and Benefits](https://arxiv.org/abs/2403.14791), preprint.</td>
     </tr>
     <tr>
       <td markdown="span">2023</td>
