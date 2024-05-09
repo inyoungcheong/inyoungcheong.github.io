@@ -31,7 +31,7 @@ I am a PhD Candidate and Affiliate Faculty member at the UW School of Law, teach
 
 I wrote <strong>[Freedom of Algorithmic Expression](https://scholarship.law.uc.edu/uclr/vol91/iss3/2/)</strong> (2023), which explored whether social media platforms' content moderation algorithms can be considered a form of speech under the First Amendment. My current focus is on <strong>[Generative AI and Law for Humanities](https://genlaw.github.io/CameraReady/32.pdf)</strong>. My thoughts on Generative AI and Fair Use appeared in the <strong>[Wall Street Journal](https://www.wsj.com/amp/articles/ai-chatgpt-dall-e-microsoft-rutkowski-github-artificial-intelligence-11675466857?mod=latest_headlines)</strong>.
 
-Before arriving in Seattle, I was a regulator and policymaker in South Korea, as Deputy Director at the Ministry of Culture, Sports, and Tourism (2016-2019) and the Korea Communications Commission (2012-2016). In 2020, I assisted the <strong>[United Nations](https://www.hapskorea.com/busan-named-un75-partner-city/)</strong>' Under-Secretary-General in formulating strategic partnerships with South Korean local governments. More details are outlined in my <strong>[CV](/assets/pdf/CV20240425.pdf)</strong>. 
+Before arriving in Seattle, I was a regulator and policymaker in South Korea, as Deputy Director at the Ministry of Culture, Sports, and Tourism (2016-2019) and the Korea Communications Commission (2012-2016). In 2020, I assisted the <strong>[United Nations](https://www.hapskorea.com/busan-named-un75-partner-city/)</strong>' Under-Secretary-General in formulating strategic partnerships with South Korean local governments. More details are outlined in my <strong>[CV](/assets/pdf/CV20240509.pdf)</strong>. 
 
 
 
@@ -59,6 +59,10 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
     <col width="80%" />
   </colgroup>
   <tbody>
+    <tr>
+      <td markdown="span">May. 2024</td>
+      <td markdown="span">Our article, Safeguarding Human Values: Rethinking US Law for Generative AI's Societal Impacts, is publicly available at <strong>[AI and Ethics](https://link.springer.com/journal/43681)</strong>! Open-source access was possible thank to the generous support of the [UW Tech Policy Lab](https://techpolicylab.uw.edu/about) and the NIST grant.</td>
+    </tr>
     <tr>
       <td markdown="span">April. 2024</td>
       <td markdown="span">Will be in New Haven once again to present my manuscript on "Manipulative Technologies, Privacy, and Free Speech Values" at the [Freedom of Expression Scholars Conference 2024](https://law.yale.edu/isp/about/initiatives/floyd-abrams-institute-freedom-expression/freedom-expression-scholars-conference)! (if you want to read it, [here](https://inyoungcheong.github.io/assets/pdf/manipulative.pdf) it is!) </td>
