@@ -233,7 +233,7 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
     </tr>
     <tr>
       <td markdown="span">2023</td>
-      <td markdown="span">[Multistakeholder Content Governance in South Korea](https://conferences.law.stanford.edu/tsrc/sessions/research-session-6/), Trust & Safety Research Conference.</td>
+      <td markdown="span">[Multistakeholder Content Governance in South Korea](https://inyoungcheong.github.io\assets\pdf\multistakeholder.pdf), [Trust & Safety Research Conference](https://conferences.law.stanford.edu/tsrc/sessions/research-session-6/).</td>
     </tr>
     <tr>
       <td markdown="span">2022</td>
