@@ -59,6 +59,10 @@ Before arriving in Seattle, I was a regulator and policymaker in South Korea, as
     <col width="80%" />
   </colgroup>
   <tbody>
+      <tr>
+      <td markdown="span">Aug. 2024</td>
+      <td markdown="span">Cannot believe that I finally defended my dissertation: "Collaborative Approaches to AI Governance: Exploring Co-Design and Co-Regulation Models"! 👉🏼[slide](https://inyoungcheong.github.io/assets/pdf/dissertationdeck.pdf), [PDF](https://inyoungcheong.github.io/assets/pdf/dissertation.pdf) </td>
+    </tr>
     <tr>
       <td markdown="span">May. 2024</td>
       <td markdown="span">Our article, Safeguarding Human Values: Rethinking US Law for Generative AI's Societal Impacts, is publicly available at <strong>[AI and Ethics](https://link.springer.com/journal/43681)</strong>! Open-source access was possible thank to the generous support of the [UW Tech Policy Lab](https://techpolicylab.uw.edu/about) and the NIST grant.</td>
