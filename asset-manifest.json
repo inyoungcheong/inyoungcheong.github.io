@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/personality-quiz-kr/static/css/main.199fe13b.css",
+    "main.js": "/personality-quiz-kr/static/js/main.6708e6e5.js",
+    "static/js/156.2835bfa8.chunk.js": "/personality-quiz-kr/static/js/156.2835bfa8.chunk.js",
+    "index.html": "/personality-quiz-kr/index.html",
+    "main.199fe13b.css.map": "/personality-quiz-kr/static/css/main.199fe13b.css.map",
+    "main.6708e6e5.js.map": "/personality-quiz-kr/static/js/main.6708e6e5.js.map",
+    "156.2835bfa8.chunk.js.map": "/personality-quiz-kr/static/js/156.2835bfa8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.199fe13b.css",
+    "static/js/main.6708e6e5.js"
+  ]
+}
