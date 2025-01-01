@@ -20,14 +20,17 @@ social: true  # includes social icons at the bottom of the page
 <br>
 <div id="typewriter-container"></div>
 <br>
-<!--<p style="font-family: 'Space Mono', monospace; font-size: 17px; text-align: center;"># AI safety / Alignment / Regulation 🤖⚖️</p>
+<!--
+<p style="font-family: 'Space Mono', monospace; font-size: 17px; text-align: center;"># AI safety / Alignment / Regulation 🤖⚖️</p>
 <p style="font-family: 'Space Mono', monospace; font-size: 17px; text-align: center;"># PhD Candidate / Faculty Affiliate at UW Law</p>
 <p style="font-family: 'Space Mono', monospace; font-size: 19px; text-align: center;">
   # <a href="https://scholarship.law.uc.edu/uclr/vol91/iss3/2/">Freedom of Algorithmic Expression</a>
 </p>
 <p style="font-family: 'Space Mono', monospace; font-size: 16px; text-align: center;"># Fulbright / OpenAI Grant Recipient </p>
 <p style="font-family: 'Space Mono', monospace; font-size: 17px; text-align: center;"># <i>former</i> South Korean Gov't Regulator :kr:</p>
-<p style="font-family: 'Space Mono', monospace; font-size: 17px; text-align: center;"># <i>former</i> UN75 🗺️ </p>-->
+<p style="font-family: 'Space Mono', monospace; font-size: 17px; text-align: center;"># <i>former</i> UN75 🗺️ </p>
+-->
+
 <br>
 <br>
 I'm a postdoctoral researcher at the [Princeton Center for Information Technology Policy](https://citp.princeton.edu/), working with [Peter Henderson](https://www.peterhenderson.co/), and an Affiliate Faculty member at the University of Washington School of Law, where I was fortunate to learn from [Tadayoshi Kohno](https://homes.cs.washington.edu/~yoshi/), [Ryan Calo](https://www.law.uw.edu/directory/faculty/calo-ryan), and [Amy X. Zhang](https://homes.cs.washington.edu/~axz/). My research focuses on the social impacts of emerging AI technologies and developing socio-technical mitigations. Aligned with Kaminski & Jones' [perspective](https://www.yalelawjournal.org/forum/constructing-ai-speech), I view fundamental legal principles as actively shaping technology's meaning, not just reactively catching up to it. My interdisciplinary methods range from legal analysis to large-scale human subject studies. I enjoy collaborating with diverse scholars, leading to serendipitous insights. My work has been supported by the Fulbright Scholarship and OpenAI Democratic Inputs to AI Grant.
