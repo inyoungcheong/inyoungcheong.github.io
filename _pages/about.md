@@ -9,37 +9,17 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-<script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
-<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
-<script src="{{ site.baseurl }}/assets/js/TypewriterComponent.js"></script>
-<br>
-<br>
+
 <div style="text-align: center;">
   <img src="assets/img/blog/profile9.png" width="350" height="350"> 
 </div>
 <br>
-<div id="typewriter-container"></div>
-<br>
-<!--
-<p style="font-family: 'Space Mono', monospace; font-size: 17px; text-align: center;"># AI safety / Alignment / Regulation 🤖⚖️</p>
-<p style="font-family: 'Space Mono', monospace; font-size: 17px; text-align: center;"># PhD Candidate / Faculty Affiliate at UW Law</p>
-<p style="font-family: 'Space Mono', monospace; font-size: 19px; text-align: center;">
-  # <a href="https://scholarship.law.uc.edu/uclr/vol91/iss3/2/">Freedom of Algorithmic Expression</a>
-</p>
-<p style="font-family: 'Space Mono', monospace; font-size: 16px; text-align: center;"># Fulbright / OpenAI Grant Recipient </p>
-<p style="font-family: 'Space Mono', monospace; font-size: 17px; text-align: center;"># <i>former</i> South Korean Gov't Regulator :kr:</p>
-<p style="font-family: 'Space Mono', monospace; font-size: 17px; text-align: center;"># <i>former</i> UN75 🗺️ </p>
--->
+
+{% include typewriter.html %}
 
 <br>
 <br>
 I'm a postdoctoral researcher at the [Princeton Center for Information Technology Policy](https://citp.princeton.edu/), working with [Peter Henderson](https://www.peterhenderson.co/). I'm also an Affiliate Faculty member at the University of Washington School of Law, where I was fortunate to learn from [Tadayoshi Kohno](https://homes.cs.washington.edu/~yoshi/), [Ryan Calo](https://www.law.uw.edu/directory/faculty/calo-ryan), and [Amy X. Zhang](https://homes.cs.washington.edu/~axz/). My research focuses on the social impacts of emerging AI technologies and developing socio-technical mitigations. Aligned with Kaminski & Jones' [perspective](https://www.yalelawjournal.org/forum/constructing-ai-speech), I view fundamental legal principles as actively shaping technology's meaning, not just reactively catching up to it. My approach is deeply interdisciplinary, ranging from legal analysis to large-scale human subject studies. I thrive on collaborations with scholars from diverse backgrounds (law, computer science, sociology, psychology) and career levels, which often lead to serendipitous insights. My work has been supported by the Fulbright Scholarship and OpenAI Democratic Inputs to AI Grant.
-
-<!--I wrote <strong>[Freedom of Algorithmic Expression](https://scholarship.law.uc.edu/uclr/vol91/iss3/2/)</strong> (2023), which explored whether social media platforms' content moderation algorithms can be considered a form of speech under the First Amendment. My current focus is on <strong>[Generative AI and Law for Humanities](https://genlaw.github.io/CameraReady/32.pdf)</strong>. My thoughts on Generative AI and Fair Use appeared in the <strong>[Wall Street Journal](https://www.wsj.com/amp/articles/ai-chatgpt-dall-e-microsoft-rutkowski-github-artificial-intelligence-11675466857?mod=latest_headlines)</strong>.
-
-Before arriving in Seattle, I was a regulator and policymaker in South Korea, as Deputy Director at the Ministry of Culture, Sports, and Tourism (2016-2019) and the Korea Communications Commission (2012-2016). In 2020, I assisted the <strong>[United Nations](https://www.hapskorea.com/busan-named-un75-partner-city/)</strong>' Under-Secretary-General in formulating strategic partnerships with South Korean local governments. More details are outlined in my <strong>[CV]()-->
-
-
 
 
 <table>

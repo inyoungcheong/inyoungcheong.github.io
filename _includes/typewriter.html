@@ -1,0 +1,67 @@
+<!-- _includes/typewriter.html -->
+<div class="typewriter-container">
+    <div class="line">
+      I <span class="verb-container">
+        <span id="typed-verb"></span>
+      </span> AI Ethics;
+    </div>
+    <div class="line">
+      at <span class="inst-container">
+        <span id="typed-inst"></span>
+      </span>.
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    new Typed('#typed-verb', {
+      strings: ['ponder', 'investigate', 'scrutinize', 'question', 'critique'],
+      typeSpeed: 50,
+      backSpeed: 30,
+      backDelay: 2000,
+      loop: true,
+      cursorChar: '',
+      onStringTyped: function(arrayPos) {
+      // 한 단어가 완성되면 색상 변경 애니메이션
+      document.querySelector('.verb-container').style.color = '#FF6B6B';
+    },
+    preStringTyped: function(arrayPos) {
+      // 새 단어 시작 전 색상 초기화
+      document.querySelector('.verb-container').style.color = 'initial';
+    }
+  });
+  
+    setTimeout(() => {
+      new Typed('#typed-inst', {
+        strings: ['Princeton', 'University of Washington', 'Seoul National University', 'United Nations', 'Administrative Conference of the United States'],
+        typeSpeed: 50,
+        backSpeed: 50,
+        backDelay: 2000,
+        loop: true,
+        cursorChar: '',
+        onStringTyped: function(arrayPos) {
+        document.querySelector('.inst-container').style.color = '#4ECDC4';
+      },
+      preStringTyped: function(arrayPos) {
+        document.querySelector('.inst-container').style.color = 'initial';
+      }
+    });
+  }, 1000);
+});
+  </script>
+  
+  <style>
+  .typewriter-container {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 2rem 0;
+  }
+  .line {
+    margin: 0.5rem 0;
+  }
+  .verb-container, .inst-container {
+  transition: color 0.3s ease;
+}
+  </style>
