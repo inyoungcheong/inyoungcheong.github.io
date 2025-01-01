@@ -15,7 +15,49 @@ social: true  # includes social icons at the bottom of the page
 </div>
 <br>
 
-{% include typewriter.html %}
+<div id="typewriter-container">
+  <div class="line" style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: bold; text-align: center;">
+    I <span id="verb-element"></span> AI Ethics;
+  </div>
+</div>
+
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var options = {
+      strings: ['ponder', 'question', 'experiment with', 'analyze', 'write about'],
+      typeSpeed: 50,
+      backSpeed: 30,
+      backDelay: 2000,
+      loop: true,
+      cursorChar: '',
+      onStringTyped: function(arrayPos) {
+        document.getElementById('verb-element').style.color = getRandomColor();
+      }
+    };
+
+    function getRandomColor() {
+      var colors = [
+        '#FF6B6B',
+        '#4ECDC4',
+        '#45B7D1',
+        '#96CEB4',
+        '#FFD93D'
+      ];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    var typed = new Typed('#verb-element', options);
+  });
+</script>
+
+<style>
+  #verb-element {
+    transition: color 0.3s ease;
+  }
+</style>
 
 <br>
 <br>
