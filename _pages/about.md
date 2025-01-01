@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Priceton University
+subtitle: Princeton University
 news: true  # includes a list of news items
 latest_posts: true  # includes a list of the newest posts
 selected_papers: true # includes a list of papers marked as "selected={true}"
@@ -33,7 +33,7 @@ social: true  # includes social icons at the bottom of the page
 
 <br>
 <br>
-I'm a postdoctoral researcher at the [Princeton Center for Information Technology Policy](https://citp.princeton.edu/), working with [Peter Henderson](https://www.peterhenderson.co/), and an Affiliate Faculty member at the University of Washington School of Law, where I was fortunate to learn from [Tadayoshi Kohno](https://homes.cs.washington.edu/~yoshi/), [Ryan Calo](https://www.law.uw.edu/directory/faculty/calo-ryan), and [Amy X. Zhang](https://homes.cs.washington.edu/~axz/). My research focuses on the social impacts of emerging AI technologies and developing socio-technical mitigations. Aligned with Kaminski & Jones' [perspective](https://www.yalelawjournal.org/forum/constructing-ai-speech), I view fundamental legal principles as actively shaping technology's meaning, not just reactively catching up to it. My interdisciplinary methods range from legal analysis to large-scale human subject studies. I enjoy collaborating with diverse scholars, leading to serendipitous insights. My work has been supported by the Fulbright Scholarship and OpenAI Democratic Inputs to AI Grant.
+I'm a postdoctoral researcher at the [Princeton Center for Information Technology Policy](https://citp.princeton.edu/), working with [Peter Henderson](https://www.peterhenderson.co/). I'm also an Affiliate Faculty member at the University of Washington School of Law, where I was fortunate to learn from [Tadayoshi Kohno](https://homes.cs.washington.edu/~yoshi/), [Ryan Calo](https://www.law.uw.edu/directory/faculty/calo-ryan), and [Amy X. Zhang](https://homes.cs.washington.edu/~axz/). My research focuses on the social impacts of emerging AI technologies and developing socio-technical mitigations. Aligned with Kaminski & Jones' [perspective](https://www.yalelawjournal.org/forum/constructing-ai-speech), I view fundamental legal principles as actively shaping technology's meaning, not just reactively catching up to it. My approach is deeply interdisciplinary, ranging from legal analysis to large-scale human subject studies. I thrive on collaborations with scholars from diverse backgrounds (law, computer science, sociology, psychology) and career levels, which often lead to serendipitous insights. My work has been supported by the Fulbright Scholarship and OpenAI Democratic Inputs to AI Grant.
 
 <!--I wrote <strong>[Freedom of Algorithmic Expression](https://scholarship.law.uc.edu/uclr/vol91/iss3/2/)</strong> (2023), which explored whether social media platforms' content moderation algorithms can be considered a form of speech under the First Amendment. My current focus is on <strong>[Generative AI and Law for Humanities](https://genlaw.github.io/CameraReady/32.pdf)</strong>. My thoughts on Generative AI and Fair Use appeared in the <strong>[Wall Street Journal](https://www.wsj.com/amp/articles/ai-chatgpt-dall-e-microsoft-rutkowski-github-artificial-intelligence-11675466857?mod=latest_headlines)</strong>.
 
