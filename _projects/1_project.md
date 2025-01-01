@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "T"echnology Law and Public Policy Seminar
+title: Technology Law and Public Policy Seminar
 description: Section 230, comparative privacy, ChatGPT, free speech 
 img: assets/img/9.jpg
 redirect: https://inyoungcheong.notion.site/inyoungcheong/LAW-E553-Technology-Law-and-Public-Policy-Seminar-79718cccf6f54679a2b0c7a08eaf6d5f

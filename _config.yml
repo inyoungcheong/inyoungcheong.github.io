@@ -243,9 +243,11 @@ defaults:
 # -----------------------------------------------------------------------------
 
 jekyll-minifier:
-  exclude: ['robots.txt']
-  uglifier:
+  exclude: ['robots.txt,' 'assets/js/typewriter.js']
+  uglifier_args:
     harmony: true
+  compress_css: true
+  compress_javascript: true
 
 # -----------------------------------------------------------------------------
 # Jekyll Archives
