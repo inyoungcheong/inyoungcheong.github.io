@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Princeton University
+subtitle: Princeton CITP
 news: true  # includes a list of news items
 latest_posts: true  # includes a list of the newest posts
 selected_papers: true # includes a list of papers marked as "selected={true}"
@@ -19,7 +19,7 @@ social: true  # includes social icons at the bottom of the page
 
 <br>
 <br>
-I'm a postdoctoral researcher at the [Princeton Center for Information Technology Policy](https://citp.princeton.edu/), working with [Peter Henderson](https://www.peterhenderson.co/). I'm also an Affiliate Faculty member at the University of Washington School of Law, where I was fortunate to learn from [Tadayoshi Kohno](https://homes.cs.washington.edu/~yoshi/), [Ryan Calo](https://www.law.uw.edu/directory/faculty/calo-ryan), and [Amy X. Zhang](https://homes.cs.washington.edu/~axz/). My research focuses on the social impacts of emerging AI technologies and developing socio-technical mitigations. Aligned with Kaminski & Jones' [perspective](https://www.yalelawjournal.org/forum/constructing-ai-speech), I view fundamental legal principles as actively shaping technology's meaning, not just reactively catching up to it. My approach is deeply interdisciplinary, ranging from legal analysis to large-scale human subject studies. I thrive on collaborations with scholars from diverse backgrounds (law, computer science, sociology, psychology) and career levels, which often lead to serendipitous insights. My work has been supported by the Fulbright Scholarship and OpenAI Democratic Inputs to AI Grant.
+I'm a postdoctoral researcher at the [Princeton Center for Information Technology Policy](https://citp.princeton.edu/citp-people/inyoung-cheong/), working with [Peter Henderson](https://www.peterhenderson.co/). I'm also an Affiliate Faculty member at the University of Washington School of Law, where I was fortunate to learn from [Tadayoshi Kohno](https://homes.cs.washington.edu/~yoshi/), [Ryan Calo](https://www.law.uw.edu/directory/faculty/calo-ryan), and [Amy X. Zhang](https://homes.cs.washington.edu/~axz/). My research focuses on the social impacts of emerging AI technologies and developing socio-technical mitigations. Aligned with Kaminski & Jones' [perspective](https://www.yalelawjournal.org/forum/constructing-ai-speech), I view fundamental legal principles as actively shaping technology's meaning, not just reactively catching up to it. My approach is deeply interdisciplinary, ranging from legal analysis to large-scale human subject studies. I thrive on collaborations with scholars from diverse backgrounds (law, computer science, sociology, psychology) and career levels, which often lead to serendipitous insights. My work has been supported by the Fulbright Scholarship and OpenAI Democratic Inputs to AI Grant.
 
 
 <table>
