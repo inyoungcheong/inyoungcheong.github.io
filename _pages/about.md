@@ -34,10 +34,11 @@ social: true  # includes social icons at the bottom of the page
       strings: [
         'ponder',
         'question',
-        'explore',
         'write about',
         'wrestle with',
-        'critique'
+        'investigate',
+        'critique', 
+        'envision'
       ],
       typeSpeed: 50,
       backSpeed: 30,
