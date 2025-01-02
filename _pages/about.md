@@ -21,7 +21,7 @@ social: true  # includes social icons at the bottom of the page
 <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 
 <div class="typewriter-container">
-  <span>I <span id="verb"></span> laws for AI.</span>
+  <span>I <span id="verb"></span> AI ethics.</span>
 </div>
 
 
@@ -37,7 +37,7 @@ social: true  # includes social icons at the bottom of the page
         'explore',
         'write about',
         'wrestle with',
-        'advocate for'
+        'critique'
       ],
       typeSpeed: 50,
       backSpeed: 30,
