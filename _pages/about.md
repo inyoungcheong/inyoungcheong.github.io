@@ -15,18 +15,15 @@ social: true  # includes social icons at the bottom of the page
 </div>
 <br>
 
-<div id="typewriter-container">
-  <div class="line" style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: bold; text-align: center;">
-    I <span id="verb-element"></span> AI Ethics;
-  </div>
-</div>
+
 
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
 <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 
 <div class="typewriter-container">
-  <span>I <span id="verb"></span> AI Ethics;</span>
+  <span>I <span id="verb"></span> laws for AI.</span>
 </div>
+
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap">
 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
@@ -36,10 +33,11 @@ social: true  # includes social icons at the bottom of the page
     new Typed('#verb', {
       strings: [
         'ponder',
-        'advocate for',
+        'question',
         'explore',
+        'write about',
         'wrestle with',
-        'write about'
+        'advocate for'
       ],
       typeSpeed: 50,
       backSpeed: 30,
