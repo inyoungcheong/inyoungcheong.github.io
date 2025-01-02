@@ -9,13 +9,7 @@
   {% include head.html %}
   </head>
 
-  <!-- React 및 ReactDOM 스크립트 -->
-<script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
-<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
-
-<!-- TypewriterComponent 스크립트 -->
-<script src="{{ '/assets/js/typewriter.js' | relative_url }}"></script>
-
+ 
   <!-- Body -->
   <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
 
