@@ -7,8 +7,6 @@ tags: Academic Life
 giscus_comments: true
 related_posts: false
 published: true
-toc:
-  beginning: true
 ---
 
 ```yml

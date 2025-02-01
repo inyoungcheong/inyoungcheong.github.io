@@ -8,8 +8,6 @@ categories: Personal_life
 tag: fun
 published: true
 related_posts: false
-toc:
-  sidebar: left
 ---
 
 <p></p>

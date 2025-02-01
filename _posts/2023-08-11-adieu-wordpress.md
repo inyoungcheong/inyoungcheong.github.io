@@ -8,8 +8,6 @@ categories: Academic_life
 tag: coding
 published: true
 related_posts: false
-toc:
-  sidebar: left
 ---
 
 ## Why Having My Own Website Matters

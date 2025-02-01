@@ -6,8 +6,6 @@ description: Lawyers perspectives on when AI chatbots can appropriately provide 
 categories: Musings_on_AI, Academic_life
 published: true
 comments: true
-toc: 
-    sidebar: left
 ---
 
 Our team was selected by OpenAI for their [Democratic Inputs to AI](https://openai.com/blog/democratic-inputs-to-ai) project. Through this support, we pioneered participatory research establishing a case-based approach for professional AI advice systems. [Our project website](http://social.cs.washington.edu/case-law-ai-policy/) and [our paper](https://arxiv.org/abs/2311.10934) selected for NeurIPS 2023 MP2 Workshop details the process. As part of this work, I led an expert workshop eliciting perspectives on the appropriateness of legal guidance from AI chatbots. This blog post summarizes key insights on ensuring responsible, ethical AI assistance in the legal domain.

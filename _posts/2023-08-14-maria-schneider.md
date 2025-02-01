@@ -8,8 +8,6 @@ categories: Book_review
 tag: books
 published: true
 related_posts: false
-toc:
-  sidebar: left
 ---
 
 

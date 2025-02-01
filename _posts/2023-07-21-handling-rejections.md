@@ -8,8 +8,6 @@ categories: Academic_life
 tag: frustrations
 related_posts: false
 published: true
-toc:
-  sidebar: left
 ---
 
 ### Hello, Dallas! 
