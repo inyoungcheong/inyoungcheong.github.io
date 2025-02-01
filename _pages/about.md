@@ -81,7 +81,7 @@ I'm a postdoctoral researcher at the [Princeton Center for Information Technolog
   </colgroup>
   <tbody>
     <tr>
-      <td markdown="span">📑 <a href="/assets/pdf/CV20240509.pdf"><strong>CV</strong></a> 🔗 <a href="https://www.linkedin.com/in/inyoungcheong"><strong>LinkedIn</strong></a>   🎓 <a href="https://scholar.google.com/citations?user=xwZI_jcAAAAJ"><strong>Google Scholar</strong></a>   📖 <a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=3864423"><strong>SSRN</strong></a>   🌐 <a href="https://github.com/inyoungcheong"><strong>GitHub</strong></a>
+      <td markdown="span">📑 <a href="/assets/pdf/cv20250201.pdf"><strong>CV</strong></a> 🔗 <a href="https://www.linkedin.com/in/inyoungcheong"><strong>LinkedIn</strong></a>   🎓 <a href="https://scholar.google.com/citations?user=xwZI_jcAAAAJ"><strong>Google Scholar</strong></a>   📖 <a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=3864423"><strong>SSRN</strong></a>   🌐 <a href="https://github.com/inyoungcheong"><strong>GitHub</strong></a>
 </td>
     </tr>
   </tbody>
@@ -98,6 +98,18 @@ I'm a postdoctoral researcher at the [Princeton Center for Information Technolog
     <col width="80%" />
   </colgroup>
   <tbody>
+  <tr>
+      <td markdown="span">Feb. 2025</td>
+      <td markdown="span">Will be in Paris to speak at [IASEAI 2025](https://www.iaseai.org/conference/people/inyoung-cheong)! </td>
+    </tr>
+    <tr>
+      <td markdown="span">Oct. 2024</td>
+      <td markdown="span">Honored to speak at PLSC-Europe in Amsterdam. [Here](https://inyoungcheong.github.io/assets/pdf/autonomy.pdf) is my draft. </td>
+    </tr>
+    <tr>
+      <td markdown="span">Oct. 2024</td>
+      <td markdown="span">Gave a talk at AI & Access to Justice, held by Stanford Legal Design Lab. </td>
+    </tr>
       <tr>
       <td markdown="span">Aug. 2024</td>
       <td markdown="span">Cannot believe that I finally defended my dissertation: "Collaborative Approaches to AI Governance: Exploring Co-Design and Co-Regulation Models"! 👉🏼[slide](https://inyoungcheong.github.io/assets/pdf/dissertationdeck.pdf), [PDF](https://inyoungcheong.github.io/assets/pdf/dissertation.pdf) </td>
