@@ -23,6 +23,7 @@ group :jekyll_plugins do
     gem 'jekyll-jupyter-notebook'
     gem 'execjs'
     gem 'unicode_utils'
+    gem `faraday-retry` 
     gem 'webrick'
 end
 
