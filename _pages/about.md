@@ -92,6 +92,8 @@ I'm a postdoctoral researcher at the [Princeton Center for Information Technolog
 <br>
 
 <p><strong><i> My Latest Highlights 🎵 </i></strong></p>
+<div style="max-height: 400px; overflow-y: auto; border: 1px solid #ddd; padding: 10px; border-radius: 6px; background-color: #f9f9f9;">
+
 <table>
   <colgroup>
     <col width="20%" />
@@ -178,6 +180,7 @@ I'm a postdoctoral researcher at the [Princeton Center for Information Technolog
     </tr>
   </tbody>
 </table>
+</div>
 <br>
 
 ### Research and Publications
