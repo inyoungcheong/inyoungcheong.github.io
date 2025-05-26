@@ -98,9 +98,21 @@ I'm a postdoctoral researcher at the [Princeton Center for Information Technolog
     <col width="80%" />
   </colgroup>
   <tbody>
-  <tr>
+    <tr>
+      <td markdown="span">June 2025</td>
+      <td markdown="span">Will be a part of [CHAI](https://humancompatible.ai/) Workshop this year. Excited to mingle with AI safety researchers for four days! </td>
+    </tr>
+    <tr>
+      <td markdown="span">May. 2025</td>
+      <td markdown="span">Will present ``Human-centered First Amendment'' at the [Privacy Law Scholars Conference 2025](https://privacyscholars.org/plsc-2025-announcements/). </td>
+    </tr>
+    <tr>
+      <td markdown="span">April 2025</td>
+      <td markdown="span">Presented ``Human-centered First Amendment'' at the [Freedom of Expression Scholars Conference 2025](https://law.yale.edu/isp/initiatives/floyd-abrams-institute-freedom-expression/freedom-expression-scholars-conference). </td>
+    </tr>
+    <tr>
       <td markdown="span">Feb. 2025</td>
-      <td markdown="span">Will be in Paris to speak at [IASEAI 2025](https://www.iaseai.org/conference/people/inyoung-cheong)! </td>
+      <td markdown="span">Gave a talk at [IASEAI 2025](https://www.iaseai.org/conference/people/inyoung-cheong)! Steven Kelts wrote a great [CITP blog post](https://blog.citp.princeton.edu/2025/02/11/balancing-free-speech-safety-envisioning-a-human-centered-first-amendment-for-ai-regulation-techtakes/) about my talk. </td>
     </tr>
     <tr>
       <td markdown="span">Oct. 2024</td>
