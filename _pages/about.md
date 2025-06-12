@@ -102,31 +102,31 @@ I'm a postdoctoral researcher at the [Princeton Center for Information Technolog
   <tbody>
     <tr>
       <td markdown="span">June 2025</td>
-      <td markdown="span">Will be a part of [CHAI](https://humancompatible.ai/) Workshop this year. Excited to mingle with AI safety researchers for four days! </td>
+      <td markdown="span">Run a tutorial on [the Emotional Reliance on AI](https://sites.google.com/princeton.edu/emotion) at [CHAI 2025 Workshop](https://workshop.humancompatible.ai/).</td>
     </tr>
     <tr>
       <td markdown="span">May. 2025</td>
-      <td markdown="span">Will present ``Human-centered First Amendment'' at the [Privacy Law Scholars Conference 2025](https://privacyscholars.org/plsc-2025-announcements/). </td>
+      <td markdown="span">Present a draft,``Human-centered First Amendment'' at the [Privacy Law Scholars Conference 2025](https://privacyscholars.org/plsc-2025-announcements/). </td>
     </tr>
     <tr>
       <td markdown="span">April 2025</td>
-      <td markdown="span">Presented ``Human-centered First Amendment'' at the [Freedom of Expression Scholars Conference 2025](https://law.yale.edu/isp/initiatives/floyd-abrams-institute-freedom-expression/freedom-expression-scholars-conference). </td>
+      <td markdown="span">Present a draft, ``Human-centered First Amendment'' at the [Freedom of Expression Scholars Conference 2025](https://law.yale.edu/isp/initiatives/floyd-abrams-institute-freedom-expression/freedom-expression-scholars-conference). </td>
     </tr>
     <tr>
       <td markdown="span">Feb. 2025</td>
-      <td markdown="span">Gave a talk at [IASEAI 2025](https://www.iaseai.org/conference/people/inyoung-cheong)! Steven Kelts wrote a great [CITP blog post](https://blog.citp.princeton.edu/2025/02/11/balancing-free-speech-safety-envisioning-a-human-centered-first-amendment-for-ai-regulation-techtakes/) about my talk. </td>
+      <td markdown="span">Give a talk at [IASEAI 2025](https://www.iaseai.org/conference/people/inyoung-cheong)! Steven Kelts writes a great [CITP blog post](https://blog.citp.princeton.edu/2025/02/11/balancing-free-speech-safety-envisioning-a-human-centered-first-amendment-for-ai-regulation-techtakes/) about my talk. </td>
     </tr>
     <tr>
       <td markdown="span">Oct. 2024</td>
-      <td markdown="span">Honored to speak at PLSC-Europe in Amsterdam. [Here](https://inyoungcheong.github.io/assets/pdf/autonomy.pdf) is my draft. </td>
+      <td markdown="span">Present a draft, ``[AI Manipulation and Individual Autonomy](https://inyoungcheong.github.io/assets/pdf/autonomy.pdf)'' at PLSC-Europe in Amsterdam. </td>
     </tr>
     <tr>
       <td markdown="span">Oct. 2024</td>
-      <td markdown="span">Gave a talk at AI & Access to Justice, held by Stanford Legal Design Lab. </td>
+      <td markdown="span">Give a talk at AI & Access to Justice, held by Stanford Legal Design Lab [Medium](https://medium.com/legal-design-and-innovation/ai-access-to-justice-webinar-series-ai-in-practice-eb297e9adb78). </td>
     </tr>
       <tr>
       <td markdown="span">Aug. 2024</td>
-      <td markdown="span">Cannot believe that I finally defended my dissertation: "Collaborative Approaches to AI Governance: Exploring Co-Design and Co-Regulation Models"! 👉🏼[slide](https://inyoungcheong.github.io/assets/pdf/dissertationdeck.pdf), [PDF](https://inyoungcheong.github.io/assets/pdf/dissertation.pdf) </td>
+      <td markdown="span">Defends my dissertation: "Collaborative Approaches to AI Governance: Exploring Co-Design and Co-Regulation Models"! 👉🏼[slide](https://inyoungcheong.github.io/assets/pdf/dissertationdeck.pdf), [PDF](https://inyoungcheong.github.io/assets/pdf/dissertation.pdf) </td>
     </tr>
       <tr>
       <td markdown="span">Jul. 2024</td>
@@ -139,12 +139,12 @@ I'm a postdoctoral researcher at the [Princeton Center for Information Technolog
     </tr>
     <tr>
       <td markdown="span">April. 2024</td>
-      <td markdown="span">Will be in New Haven once again to present my manuscript on "Manipulative Technologies, Privacy, and Free Speech Values" at the [Freedom of Expression Scholars Conference 2024](https://law.yale.edu/isp/about/initiatives/floyd-abrams-institute-freedom-expression/freedom-expression-scholars-conference)! (if you want to read it, [here](https://inyoungcheong.github.io/assets/pdf/manipulative.pdf) it is!) </td>
+      <td markdown="span">Presents my manuscript on "Manipulative Technologies, Privacy, and Free Speech Values" at the [Freedom of Expression Scholars Conference 2024](https://law.yale.edu/isp/about/initiatives/floyd-abrams-institute-freedom-expression/freedom-expression-scholars-conference)! (if you want to read it, [here](https://inyoungcheong.github.io/assets/pdf/manipulative.pdf) it is!) </td>
     </tr>
     <tr>
       <td markdown="span">Mar. 2024</td>
       <td markdown="span">Our paper, [(A)I Am Not a Lawyer, But...: Engaging Legal Experts towards Responsible
-  LLM Policies for Legal Advice](https://arxiv.org/abs/2402.01864), was accepted for the <strong>ACM FAcct 2024</strong>!⭐ </td>
+  LLM Policies for Legal Advice](https://arxiv.org/abs/2402.01864), is accepted for the <strong>ACM FAcct 2024</strong>!⭐ </td>
     </tr>
   <tr>
       <td markdown="span">Feb. 2024</td>
@@ -152,11 +152,11 @@ I'm a postdoctoral researcher at the [Princeton Center for Information Technolog
     </tr>
   <tr>
       <td markdown="span">Jan. 2024</td>
-      <td markdown="span">Gave a talk on AI regulation and interdisciplinary research culture in the US to South Korean scholars/attorneys/policymakers at the AI Law and Policy Association Symposium. ([presentation](https://inyoungcheong.github.io/assets/pdf/AIlawtech.pdf)) </td>
+      <td markdown="span">Give a talk on AI regulation and interdisciplinary research culture in the US to South Korean scholars/attorneys/policymakers at the AI Law and Policy Association Symposium. ([presentation](https://inyoungcheong.github.io/assets/pdf/AIlawtech.pdf)) </td>
     </tr>
   <tr>
       <td markdown="span">Dec. 2023</td>
-      <td markdown="span">Attended NeurIPS 2023 in NOLA🎹🎷, [our paper](https://arxiv.org/abs/2311.10934) will be presented at [MP2 Workshop](https://aipsychphil.github.io/) (Moral Philsophy meets AI). Feel free to shoot me an email if you'd like to have a chat! </td>
+      <td markdown="span">Attend NeurIPS 2023 in NOLA🎹🎷, [our paper](https://arxiv.org/abs/2311.10934) will be presented at [MP2 Workshop](https://aipsychphil.github.io/) (Moral Philsophy meets AI). Feel free to shoot me an email if you'd like to have a chat! </td>
     </tr>
   <tr>
       <td markdown="span">Nov. 2023</td>
@@ -164,11 +164,11 @@ I'm a postdoctoral researcher at the [Princeton Center for Information Technolog
     </tr>
       <tr>
       <td markdown="span">Oct. 2023</td>
-      <td markdown="span">Thrilled to have returned to South Korea to present on "Legal Perspectives on AI Alignment, Evaluation & Interpretability" at the Korea Association for Telecom Policies Conference. 👩‍⚖️🌏 Wonderful reconnecting with experts across tech policy, industry and academia after years. ([poster](https://inyoungcheong.github.io/assets/img/aikoreanposter.pdf), [paper](https://inyoungcheong.github.io/assets/pdf/ailawkorean.pdf))</td>
+      <td markdown="span">Present on "Legal Perspectives on AI Alignment, Evaluation & Interpretability" at the Korea Association for Telecom Policies Conference. 👩‍⚖️🌏 Wonderful reconnecting with experts across tech policy, industry and academia after years. ([poster](https://inyoungcheong.github.io/assets/img/aikoreanposter.pdf), [paper](https://inyoungcheong.github.io/assets/pdf/ailawkorean.pdf))</td>
     </tr>
     <tr>
       <td markdown="span">Sep. 2023</td>
-      <td markdown="span">Gave a talk on South Korea's multistakeholder content governance at the [Trust & Safety Research Conference](https://conferences.law.stanford.edu/tsrc/sessions/research-session-6/) at Stanford Observatory. </td>
+      <td markdown="span">Give a talk on South Korea's multistakeholder content governance at the [Trust & Safety Research Conference](https://conferences.law.stanford.edu/tsrc/sessions/research-session-6/) at Stanford Observatory. </td>
     </tr>
     <tr>
       <td markdown="span">Aug. 2023</td>
