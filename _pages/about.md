@@ -11,7 +11,7 @@ social: true  # includes social icons at the bottom of the page
 
 
 <div style="text-align: center;">
-  <img src="assets/img/blog/profile9.png" width="350" height="350"> 
+  <img src="assets/img/blog/inyoung-beigi.jpg" width="350" height="350"> 
 </div>
 <br>
 
