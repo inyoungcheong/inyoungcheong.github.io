@@ -1,8 +1,8 @@
 ---
 layout: page
-title: kitten timer
-permalink: /kitten-timer/
-description: A fun cat-themed productivity tracker with pomodoro timer and goal tracking.
+title: productivity
+permalink: /productivity/
+description: I created this interactive timer as a personal motivation tool, inspired by insights from Howard S. Becker's <Writing for Social Scientists>. When life hands you tangerines, remember that the sky is vast enough for all our dreams! Remember your frustration today is proof of how deeply you care about your goals.
 nav: true
 nav_order: 5
 ---
@@ -290,13 +290,13 @@ nav_order: 5
 
 <div class="productivity-app">
     <div class="container-app">
-        <h1 class="app-title">🐱 Productivity Pomodoro Timer 🍊</h1>
+        <h1 class="app-title">🐱 Cat Productivity Tracker 🍊</h1>
 
         <!-- Goal Setting Section -->
         <div class="section">
             <h2>📝 Daily Goals</h2>
             <div class="goal-input">
-                <input type="text" id="goal1" placeholder="Goal 1: The thing you hate the most! 🎯">
+                <input type="text" id="goal1" placeholder="Goal 1: What's your 'I can't believe I finally did this' moment? 🎯">
                 <select id="sessions1">
                     <option value="1">1 session</option>
                     <option value="2">2 sessions</option>
@@ -306,7 +306,7 @@ nav_order: 5
                 </select>
             </div>
             <div class="goal-input">
-                <input type="text" id="goal2" placeholder="Goal 2: The thing that make you excited 🎯">
+                <input type="text" id="goal2" placeholder="Goal 2: What do you hate the most but have to accomplish? 🎯">
                 <select id="sessions2">
                     <option value="1">1 session</option>
                     <option value="2">2 sessions</option>
@@ -316,8 +316,28 @@ nav_order: 5
                 </select>
             </div>
             <div class="goal-input">
-                <input type="text" id="goal3" placeholder="Goal 3: The thing that complete your day 🎯">
+                <input type="text" id="goal3" placeholder="Goal 3: What task are you secretly excited about? 🎯">
                 <select id="sessions3">
+                    <option value="1">1 session</option>
+                    <option value="2">2 sessions</option>
+                    <option value="3">3 sessions</option>
+                    <option value="4">4 sessions</option>
+                    <option value="5">5 sessions</option>
+                </select>
+            </div>
+            <div class="goal-input">
+                <input type="text" id="goal4" placeholder="Goal 4: What task would your future self thank you for? 🎯">
+                <select id="sessions4">
+                    <option value="1">1 session</option>
+                    <option value="2">2 sessions</option>
+                    <option value="3">3 sessions</option>
+                    <option value="4">4 sessions</option>
+                    <option value="5">5 sessions</option>
+                </select>
+            </div>
+            <div class="goal-input">
+                <input type="text" id="goal5" placeholder="Goal 5: What would impress your past self? 🎯">
+                <select id="sessions5">
                     <option value="1">1 session</option>
                     <option value="2">2 sessions</option>
                     <option value="3">3 sessions</option>
@@ -369,6 +389,16 @@ nav_order: 5
                     <div class="basket-count">Goal 3 Progress</div>
                     <div class="tangerine-count" id="count3">🍊 × 0</div>
                 </div>
+                <div class="basket" id="basket4" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <div class="basket-header">🐱 Kitten 4</div>
+                    <div class="basket-count">Goal 4 Progress</div>
+                    <div class="tangerine-count" id="count4">🍊 × 0</div>
+                </div>
+                <div class="basket" id="basket5" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <div class="basket-header">🐱 Kitten 5</div>
+                    <div class="basket-count">Goal 5 Progress</div>
+                    <div class="tangerine-count" id="count5">🍊 × 0</div>
+                </div>
                 <div class="basket" id="basketIdle" ondrop="drop(event)" ondragover="allowDrop(event)">
                     <div class="basket-header">😴 Idle Kitten</div>
                     <div class="basket-count">Distracted Time</div>
@@ -409,7 +439,7 @@ nav_order: 5
             totalSessions: 0,
             focusTime: 0,
             tangerineCount: 0,
-            baskets: { 1: 0, 2: 0, 3: 0, idle: 0 }
+            baskets: { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, idle: 0 }
         };
 
         // Audio functions
@@ -546,7 +576,7 @@ nav_order: 5
             postItsContainer.innerHTML = '';
             goals = [];
             
-            for (let i = 1; i <= 3; i++) {
+            for (let i = 1; i <= 5; i++) {
                 const goalInput = document.getElementById(`goal${i}`);
                 const sessionsSelect = document.getElementById(`sessions${i}`);
                 
