@@ -3,8 +3,7 @@ layout: page
 title: fun tracker
 permalink: /timer/
 description: I created this interactive timer as a personal motivation tool, inspired by insights from Howard S. Becker's <Writing for Social Scientists>. When life hands you tangerines, remember that the sky is vast enough for all our dreams! Remember your frustration today is proof of how deeply you care about your goals.
-nav: true
-nav_order: 5
+nav: false
 ---
 
 <style>
