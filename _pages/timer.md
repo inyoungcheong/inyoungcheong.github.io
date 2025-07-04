@@ -52,25 +52,6 @@ nav_order: 5
             font-size: 1.8em;
         }
 
-        /* Debug Panel */
-        .debug-panel {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 15px;
-            border-radius: 10px;
-            font-family: monospace;
-            font-size: 12px;
-            z-index: 1000;
-            max-width: 300px;
-        }
-
-        .debug-panel h3 {
-            margin-bottom: 10px;
-            color: #74b9ff;
-        }
 
         /* Goal Setting */
         .goal-input {
