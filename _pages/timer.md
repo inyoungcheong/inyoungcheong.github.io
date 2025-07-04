@@ -378,7 +378,7 @@ nav_order: 5
 
 <div class="productivity-app">
     <div class="container-app">
-        <h1 class="app-title">🐱 Enhanced Cat Productivity Tracker 🍊</h1>
+        <h1 class="app-title">🐱 When Life Gives You Tangerines 🍊</h1>
 
         <!-- Goal Setting Section -->
         <div class="section">
