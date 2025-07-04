@@ -52,7 +52,6 @@ nav_order: 5
             font-size: 1.8em;
         }
 
-
         /* Goal Setting */
         .goal-input {
             display: flex;
@@ -100,6 +99,7 @@ nav_order: 5
             gap: 20px;
             flex-wrap: wrap;
             margin-top: 20px;
+            min-height: 50px;
         }
 
         .post-it {
@@ -192,6 +192,13 @@ nav_order: 5
             padding: 20px;
             margin-top: 20px;
             overflow: hidden;
+        }
+
+        .game-placeholder {
+            text-align: center;
+            margin-top: 150px;
+            color: white;
+            font-size: 1.2em;
         }
 
         /* Improved Tangerine Animation */
@@ -367,36 +374,11 @@ nav_order: 5
         .hidden {
             display: none;
         }
-
-        /* Test Button */
-        .test-btn {
-            background: #e84393;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-size: 14px;
-            cursor: pointer;
-            margin: 10px;
-        }
-    </style>
+</style>
 
 <div class="productivity-app">
     <div class="container-app">
         <h1 class="app-title">🐱 Enhanced Cat Productivity Tracker 🍊</h1>
-
-        <!-- Debug Panel -->
-        <div class="debug-panel">
-            <h3>🔧 Debug Info</h3>
-            <div id="debugInfo">
-                Timer Mode: <span id="debugMode">focus</span><br>
-                Time Left: <span id="debugTime">25:00</span><br>
-                Is Running: <span id="debugRunning">false</span><br>
-                Tangerines: <span id="debugTangerines">0</span><br>
-                Last Action: <span id="debugAction">None</span>
-            </div>
-            <button class="test-btn" onclick="testTangerine()">🧪 Test Tangerine</button>
-        </div>
 
         <!-- Goal Setting Section -->
         <div class="section">
@@ -456,7 +438,7 @@ nav_order: 5
             <p>When a focus session ends, tangerines fall from the sky! Drag them to the correct kitten basket. 🐱</p>
             
             <div class="game-area" id="gameArea">
-                <div style="text-align: center; margin-top: 150px; color: white; font-size: 1.2em;">
+                <div class="game-placeholder">
                     Complete a focus session to see magical tangerines fall! ✨
                 </div>
             </div>
@@ -507,7 +489,7 @@ nav_order: 5
 </div>
 
 <script>
-        // Enhanced App state with debugging
+        // App state
         let timer = null;
         let timeLeft = 25 * 60;
         let currentMode = 'focus';
@@ -520,26 +502,7 @@ nav_order: 5
             baskets: { 1: 0, 2: 0, 3: 0, idle: 0 }
         };
 
-        // Debug functions
-        function updateDebugInfo() {
-            document.getElementById('debugMode').textContent = currentMode;
-            document.getElementById('debugTime').textContent = `${Math.floor(timeLeft / 60)}:${(timeLeft % 60).toString().padStart(2, '0')}`;
-            document.getElementById('debugRunning').textContent = isRunning;
-            document.getElementById('debugTangerines').textContent = document.querySelectorAll('.tangerine').length;
-        }
-
-        function logAction(action) {
-            document.getElementById('debugAction').textContent = action;
-            console.log(`🐱 Action: ${action}, Mode: ${currentMode}, Time: ${timeLeft}, Running: ${isRunning}`);
-        }
-
-        // Test function for debugging
-        function testTangerine() {
-            logAction('Test Tangerine Dropped');
-            dropTangerine();
-        }
-
-        // Enhanced Audio functions
+        // Audio functions
         function playSound(frequency, duration, type = 'sine') {
             try {
                 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -563,14 +526,12 @@ nav_order: 5
         }
 
         function playStartSound() {
-            logAction('Start Sound Played');
             playSound(523, 0.2); // C5
             setTimeout(() => playSound(659, 0.2), 100); // E5
             setTimeout(() => playSound(784, 0.3), 200); // G5
         }
 
         function playCompleteSound() {
-            logAction('Complete Sound Played');
             playSound(523, 0.3); // C5
             setTimeout(() => playSound(659, 0.3), 150); // E5
             setTimeout(() => playSound(784, 0.3), 300); // G5
@@ -578,23 +539,20 @@ nav_order: 5
         }
 
         function playBreakSound() {
-            logAction('Break Sound Played');
             playSound(440, 0.4); // A4
             setTimeout(() => playSound(523, 0.4), 200); // C5
         }
 
         function playPauseSound() {
-            logAction('Pause Sound Played');
             playSound(349, 0.3); // F4
         }
 
-        // Enhanced Timer functions
+        // Timer functions
         function updateDisplay() {
             const minutes = Math.floor(timeLeft / 60);
             const seconds = timeLeft % 60;
             document.getElementById('timerDisplay').textContent = 
                 `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-            updateDebugInfo();
         }
 
         function clearActiveButtons() {
@@ -602,7 +560,7 @@ nav_order: 5
         }
 
         function startTimer(mode) {
-            logAction(`Starting Timer: ${mode}`);
+            console.log('Starting timer:', mode);
             
             // Clear any existing timer
             if (timer) {
@@ -654,7 +612,7 @@ nav_order: 5
         }
 
         function pauseTimer() {
-            logAction('Timer Paused');
+            console.log('Pausing timer');
             if (timer) {
                 clearInterval(timer);
                 timer = null;
@@ -662,12 +620,11 @@ nav_order: 5
                 clearActiveButtons();
                 document.getElementById('timerStatus').textContent = 'Timer paused ⏸️';
                 playPauseSound();
-                updateDebugInfo();
             }
         }
 
         function resetTimer() {
-            logAction('Timer Reset');
+            console.log('Resetting timer');
             if (timer) {
                 clearInterval(timer);
                 timer = null;
@@ -681,11 +638,9 @@ nav_order: 5
         }
 
         function timerComplete() {
-            logAction(`Timer Complete: ${currentMode}`);
+            console.log('Timer complete:', currentMode);
             isRunning = false;
             clearActiveButtons();
-            
-            console.log('🔍 Timer completed in mode:', currentMode);
             
             if (currentMode === 'focus') {
                 stats.totalSessions++;
@@ -693,11 +648,10 @@ nav_order: 5
                 document.getElementById('timerStatus').textContent = 'Focus session complete! Amazing work! 🎉';
                 playCompleteSound();
                 
-                // GUARANTEED tangerine drop
-                console.log('🍊 About to drop tangerine...');
+                // Drop tangerine after short delay
                 setTimeout(() => {
                     dropTangerine();
-                }, 500); // Small delay for effect
+                }, 500);
                 
             } else {
                 document.getElementById('timerStatus').textContent = 'Break complete! Ready to focus? 🐱';
@@ -705,12 +659,11 @@ nav_order: 5
             }
             
             updateStats();
-            updateDebugInfo();
         }
 
-        // Enhanced Goal functions
+        // Goal functions
         function createPostIts() {
-            logAction('Post-its Created');
+            console.log('Creating post-its');
             const postItsContainer = document.getElementById('postIts');
             postItsContainer.innerHTML = '';
             goals = [];
@@ -719,7 +672,7 @@ nav_order: 5
                 const goalInput = document.getElementById(`goal${i}`);
                 const sessionsSelect = document.getElementById(`sessions${i}`);
                 
-                if (goalInput.value.trim()) {
+                if (goalInput && goalInput.value.trim()) {
                     const goal = {
                         text: goalInput.value.trim(),
                         sessions: parseInt(sessionsSelect.value)
@@ -742,60 +695,50 @@ nav_order: 5
                     }
                 }
             }
+            
+            if (goals.length === 0) {
+                postItsContainer.innerHTML = '<p style="color: #636e72; font-style: italic;">Enter your goals above and click the button!</p>';
+            }
         }
 
-        // Enhanced Tangerine functions
+        // Tangerine functions
         function dropTangerine() {
-            logAction('Tangerine Dropped!');
+            console.log('Dropping tangerine!');
             const gameArea = document.getElementById('gameArea');
             
-            // Clear the placeholder text
+            // Clear placeholder
             gameArea.innerHTML = '';
             
-            // Create tangerine element
+            // Create tangerine
             const tangerine = document.createElement('div');
             tangerine.className = 'tangerine falling';
             tangerine.textContent = '🍊';
             tangerine.draggable = true;
             tangerine.id = `tangerine-${Date.now()}`;
             
-            // Random horizontal position (with margin from edges)
-            const gameAreaRect = gameArea.getBoundingClientRect();
-            const maxX = gameAreaRect.width - 80; // Account for tangerine size
-            const randomX = Math.random() * maxX + 40; // Add some margin
-            
+            // Position tangerine
+            const randomX = Math.random() * 300 + 50;
             tangerine.style.left = randomX + 'px';
-            tangerine.style.top = '-50px'; // Start above the area
+            tangerine.style.top = '-50px';
             
-            // Add event listeners
+            // Add drag event
             tangerine.addEventListener('dragstart', drag);
-            tangerine.addEventListener('click', () => {
-                console.log('🍊 Tangerine clicked!');
-            });
             
             // Add to game area
             gameArea.appendChild(tangerine);
             
-            console.log('🍊 Tangerine element created:', tangerine);
-            console.log('🍊 Game area children:', gameArea.children.length);
-            
-            // Remove falling animation and set final position
+            // Complete animation
             setTimeout(() => {
                 if (tangerine.parentElement) {
                     tangerine.classList.remove('falling');
-                    tangerine.style.top = '280px'; // Final resting position
-                    console.log('🍊 Tangerine animation complete');
+                    tangerine.style.top = '280px';
                 }
-            }, 3000); // Match animation duration
-            
-            updateDebugInfo();
+            }, 3000);
         }
 
-        // Enhanced Drag and drop functions
+        // Drag and drop functions
         function drag(ev) {
-            logAction('Tangerine Drag Started');
             ev.dataTransfer.setData("text", ev.target.id);
-            console.log('🖱️ Dragging:', ev.target.id);
         }
 
         function allowDrop(ev) {
@@ -811,7 +754,6 @@ nav_order: 5
             const tangerine = document.getElementById(data);
             
             if (tangerine) {
-                logAction('Tangerine Dropped in Basket');
                 const basketId = ev.currentTarget.id;
                 let basketNumber;
                 
@@ -821,20 +763,49 @@ nav_order: 5
                     basketNumber = parseInt(basketId.replace('basket', ''));
                 }
                 
-                // Update basket count
+                // Update stats
                 stats.baskets[basketNumber]++;
                 stats.tangerineCount++;
                 
                 // Update display
                 const countElement = document.getElementById(`count${basketNumber === 'idle' ? 'Idle' : basketNumber}`);
-                countElement.textContent = `🍊 × ${stats.baskets[basketNumber]}`;
+                if (countElement) {
+                    countElement.textContent = `🍊 × ${stats.baskets[basketNumber]}`;
+                }
                 
-                // Remove tangerine with effect
+                // Remove tangerine with animation
                 tangerine.style.transform = 'scale(0)';
                 tangerine.style.opacity = '0';
                 setTimeout(() => tangerine.remove(), 300);
                 
                 updateStats();
-                updateDebugInfo();
-                
-                console
+            }
+        }
+
+        // Stats functions
+        function updateStats() {
+            const totalElement = document.getElementById('totalSessions');
+            const focusElement = document.getElementById('focusTime');
+            const tangerineElement = document.getElementById('tangerineCount');
+            
+            if (totalElement) totalElement.textContent = stats.totalSessions;
+            if (focusElement) focusElement.textContent = stats.focusTime;
+            if (tangerineElement) tangerineElement.textContent = stats.tangerineCount;
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize drag events for baskets
+            document.querySelectorAll('.basket').forEach(basket => {
+                basket.addEventListener('dragleave', function(ev) {
+                    ev.currentTarget.classList.remove('drag-over');
+                });
+            });
+            
+            // Initialize display
+            updateDisplay();
+            updateStats();
+            
+            console.log('Cat timer initialized!');
+        });
+</script>
