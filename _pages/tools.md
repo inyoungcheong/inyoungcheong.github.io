@@ -1,10 +1,12 @@
+---
 layout: page
-title: tools
+title: apps
 nav: true
 nav_order: 5
 dropdown: true
-children:
-- title: kitten timer
-permalink: /timer/
-- title: daily planner
-permalink: /daily-planner/
+children: 
+    - title: fun tracker
+      permalink: /timer/
+    - title: daily planner
+      permalink: /daily-planner/
+---
