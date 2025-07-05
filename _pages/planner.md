@@ -18,7 +18,7 @@ nav_order: 6
 
   <div id="chat-messages" class="chat-messages">
     <div class="message bot">
-      Welcome! I'm your daily planning partner. I'll help you tackle postponed tasks and create actionable plans. Let's start with an inspiring quote and then dive into what's on your mind today! ✨
+      Welcome! I'm your daily planning partner. I'll help you tackle postponed tasks and create actionable plans. Let's start! ✨
     </div>
   </div>
 
@@ -230,9 +230,8 @@ class DailyPlannerBot {
     this.usageElement = document.getElementById('usage-count');
     this.rateLimitWarning = document.getElementById('rate-limit-warning');
     
-    this.conversationState = 'greeting';
-    this.context = [];
-    this.apiUrl = 'https://daily-planner-810676fsx-inyoungcheongs-projects.vercel.app/api/chat';
+    this.conversationId = null;
+    this.apiUrl = 'https://working-chatbot-api-production.up.railway.app/api/chat';
     
     // Rate limiting
     this.maxMessages = 30;
@@ -280,10 +279,10 @@ class DailyPlannerBot {
     this.setupEventListeners();
     this.updateUsageDisplay();
     
-    if (this.isRateLimited()) {
-      this.showRateLimit();
+    if (!this.isRateLimited()) {
+      this.enableInput();
     } else {
-      await this.startConversation();
+      this.showRateLimit();
     }
   }
 
@@ -295,28 +294,6 @@ class DailyPlannerBot {
         this.sendMessage();
       }
     });
-  }
-
-  async startConversation() {
-    this.enableInput();
-    
-    // Add initial inspirational quote
-    const quotes = [
-      "\"The way to get started is to quit talking and begin doing.\" - Walt Disney",
-      "\"The future depends on what you do today.\" - Mahatma Gandhi", 
-      "\"Don't watch the clock; do what it does. Keep going.\" - Sam Levenson",
-      "\"A year from now you may wish you had started today.\" - Karen Lamb",
-      "\"The secret of getting ahead is getting started.\" - Mark Twain"
-    ];
-    
-    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-    
-    setTimeout(() => {
-      this.addMessage(`✨ ${randomQuote}`, 'bot');
-      setTimeout(() => {
-        this.addMessage("Now, let's tackle what's been on your mind! What tasks or goals have you been postponing? What's making them feel challenging?", 'bot');
-      }, 1000);
-    }, 500);
   }
 
   async sendMessage() {
@@ -337,10 +314,14 @@ class DailyPlannerBot {
 
     try {
       const response = await this.callAPI(message);
-      await this.addMessage(response.message, 'bot');
-      this.updateConversationState();
+      this.addMessage(response.message, 'bot');
+      
+      // Update conversation ID if provided
+      if (response.conversationId) {
+        this.conversationId = response.conversationId;
+      }
     } catch (error) {
-      await this.addMessage('Sorry, I encountered an error. Please try again later.', 'bot');
+      this.addMessage('Sorry, I encountered an error. Please try again later.', 'bot');
       console.error('Error:', error);
       
       // Show more helpful error message
@@ -367,8 +348,7 @@ class DailyPlannerBot {
         },
         body: JSON.stringify({
           message,
-          conversationState: this.conversationState,
-          context: this.context.slice(-8) // Keep last 8 messages for context
+          conversationId: this.conversationId
         })
       });
 
@@ -398,41 +378,6 @@ class DailyPlannerBot {
     
     this.chatMessages.appendChild(messageDiv);
     this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
-
-    // Update context for API calls (only for user and bot messages)
-    if (sender === 'user' || sender === 'bot') {
-      this.context.push({
-        role: sender === 'user' ? 'user' : 'assistant',
-        content: text
-      });
-
-      // Keep context manageable (last 12 messages)
-      if (this.context.length > 12) {
-        this.context = this.context.slice(-12);
-      }
-    }
-  }
-
-  updateConversationState() {
-    const states = ['greeting', 'declutter', 'bite_size', 'daily_tasks', 'rewards', 'report'];
-    const currentIndex = states.indexOf(this.conversationState);
-    
-    if (currentIndex < states.length - 1) {
-      const userMessages = this.context.filter(msg => msg.role === 'user').length;
-      
-      // Progress through states based on conversation depth
-      if (userMessages >= 2 && this.conversationState === 'greeting') {
-        this.conversationState = 'declutter';
-      } else if (userMessages >= 4 && this.conversationState === 'declutter') {
-        this.conversationState = 'bite_size';
-      } else if (userMessages >= 6 && this.conversationState === 'bite_size') {
-        this.conversationState = 'daily_tasks';
-      } else if (userMessages >= 8 && this.conversationState === 'daily_tasks') {
-        this.conversationState = 'rewards';
-      } else if (userMessages >= 10 && this.conversationState === 'rewards') {
-        this.conversationState = 'report';
-      }
-    }
   }
 
   enableInput() {
