@@ -1,7 +1,7 @@
 ---
 layout: page
-title: daily planner
-permalink: /daily-planner/
+title: Flow Master
+permalink: /flow/
 description: A motivational AI partner to help plan your day and tackle postponed tasks with bite-sized actions.
 nav: false
 nav_order: 6
