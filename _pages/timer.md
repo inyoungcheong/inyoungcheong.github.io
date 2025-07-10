@@ -6,8 +6,6 @@ description: A pomodoro timer with my go-to ambient sounds.
 no_title: true
 no_description: true
 ---
-
-
 <style>
   :root {
     --light-bg: #fdfcf9;
@@ -68,11 +66,17 @@ no_description: true
     max-width: 100%;
   }
 
+  .goals h2, .log h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
   .goal-row {
     display: flex;
     gap: 0.5rem;
     align-items: center;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
     transition: opacity 0.3s ease;
   }
 
@@ -183,9 +187,9 @@ no_description: true
 
   .block {
     background-color: #eaeff5;
-    padding: 1rem;
-    border-radius: 10px;
-    margin-bottom: 0.75rem;
+    padding: 0.75rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
   }
 
   .unlabeled {
