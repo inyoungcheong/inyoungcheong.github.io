@@ -7,6 +7,7 @@ no_title: true
 no_description: true
 ---
 
+
 <style>
   :root {
     --light-bg: #fdfcf9;
@@ -147,7 +148,13 @@ no_description: true
   }
 
   svg text {
-    fill: white;
+    fill: var(--light-text);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    svg text {
+      fill: var(--dark-text);
+    }
   }
 
   .status {
