@@ -1,6 +1,6 @@
 ---
 layout: page
-title: fun tracker
+title: Minimalist Timer
 permalink: /timer/
 description: A pomodoro timer with my go-to ambient sounds. 
 ---
@@ -66,7 +66,6 @@ description: A pomodoro timer with my go-to ambient sounds.
   }
 </style>
 
-<h1>Focus Stacker Timer</h1>
 
 <div class="status" id="status">Focus time – let's go!</div>
 <div class="timer" id="timer">25:00</div>
