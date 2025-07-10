@@ -7,6 +7,7 @@ no_title: true
 no_description: true
 ---
 
+
 <style>
   :root {
     --light-bg: #fdfcf9;
@@ -246,10 +247,7 @@ no_description: true
   <div class="timer-section">
     <div class="section-header">
       <h2>Timer</h2>
-      <div class="section-description">What can you accomplish in focused 25-minute blocks? 🎵</div>
     </div>
-
-    <div class="status" id="status">Focus time – let's go!</div>
 
     <div class="circle-timer">
       <svg viewBox="0 0 100 100" width="200" height="200">
@@ -285,7 +283,6 @@ no_description: true
     <div class="goals">
       <div class="section-header">
         <h2>Today's Goals</h2>
-        <div class="section-description">What matters most today? Break it down.</div>
       </div>
       <div id="goalList"></div>
       <button class="add-goal-button" onclick="addGoal()">+ Add Goal</button>
@@ -294,7 +291,6 @@ no_description: true
     <div class="log">
       <div class="section-header">
         <h2>Today's Focus Blocks</h2>
-        <div class="section-description">What did you create? How did it feel?</div>
       </div>
       <div class="controls">
         <input type="text" id="taskInput" placeholder="What did you work on?">
@@ -392,6 +388,11 @@ function finalizeGoal(input) {
 
 // DOM이 로드된 후 실행
 document.addEventListener('DOMContentLoaded', function() {
+  // 기본으로 목표 3개 생성
+  for (let i = 0; i < 3; i++) {
+    addGoal();
+  }
+  
   // 페이지 로드 시 기존 목표들에 이벤트 리스너 추가
   setTimeout(function() {
     const goalInputs = document.querySelectorAll('.goal-row input[type="text"]:not([data-enhanced])');
