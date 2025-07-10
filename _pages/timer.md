@@ -7,6 +7,7 @@ no_title: true
 no_description: true
 ---
 
+
 <style>
   :root {
     --light-bg: #fdfcf9;
@@ -51,17 +52,8 @@ no_description: true
     position: relative;
   }
 
-  .circle-timer svg {
-    transform: rotate(-90deg);
-    width: 100%;
-    height: 100%;
-  }
-
-  .circle-timer text {
-    fill: var(--accent);
-    font-size: 1.8rem;
-    dominant-baseline: middle;
-    text-anchor: middle;
+  svg text {
+    fill: currentColor;
   }
 
   .status {
@@ -103,10 +95,10 @@ no_description: true
 <div class="status" id="status">Focus time – let's go!</div>
 
 <div class="circle-timer">
-  <svg viewBox="0 0 100 100">
-    <circle cx="50" cy="50" r="45" stroke="#eee" stroke-width="10" fill="none"/>
-    <circle id="progress" cx="50" cy="50" r="45" stroke="var(--accent)" stroke-width="10" fill="none" stroke-linecap="round" stroke-dasharray="282.6" stroke-dashoffset="0"/>
-    <text x="50" y="50" id="circleText">25:00</text>
+  <svg viewBox="0 0 100 100" width="200" height="200">
+    <circle cx="50" cy="50" r="45" fill="none" />
+    <path id="pie" fill="var(--accent)"></path>
+    <text x="50" y="55" text-anchor="middle" font-size="16" id="timerText">25:00</text>
   </svg>
 </div>
 
@@ -131,8 +123,6 @@ no_description: true
   </select>
 </div>
 
-<audio id="bgAudio" loop></audio>
-
 <div class="controls">
   <input type="text" id="taskInput" placeholder="What did you work on?">
   <button onclick="labelLastBlock()">Label Last Block</button>
@@ -150,14 +140,34 @@ let longBreakTime = 30 * 60;
 let time = focusTime;
 let timerInterval, timerRunning = false, isFocus = true, focusCount = 0, log = [];
 
+const pie = document.getElementById("pie");
+const timerText = document.getElementById("timerText");
+
+function polarToCartesian(cx, cy, r, angle) {
+  const rad = (angle - 90) * Math.PI / 180;
+  return [cx + r * Math.cos(rad), cy + r * Math.sin(rad)];
+}
+
+function drawPie(percent) {
+  const [cx, cy, r] = [50, 50, 45];
+  const angle = percent * 360;
+  const [x, y] = polarToCartesian(cx, cy, r, angle);
+  const largeArc = angle > 180 ? 1 : 0;
+  const d = `
+    M ${cx} ${cy}
+    L ${cx} ${cy - r}
+    A ${r} ${r} 0 ${largeArc} 1 ${x} ${y}
+    Z
+  `;
+  pie.setAttribute("d", d);
+}
+
 function updateDisplay() {
   const minutes = Math.floor(time / 60).toString().padStart(2, '0');
   const seconds = (time % 60).toString().padStart(2, '0');
-  document.getElementById("circleText").textContent = `${minutes}:${seconds}`;
-  const progress = document.getElementById("progress");
+  timerText.textContent = `${minutes}:${seconds}`;
   const total = isFocus ? focusTime : (focusCount % 4 === 0 ? longBreakTime : shortBreakTime);
-  const offset = 282.6 * (1 - time / total);
-  progress.setAttribute("stroke-dashoffset", offset.toFixed(1));
+  drawPie(time / total);
 }
 
 function updateStatus() {
@@ -169,7 +179,11 @@ function updateStatus() {
 function startTimer() {
   if (timerRunning) return;
   timerRunning = true;
-  document.getElementById("bgAudio").play();
+
+  if (audioContext && audioContext.state === 'suspended') {
+    audioContext.resume();
+  }
+
   updateStatus();
   timerInterval = setInterval(() => {
     time--;
@@ -199,7 +213,7 @@ function startTimer() {
 function pauseTimer() {
   clearInterval(timerInterval);
   timerRunning = false;
-  document.getElementById("bgAudio").pause();
+  stopAmbient();
 }
 
 function resetTimer() {
@@ -244,24 +258,51 @@ function renderLog() {
   });
 }
 
-function changeAmbient(mood) {
-  const bg = document.getElementById("bgAudio");
-  const sources = {
-    birds: "/assets/audio/park_birds.mp3",
-    morning: "/assets/audio/morning_park.mp3",
-    river: "/assets/audio/mountain_river.mp3",
-    summer: "/assets/audio/summer_lofi.mp3",
-    jazz: "/assets/audio/jazz_brush.mp3",
-    piano: "/assets/audio/piano.mp3",
-    keyboard: "/assets/audio/keyboard.mp3"
-  };
-  if (sources[mood]) {
-    bg.src = sources[mood];
-    bg.play();
-  } else {
-    bg.pause();
-    bg.src = '';
+// Web Audio API – seamless ambient playback
+let audioContext, sourceNode;
+const audioFiles = {
+  birds: "/assets/audio/park_birds.mp3",
+  morning: "/assets/audio/morning_park.mp3",
+  river: "/assets/audio/mountain_river.mp3",
+  summer: "/assets/audio/summer_lofi.mp3",
+  jazz: "/assets/audio/jazz_brush.mp3",
+  piano: "/assets/audio/piano.mp3",
+  keyboard: "/assets/audio/keyboard.mp3"
+};
+
+function stopAmbient() {
+  if (sourceNode) {
+    try { sourceNode.stop(); } catch (e) {}
+    sourceNode.disconnect();
+    sourceNode = null;
   }
+}
+
+function changeAmbient(mood) {
+  if (!mood || !audioFiles[mood]) {
+    stopAmbient();
+    return;
+  }
+
+  if (!audioContext) {
+    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+  }
+
+  stopAmbient();
+
+  fetch(audioFiles[mood])
+    .then(res => res.arrayBuffer())
+    .then(data => audioContext.decodeAudioData(data))
+    .then(buffer => {
+      sourceNode = audioContext.createBufferSource();
+      sourceNode.buffer = buffer;
+      sourceNode.loop = true;
+      sourceNode.connect(audioContext.destination);
+      sourceNode.start(0);
+    })
+    .catch(err => {
+      console.error("Audio error:", err);
+    });
 }
 
 updateDisplay();
