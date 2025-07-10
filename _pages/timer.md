@@ -14,7 +14,7 @@ no_description: true
     --light-text: #333;
     --dark-bg: #1e1e1e;
     --dark-text: #ddd;
-    --accent: #6184d8;
+    --accent: #b18bd7; /* 라벤더 색 */
   }
 
   @media (prefers-color-scheme: dark) {
@@ -43,6 +43,7 @@ no_description: true
     padding: 2rem;
     margin: 0;
     line-height: 1.6;
+    transition: background 0.3s ease, color 0.3s ease;
   }
 
   .circle-timer {
@@ -50,6 +51,7 @@ no_description: true
     height: 220px;
     margin: 2rem auto;
     position: relative;
+    background: transparent !important;
   }
 
   svg text {
