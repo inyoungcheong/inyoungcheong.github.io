@@ -64,49 +64,58 @@ no_description: true
     top: 2rem;
   }
 
-  .goals {
-    max-width: 100%;
-  }
-
-  .goals h2, .log h2 {
+  .section-header h2 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
     font-weight: 600;
+  }
+
+  .goals {
+    max-width: 100%;
   }
 
   .goal-row {
     display: flex;
     gap: 0.5rem;
     align-items: center;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.15rem;
     transition: opacity 0.3s ease;
+    padding: 0.2rem 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .goal-row {
+      border-bottom: 1px solid #333;
+    }
+  }
+
+  .goal-row:last-of-type {
+    border-bottom: none;
   }
 
   .goal-row input[type="text"] {
     flex: 1;
-    padding: 0.5rem;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 1rem;
+    padding: 0.3rem 0;
+    border: none;
+    background: transparent;
+    font-size: 0.95rem;
+    outline: none;
   }
 
   .goal-row.readonly input[type="text"] {
-    border: none;
-    background: transparent;
     cursor: pointer;
-    padding: 0.5rem 0;
   }
 
-  .goal-row.readonly input[type="text"]:focus {
-    border: 1px solid #ccc;
-    background: white;
-    cursor: text;
+  .goal-row input[type="text"]:focus {
+    background: rgba(255, 150, 135, 0.1);
+    padding: 0.3rem 0.5rem;
+    border-radius: 3px;
   }
 
-  @media (prefers-color-scheme: dark) {
-    .goal-row.readonly input[type="text"]:focus {
-      background: #333;
-    }
+  .goal-row input[type="text"]::placeholder {
+    color: #bbb;
+    font-style: italic;
   }
 
   .goal-row input[type="number"] {
@@ -215,32 +224,6 @@ no_description: true
       padding: 1rem;
     }
   }
-
-  /* 대안: 목표 섹션 고정 높이 */
-  .goals-fixed-height {
-    height: 300px;
-    overflow-y: auto;
-    padding-right: 10px;
-  }
-
-  /* 스크롤바 스타일링 */
-  .goals-fixed-height::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  .goals-fixed-height::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px;
-  }
-
-  .goals-fixed-height::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 10px;
-  }
-
-  .goals-fixed-height::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
 </style>
 
 <div class="main-container">
@@ -248,6 +231,8 @@ no_description: true
     <div class="section-header">
       <h2>Timer</h2>
     </div>
+
+    <div class="status" id="status">Focus time – let's go!</div>
 
     <div class="circle-timer">
       <svg viewBox="0 0 100 100" width="200" height="200">
