@@ -109,15 +109,16 @@ no_description: true
   }
 
   .goal-row input[type="number"] {
-    width: 60px;
-    padding: 0.5rem;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 1rem;
+    width: 50px;
+    padding: 0.2rem;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-size: 0.85rem;
+    text-align: center;
   }
 
   .goal-row input[type="checkbox"] {
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
 
   .goal-row.checked {
@@ -134,9 +135,9 @@ no_description: true
 
   .add-goal-button {
     display: block;
-    margin: 0.5rem 0;
-    padding: 0.4rem 1rem;
-    font-size: 1rem;
+    margin: 0.75rem 0;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.9rem;
     border: none;
     border-radius: 5px;
     background-color: var(--accent-focus);
@@ -243,6 +244,11 @@ no_description: true
 
 <div class="main-container">
   <div class="timer-section">
+    <div class="section-header">
+      <h2>Timer</h2>
+      <div class="section-description">What can you accomplish in focused 25-minute blocks? 🎵</div>
+    </div>
+
     <div class="status" id="status">Focus time – let's go!</div>
 
     <div class="circle-timer">
@@ -273,22 +279,27 @@ no_description: true
         <option value="morning">Morning Park</option>
       </select>
     </div>
-
-    <div class="controls">
-      <input type="text" id="taskInput" placeholder="What did you work on?">
-      <button onclick="labelLastBlock()">Label Last Block</button>
-    </div>
   </div>
 
   <div class="content-section">
     <div class="goals">
-      <h2>Today's Goals</h2>
+      <div class="section-header">
+        <h2>Today's Goals</h2>
+        <div class="section-description">What matters most today? Break it down.</div>
+      </div>
       <div id="goalList"></div>
       <button class="add-goal-button" onclick="addGoal()">+ Add Goal</button>
     </div>
 
     <div class="log">
-      <h2>Today's Focus Blocks</h2>
+      <div class="section-header">
+        <h2>Today's Focus Blocks</h2>
+        <div class="section-description">What did you create? How did it feel?</div>
+      </div>
+      <div class="controls">
+        <input type="text" id="taskInput" placeholder="What did you work on?">
+        <button onclick="labelLastBlock()">Label Last Block</button>
+      </div>
       <div id="logList"></div>
     </div>
   </div>
