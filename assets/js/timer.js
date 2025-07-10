@@ -156,14 +156,30 @@ function fadeOutAmbient() {
 
 function changeAmbient(mood) {
   if (!mood || !audioFiles[mood]) {
-    fadeOutAmbient();
+    fadeOutAmbient();  // 음악 끄기는 여전히 부드럽게
     return;
   }
+  
   if (!audioContext) {
     audioContext = new (window.AudioContext || window.webkitAudioContext)();
   }
-  fadeOutAmbient();
+  
+  // 음악 전환할 때만 즉시 정리 (fadeOutAmbient 사용하지 않음)
+  if (currentSource) {
+    try { 
+      currentSource.stop(); 
+      currentSource.disconnect();
+    } catch (e) {}
+  }
+  if (gainNode) {
+    try {
+      gainNode.disconnect();
+    } catch (e) {}
+  }
+  currentSource = null;
+  gainNode = null;
 
+  // 새 오디오 바로 시작
   fetch(audioFiles[mood])
     .then(res => res.arrayBuffer())
     .then(data => audioContext.decodeAudioData(data))
@@ -174,15 +190,13 @@ function changeAmbient(mood) {
       source.loop = true;
       source.connect(gain);
       gain.connect(audioContext.destination);
-      gain.gain.setValueAtTime(0.001, audioContext.currentTime);
-      gain.gain.exponentialRampToValueAtTime(1.0, audioContext.currentTime + 1.0);
+      gain.gain.setValueAtTime(0.7, audioContext.currentTime);
       source.start(0);
       currentSource = source;
       gainNode = gain;
     })
     .catch(err => console.error("Audio error:", err));
 }
-
 function saveToLocal() {
   localStorage.setItem("goals", document.getElementById("goalList").innerHTML);
   localStorage.setItem("log", JSON.stringify(log));
