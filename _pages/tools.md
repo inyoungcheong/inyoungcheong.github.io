@@ -5,8 +5,8 @@ nav: true
 nav_order: 5
 dropdown: true
 children: 
-    - title: fun tracker
+    - title: minimalist timer
       permalink: /timer/
-    - title: daily planner
-      permalink: /daily-planner/
+    - title: flow keeper
+      permalink: /flow/
 ---
