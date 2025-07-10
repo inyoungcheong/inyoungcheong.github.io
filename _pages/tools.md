@@ -7,6 +7,6 @@ dropdown: true
 children: 
     - title: minimalist timer
       permalink: /timer/
-    - title: flow keeper
-      permalink: /flow/
+    - title: planner bot
+      permalink: /planner/
 ---
