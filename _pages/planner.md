@@ -11,8 +11,8 @@ nav_order: 6
 
 <div class="planner-container">
   <div class="chat-header">
-    <h1>🌟 Daily Planning Partner</h1>
-    <p>Let's make today amazing together!</p>
+    <h1>🌟 Let's Make Your Today Amazing Together!</h1>
+    <p>This AI motivational partner is designed to tackle the emotional blockers behind procrastination by helping you name them fear, overwhelm, perfectionism), understand them, and move through them.</p>
     <div class="usage-info">
       <small>💡 Usage: <span id="usage-count">0</span>/30 messages today</small>
     </div>
