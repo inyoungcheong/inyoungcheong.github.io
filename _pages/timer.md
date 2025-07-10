@@ -14,15 +14,16 @@ no_description: true
     --light-text: #333;
     --dark-bg: #1e1e1e;
     --dark-text: #ddd;
-    --accent: #b18bd7; /* 라벤더 색 */
+    --accent-focus: #FF9687;
+    --accent-break: #D8AE48;
   }
 
   @media (prefers-color-scheme: dark) {
-    body {
-      background: var(--dark-bg);
-      color: var(--dark-text);
+    html, body {
+      background: var(--dark-bg) !important;
+      color: var(--dark-text) !important;
     }
-    .controls button, select, input {
+    .controls button, select, input, textarea {
       background-color: #333;
       color: #eee;
     }
@@ -32,7 +33,7 @@ no_description: true
   }
 
   @media (prefers-color-scheme: light) {
-    body {
+    html, body {
       background: var(--light-bg);
       color: var(--light-text);
     }
@@ -46,6 +47,63 @@ no_description: true
     transition: background 0.3s ease, color 0.3s ease;
   }
 
+  .goals {
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+  }
+
+  .goal-row {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    transition: opacity 0.3s ease;
+  }
+
+  .goal-row input[type="text"] {
+    flex: 1;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+
+  .goal-row input[type="number"] {
+    width: 60px;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+
+  .goal-row input[type="checkbox"] {
+    transform: scale(1.2);
+  }
+
+  .goal-row.checked {
+    opacity: 0.4;
+  }
+
+  .goal-row button.remove-goal {
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    color: #888;
+    cursor: pointer;
+  }
+
+  .add-goal-button {
+    display: block;
+    margin: 0.5rem 0;
+    padding: 0.4rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--accent-focus);
+    color: white;
+    cursor: pointer;
+  }
+
   .circle-timer {
     width: 220px;
     height: 220px;
@@ -55,7 +113,7 @@ no_description: true
   }
 
   svg text {
-    fill: currentColor;
+    fill: white;
   }
 
   .status {
@@ -79,6 +137,9 @@ no_description: true
 
   .log {
     margin-top: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .block {
@@ -94,12 +155,18 @@ no_description: true
   }
 </style>
 
+<div class="goals">
+  <h2>Today's Goals</h2>
+  <div id="goalList"></div>
+  <button class="add-goal-button" onclick="addGoal()">+ Add Goal</button>
+</div>
+
 <div class="status" id="status">Focus time – let's go!</div>
 
 <div class="circle-timer">
   <svg viewBox="0 0 100 100" width="200" height="200">
     <circle cx="50" cy="50" r="45" fill="none" />
-    <path id="pie" fill="var(--accent)"></path>
+    <path id="pie" fill="var(--accent-focus)" transform="rotate(0,50,50)" />
     <text x="50" y="55" text-anchor="middle" font-size="16" id="timerText">25:00</text>
   </svg>
 </div>
@@ -116,12 +183,12 @@ no_description: true
   <select id="ambientSelect" onchange="changeAmbient(this.value)">
     <option value="">No Ambient</option>
     <option value="birds">Park Birds</option>
-    <option value="morning">Morning Park</option>
     <option value="river">Mountain River</option>
-    <option value="summer">Summer Lo-fi</option>
-    <option value="jazz">Jazz Brush</option>
     <option value="piano">Piano</option>
+    <option value="lofi">Lo-fi</option>
+    <option value="jazz">Jazz Brush</option>
     <option value="keyboard">Keyboard</option>
+    <option value="morning">Morning Park</option>
   </select>
 </div>
 
@@ -136,14 +203,14 @@ no_description: true
 </div>
 
 <script>
-let focusTime = 25 * 60;
-let shortBreakTime = 5 * 60;
-let longBreakTime = 30 * 60;
-let time = focusTime;
-let timerInterval, timerRunning = false, isFocus = true, focusCount = 0, log = [];
-
-const pie = document.getElementById("pie");
-const timerText = document.getElementById("timerText");
+function updateStatus() {
+  const status = document.getElementById("status");
+  if (isFocus) {
+    status.textContent = "Focus";
+  } else {
+    status.textContent = (focusCount % 4 === 0) ? "You deserve it! Treat yourself." : "Take a break – stretch it out!";
+  }
+}
 
 function polarToCartesian(cx, cy, r, angle) {
   const rad = (angle - 90) * Math.PI / 180;
@@ -161,154 +228,43 @@ function drawPie(percent) {
     A ${r} ${r} 0 ${largeArc} 1 ${x} ${y}
     Z
   `;
-  pie.setAttribute("d", d);
+  document.getElementById("pie").setAttribute("d", d);
 }
 
-function updateDisplay() {
-  const minutes = Math.floor(time / 60).toString().padStart(2, '0');
-  const seconds = (time % 60).toString().padStart(2, '0');
-  timerText.textContent = `${minutes}:${seconds}`;
-  const total = isFocus ? focusTime : (focusCount % 4 === 0 ? longBreakTime : shortBreakTime);
-  drawPie(time / total);
+function addGoal(text = "", minutes = "", checked = false) {
+  const container = document.getElementById("goalList");
+  const div = document.createElement("div");
+  div.className = "goal-row";
+  div.innerHTML = `
+    <input type="checkbox" ${checked ? "checked" : ""} onchange="this.parentNode.classList.toggle('checked', this.checked); saveGoals()">
+    <input type="text" placeholder="Goal" value="${text}" oninput="saveGoals()">
+    <input type="number" placeholder="min" value="${minutes}" oninput="saveGoals()">
+    <button class="remove-goal" onclick="this.parentNode.remove(); saveGoals()">&times;</button>
+  `;
+  if (checked) div.classList.add("checked");
+  container.appendChild(div);
+  saveGoals();
 }
 
-function updateStatus() {
-  document.getElementById("status").textContent = isFocus
-    ? "Focus"
-    : (focusCount % 4 === 0 ? "You deserve it! Treat yourself." : "Break");
-}
-
-function startTimer() {
-  if (timerRunning) return;
-  timerRunning = true;
-
-  if (audioContext && audioContext.state === 'suspended') {
-    audioContext.resume();
-  }
-
-  updateStatus();
-  timerInterval = setInterval(() => {
-    time--;
-    updateDisplay();
-    if (time <= 0) {
-      clearInterval(timerInterval);
-      timerRunning = false;
-      new Audio("https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg").play();
-      const endTime = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-      if (isFocus) {
-        focusCount++;
-        log.push({ text: '', duration: `${focusTime / 60} min`, time: endTime });
-        renderLog();
-        time = (focusCount % 4 === 0) ? longBreakTime : shortBreakTime;
-        isFocus = false;
-      } else {
-        time = focusTime;
-        isFocus = true;
-      }
-      updateDisplay();
-      updateStatus();
-      startTimer();
-    }
-  }, 1000);
-}
-
-function pauseTimer() {
-  clearInterval(timerInterval);
-  timerRunning = false;
-  stopAmbient();
-}
-
-function resetTimer() {
-  pauseTimer();
-  time = focusTime;
-  isFocus = true;
-  focusCount = 0;
-  updateDisplay();
-  updateStatus();
-}
-
-function setFocusDuration(minutes) {
-  focusTime = parseInt(minutes) * 60;
-  resetTimer();
-}
-
-function labelLastBlock() {
-  const input = document.getElementById("taskInput");
-  const text = input.value.trim();
-  if (text && log.length > 0) {
-    for (let i = log.length - 1; i >= 0; i--) {
-      if (!log[i].text) {
-        log[i].text = text;
-        break;
-      }
-    }
-    input.value = '';
-    renderLog();
-  }
-}
-
-function renderLog() {
-  const list = document.getElementById("logList");
-  list.innerHTML = '';
-  log.slice().reverse().forEach(block => {
-    const div = document.createElement("div");
-    div.className = "block" + (block.text ? '' : ' unlabeled');
-    div.innerHTML = block.text
-      ? `<strong>${block.text}</strong><span>${block.duration} @ ${block.time}</span>`
-      : `<strong>Untitled Block</strong><span>${block.duration} @ ${block.time}</span>`;
-    list.appendChild(div);
+function saveGoals() {
+  const data = Array.from(document.querySelectorAll(".goal-row")).map(row => {
+    const inputs = row.querySelectorAll("input");
+    return {
+      checked: inputs[0].checked,
+      text: inputs[1].value,
+      minutes: inputs[2].value
+    };
   });
+  localStorage.setItem("todayGoals", JSON.stringify(data));
 }
 
-// Web Audio API – seamless ambient playback
-let audioContext, sourceNode;
-const audioFiles = {
-  birds: "/assets/audio/park_birds.mp3",
-  morning: "/assets/audio/morning_park.mp3",
-  river: "/assets/audio/mountain_river.mp3",
-  summer: "/assets/audio/summer_lofi.mp3",
-  jazz: "/assets/audio/jazz_brush.mp3",
-  piano: "/assets/audio/piano.mp3",
-  keyboard: "/assets/audio/keyboard.mp3"
-};
-
-function stopAmbient() {
-  if (sourceNode) {
-    try { sourceNode.stop(); } catch (e) {}
-    sourceNode.disconnect();
-    sourceNode = null;
+function loadGoals() {
+  const saved = localStorage.getItem("todayGoals");
+  if (saved) {
+    JSON.parse(saved).forEach(g => addGoal(g.text, g.minutes, g.checked));
   }
 }
 
-function changeAmbient(mood) {
-  if (!mood || !audioFiles[mood]) {
-    stopAmbient();
-    return;
-  }
-
-  if (!audioContext) {
-    audioContext = new (window.AudioContext || window.webkitAudioContext)();
-  }
-
-  stopAmbient();
-
-  fetch(audioFiles[mood])
-    .then(res => res.arrayBuffer())
-    .then(data => audioContext.decodeAudioData(data))
-    .then(buffer => {
-      sourceNode = audioContext.createBufferSource();
-      sourceNode.buffer = buffer;
-      sourceNode.loop = true;
-      sourceNode.connect(audioContext.destination);
-      sourceNode.start(0);
-    })
-    .catch(err => {
-      console.error("Audio error:", err);
-    });
-}
-
-updateDisplay();
-updateStatus();
+loadGoals();
 </script>
-
 
