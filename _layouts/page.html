@@ -5,9 +5,15 @@ layout: default
         <div class="post">
 
           <header class="post-header">
+          {% unless page.no_title %}
             <h1 class="post-title">{{ page.title }}</h1>
+          {% endunless %}
+  
+          {% unless page.no_description %}
             <p class="post-description">{{ page.description }}</p>
-          </header>
+          {% endunless %}
+        </header>
+
 
           <article>
             {{ content }}
@@ -15,3 +21,4 @@ layout: default
 
           
         </div>
+
