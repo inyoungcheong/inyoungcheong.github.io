@@ -11,8 +11,8 @@ nav_order: 6
 
 <div class="planner-container">
   <div class="chat-header">
-    <h1>🌟 Let's Make Your Today Amazing Together!</h1>
-    <p>This AI motivational partner is designed to tackle the emotional blockers behind procrastination by helping you name them fear, overwhelm, perfectionism), understand them, and move through them.</p>
+    <h1>Let's Make Today Amazing Together!🌟</h1>
+    <p>This AI motivational partner helps you tackle the emotional blockers behind procrastination (e.g., fear, overwhelm, perfectionism) by helping you name them and understand them. Wanna try it out? Just say hi! </p>
     <div class="usage-info">
       <small>💡 Usage: <span id="usage-count">0</span>/30 messages today</small>
     </div>
