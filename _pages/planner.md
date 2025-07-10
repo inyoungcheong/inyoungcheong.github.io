@@ -1,8 +1,10 @@
 ---
 layout: page
-title: Flow Master
-permalink: /flow/
+title: Planner Bot
+permalink: /planner/
 description: A motivational AI partner to help plan your day and tackle postponed tasks with bite-sized actions.
+no_title: true
+no_description: true
 nav: false
 nav_order: 6
 ---
