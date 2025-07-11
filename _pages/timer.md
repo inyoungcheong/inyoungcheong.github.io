@@ -261,6 +261,85 @@ no_description: true
         <option value="keyboard">Keyboard</option>
         <option value="morning">Morning Park</option>
       </select>
+
+              <style>
+          .ambient-section {
+            margin-top: 2rem;
+            text-align: center;
+          }
+        
+          .ambient-toggle {
+            font-size: 1rem;
+            cursor: pointer;
+            color: var(--accent-focus);
+            background: none;
+            border: none;
+            margin-bottom: 1rem;
+          }
+        
+          .ambient-list {
+            display: none; /* 처음에는 접혀 있음 */
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+          }
+        
+          .ambient-item iframe {
+            width: 100%;
+            max-width: 250px;
+            height: 30px;
+            border: none;
+          }
+        
+          .ambient-item strong {
+            font-size: 1rem;
+          }
+        
+          @media (max-width: 600px) {
+            .ambient-item strong {
+              font-size: 0.95rem;
+            }
+          }
+        </style>
+        
+        <div class="ambient-section">
+          <button class="ambient-toggle" onclick="toggleAmbientList()">🎧 More Ambient Sounds 🔽</button>
+        
+          <div id="ambientList" class="ambient-list">
+            <div class="ambient-item">
+              🔥 <strong>Fireplace</strong><br>
+              <iframe src="https://archive.org/embed/relaxingsounds/FIRE+2+3h+Blazing+Fireplace.mp3?start=2" allowfullscreen></iframe>
+            </div>
+            <div class="ambient-item">
+              🔥 <strong>Campfire</strong><br>
+              <iframe src="https://archive.org/embed/relaxingsounds/FIRE+1+10h+CracklingCampfire%2CCrickets%2CRainOrRiver-Night.mp3" allowfullscreen></iframe>
+            </div>
+            <div class="ambient-item">
+              💧 <strong>Waterfall</strong><br>
+              <iframe src="https://archive.org/embed/relaxingsounds/Falls+1+9h+River+Rapids(High+pitch)%2CLiteSplashing.mp3?start=6" allowfullscreen></iframe>
+            </div>
+            <div class="ambient-item">
+              🚂 <strong>Train</strong><br>
+              <iframe src="https://archive.org/embed/relaxingsounds/Train+3+9h+Med.LiteRumble-NoHornsOrBells.mp3?start=3" allowfullscreen></iframe>
+            </div>
+            <div class="ambient-item">
+              ✈️ <strong>Airplane</strong><br>
+              <iframe src="https://archive.org/embed/relaxingsounds/Wind+1+8h+(or+Rapids)+Gentle%2CLowPitch%2CBrownNoise.mp3?start=300" allowfullscreen></iframe>
+            </div>
+            <div class="ambient-item">
+              ❄️ <strong>Snowfall</strong><br>
+              <iframe src="https://archive.org/embed/relaxingsounds/Snowfall+%26+Wind(Lite)+10h+Dusk+into+Night-Forest.mp3?start=4" allowfullscreen></iframe>
+            </div>
+            <div class="ambient-item">
+              🌿 <strong>Rainforest</strong><br>
+              <iframe src="https://archive.org/embed/relaxingsounds/Snowfall+%26+Wind(Lite)+10h+Dusk+into+Night-Forest.mp3" allowfullscreen></iframe>
+            </div>
+            <div class="ambient-item">
+              🌧️ <strong>Rain</strong><br>
+              <iframe src="https://archive.org/embed/relaxingsounds/Rain+7+(Lightest)+8h+DripsOnTrees-no+thunder.mp3?start=300" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>      
     </div>
   </div>
 
@@ -402,3 +481,14 @@ document.addEventListener('DOMContentLoaded', function() {
   }, 100); // timer.js의 loadFromLocal 실행 후
 });
 </script>
+
+<script>
+  function toggleAmbientList() {
+    const list = document.getElementById('ambientList');
+    const button = document.querySelector('.ambient-toggle');
+    const isHidden = list.style.display === 'none' || list.style.display === '';
+    list.style.display = isHidden ? 'flex' : 'none';
+    button.innerHTML = isHidden ? '🎧 Hide Ambient Sounds 🔼' : '🎧 More Ambient Sounds 🔽';
+  }
+</script>
+
