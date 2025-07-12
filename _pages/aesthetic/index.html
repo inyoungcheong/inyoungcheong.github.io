@@ -1,0 +1,24 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Focus Mode</title> <style>html,body{margin:0;padding:0;height:100%;background:url('https://source.unsplash.com/1600x900/?mountain,sunset') no-repeat center center/cover;font-family:'Inter',sans-serif;color:white}.overlay{background-color:rgba(0,0,0,0.4);position:absolute;inset:0}.centered{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center}.timer{font-size:5rem;font-weight:bold;letter-spacing:2px}.status{font-size:1.5rem;margin-top:.5rem}.button{margin-top:2rem;padding:.75rem 2rem;font-size:1rem;border:2px solid white;background:transparent;color:white;border-radius:999px;cursor:pointer;transition:all .2s ease}.button:hover{background:rgba(255,255,255,0.2)}.footer{position:absolute;bottom:2rem;width:100%;text-align:center;font-size:1rem;opacity:.8}.top-right{position:absolute;top:1rem;right:1rem;font-size:.9rem;opacity:.8}</style> </head> <body> <div class="overlay"></div> <div class="top-right"> 🌤 56°F · Chicago </div> <div class="centered"> <div class="timer" id="timer">25:00</div> <div class="status">Focus</div> <button class="button" onclick="startTimer()">Start</button> </div> <div class="footer"> TODAY: Announce Pomodoro! </div> <script>
+    let timeLeft = 25 * 60;
+    let interval;
+
+    function updateTimerDisplay() {
+      const min = Math.floor(timeLeft / 60).toString().padStart(2, '0');
+      const sec = (timeLeft % 60).toString().padStart(2, '0');
+      document.getElementById("timer").textContent = `${min}:${sec}`;
+    }
+
+    function startTimer() {
+      clearInterval(interval);
+      interval = setInterval(() => {
+        if (timeLeft > 0) {
+          timeLeft--;
+          updateTimerDisplay();
+        } else {
+          clearInterval(interval);
+        }
+      }, 1000);
+    }
+
+    updateTimerDisplay();
+  </script> </body> </html>
