@@ -170,34 +170,44 @@
       localStorage.setItem("vibeUserAnimal", emoji);
     }
 
-    async function joinSession() {
+   async function joinSession() {
       const name = document.getElementById("nameInput").value.trim();
       const session = document.getElementById("joinSessionInput").value.trim();
       if (!name || !session) return alert("Please enter name and session.");
-      const doc = await db.collection("sessions").doc(session).get();
-      if (!doc.exists) return alert("Session not found.");
-      saveUserInfo(name, selectedEmoji);
-      window.location.href = `/social-timer/session.html?session=${encodeURIComponent(session)}`;
+    
+      db.collection("sessions").doc(session).get().then(doc => {
+        if (!doc.exists) return alert("Session not found.");
+        localStorage.setItem("vibeUserName", name);
+        localStorage.setItem("vibeUserAnimal", selectedEmoji);
+        localStorage.setItem("vibeUserRole", "guest"); // 👈
+        window.location.href = `/social-timer/session.html?session=${encodeURIComponent(session)}`; // ✅ 수정됨
+      });
     }
 
-  function createSession() {
+
+    function createSession() {
       const name = document.getElementById("nameInput").value.trim();
       let session = document.getElementById("createSessionInput").value.trim();
       if (!name || !session) return alert("Please enter name and session.");
     
-      const randomSuffix = Math.floor(100 + Math.random() * 900); // 100–999
+      const randomSuffix = Math.floor(100 + Math.random() * 900);
       session = `${session}-${randomSuffix}`;
     
       const url = `/social-timer/session.html?session=${encodeURIComponent(session)}`;
-      
-      // ✅ 링크 자동 복사 + 안내
+    
+      // ✅ 사용자 정보 저장
+      localStorage.setItem("vibeUserName", name);
+      localStorage.setItem("vibeUserAnimal", selectedEmoji);
+      localStorage.setItem("vibeUserRole", "host"); // 👈 역할 저장
+    
+      // ✅ 클립보드 복사 및 이동
       navigator.clipboard.writeText(window.location.origin + url).then(() => {
         alert("Session created! Link copied to clipboard:\n" + window.location.origin + url);
+        window.location.href = url;
       });
-    
-      saveUserInfo(name, selectedEmoji);
-      window.location.href = url;
     }
+
+
 
   </script>
 
