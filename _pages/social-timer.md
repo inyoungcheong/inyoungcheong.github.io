@@ -40,6 +40,11 @@ no_description: true
     font-family: system-ui, sans-serif;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
   }
+
+  :root {
+  --accent-focus: #FF9687;   /* Pastel coral */
+  --accent-break: #A3D9FF;   /* Soft blue */
+}
 </style>
 
  <h2 id="sessionHeader">🔗 Session: ...</h2>
