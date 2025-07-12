@@ -73,15 +73,17 @@ function startTimer() {
 
 function pauseTimer() {
   isLocalUpdate = true;
+
   db.collection("sessions").doc(sessionName).get().then(doc => {
     const data = doc.data().timer;
+    if (!data) return;
+
     const remaining = getRemainingTime(data.startTime, data.duration);
 
     db.collection("sessions").doc(sessionName).set({
       timer: {
         status: "paused",
-        startTime: firebase.firestore.Timestamp.fromMillis(Date.now() - (data.duration - remaining) * 1000),
-        duration: data.duration
+        duration: remaining  // store remaining time
       }
     }, { merge: true }).then(() => {
       isLocalUpdate = false;
@@ -91,6 +93,8 @@ function pauseTimer() {
 
 function resetTimer() {
   const duration = parseInt(document.getElementById("focusDuration").value) * 60;
+  time = duration;
+  updateDisplay(duration);  // update UI immediately
 
   isLocalUpdate = true;
   db.collection("sessions").doc(sessionName).set({
@@ -127,8 +131,9 @@ db.collection("sessions").doc(sessionName)
       update();
       localTimerInterval = setInterval(update, 1000);
     } else if (status === "paused") {
-      const remaining = getRemainingTime(startTime, duration);
-      updateDisplay(remaining);
+      const remaining = startTime ? getRemainingTime(startTime, duration) : duration;
+  updateDisplay(remaining);
+    
     } else if (status === "stopped") {
       updateDisplay(duration || 1500);
     }
@@ -218,7 +223,6 @@ function fadeOutAmbient() {
   }
 }
 
-const gentleBell = new Audio("https://cdn.pixabay.com/download/audio/2022/03/15/audio_5fa3e3c5a7.mp3?filename=soft-bell-6555.mp3");
 
 function changeAmbient(mood) {
   if (!mood || !audioFiles[mood]) {
@@ -279,7 +283,7 @@ function loadFromLocal() {
 }
 
 window.onload = () => {
-  updateDisplay();
+  updateDisplay(time);
   updateStatus();
   loadFromLocal();
 };
