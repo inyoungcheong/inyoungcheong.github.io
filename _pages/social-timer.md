@@ -28,6 +28,7 @@ no_description: true
 </style>
 
  <h2 id="sessionHeader">🔗 Session: ...</h2>
+
   
   <div>
     <h2>💬 Vibe Board</h2>
@@ -49,6 +50,19 @@ no_description: true
   </label><br><br>
 
   <button onclick="submitVibe()">Submit</button>
+
+   <hr><br>
+  <div id="linkGenerator">
+    <h3>🔗 Create a New Session</h3>
+    <label>Session Name:
+      <input type="text" id="newSessionInput" placeholder="e.g., writing-group" />
+    </label>
+    <button onclick="generateSessionLink()">Generate Link</button>
+    <br><br>
+    <input type="text" id="generatedLink" readonly style="width: 100%; font-size: 0.9rem;" />
+  </div>
+
+  
 </div>
 
 <!-- Firebase v8 SDKs -->
@@ -122,6 +136,18 @@ document.getElementById("sessionHeader").textContent = `🔗 Session: ${sessionN
         console.error("❌ Submit error:", error);
       });
   }
+
+  function generateSessionLink() {
+  const session = document.getElementById("newSessionInput").value.trim();
+  if (!session) {
+    alert("Please enter a session name.");
+    return;
+  }
+
+  const base = window.location.origin + window.location.pathname;
+  const fullLink = `${base}?session=${encodeURIComponent(session)}`;
+  document.getElementById("generatedLink").value = fullLink;
+}
 </script>
 
 </body>
