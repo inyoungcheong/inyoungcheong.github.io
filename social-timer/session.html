@@ -65,6 +65,12 @@
         <h3>👥 Participants</h3>
         <div id="participants"></div>
       </div>
+
+      <div class="controls">
+        <button onclick="startTimer()">Start</button>
+        <button onclick="pauseTimer()">Pause</button>
+        <button onclick="resetTimer()">Reset</button>
+      </div>
     </div>
 
     <div class="right">
@@ -130,6 +136,82 @@
           .collection("participants").doc(name).update({ goal: goalInput.innerText });
       }
     });
+
+
+    // 1. 타이머 초기화
+  let localSeconds = 1500;
+  let localTimer = null;
+  let isRunning = false;
+
+  const timerText = document.getElementById("timer");
+
+  function displayTime(sec) {
+    const m = String(Math.floor(sec / 60)).padStart(2, "0");
+    const s = String(sec % 60).padStart(2, "0");
+    timerText.textContent = `${m}:${s}`;
+  }
+
+  function updateRemoteTimer(state) {
+    db.collection("sessions").doc(session).collection("state").doc("timer").set(state);
+  }
+
+  // 2. 수신: 타이머 상태 실시간 반영
+  db.collection("sessions").doc(session).collection("state").doc("timer")
+    .onSnapshot(doc => {
+      const data = doc.data();
+      if (!data) return;
+
+      localSeconds = data.remainingSeconds;
+      isRunning = data.isRunning;
+      displayTime(localSeconds);
+
+      if (isRunning) startLocalTimer();
+      else stopLocalTimer();
+    });
+
+  // 3. 로컬 타이머 실행
+  function startLocalTimer() {
+    stopLocalTimer();
+    localTimer = setInterval(() => {
+      localSeconds--;
+      if (localSeconds <= 0) {
+        stopLocalTimer();
+        isRunning = false;
+      }
+      displayTime(localSeconds);
+    }, 1000);
+  }
+
+  function stopLocalTimer() {
+    if (localTimer) clearInterval(localTimer);
+    localTimer = null;
+  }
+
+  // 4. 버튼 핸들러 (모두가 시작/정지 가능)
+  function startTimer() {
+    updateRemoteTimer({
+      isRunning: true,
+      remainingSeconds: localSeconds,
+      lastUpdated: Date.now()
+    });
+  }
+
+  function pauseTimer() {
+    updateRemoteTimer({
+      isRunning: false,
+      remainingSeconds: localSeconds,
+      lastUpdated: Date.now()
+    });
+  }
+
+  function resetTimer() {
+    localSeconds = 1500;
+    updateRemoteTimer({
+      isRunning: false,
+      remainingSeconds: 1500,
+      lastUpdated: Date.now()
+    });
+  }
   </script>
 </body>
 </html>
