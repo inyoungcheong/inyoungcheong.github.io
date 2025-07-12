@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🌱 Start a Social Pomodoro Session</title>
+  <style>
+    :root {
+      --accent: #FF9687;
+      --accent-hover: #ff7968;
+      --bg: #fffaf8;
+      --text: #333;
+      --muted: #777;
+    }
+
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      justify-content: center;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: var(--muted);
+      max-width: 400px;
+      margin-bottom: 2rem;
+    }
+
+    input {
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      width: 100%;
+      max-width: 320px;
+      box-sizing: border-box;
+    }
+
+    button {
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      background-color: var(--accent);
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      max-width: 320px;
+      transition: background 0.2s ease;
+    }
+
+    button:hover {
+      background-color: var(--accent-hover);
+    }
+
+    .link-feedback {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 1rem;
+      display: none;
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 1.6rem; }
+      input, button { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🌱 Social Pomodoro Timer</h1>
+  <p>Create a shared focus session with friends — stay accountable together.</p>
+
+  <input type="text" id="sessionInput" placeholder="e.g. writing-club-39f8" />
+  <button onclick="startSession()">Start Session</button>
+
+  <p class="link-feedback" id="linkFeedback">🔗 Link copied to clipboard!</p>
+
+  <script>
+    function generateSessionName() {
+      const adjectives = ["focus", "calm", "brave", "deep", "chill"];
+      const nouns = ["group", "team", "circle", "club", "zone"];
+      const rand = () => Math.random().toString(36).substring(2, 6);
+      const name = `${adjectives[Math.floor(Math.random() * adjectives.length)]}-${nouns[Math.floor(Math.random() * nouns.length)]}-${rand()}`;
+      return name;
+    }
+
+    window.onload = () => {
+      document.getElementById("sessionInput").value = generateSessionName();
+    };
+
+    function startSession() {
+      const input = document.getElementById("sessionInput");
+      const session = input.value.trim();
+      if (!session) {
+        alert("Please enter a session name.");
+        return;
+      }
+      const link = `/social-timer/?session=${encodeURIComponent(session)}`;
+      navigator.clipboard.writeText(window.location.origin + link).then(() => {
+        document.getElementById("linkFeedback").style.display = "block";
+        setTimeout(() => {
+          window.location.href = link;
+        }, 700);
+      });
+    }
+  </script>
+
+</body>
+</html>
