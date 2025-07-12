@@ -53,7 +53,14 @@
 </head>
 <body>
   <header id="sessionTitle">Loading session...</header>
+  <div id="userSetup" style="text-align: center; padding: 2rem;">
+    <h2>👋 Enter Your Name and Choose an Avatar</h2>
+    <input type="text" id="nameInput" placeholder="Your name" style="padding: 0.6rem; border-radius: 10px; font-size: 1rem; margin-bottom: 1rem;" />
+    <div id="emojiGrid" style="display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;"></div>
+    <button onclick="submitUser()" style="padding: 0.6rem 1.2rem; border-radius: 10px;">Enter Session</button>
+  </div>
 
+<div id="mainApp" style="display: none;">
   <div class="container">
     <div class="left">
       <div class="card">
@@ -83,6 +90,7 @@
       </div>
     </div>
   </div>
+</div>
 
   <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
@@ -212,7 +220,8 @@
       lastUpdated: Date.now()
     });
   }
-
+  const role = localStorage.getItem("vibeUserRole");
+  const controls = document.querySelector(".controls");
   if (role !== "host") {
       // 비활성화 버튼
       controls.querySelectorAll("button").forEach(btn => {
@@ -236,6 +245,54 @@
       controls.appendChild(notice);
     }
 
+    function submitUser() {
+      const name = document.getElementById("nameInput").value.trim();
+      if (!name) return alert("Please enter your name.");
+      localStorage.setItem("vibeUserName", name);
+      localStorage.setItem("vibeUserAnimal", selectedEmoji);
+      localStorage.setItem("vibeUserRole", "guest"); // 또는 host로 구분
+    
+      document.getElementById("userSetup").style.display = "none";
+      document.getElementById("mainApp").style.display = "block";
+    }
+
+    window.onload = () => {
+      const name = localStorage.getItem("vibeUserName");
+      const animal = localStorage.getItem("vibeUserAnimal");
+      displayTime(localSeconds);
+    
+      if (name && animal) {
+        document.getElementById("userSetup").style.display = "none";
+        document.getElementById("mainApp").style.display = "block";
+      } else {
+        renderAvatarGrid();
+        document.getElementById("userSetup").style.display = "block";
+        document.getElementById("mainApp").style.display = "none";
+      }
+    };
+
+
+    const emojis = ["🐢", "🦊", "🐰", "🐸", "🐼", "🐶", "🦁", "🐻", "🐨", "🐱"];
+      let selectedEmoji = emojis[0];
+      
+      function renderAvatarGrid() {
+        const grid = document.getElementById("emojiGrid");
+        emojis.forEach((emoji) => {
+          const span = document.createElement("span");
+          span.textContent = emoji;
+          span.style.cursor = "pointer";
+          span.style.fontSize = "1.5rem";
+          span.style.padding = "0.5rem";
+          span.style.borderRadius = "10px";
+          span.style.background = "#eee";
+          span.onclick = () => {
+            selectedEmoji = emoji;
+            [...grid.children].forEach(el => el.style.background = "#eee");
+            span.style.background = "#ccc";
+          };
+          grid.appendChild(span);
+        });
+      }
   </script>
 </body>
 </html>
