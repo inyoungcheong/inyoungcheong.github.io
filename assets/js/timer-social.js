@@ -4,11 +4,6 @@
 let localTimerInterval;
 let isLocalUpdate = false; // to prevent echo loop
 
-function updateTimerDisplay(secondsLeft) {
-  const mins = String(Math.floor(secondsLeft / 60)).padStart(2, '0');
-  const secs = String(secondsLeft % 60).padStart(2, '0');
-  document.getElementById("timerText").textContent = `${mins}:${secs}`;
-}
 
 function getRemainingTime(startTime, duration) {
   const elapsed = (Date.now() - startTime.toMillis()) / 1000;
@@ -43,12 +38,12 @@ function drawPie(percent) {
   pie.setAttribute("d", d);
 }
 
-function updateDisplay() {
-  const minutes = Math.floor(time / 60).toString().padStart(2, '0');
-  const seconds = (time % 60).toString().padStart(2, '0');
+function updateDisplay(remainingSeconds) {
+  const minutes = Math.floor(remainingSeconds / 60).toString().padStart(2, '0');
+  const seconds = (remainingSeconds % 60).toString().padStart(2, '0');
   timerText.textContent = `${minutes}:${seconds}`;
   const total = isFocus ? focusTime : (focusCount % 4 === 0 ? longBreakTime : shortBreakTime);
-  drawPie(1 - (time / total));
+  drawPie(1 - (remainingSeconds / total));
   pie.setAttribute("fill", isFocus ? "var(--accent-focus)" : "var(--accent-break)");
 }
 
@@ -130,9 +125,9 @@ db.collection("sessions").doc(sessionName)
       localTimerInterval = setInterval(update, 1000);
     } else if (status === "paused") {
       const remaining = getRemainingTime(startTime, duration);
-      updateTimerDisplay(remaining);
+      updateDisplay(remaining);
     } else if (status === "stopped") {
-      updateTimerDisplay(duration || 1500);
+      updateDisplay(duration || 1500);
     }
   });
 
