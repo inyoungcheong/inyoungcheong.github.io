@@ -119,7 +119,10 @@ db.collection("sessions").doc(sessionName)
       const update = () => {
         const remaining = getRemainingTime(startTime, duration);
         updateDisplay(remaining);
-        if (remaining <= 0) clearInterval(localTimerInterval);
+        if (remaining <= 0) {
+  clearInterval(localTimerInterval);
+  handleSessionEnd();
+};
       };
       update();
       localTimerInterval = setInterval(update, 1000);
@@ -130,6 +133,31 @@ db.collection("sessions").doc(sessionName)
       updateDisplay(duration || 1500);
     }
   });
+
+function handleSessionEnd() {
+  gentleBell.play();
+
+  // Update mode (focus ↔ break)
+  isFocus = !isFocus;
+  if (isFocus) focusCount++;
+
+  updateStatus();
+
+  const nextDuration = isFocus
+    ? focusTime
+    : (focusCount % 4 === 0 ? longBreakTime : shortBreakTime);
+
+  isLocalUpdate = true;
+  db.collection("sessions").doc(sessionName).set({
+    timer: {
+      status: "running",
+      startTime: firebase.firestore.FieldValue.serverTimestamp(),
+      duration: nextDuration
+    }
+  }, { merge: true }).then(() => {
+    isLocalUpdate = false;
+  });
+}
 
 function setFocusDuration(minutes) {
   focusTime = parseInt(minutes) * 60;
@@ -189,6 +217,8 @@ function fadeOutAmbient() {
     }, 1100);
   }
 }
+
+const gentleBell = new Audio("https://cdn.pixabay.com/download/audio/2022/03/15/audio_5fa3e3c5a7.mp3?filename=soft-bell-6555.mp3");
 
 function changeAmbient(mood) {
   if (!mood || !audioFiles[mood]) {
