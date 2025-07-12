@@ -7,6 +7,82 @@ no_title: true
 no_description: true
 ---
 
+<style>
+  .callout-box {
+    background-color: #fff8ec;
+    border-left: 4px solid var(--accent-focus);
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+
+  details.callout-box summary {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+    outline: none;
+  }
+
+  details.callout-box[open] summary::after {
+    content: "▲";
+    float: right;
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+  }
+
+  details.callout-box summary::after {
+    content: "▼";
+    float: right;
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+  }
+
+  .callout-box ul {
+    margin: 0.5rem 0 0 1rem;
+    padding: 0;
+    line-height: 1.6;
+  }
+
+  .callout-box li {
+    margin-bottom: 0.75rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .callout-box {
+      background-color: #2c2c2c;
+      color: #ddd;
+      border-left-color: var(--accent-focus);
+    }
+  }
+</style>
+
+<details class="callout-box">
+  <summary>💡 How to Use This Timer</summary>
+  <ul>
+    <li>
+      ⏱️ This is a Pomodoro timer: 5-minute short breaks and a 30-minute long break after 4 focus sessions. You can adjust your focus session to 25, 50, or 90 minutes.
+    </li>
+    <li>
+      🔊 I always like to have white noise when I focus. There are looped music options below the timer, or you can unfold “More Ambient Sounds” to access longer tracks from 
+      <a href="https://archive.org/details/relaxingsounds/" target="_blank">archive.org</a> curated by GenreFan.
+    </li>
+    <li>
+      ✅ You can add goals for the day. Breaking tasks into small chunks makes them feel more doable. Add as many as you like, assign time, and check them off when complete.
+    </li>
+    <li>
+      🧠 If the task feels too intimidating or hard to break down, talk to this 
+      <a href="https://inyoungcheong.github.io/planner" target="_blank">customized chatbot</a> I built!  
+      It will help you de-clutter your mind and clarify what to do next.
+    </li>
+    <li>
+      🧾 When a focus session ends, a block appears in “Today's Focus Blocks.” Label it to reflect what you did—even if you got distracted (e.g., “Netflix”). This helps you track habits over time.
+    </li>
+  </ul>
+</details>
+
+
 
 <style>
   :root {
@@ -365,19 +441,6 @@ no_description: true
   </div>
 </div>
 
-<footer style="margin-top: 3rem; text-align: center;">
-  <div style="font-size: 1rem; margin-bottom: 0.5rem;">
-    🎧 More Ambient Sounds
-  </div>
-  <iframe 
-    src="https://archive.org/embed/relaxingsounds" 
-    width="500" height="30" 
-    frameborder="0" 
-    webkitallowfullscreen 
-    mozallowfullscreen 
-    allowfullscreen>
-  </iframe>
-</footer>
 
 <script src="/assets/js/timer.js"></script>
 
