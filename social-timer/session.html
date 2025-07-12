@@ -49,6 +49,14 @@
       border: 1px solid #ccc;
       background: #fafafa;
     }
+
+    .vibe-card {
+      padding: 1rem;
+      border-radius: 10px;
+      background-color: #fdfdfd;
+      border-left: 4px solid #FF9687;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
   </style>
 </head>
 <body>
@@ -73,6 +81,13 @@
         <button onclick="pauseTimer()">Pause</button>
         <button onclick="resetTimer()">Reset</button>
       </div>
+
+      <div class="card" id="vibeBoardContainer" style="margin-top: 2rem;">
+        <h3>🌈 Dashboard </h3>
+        <div id="vibeBoard" style="display: flex; flex-direction: column; gap: 1rem;"></div>
+        <p style="font-size: 0.9rem; color: #666;">✨ Everyone’s goals appear here.</p>
+      </div>
+
     </div>
 
     <div class="right">
@@ -155,7 +170,7 @@
       localStorage.setItem(nameKey, name);
       localStorage.setItem(emojiKey, emoji);
       localStorage.setItem(roleKey, role); // ✅ 여기 꼭 저장
-    
+      
       db.collection("sessions").doc(session).collection("participants").doc(name).set({
         name,
         emoji,
@@ -212,10 +227,11 @@
       // 목표 실시간 저장
       goalInput.addEventListener("input", () => {
         if (session && name) {
-          db.collection("sessions").doc(session)
-            .collection("participants").doc(name).update({ goal: goalInput.innerText });
-        }
-      });
+        const cleaned = goalInput.innerText.replace(/^•\s*/, "");
+        db.collection("sessions").doc(session)
+          .collection("participants").doc(name).update({ goal: cleaned });
+      }
+    });
     };
   
     // 타이머
@@ -232,6 +248,35 @@
     function updateRemoteTimer(state) {
       db.collection("sessions").doc(session).collection("state").doc("timer").set(state);
     }
+
+        // 🌈 Vibe Board – goal만 표시
+    db.collection("sessions").doc(session).collection("participants")
+      .orderBy("timestamp")
+      .onSnapshot(snapshot => {
+        const board = document.getElementById("vibeBoard");
+        board.innerHTML = "";
+    
+        snapshot.forEach(doc => {
+          const p = doc.data();
+          const goal = p.goal || "-";
+          const name = p.name || "Anonymous";
+          const emoji = p.emoji || "🐾";
+    
+          const div = document.createElement("div");
+          div.className = "vibe-card";
+          div.style.borderLeft = "4px solid #FF9687";
+          div.style.padding = "1rem";
+          div.style.borderRadius = "10px";
+          div.style.background = "#f9f9f9";
+    
+          div.innerHTML = `
+            <p style="font-size: 1.2rem;">${emoji} <strong>${name}</strong></p>
+            <p><strong>🎯</strong> ${goal}</p>
+          `;
+          board.appendChild(div);
+        });
+      });
+
   
     db.collection("sessions").doc(session).collection("state").doc("timer")
       .onSnapshot(doc => {
