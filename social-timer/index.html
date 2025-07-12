@@ -113,12 +113,19 @@ if (!userAnimal) {
 
 
 
+  
   function generateSessionLink() {
-  const session = document.getElementById("newSessionInput").value.trim();
-  if (!session) {
-    alert("Please enter a session name.");
-    return;
-  }
+  const baseName = document.getElementById("newSessionInput").value.trim() || "focus-group";
+  const randomSuffix = Math.random().toString(36).substring(2, 6); // e.g., "k3d9"
+  const session = `${baseName}-${randomSuffix}`;
+
+  // Auto-fill the input for user feedback
+  document.getElementById("newSessionInput").value = session;
+
+  const base = window.location.origin + window.location.pathname;
+  const fullLink = `${base}?session=${encodeURIComponent(session)}`;
+  document.getElementById("generatedLink").value = fullLink;
+}
 
   const base = window.location.origin + window.location.pathname;
   const fullLink = `${base}?session=${encodeURIComponent(session)}`;
