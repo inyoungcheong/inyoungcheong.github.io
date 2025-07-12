@@ -94,6 +94,11 @@ no_description: true
 
   <div id="submitPanel">
   <h3>📝 Your Notebook </h3>
+
+  <label>Your Name:
+  <input type="text" id="userNameInput" placeholder="e.g., Alex" />
+  </label><br><br>
+
   <label>Mood Emoji:
     <input type="text" id="moodEmojiInput" placeholder="😄" maxlength="2" />
   </label><br><br>
