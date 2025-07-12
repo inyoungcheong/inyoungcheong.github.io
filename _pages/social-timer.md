@@ -189,6 +189,38 @@ no_description: true
     margin-top: 1rem;
   }
 
+ .bullet-note {
+  width: 100%;
+  min-height: 100px;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.6;
+  background-color: #fff;
+  white-space: pre-wrap;
+  outline: none;
+  position: relative;
+}
+
+.bullet-note:empty:before {
+  content: attr(data-placeholder);
+  color: #aaa;
+  pointer-events: none;
+  position: absolute;
+  left: 0.9rem;
+  top: 0.75rem;
+}
+.form-group.tight {
+  margin-bottom: 0.8rem;
+}
+
+.bullet-note:focus {
+  outline: none;
+  border-color: var(--accent-focus);
+}
+
   @media (max-width: 768px) {
     .main-grid {
       flex-direction: column;
@@ -275,34 +307,33 @@ no_description: true
 
   <!-- Note Section -->
   <div id="noteSection" class="note-section">
-    <h2>📝 Your Note</h2>
-  
-    <div class="form-group">
-      <label for="nameInput">Your Name</label>
-      <input type="text" id="nameInput" placeholder="e.g. Alex the 🐢" />
-    </div>
-  
-    <div class="form-group">
-      <label for="goalInput">Your Goals</label>
-      <input type="text" id="goalInput" placeholder="Type a goal and press Enter" />
-      <div class="tag-container" id="goalTags"></div>
-    </div>
-  
-    <div class="form-group">
-      <label for="barrierInput">Barrier</label>
-      <input type="text" id="barrierInput" placeholder="e.g. Social media, hunger..." />
-    </div>
-  
-    <div class="form-group">
-      <label for="noteInput">Note to Self (private)</label>
-      <textarea id="noteInput" rows="3" placeholder="Don’t overthink. Be grateful for what you have today..."></textarea>
-    </div>
-  
-    <button class="update-button" onclick="submitVibe()">Update</button>
+  <h2>📝 Your Note</h2>
+
+  <div class="form-group tight">
+    <label for="nameInput">Your Name</label>
+    <input type="text" id="nameInput" placeholder="e.g. Alex the 🐢" />
   </div>
+
+  <div class="form-group tight">
+    <label for="goalInput">Your Goals</label>
+    <div id="goalInput" class="bullet-note" contenteditable="true" data-placeholder="• What's one thing you want to focus on?"></div>
+  </div>
+
+  <div class="form-group tight">
+    <label for="barrierInput">Barrier</label>
+    <input type="text" id="barrierInput" placeholder="e.g. Social media, hunger..." />
+  </div>
+
+  <div class="form-group tight">
+    <label for="noteInput">Note to Self (private)</label>
+    <div id="noteInput" class="bullet-note" contenteditable="true" placeholder="• Don't overthink…"></div>
+  </div>
+
+  <button class="update-button" onclick="submitVibe()">Update</button>
+ </div>
 </div>
 
-   <hr><br>
+    <hr><br>
   <div id="linkGenerator">
     <h3>🔗 Create a New Session</h3>
     <label>Session Name:
@@ -362,7 +393,7 @@ if (!userAnimal) {
 
     snapshot.forEach((doc) => {
       const data = doc.data();
-      const goals = (data.reflection1 || "").split(",").map(g => g.trim()).filter(Boolean);
+      const goals = getGoalsFromBulletEditor();
       const barrier = data.reflection2 || "-";
       const name = data.name || "Anon";
       const animal = data.animal || "🐾";
@@ -388,7 +419,7 @@ if (!userAnimal) {
   function submitVibe() {
   const name = document.getElementById("nameInput").value.trim();
   const barrier = document.getElementById("barrierInput").value.trim();
-  const note = document.getElementById("noteInput").value.trim();
+  const note = document.getElementById("noteInput").innerText.trim();  // from contenteditable
   const goals = goalList.map(g => g.trim()).filter(Boolean); // ensures no empty tags
 
   if (name) {
@@ -407,7 +438,14 @@ if (!userAnimal) {
 
   db.collection("sessions").doc(sessionName)
     .collection("participants").doc(userId)
-    .set(payload)
+    .set({
+    animal: userAnimal,
+    name: userName || "Anonymous",
+    reflection1: goals.join("\n"),
+    reflection2: barrier,
+    note: note,
+    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+  })
     .then(() => {
       console.log("✅ Vibe submitted");
 
@@ -452,35 +490,45 @@ if (!userAnimal) {
 </script>
 
 <script>
-const goalInput = document.getElementById('goalInput');
-const goalTags = document.getElementById('goalTags');
-let goalList = [];
-
-goalInput.addEventListener('keydown', function (e) {
-  if (e.key === 'Enter' && this.value.trim() !== '') {
-    e.preventDefault();
-    const tagText = this.value.trim();
-    goalList.push(tagText);
-    renderGoalTags();
-    this.value = '';
-  }
-});
-
-function renderGoalTags() {
-  goalTags.innerHTML = '';
-  goalList.forEach((tag) => {
-    const div = document.createElement('div');
-    div.className = 'tag';
-    div.textContent = '#' + tag;
-    goalTags.appendChild(div);
-  });
-}
 
 
     // Save to Firestore or display in Vibe Board
     console.log({ name, goals, barrier, note });
 
     // You'd call Firestore update here
+  }
+</script>
+
+<script>
+  // Auto bullet on Enter
+  document.getElementById("goalInput").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      const sel = window.getSelection();
+      const range = sel.getRangeAt(0);
+      const br = document.createElement("br");
+      const bullet = document.createTextNode("• ");
+      range.deleteContents();
+      range.insertNode(br);
+      range.collapse(false);
+      range.insertNode(bullet);
+      
+      // move caret to end
+      sel.removeAllRanges();
+      const newRange = document.createRange();
+      newRange.setStartAfter(bullet);
+      newRange.collapse(true);
+      sel.addRange(newRange);
+    }
+  });
+
+  // Extract goals from bullet editor
+  function getGoalsFromBulletEditor() {
+    const lines = document.getElementById("goalInput").innerText
+      .split("\n")
+      .map(line => line.replace(/^•\s*/, "").trim())
+      .filter(line => line.length > 0);
+    return lines;
   }
 </script>
 
