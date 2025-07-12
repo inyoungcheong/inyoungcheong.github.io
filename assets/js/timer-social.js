@@ -60,33 +60,25 @@ function startTimer() {
   const duration = parseInt(document.getElementById("focusDuration").value) * 60;
 
   isLocalUpdate = true;
-  db.collection("sessions").doc(sessionName).set({
-    timer: {
-      status: "running",
-      startTime: firebase.firestore.FieldValue.serverTimestamp(),
-      duration: duration
-    },
-    isFocus: isFocus,
-    focusCount: focusCount
-  }, { merge: true }).then(() => {
-    isLocalUpdate = false;
-  });
-}
-
-
-function pauseTimer() {
-  isLocalUpdate = true;
-
   db.collection("sessions").doc(sessionName).get().then(doc => {
-    const data = doc.data().timer;
-    if (!data) return;
+    const data = doc.data()?.timer;
 
-    const remaining = getRemainingTime(data.startTime, data.duration);
+    // If already running, don't restart
+    if (data?.status === "running") {
+      isLocalUpdate = false;
+      return;
+    }
+
+    // If previously paused, resume from remaining
+    const startFrom = data?.status === "paused" && data.duration
+      ? data.duration
+      : duration;
 
     db.collection("sessions").doc(sessionName).set({
       timer: {
-        status: "paused",
-        duration: remaining  // store remaining time
+        status: "running",
+        startTime: firebase.firestore.FieldValue.serverTimestamp(),
+        duration: startFrom
       }
     }, { merge: true }).then(() => {
       isLocalUpdate = false;
@@ -94,10 +86,34 @@ function pauseTimer() {
   });
 }
 
+
+
+function pauseTimer() {
+  isLocalUpdate = true;
+
+  db.collection("sessions").doc(sessionName).get().then(doc => {
+    const data = doc.data()?.timer;
+    if (!data || !data.startTime) return;
+
+    const remaining = getRemainingTime(data.startTime, data.duration);
+
+    db.collection("sessions").doc(sessionName).set({
+      timer: {
+        status: "paused",
+        duration: remaining
+      }
+    }, { merge: true }).then(() => {
+      isLocalUpdate = false;
+    });
+  });
+}
+
+
 function resetTimer() {
   const duration = parseInt(document.getElementById("focusDuration").value) * 60;
   time = duration;
-  updateDisplay(duration);  // update UI immediately
+  updateDisplay(duration);  // Immediate UI update
+  clearInterval(localTimerInterval); // Stop ticking
 
   isLocalUpdate = true;
   db.collection("sessions").doc(sessionName).set({
@@ -114,16 +130,12 @@ function resetTimer() {
 // Firestore listener for shared timer
 db.collection("sessions").doc(sessionName)
   .onSnapshot((doc) => {
-    const data = doc.data();
-    if (!data || !data.timer) return;
-    
-        // sync mode state
-    isFocus = data.isFocus ?? true;
-    focusCount = data.focusCount ?? 0;
-    
-    const { status, startTime, duration } = data.timer;
+    const data = doc.data()?.timer;
+    if (!data) return;
 
-    if (isLocalUpdate) return; // skip own writes
+    const { status, startTime, duration } = data;
+
+    if (isLocalUpdate) return;
     clearInterval(localTimerInterval);
 
     if (status === "running") {
@@ -131,20 +143,20 @@ db.collection("sessions").doc(sessionName)
         const remaining = getRemainingTime(startTime, duration);
         updateDisplay(remaining);
         if (remaining <= 0) {
-  clearInterval(localTimerInterval);
-  handleSessionEnd();
-};
+          clearInterval(localTimerInterval);
+          handleSessionEnd();
+        }
       };
       update();
       localTimerInterval = setInterval(update, 1000);
     } else if (status === "paused") {
       const remaining = startTime ? getRemainingTime(startTime, duration) : duration;
-  updateDisplay(remaining);
-    
+      updateDisplay(remaining);
     } else if (status === "stopped") {
       updateDisplay(duration || 1500);
     }
   });
+
 
 function handleSessionEnd() {
   gentleBell.play();
@@ -290,7 +302,6 @@ function loadFromLocal() {
 }
 
 window.onload = () => {
-  updateDisplay(time);
   updateStatus();
   loadFromLocal();
 };
