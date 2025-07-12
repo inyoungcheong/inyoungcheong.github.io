@@ -99,10 +99,6 @@ no_description: true
   <input type="text" id="userNameInput" placeholder="e.g., Alex" />
   </label><br><br>
 
-  <label>Mood Emoji:
-    <input type="text" id="moodEmojiInput" placeholder="😄" maxlength="2" />
-  </label><br><br>
-
   <label>What’s one thing you’d feel proud to finish today?<br>
     <input type="text" id="reflection1Input" placeholder="Finish my sh**ty first draft" />
   </label><br><br>
@@ -150,11 +146,21 @@ document.getElementById("sessionHeader").textContent = `🔗 Session: ${sessionN
 
   
    // Get or generate user ID
-  let userId = localStorage.getItem("vibeUserId");
-  if (!userId) {
-    userId = "user" + Math.floor(Math.random() * 100000);
-    localStorage.setItem("vibeUserId", userId);
-  }
+const animalEmojis = ["🐶", "🐱", "🐰", "🦊", "🐻", "🐼", "🐯", "🦁", "🐨", "🐸", "🐵", "🐧", "🐢"];
+
+let userId = localStorage.getItem("vibeUserId");
+let userAnimal = localStorage.getItem("vibeUserAnimal");
+let userName = localStorage.getItem("vibeUserName");
+
+if (!userId) {
+  userId = "user" + Math.floor(Math.random() * 100000);
+  localStorage.setItem("vibeUserId", userId);
+}
+
+if (!userAnimal) {
+  userAnimal = animalEmojis[Math.floor(Math.random() * animalEmojis.length)];
+  localStorage.setItem("vibeUserAnimal", userAnimal);
+}
   
   db.collection("sessions")
     .doc(sessionName)
@@ -168,9 +174,8 @@ document.getElementById("sessionHeader").textContent = `🔗 Session: ${sessionN
         div.className = "vibe-card";
         div.innerHTML = `
           <p style="font-size: 1.5rem; margin: 0;">${data.animal || "🐾"} <strong>${data.name || "Anon"}</strong></p>
-          <p style="font-size: 2rem; margin: 0;">${data.moodEmoji || "🙂"}</p>
           <p><strong>🎯 Goal:</strong> ${data.reflection1 || "-"}</p>
-          <p><strong>💭 Distraction:</strong> ${data.reflection2 || "-"}</p>
+          <p><strong>💭 Barrier:</strong> ${data.reflection2 || "-"}</p>
         `;
         container.appendChild(div);
       });
@@ -180,7 +185,6 @@ document.getElementById("sessionHeader").textContent = `🔗 Session: ${sessionN
   
   
   function submitVibe() {
-  const mood = document.getElementById("moodEmojiInput").value || "🙂";
   const r1 = document.getElementById("reflection1Input").value;
   const r2 = document.getElementById("reflection2Input").value;
 
@@ -199,7 +203,6 @@ document.getElementById("sessionHeader").textContent = `🔗 Session: ${sessionN
     .set({
       animal: userAnimal,
       name: userName || "Anonymous",
-      moodEmoji: mood,
       reflection1: r1,
       reflection2: r2,
       timestamp: firebase.firestore.FieldValue.serverTimestamp()
