@@ -57,6 +57,39 @@
       border-left: 4px solid #FF9687;
       box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     }
+
+    .circle-timer {
+      margin: 2rem auto;
+      width: 220px;
+      height: 220px;
+      position: relative;
+    }
+    
+    circle {
+      fill: none;
+      stroke-width: 8;
+    }
+    
+    circle.bg {
+      stroke: #eee;
+    }
+    
+    circle.progress {
+      stroke: #FF9687;
+      stroke-dasharray: 628.32;
+      stroke-dashoffset: 0;
+      transform: rotate(-90deg);
+      transform-origin: center;
+      transition: stroke-dashoffset 1s linear;
+    }
+    
+    #timerText {
+      font-size: 1.8rem;
+      font-weight: 600;
+      fill: #333;
+      font-family: 'Inter', sans-serif;
+    }
+
   </style>
 </head>
 <body>
@@ -71,15 +104,23 @@
 <div id="mainApp" style="display: none;">
   <div class="container">
     <div class="left">
-      <div class="card">
-        <h3>⏳ Timer (Coming soon)</h3>
-        <div id="timer">25:00</div>
+      <div class="circle-timer">
+        <svg viewBox="0 0 220 220" width="220" height="220">
+          <circle class="bg" cx="110" cy="110" r="100" />
+          <circle class="progress" cx="110" cy="110" r="100" />
+          <text id="timerText" x="110" y="120" text-anchor="middle">25:00</text>
+        </svg>
       </div>
 
       <div class="controls">
         <button onclick="startTimer()">Start</button>
         <button onclick="pauseTimer()">Pause</button>
         <button onclick="resetTimer()">Reset</button>
+        <select onchange="setFocusDuration(this.value)">
+                <option value="1500">25 min</option>
+                <option value="2700">45 min</option>
+                <option value="5400">90 min</option>
+      </select>
       </div>
 
       <div class="card" id="vibeBoardContainer" style="margin-top: 2rem;">
@@ -128,7 +169,6 @@
     let emoji = localStorage.getItem(emojiKey);
     let role = localStorage.getItem(roleKey);
   
-    const timerText = document.getElementById("timer");
     const goalInput = document.getElementById("goalInput");
     const controls = document.querySelector(".controls");
   
@@ -236,6 +276,7 @@
   
     // 타이머
     let localSeconds = 1500;
+    let duration = localSeconds;
     let localTimer = null;
     let isRunning = false;
   
@@ -243,8 +284,22 @@
       const m = String(Math.floor(sec / 60)).padStart(2, "0");
       const s = String(sec % 60).padStart(2, "0");
       timerText.textContent = `${m}:${s}`;
+      updateProgress();
     }
-  
+    
+    function startLocalTimer() {
+      stopLocalTimer();
+      localTimer = setInterval(() => {
+        localSeconds--;
+        if (localSeconds <= 0) {
+          stopLocalTimer();
+          isRunning = false;
+        }
+        displayTime(localSeconds);
+      }, 1000);
+    }
+
+    
     function updateRemoteTimer(state) {
       db.collection("sessions").doc(session).collection("state").doc("timer").set(state);
     }
@@ -288,32 +343,45 @@
         if (isRunning) startLocalTimer();
         else stopLocalTimer();
       });
-  
-    function startLocalTimer() {
-      stopLocalTimer();
-      localTimer = setInterval(() => {
-        localSeconds--;
-        if (localSeconds <= 0) {
-          stopLocalTimer();
-          isRunning = false;
-        }
-        displayTime(localSeconds);
-      }, 1000);
-    }
-  
+
+
+    const fullCircle = 2 * Math.PI * 100; // r = 100
+      const progressCircle = document.querySelector("circle.progress");
+      const timerText = document.getElementById("timerText");
+      
+      
+      function updateProgress() {
+        const ratio = remaining / duration;
+        const offset = fullCircle * (1 - ratio);
+        progressCircle.style.strokeDashoffset = offset;
+        const m = String(Math.floor(remaining / 60)).padStart(2, '0');
+        const s = String(remaining % 60).padStart(2, '0');
+        timerText.textContent = `${m}:${s}`;
+      }
+      
+      function startTimer() {
+        updateRemoteTimer({
+          isRunning: true,
+          remainingSeconds: localSeconds,
+          lastUpdated: Date.now()
+        });
+      }
+    
+     function resetTimer() {
+        localSeconds = duration;
+        updateRemoteTimer({
+          isRunning: false,
+          remainingSeconds: localSeconds,
+          lastUpdated: Date.now()
+        });
+      }
+   
     function stopLocalTimer() {
       if (localTimer) clearInterval(localTimer);
       localTimer = null;
     }
   
-    function startTimer() {
-      updateRemoteTimer({
-        isRunning: true,
-        remainingSeconds: localSeconds,
-        lastUpdated: Date.now()
-      });
-    }
-  
+    
     function pauseTimer() {
       updateRemoteTimer({
         isRunning: false,
@@ -321,15 +389,13 @@
         lastUpdated: Date.now()
       });
     }
-  
-    function resetTimer() {
-      localSeconds = 1500;
-      updateRemoteTimer({
-        isRunning: false,
-        remainingSeconds: 1500,
-        lastUpdated: Date.now()
-      });
+
+   function setFocusDuration(sec) {
+      localSeconds = parseInt(sec);
+      duration = localSeconds; // 이걸로 원형 애니메이션 정확하게
+      displayTime(localSeconds);
     }
+    
   </script>
 
 
