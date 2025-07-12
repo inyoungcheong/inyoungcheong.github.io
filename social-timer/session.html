@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pomodoro Session</title>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fff;
+      color: #333;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    #timer {
+      font-size: 4rem;
+      margin-top: 2rem;
+    }
+
+    button {
+      margin-top: 1rem;
+      padding: 0.5rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      background-color: #FF9687;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ff7968;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔗 Session: <span id="sessionName">...</span></h1>
+  <div id="timer">25:00</div>
+  <button onclick="startTimer()">Start</button>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+  <!-- Timer Script -->
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyAW3sw__h-YyGOBowZULt2iZ59CP8KkU34",
+      authDomain: "social-timer-a2315.firebaseapp.com",
+      projectId: "social-timer-a2315",
+      storageBucket: "social-timer-a2315.appspot.com",
+      messagingSenderId: "68840014890",
+      appId: "1:68840014890:web:ac1b634ab00b41622eef53"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    const sessionName = new URLSearchParams(window.location.search).get("session") || "testSession1";
+    document.getElementById("sessionName").textContent = sessionName;
+
+    // Simple local timer (can be replaced with Firestore-based shared timer)
+    let time = 25 * 60;
+    let interval;
+
+    function updateDisplay() {
+      const min = String(Math.floor(time / 60)).padStart(2, '0');
+      const sec = String(time % 60).padStart(2, '0');
+      document.getElementById("timer").textContent = `${min}:${sec}`;
+    }
+
+    function startTimer() {
+      clearInterval(interval);
+      interval = setInterval(() => {
+        if (time > 0) {
+          time--;
+          updateDisplay();
+        } else {
+          clearInterval(interval);
+          alert("⏰ Time's up!");
+        }
+      }, 1000);
+    }
+
+    updateDisplay();
+  </script>
+</body>
+</html>
