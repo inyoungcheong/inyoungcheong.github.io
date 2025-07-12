@@ -109,6 +109,33 @@ function resetTimer() {
 }
 
 
+// Firestore listener for shared timer
+db.collection("sessions").doc(sessionName)
+  .onSnapshot((doc) => {
+    const data = doc.data();
+    if (!data || !data.timer) return;
+
+    const { status, startTime, duration } = data.timer;
+
+    if (isLocalUpdate) return; // skip own writes
+    clearInterval(localTimerInterval);
+
+    if (status === "running") {
+      const update = () => {
+        const remaining = getRemainingTime(startTime, duration);
+        updateTimerDisplay(remaining);
+        if (remaining <= 0) clearInterval(localTimerInterval);
+      };
+      update();
+      localTimerInterval = setInterval(update, 1000);
+    } else if (status === "paused") {
+      const remaining = getRemainingTime(startTime, duration);
+      updateTimerDisplay(remaining);
+    } else if (status === "stopped") {
+      updateTimerDisplay(duration || 1500);
+    }
+  });
+
 function setFocusDuration(minutes) {
   focusTime = parseInt(minutes) * 60;
   resetTimer();
