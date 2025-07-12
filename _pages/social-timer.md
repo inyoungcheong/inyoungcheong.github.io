@@ -1,6 +1,10 @@
+---
+layout: page
 title: Social Pomodoro Timer
-description: 
 permalink: /social-timer/
+description: A pomodoro timer for friends.  
+no_title: true
+no_description: true
 ---
 
 <!-- Firebase App (core SDK) -->
