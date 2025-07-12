@@ -212,6 +212,30 @@
       lastUpdated: Date.now()
     });
   }
+
+  if (role !== "host") {
+      // 비활성화 버튼
+      controls.querySelectorAll("button").forEach(btn => {
+        btn.disabled = true;
+        btn.style.opacity = "0.5";
+        btn.style.cursor = "not-allowed";
+      });
+    
+      // 이쁘고 친절한 안내 문구 추가
+      const notice = document.createElement("div");
+      notice.innerHTML = `🚫 <strong>Only the host</strong> can control the timer.`;
+      notice.style.fontSize = "0.95rem";
+      notice.style.color = "#5c5c5c";
+      notice.style.background = "#f9f2f2";
+      notice.style.border = "1px solid #e0dada";
+      notice.style.borderRadius = "8px";
+      notice.style.padding = "0.75rem 1rem";
+      notice.style.marginTop = "1rem";
+      notice.style.textAlign = "center";
+      notice.style.fontFamily = "'Inter', sans-serif";
+      controls.appendChild(notice);
+    }
+
   </script>
 </body>
 </html>
