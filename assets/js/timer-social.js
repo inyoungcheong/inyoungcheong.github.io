@@ -136,6 +136,21 @@ function resetTimer() {
   });
 }
 
+function playBeep() {
+  const context = new (window.AudioContext || window.webkitAudioContext)();
+  const oscillator = context.createOscillator();
+  const gain = context.createGain();
+
+  oscillator.type = 'sine'; // or 'square', 'triangle'
+  oscillator.frequency.setValueAtTime(880, context.currentTime); // pitch in Hz
+  gain.gain.setValueAtTime(0.1, context.currentTime); // volume
+
+  oscillator.connect(gain);
+  gain.connect(context.destination);
+
+  oscillator.start();
+  oscillator.stop(context.currentTime + 1); // 1 second
+}
 
 // Firestore listener for shared timer
 db.collection("sessions").doc(sessionName)
@@ -169,7 +184,7 @@ db.collection("sessions").doc(sessionName)
 
 
 function handleSessionEnd() {
-  gentleBell.play();
+  playBeep();
 
   // Update mode (focus ↔ break)
   isFocus = !isFocus;
@@ -228,7 +243,6 @@ function renderLog() {
 }
 
 let audioContext, currentSource, gainNode;
-const gentleBell = new Audio("https://cdn.pixabay.com/download/audio/2022/03/15/audio_5fa3e3c5a7.mp3?filename=soft-bell-6555.mp3");
 const audioFiles = {
   birds: "/assets/audio/park_birds.mp3",
   morning: "/assets/audio/morning_park.mp3",
