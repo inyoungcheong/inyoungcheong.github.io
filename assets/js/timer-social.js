@@ -65,11 +65,14 @@ function startTimer() {
       status: "running",
       startTime: firebase.firestore.FieldValue.serverTimestamp(),
       duration: duration
-    }
+    },
+    isFocus: isFocus,
+    focusCount: focusCount
   }, { merge: true }).then(() => {
     isLocalUpdate = false;
   });
 }
+
 
 function pauseTimer() {
   isLocalUpdate = true;
@@ -113,7 +116,11 @@ db.collection("sessions").doc(sessionName)
   .onSnapshot((doc) => {
     const data = doc.data();
     if (!data || !data.timer) return;
-
+    
+        // sync mode state
+    isFocus = data.isFocus ?? true;
+    focusCount = data.focusCount ?? 0;
+    
     const { status, startTime, duration } = data.timer;
 
     if (isLocalUpdate) return; // skip own writes
