@@ -123,7 +123,7 @@ db.collection("sessions").doc(sessionName)
     if (status === "running") {
       const update = () => {
         const remaining = getRemainingTime(startTime, duration);
-        updateTimerDisplay(remaining);
+        updateDisplay(remaining);
         if (remaining <= 0) clearInterval(localTimerInterval);
       };
       update();
