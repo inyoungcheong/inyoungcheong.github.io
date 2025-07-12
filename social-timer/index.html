@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>🌱 Start a Social Pomodoro Session</title>
+  <title>🌱 Social Pomodoro Session</title>
   <style>
     :root {
       --accent: #FF9687;
@@ -82,10 +82,10 @@
 <body>
 
   <h1>🌱 Social Pomodoro Timer</h1>
-  <p>Create a shared focus session with friends — stay accountable together.</p>
+  <p>Start a new session or join one by entering a code.</p>
 
-  <input type="text" id="sessionInput" placeholder="e.g. writing-club-39f8" />
-  <button onclick="startSession()">Start Session</button>
+  <input type="text" id="sessionInput" placeholder="e.g. focus-club-39f8" />
+  <button onclick="startOrJoinSession()">Join Session</button>
 
   <p class="link-feedback" id="linkFeedback">🔗 Link copied to clipboard!</p>
 
@@ -94,19 +94,18 @@
       const adjectives = ["focus", "calm", "brave", "deep", "chill"];
       const nouns = ["group", "team", "circle", "club", "zone"];
       const rand = () => Math.random().toString(36).substring(2, 6);
-      const name = `${adjectives[Math.floor(Math.random() * adjectives.length)]}-${nouns[Math.floor(Math.random() * nouns.length)]}-${rand()}`;
-      return name;
+      return `${adjectives[Math.floor(Math.random() * adjectives.length)]}-${nouns[Math.floor(Math.random() * nouns.length)]}-${rand()}`;
     }
 
     window.onload = () => {
       document.getElementById("sessionInput").value = generateSessionName();
     };
 
-    function startSession() {
+    function startOrJoinSession() {
       const input = document.getElementById("sessionInput");
-      const session = input.value.trim();
+      const session = input.value.trim().replace(/\s+/g, "-").toLowerCase();
       if (!session) {
-        alert("Please enter a session name.");
+        alert("Please enter a session name or code.");
         return;
       }
       const link = `/social-timer/?session=${encodeURIComponent(session)}`;
@@ -121,3 +120,4 @@
 
 </body>
 </html>
+
