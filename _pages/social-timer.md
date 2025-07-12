@@ -10,41 +10,92 @@ no_description: true
 <body>
 
   <style>
-
-  .circle-timer {
-    width: 220px;
-    height: 220px;
-    margin: 2rem auto;
-    position: relative;
-    background: transparent !important;
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 1rem;
+    line-height: 1.6;
   }
 
+  h2, h3 {
+    font-weight: 600;
+    margin-top: 2rem;
+  }
+
+  .circle-timer {
+    width: 240px;
+    height: 240px;
+    margin: 2rem auto 1rem;
+    position: relative;
+  }
+
+  #timerText {
+    font-size: 3rem;
+    font-weight: 600;
+    text-align: center;
+    color: #111;
+  }
 
   .controls {
     text-align: center;
     margin-top: 1rem;
   }
-    
+
+  .controls button, .controls select {
+    padding: 0.4rem 1rem;
+    margin: 0.25rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    background: white;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .controls button:hover {
+    background-color: #eee;
+  }
+
   #vibeBoard {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
+    margin-top: 1rem;
   }
 
   .vibe-card {
-    border: 1px solid #ddd;
+    border: 1px solid #e2e2e2;
     padding: 1rem;
-    border-radius: 10px;
-    width: 250px;
-    background: #f9f9f9;
-    font-family: system-ui, sans-serif;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border-radius: 12px;
+    background: #fff;
+    width: 260px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.04);
   }
 
   :root {
-  --accent-focus: #FF9687;   /* Pastel coral */
-  --accent-break: #A3D9FF;   /* Soft blue */
-}
+    --accent-focus: #FF9687;   /* Pastel coral */
+    --accent-break: #A3D9FF;   /* Soft blue */
+  }
+
+  .section-header {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+  }
+
+  #status {
+    text-align: center;
+    font-size: 1.1rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+
+  .ambient-control {
+    margin-top: 0.5rem;
+    text-align: center;
+    font-size: 0.95rem;
+    color: #666;
+  }
 </style>
 
  <h2 id="sessionHeader">🔗 Session: ...</h2>
