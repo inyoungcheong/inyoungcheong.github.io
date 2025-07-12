@@ -4,7 +4,7 @@
 let localTimerInterval;
 let isLocalUpdate = false; // to prevent echo loop
 
-
+ 
 
 function getRemainingTime(startTime, duration) {
   const elapsed = (Date.now() - startTime.toMillis()) / 1000;
