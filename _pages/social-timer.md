@@ -30,8 +30,17 @@ no_description: true
     position: relative;
   }
 
+  .main-grid {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
   #timerText {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 600;
     text-align: center;
     color: #111;
@@ -57,22 +66,46 @@ no_description: true
     background-color: #eee;
   }
 
-  #vibeBoard {
+  .vibe-board .description {
+    font-size: 0.95rem;
+    color: #666;
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .vibe-grid {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 1rem;
-    margin-top: 1rem;
   }
 
   .vibe-card {
-    border: 1px solid #e2e2e2;
     padding: 1rem;
+    border: 1px solid #ddd;
     border-radius: 12px;
-    background: #fff;
-    width: 260px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.04);
+    background-color: #fdfdfd;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  }
+    
+  .note-entry textarea {
+    height: 100px;
+    resize: vertical;
   }
 
+  #goalInputs .goal-tag {
+    margin-top: 0.5rem;
+  }
+    
+  .note-entry input,
+  .note-entry textarea {
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 0.6rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+    
   :root {
     --accent-focus: #FF9687;   /* Pastel coral */
     --accent-break: #A3D9FF;   /* Soft blue */
@@ -90,6 +123,23 @@ no_description: true
     margin-bottom: 1rem;
   }
 
+  .card {
+    flex: 1 1 45%;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    font-family: system-ui, sans-serif;
+    min-width: 300px;
+    max-width: 600px;
+  }
+
+  .note-entry label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: bold;
+  }
+    
   .ambient-control {
     margin-top: 0.5rem;
     text-align: center;
@@ -136,32 +186,39 @@ no_description: true
   <audio id="ambientPlayer" loop></audio>
 </div>
   
-  <div>
-    <h2>💬 Vibe Board</h2>
-    <div id="vibeBoard"></div>
+  <div class="main-grid">
+  <!-- 🎯 Note Entry Area -->
+  <div class="note-entry card">
+    <h2>📝 Your Notebook</h2>
+
+    <label for="name">Your Name:</label>
+    <input type="text" id="nameInput" placeholder="e.g. Libia" />
+
+    <label>🎯 Your Goals (hashtags):</label>
+    <div id="goalInputs">
+      <input type="text" class="goal-tag" placeholder="#draft_no_1, #editing" />
+    </div>
+    <button onclick="addGoalInput()">➕ Add Goal</button>
+
+    <label>🚧 Barrier:</label>
+    <input type="text" id="barrierInput" placeholder="e.g. Slack pings, TikTok..." />
+
+    <label>💬 Note to Self (private):</label>
+    <textarea id="noteToSelf" placeholder="Don't overthink. Be grateful for what you have today..."></textarea>
+
+    <button onclick="submitVibe()">Update Vibe</button>
   </div>
 
-
-
-  <div id="submitPanel">
-  <h3>📝 Your Notebook </h3>
-
-  <label>Your Name:
-  <input type="text" id="userNameInput" placeholder="e.g., Alex" />
-  </label><br><br>
-
-  <label>What’s one thing you’d feel proud to finish today?<br>
-    <input type="text" id="reflection1Input" placeholder="Finish my sh**ty first draft" />
-  </label><br><br>
-
-  <label>What distracted you today?<br>
-    <input type="text" id="reflection2Input" placeholder="Snack breaks becoming snack meals" />
-  </label><br><br>
-
-  <button onclick="submitVibe()">Submit</button>
-
-  
+  <!-- 💬 Vibe Board -->
+  <div class="vibe-board card">
+    <h2>💭 Vibe Board</h2>
+    <p class="description">What you write in your notebook will appear here.</p>
+    <div id="vibeBoard" class="vibe-grid">
+      <!-- Dynamic participant vibes will appear here -->
+    </div>
+  </div>
 </div>
+
 
    <hr><br>
   <div id="linkGenerator">
@@ -292,6 +349,32 @@ if (!userAnimal) {
 }
   
 </script>
+
+<script>
+  function addGoalInput() {
+    const container = document.getElementById("goalInputs");
+    const input = document.createElement("input");
+    input.type = "text";
+    input.className = "goal-tag";
+    input.placeholder = "#yourGoal";
+    container.appendChild(input);
+  }
+
+  function submitVibe() {
+    const name = document.getElementById("nameInput").value.trim();
+    const goalInputs = document.querySelectorAll(".goal-tag");
+    const barrier = document.getElementById("barrierInput").value.trim();
+    const note = document.getElementById("noteToSelf").value.trim();
+
+    const goals = Array.from(goalInputs).map(input => input.value.trim()).filter(Boolean);
+
+    // Save to Firestore or display in Vibe Board
+    console.log({ name, goals, barrier, note });
+
+    // You'd call Firestore update here
+  }
+</script>
+
 
 <script src="/assets/js/timer-social.js"></script>
 
