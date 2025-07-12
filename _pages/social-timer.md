@@ -10,6 +10,21 @@ no_description: true
 <body>
 
   <style>
+
+  .circle-timer {
+    width: 220px;
+    height: 220px;
+    margin: 2rem auto;
+    position: relative;
+    background: transparent !important;
+  }
+
+
+  .controls {
+    text-align: center;
+    margin-top: 1rem;
+  }
+    
   #vibeBoard {
     display: flex;
     flex-wrap: wrap;
@@ -29,11 +44,35 @@ no_description: true
 
  <h2 id="sessionHeader">🔗 Session: ...</h2>
 
+
+  <div class="status" id="status">Focus time – let's go!</div>
+      
+  <div class="circle-timer">
+    <svg viewBox="0 0 100 100" width="200" height="200">
+      <circle cx="50" cy="50" r="45" fill="none" />
+      <path id="pie" fill="#FF9687" transform="rotate(0,50,50)" />
+      <text x="50" y="55" text-anchor="middle" font-size="16" id="timerText">25:00</text>
+    </svg>
+  </div>
+  
+  <div class="controls">
+    <button onclick="startTimer()">Start</button>
+    <button onclick="pauseTimer()">Pause</button>
+    <button onclick="resetTimer()">Reset</button>
+    <select id="focusDuration" onchange="setFocusDuration(this.value)">
+      <option value="25">25 min</option>
+      <option value="50">50 min</option>
+      <option value="90">90 min</option>
+    </select>
+  </div>
+
   
   <div>
     <h2>💬 Vibe Board</h2>
     <div id="vibeBoard"></div>
   </div>
+
+
 
   <div id="submitPanel">
   <h3>📝 Your Notebook </h3>
@@ -149,5 +188,7 @@ document.getElementById("sessionHeader").textContent = `🔗 Session: ${sessionN
   document.getElementById("generatedLink").value = fullLink;
 }
 </script>
+
+<script src="/assets/js/timer.js"></script>
 
 </body>
