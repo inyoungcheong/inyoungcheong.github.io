@@ -73,8 +73,17 @@ no_description: true
     localStorage.setItem("vibeUserId", userId);
   }
   
+  // Step 1: Get session ID from URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const sessionId = urlParams.get("session") || "defaultSession"; // fallback if none
+  
+  // Step 2: Use sessionId for Firestore path
   db.collection("sessions")
-    .doc("testSession1")
+    .doc(sessionId)
+    .collection("participants")
+    .onSnapshot((snapshot) => {
+      // ... same as before
+    });
     .collection("participants")
     .onSnapshot((snapshot) => {
       let container = document.getElementById("vibeBoard");
@@ -98,8 +107,9 @@ no_description: true
     const r1 = document.getElementById("reflection1Input").value;
     const r2 = document.getElementById("reflection2Input").value;
 
-    
-    db.collection("sessions").doc("testSession1")
+
+
+    db.collection("sessions").doc(sessionId)
       .collection("participants").doc(userId)
       .set({
         moodEmoji: mood,
