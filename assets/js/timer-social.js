@@ -104,12 +104,11 @@ function pauseTimer() {
       remaining = data.duration || 1500;
     }
 
-    // Save remaining time and mark as paused
     db.collection("sessions").doc(sessionName).set({
       timer: {
         status: "paused",
-        duration: remaining
-        // omit startTime when paused
+        duration: remaining,
+        startTime: firebase.firestore.FieldValue.delete()  // ⬅️ explicitly remove old timestamp
       }
     }, { merge: true }).then(() => {
       isLocalUpdate = false;
