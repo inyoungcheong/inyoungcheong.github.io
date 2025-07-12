@@ -26,6 +26,8 @@ no_description: true
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
   }
 </style>
+
+ <h2 id="sessionHeader">🔗 Session: ...</h2>
   
   <div>
     <h2>💬 Vibe Board</h2>
@@ -66,6 +68,11 @@ no_description: true
   firebase.initializeApp(firebaseConfig);
   const db = firebase.firestore();
 
+ const sessionName = new URLSearchParams(window.location.search).get("session") || "testSession1";
+document.getElementById("sessionHeader").textContent = `🔗 Session: ${sessionName}`;
+
+
+  
    // Get or generate user ID
   let userId = localStorage.getItem("vibeUserId");
   if (!userId) {
@@ -73,17 +80,8 @@ no_description: true
     localStorage.setItem("vibeUserId", userId);
   }
   
-  // Step 1: Get session ID from URL
-  const urlParams = new URLSearchParams(window.location.search);
-  const sessionId = urlParams.get("session") || "defaultSession"; // fallback if none
-  
-  // Step 2: Use sessionId for Firestore path
   db.collection("sessions")
-    .doc(sessionId)
-    .collection("participants")
-    .onSnapshot((snapshot) => {
-      // ... same as before
-    });
+    .doc(sessionName)
     .collection("participants")
     .onSnapshot((snapshot) => {
       let container = document.getElementById("vibeBoard");
@@ -109,7 +107,7 @@ no_description: true
 
 
 
-    db.collection("sessions").doc(sessionId)
+    db.collection("sessions").doc(sessionName)
       .collection("participants").doc(userId)
       .set({
         moodEmoji: mood,
