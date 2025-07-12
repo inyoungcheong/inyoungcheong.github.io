@@ -5,22 +5,6 @@ let localTimerInterval;
 let isLocalUpdate = false; // to prevent echo loop
 
 
-const animalEmojis = ["🐶", "🐱", "🐰", "🦊", "🐻", "🐼", "🐯", "🦁", "🐨", "🐸", "🐵", "🐧", "🐢"];
-
-let userId = localStorage.getItem("vibeUserId");
-let userAnimal = localStorage.getItem("vibeUserAnimal");
-let userName = localStorage.getItem("vibeUserName");
-
-if (!userId) {
-  userId = "user" + Math.floor(Math.random() * 100000);
-  localStorage.setItem("vibeUserId", userId);
-}
-
-if (!userAnimal) {
-  userAnimal = animalEmojis[Math.floor(Math.random() * animalEmojis.length)];
-  localStorage.setItem("vibeUserAnimal", userAnimal);
-}
-
 
 function getRemainingTime(startTime, duration) {
   const elapsed = (Date.now() - startTime.toMillis()) / 1000;
