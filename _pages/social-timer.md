@@ -348,21 +348,9 @@ no_description: true
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 
+
 <script>
-  const firebaseConfig = {
-    apiKey: "AIzaSyAW3sw__h-YyGOBowZULt2iZ59CP8KkU34",
-    authDomain: "social-timer-a2315.firebaseapp.com",
-    projectId: "social-timer-a2315",
-    storageBucket: "social-timer-a2315.firebasestorage.app",
-    messagingSenderId: "68840014890",
-    appId: "1:68840014890:web:ac1b634ab00b41622eef53"
-  };
 
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.firestore();
-
- const sessionName = new URLSearchParams(window.location.search).get("session") || "testSession1";
-document.getElementById("sessionHeader").textContent = `🔗 Session: ${sessionName}`;
 
 
   
@@ -477,11 +465,6 @@ if (!userAnimal) {
   document.getElementById("generatedLink").value = fullLink;
 }
 
-  const base = window.location.origin + window.location.pathname;
-  const fullLink = `${base}?session=${encodeURIComponent(session)}`;
-  document.getElementById("generatedLink").value = fullLink;
-}
-
  function playAmbient() {
   const player = document.getElementById("ambientPlayer");
   const url = document.getElementById("ambientSelect").value;
@@ -496,15 +479,6 @@ if (!userAnimal) {
   
 </script>
 
-<script>
-
-
-    // Save to Firestore or display in Vibe Board
-    console.log({ name, goals, barrier, note });
-
-    // You'd call Firestore update here
-  }
-</script>
 
 <script>
   // Auto bullet on Enter
