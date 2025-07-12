@@ -50,7 +50,7 @@ repo_trophies:
 # -----------------------------------------------------------------------------
 
 navbar_fixed: true
-footer_fixed: true
+footer_fixed: false
 
 # Dimensions
 max_width: 800px
@@ -113,7 +113,6 @@ og_image: # The site-wide (default for all links) Open Graph preview image
 google_analytics: G-KB3EZ5YVPD
 panelbear_analytics:  # panelbear analytics site ID (format: XXXXXXXXX)
 
-google_site_verification:  # your google-site-verification ID (Google Search Console)
 bing_site_verification:  # out your bing-site-verification ID (Bing Webmaster)
 google-site-verification: r_j_Vx3bXyzhgNP8CF8wq_3IoXfgcu4mE5jQ3stD5yg
 # -----------------------------------------------------------------------------
