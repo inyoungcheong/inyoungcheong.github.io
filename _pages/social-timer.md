@@ -51,6 +51,9 @@ no_description: true
 
   <button onclick="submitVibe()">Submit</button>
 
+  
+</div>
+
    <hr><br>
   <div id="linkGenerator">
     <h3>🔗 Create a New Session</h3>
@@ -61,9 +64,6 @@ no_description: true
     <br><br>
     <input type="text" id="generatedLink" readonly style="width: 100%; font-size: 0.9rem;" />
   </div>
-
-  
-</div>
 
 <!-- Firebase v8 SDKs -->
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
