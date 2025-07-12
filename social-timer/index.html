@@ -1,245 +1,123 @@
-<!DOCTYPE html> <html lang="en"> <!-- Head --> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <!-- Metadata, OpenGraph and Schema.org --> <!-- Website verification --> <meta name="google-site-verification" content=""> <!-- Avoid warning on Google Chrome Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'interest-cohort'. see https://stackoverflow.com/a/75119417 --> <meta http-equiv="Permissions-Policy" content="interest-cohort=()"> <!-- Standard metadata --> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title>Social Pomodoro Timer | Inyoung Cheong</title> <meta name="author" content="Inyoung Cheong"> <meta name="description" content="A pomodoro timer for friends."> <meta name="keywords" content="Inyoung Cheong, AI, University of Washington, content moderation, free speech, legal research"> <!-- OpenGraph --> <meta property="og:site_name" content="Inyoung Cheong"> <meta property="og:type" content="website"> <meta property="og:title" content="Inyoung Cheong | Social Pomodoro Timer"> <meta property="og:url" content="https://inyoungcheong.github.io/social-timer/"> <meta property="og:description" content="A pomodoro timer for friends."> <meta property="og:locale" content="en"> <!-- Twitter card --> <meta name="twitter:card" content="summary"> <meta name="twitter:title" content="Social Pomodoro Timer"> <meta name="twitter:description" content="A pomodoro timer for friends."> <!-- Bootstrap & MDB --> <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-DF7Zhf293AJxJNTmh5zhoYYIMs2oXitRfBjY+9L//AY=" crossorigin="anonymous"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous"> <!-- Bootstrap Table --> <link defer rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.4/dist/bootstrap-table.min.css"> <!-- Fonts & Icons --> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css" integrity="sha256-i1+4qU2G2860dGGIOJscdC30s9beBXjFfzjWLjBRsBg=" crossorigin="anonymous"> <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons"> <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@0,400;0,500;0,700;0,800;0,900;1,300;1,400;1,500;1,700;1,800&amp;family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&amp;family=Mukta+Malar:wght@400;500;600;700&amp;family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&amp;family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&amp;family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Rajdhani:wght@300;400;500;600;700&amp;family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;family=Titillium+Web:ital@0;1&amp;display=swap" rel="stylesheet"> <!-- Code Syntax Highlighting --> <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jwarby/jekyll-pygments-themes@master/murphy.css" media="" id="highlight_theme_light"> <!-- Styles --> <link rel="shortcut icon" href="/assets/img/favicon.ico"> <link rel="stylesheet" href="/assets/css/main.css"> <link rel="canonical" href="https://inyoungcheong.github.io/social-timer/"> <!-- Dark Mode --> <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jwarby/jekyll-pygments-themes@master/native.css" media="none" id="highlight_theme_dark"> <script src="/assets/js/theme.js"></script> <script src="/assets/js/dark_mode.js"></script> </head> <!-- Body --> <body class="fixed-top-nav sticky-bottom-footer"> <!-- Header --> <header> <!-- Nav Bar --> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/">Inyoung Cheong</a> <!-- Navbar Toggle --> <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse text-right" id="navbarNav"> <ul class="navbar-nav ml-auto flex-nowrap"> <!-- About --> <li class="nav-item "> <a class="nav-link" href="/">about</a> </li> <!-- Blog --> <li class="nav-item "> <a class="nav-link" href="/blog/">blog</a> </li> <!-- Other pages --> <li class="nav-item "> <a class="nav-link" href="/cv/">cv</a> </li> <li class="nav-item "> <a class="nav-link" href="/teaching/">teaching</a> </li> <li class="nav-item dropdown "> <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">apps</a> <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> <a class="dropdown-item" href="/timer/">minimalist timer</a> <a class="dropdown-item" href="/planner/">planner bot</a> </div> </li> <!-- Toogle theme mode --> <li class="toggle-container"> <button id="light-toggle" title="Change theme"> <i class="fas fa-moon"></i> <i class="fas fa-sun"></i> </button> </li> </ul> </div> </div> </nav> <!-- Scrolling Progress Bar --> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <!-- Content --> <div class="container mt-5"> <!-- page.html --> <div class="post"> <header class="post-header"> </header> <article> <style>body{font-family:'Inter',system-ui,sans-serif;color:#333;margin:0;padding:1rem;line-height:1.6}h2,h3{font-weight:600;margin-top:2rem}.circle-timer{width:240px;height:240px;margin:2rem auto 1rem;position:relative}.main-grid{display:flex;gap:2rem;align-items:flex-start;margin-top:2rem}#timerText{font-size:2rem;font-weight:600;text-align:center;color:#111}.controls{text-align:center;margin-top:1rem}.controls button,.controls select{padding:.4rem 1rem;margin:.25rem;border-radius:8px;border:1px solid #ccc;font-size:1rem;background:white;cursor:pointer;transition:background .2s}.controls button:hover{background-color:#eee}#vibeBoardContainer,#noteSection{flex:1;min-height:500px;background:#fff;border-radius:12px;padding:1.5rem;box-shadow:0 2px 6px rgba(0,0,0,0.08)}#vibeBoard{display:flex;flex-direction:column;gap:1rem;min-height:400px}.vibe-card{padding:1rem;border-radius:10px;background-color:#f9f9f9;border-left:4px solid var(--accent-focus);font-family:system-ui,sans-serif;box-shadow:0 2px 4px rgba(0,0,0,0.05)}.note-hint{margin-top:1rem;font-size:.9rem;color:#666;font-style:italic}.note-section h2{margin-bottom:1rem;font-size:1.2rem}.form-group{margin-bottom:1rem;position:relative}.form-group label{display:block;margin-bottom:.4rem;font-weight:600}.form-group input,.form-group textarea{width:100%;padding:.65rem .75rem;border:1px solid #ccc;border-radius:8px;font-family:inherit;font-size:1rem;background-color:#fff;transition:border .2s}.form-group input:focus,.form-group textarea:focus{border-color:var(--accent-focus);outline:0}.tag-container{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}.tag{background-color:var(--accent-focus);color:white;padding:.4rem .8rem;border-radius:999px;font-size:.85rem;white-space:nowrap}#addGoalInput{margin-top:.5rem}.update-button{display:block;margin-top:1.5rem;padding:.6rem 1.5rem;background:var(--accent-focus);color:#fff;border:0;border-radius:8px;font-weight:bold;font-size:1rem;cursor:pointer}.update-button:hover{background:#ff7968}:root{--accent-focus:#ff9687;--accent-break:#a3d9ff}.section-header{margin-top:2rem;font-size:1.5rem}button{padding:.6rem 1.2rem;background:var(--accent-focus);color:#fff;border:0;border-radius:8px;font-weight:bold;cursor:pointer;margin-top:1rem}.bullet-note{width:100%;min-height:100px;padding:.75rem .9rem;border:1px solid #ccc;border-radius:8px;font-family:inherit;font-size:1rem;line-height:1.6;background-color:#fff;white-space:pre-wrap;outline:0;position:relative}.bullet-note:empty:before{content:attr(data-placeholder);color:#aaa;pointer-events:none;position:absolute;left:.9rem;top:.75rem}.form-group.tight{margin-bottom:.8rem}.bullet-note:focus{outline:0;border-color:var(--accent-focus)}@media(max-width:768px){.main-grid{flex-direction:column}}#status{text-align:center;font-size:1.1rem;font-style:italic;margin-bottom:1rem}.card{flex:1 1 45%;background:white;padding:1.5rem;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.05);font-family:system-ui,sans-serif;min-width:300px;max-width:600px}.note-entry label{display:block;margin-top:1rem;font-weight:bold}.ambient-control{margin-top:.5rem;text-align:center;font-size:.95rem;color:#666}</style> <h2 id="sessionHeader">🔗 Session: ...</h2> <div class="status" id="status">Focus time – let's go!</div> <div class="circle-timer"> <svg viewbox="0 0 100 100" width="200" height="200"> <circle cx="50" cy="50" r="45" fill="none"></circle> <path id="pie" fill="#FF9687" transform="rotate(0,50,50)"></path> <text x="50" y="55" text-anchor="middle" font-size="16" id="timerText">25:00</text> </svg> </div> <div class="controls"> <button onclick="startTimer()">Start</button> <button onclick="pauseTimer()">Pause</button> <button onclick="resetTimer()">Reset</button> <select id="focusDuration" onchange="setFocusDuration(this.value)"> <option value="25">25 min</option> <option value="50">50 min</option> <option value="90">90 min</option> </select> </div> <div style="text-align: center; margin-top: 1.5rem;"> <label><strong>🎧 Ambient Sound:</strong></label> <select id="ambientSelect" onchange="playAmbient()"> <option value="">No ambient</option> <option value="https://archive.org/download/relaxingsounds/FIRE%202%203h%20Blazing%20Fireplace.mp3">🔥 Fireplace</option> <option value="https://archive.org/download/relaxingsounds/Rain%207%20%28Lightest%29%208h%20DripsOnTrees-no%20thunder.mp3">🌧 Rain</option> <option value="https://archive.org/download/relaxingsounds/Wind%201%208h%20%28or%20Rapids%29%20Gentle%2CLowPitch%2CBrownNoise.mp3">💨 Wind</option> <option value="https://archive.org/download/relaxingsounds/Snowfall%20%26%20Wind%28Lite%29%2010h%20Dusk%20into%20Night-Forest.mp3">🌲 Forest</option> </select> <audio id="ambientPlayer" loop=""></audio> </div> <div class="main-grid"> <!-- Vibe Board --> <div id="vibeBoardContainer"> <h2>🌈 Vibe Board</h2> <div id="vibeBoard"></div> <p class="note-hint">✨ What you write in the note will appear here for everyone.</p> </div> <!-- Note Section --> <div id="noteSection" class="note-section"> <h2>📝 Your Note</h2> <div class="form-group tight"> <label for="nameInput">Your Name</label> <input type="text" id="nameInput" placeholder="e.g. Alex the 🐢"> </div> <div class="form-group tight"> <label for="goalInput">Your Goals</label> <div id="goalInput" class="bullet-note" contenteditable="true" data-placeholder="• What's one thing you want to focus on?"></div> </div> <div class="form-group tight"> <label for="barrierInput">Barrier</label> <input type="text" id="barrierInput" placeholder="e.g. Social media, hunger..."> </div> <div class="form-group tight"> <label for="noteInput">Note to Self (private)</label> <div id="noteInput" class="bullet-note" contenteditable="true" placeholder="• Don't overthink…"></div> </div> <button class="update-button" onclick="submitVibe()">Update</button> </div> </div> <hr> <br> <div id="linkGenerator"> <h3>🔗 Create a New Session</h3> <label>Session Name: <input type="text" id="newSessionInput" placeholder="e.g., writing-group"> </label> <button onclick="generateSessionLink()">Generate Link</button> <br><br> <input type="text" id="generatedLink" readonly style="width: 100%; font-size: 0.9rem;"> </div> <!-- Firebase v8 SDKs --> <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script> <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script> <script>
-
-
-
-  
-   // Get or generate user ID
-const animalEmojis = ["🐶", "🐱", "🐰", "🦊", "🐻", "🐼", "🐯", "🦁", "🐨", "🐸", "🐵", "🐧", "🐢"];
-
-let userId = localStorage.getItem("vibeUserId");
-let userAnimal = localStorage.getItem("vibeUserAnimal");
-let userName = localStorage.getItem("vibeUserName");
-
-if (!userId) {
-  userId = "user" + Math.floor(Math.random() * 100000);
-  localStorage.setItem("vibeUserId", userId);
-}
-
-if (!userAnimal) {
-  userAnimal = animalEmojis[Math.floor(Math.random() * animalEmojis.length)];
-  localStorage.setItem("vibeUserAnimal", userAnimal);
-}
-  
-  db.collection("sessions")
-  .doc(sessionName)
-  .collection("participants")
-  .orderBy("timestamp", "desc")
-  .onSnapshot((snapshot) => {
-    const container = document.getElementById("vibeBoard");
-    container.innerHTML = ""; // Clear old content
-
-    snapshot.forEach((doc) => {
-      const data = doc.data();
-      const goals = getGoalsFromBulletEditor();
-      const barrier = data.reflection2 || "-";
-      const name = data.name || "Anon";
-      const animal = data.animal || "🐾";
-
-      const card = document.createElement("div");
-      card.className = "vibe-card";
-
-      const goalTags = goals.map(g => `<span class="tag">#${g}</span>`).join(" ");
-
-      card.innerHTML = `
-        <p style="font-size: 1.5rem; margin: 0;">${animal} <strong>${name}</strong></p>
-        <p><strong>🎯 </strong> ${goalTags || "-"}</p>
-        <p><strong>💭 </strong> ${barrier}</p>
-      `;
-      container.appendChild(card);
-    });
-  });
-
-
-
-  
-  
-  function submitVibe() {
-  const name = document.getElementById("nameInput").value.trim();
-  const barrier = document.getElementById("barrierInput").value.trim();
-  const note = document.getElementById("noteInput").innerText.trim();  // from contenteditable
-  const goals = goalList.map(g => g.trim()).filter(Boolean); // ensures no empty tags
-
-  if (name) {
-    userName = name;
-    localStorage.setItem("vibeUserName", userName);
-  }
-
-  const payload = {
-    animal: userAnimal,
-    name: userName || "Anonymous",
-    reflection1: goals.join(", "),
-    reflection2: barrier,
-    note: note,
-    timestamp: firebase.firestore.FieldValue.serverTimestamp()
-  };
-
-  db.collection("sessions").doc(sessionName)
-    .collection("participants").doc(userId)
-    .set({
-    animal: userAnimal,
-    name: userName || "Anonymous",
-    reflection1: goals.join("\n"),
-    reflection2: barrier,
-    note: note,
-    timestamp: firebase.firestore.FieldValue.serverTimestamp()
-  })
-    .then(() => {
-      console.log("✅ Vibe submitted");
-
-      // Clear only the inputs you'd like
-      document.getElementById("barrierInput").value = "";
-      document.getElementById("noteInput").value = "";
-      goalList = [];
-      renderGoalTags();
-    })
-    .catch((error) => {
-      console.error("❌ Submit error:", error);
-    });
-}
-
-
-
-
-  
-  function generateSessionLink() {
-  const baseName = document.getElementById("newSessionInput").value.trim() || "focus-group";
-  const randomSuffix = Math.random().toString(36).substring(2, 6); // e.g., "k3d9"
-  const session = `${baseName}-${randomSuffix}`;
-
-  // Auto-fill the input for user feedback
-  document.getElementById("newSessionInput").value = session;
-
-  const base = window.location.origin + window.location.pathname;
-  const fullLink = `${base}?session=${encodeURIComponent(session)}`;
-  document.getElementById("generatedLink").value = fullLink;
-}
-
- function playAmbient() {
-  const player = document.getElementById("ambientPlayer");
-  const url = document.getElementById("ambientSelect").value;
-  if (url) {
-    player.src = url;
-    player.play();
-  } else {
-    player.pause();
-    player.src = "";
-  }
-}
-  
-</script> <script>
-  // Auto bullet on Enter
-  document.getElementById("goalInput").addEventListener("keydown", function(e) {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      const sel = window.getSelection();
-      const range = sel.getRangeAt(0);
-      const br = document.createElement("br");
-      const bullet = document.createTextNode("• ");
-      range.deleteContents();
-      range.insertNode(br);
-      range.collapse(false);
-      range.insertNode(bullet);
-      
-      // move caret to end
-      sel.removeAllRanges();
-      const newRange = document.createRange();
-      newRange.setStartAfter(bullet);
-      newRange.collapse(true);
-      sel.addRange(newRange);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🌱 Start a Social Pomodoro Session</title>
+  <style>
+    :root {
+      --accent: #FF9687;
+      --accent-hover: #ff7968;
+      --bg: #fffaf8;
+      --text: #333;
+      --muted: #777;
     }
-  });
 
-  // Extract goals from bullet editor
-  function getGoalsFromBulletEditor() {
-    const lines = document.getElementById("goalInput").innerText
-      .split("\n")
-      .map(line => line.replace(/^•\s*/, "").trim())
-      .filter(line => line.length > 0);
-    return lines;
-  }
-</script> <script src="/assets/js/timer-social.js"></script> </article> </div> </div> <!-- Footer --> <footer class="sticky-bottom mt-5"> <div class="container"> © Copyright 2025 Inyoung Cheong. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> &amp; <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. </div> </footer> <!-- JavaScripts --> <!-- jQuery --> <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> <!-- Bootsrap & MDB scripts --> <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha256-fgLAgv7fyCGopR/gBNq2iW3ZKIdqIcyshnUULC4vex8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script> <!-- Masonry & imagesLoaded --> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@4/imagesloaded.pkgd.min.js"></script> <script defer src="/assets/js/masonry.js" type="text/javascript"></script> <!-- Medium Zoom JS --> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.8/dist/medium-zoom.min.js" integrity="sha256-7PhEpEWEW0XXQ0k6kQrPKwuoIomz8R8IYyuU1Qew4P8=" crossorigin="anonymous"></script> <script defer src="/assets/js/zoom.js"></script> <!-- Bootstrap Table --> <script defer src="https://unpkg.com/bootstrap-table@1.21.4/dist/bootstrap-table.min.js"></script> <!-- Load Common JS --> <script src="/assets/js/no_defer.js"></script> <script defer src="/assets/js/common.js"></script> <script defer src="/assets/js/copy_code.js" type="text/javascript"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <!-- MathJax --> <script type="text/javascript">
-    window.MathJax = {
-      tex: {
-        tags: 'ams'
-      }
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      justify-content: center;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: var(--muted);
+      max-width: 400px;
+      margin-bottom: 2rem;
+    }
+
+    input {
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      width: 100%;
+      max-width: 320px;
+      box-sizing: border-box;
+    }
+
+    button {
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      background-color: var(--accent);
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      max-width: 320px;
+      transition: background 0.2s ease;
+    }
+
+    button:hover {
+      background-color: var(--accent-hover);
+    }
+
+    .link-feedback {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 1rem;
+      display: none;
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 1.6rem; }
+      input, button { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🌱 Social Pomodoro Timer</h1>
+  <p>Create a shared focus session with friends — stay accountable together.</p>
+
+  <input type="text" id="sessionInput" placeholder="e.g. writing-club-39f8" />
+  <button onclick="startSession()">Start Session</button>
+
+  <p class="link-feedback" id="linkFeedback">🔗 Link copied to clipboard!</p>
+
+  <script>
+    function generateSessionName() {
+      const adjectives = ["focus", "calm", "brave", "deep", "chill"];
+      const nouns = ["group", "team", "circle", "club", "zone"];
+      const rand = () => Math.random().toString(36).substring(2, 6);
+      const name = `${adjectives[Math.floor(Math.random() * adjectives.length)]}-${nouns[Math.floor(Math.random() * nouns.length)]}-${rand()}`;
+      return name;
+    }
+
+    window.onload = () => {
+      document.getElementById("sessionInput").value = generateSessionName();
     };
-  </script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js"></script> <script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-KB3EZ5YVPD"></script> <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ window.dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-KB3EZ5YVPD');
-  </script> <!-- Scrolling Progress Bar --> <script type="text/javascript">
-  /*
-   * This JavaScript code has been adapted from the article 
-   * https://css-tricks.com/reading-position-indicator/ authored by Pankaj Parashar, 
-   * published on the website https://css-tricks.com on the 7th of May, 2014.
-   * Couple of changes were made to the original code to make it compatible 
-   * with the `al-foio` theme.
-   */
-  const progressBar = $("#progress");
-  /*
-   * We set up the bar after all elements are done loading.
-   * In some cases, if the images in the page are larger than the intended
-   * size they'll have on the page, they'll be resized via CSS to accomodate
-   * the desired size. This mistake, however, breaks the computations as the
-   * scroll size is computed as soon as the elements finish loading.
-   * To account for this, a minimal delay was introduced before computing the
-   * values.
-   */
-  window.onload = function () {
-    setTimeout(progressBarSetup, 50);
-  };
-  /*
-   * We set up the bar according to the browser.
-   * If the browser supports the progress element we use that.
-   * Otherwise, we resize the bar thru CSS styling
-   */
-  function progressBarSetup() {
-    if ("max" in document.createElement("progress")) {
-      initializeProgressElement();
-      $(document).on("scroll", function() {
-        progressBar.attr({ value: getCurrentScrollPosition() });
+
+    function startSession() {
+      const input = document.getElementById("sessionInput");
+      const session = input.value.trim();
+      if (!session) {
+        alert("Please enter a session name.");
+        return;
+      }
+      const link = `/social-timer/?session=${encodeURIComponent(session)}`;
+      navigator.clipboard.writeText(window.location.origin + link).then(() => {
+        document.getElementById("linkFeedback").style.display = "block";
+        setTimeout(() => {
+          window.location.href = link;
+        }, 700);
       });
-      $(window).on("resize", initializeProgressElement);
-    } else {
-      resizeProgressBar();
-      $(document).on("scroll", resizeProgressBar);
-      $(window).on("resize", resizeProgressBar);
     }
-  }
-  /*
-   * The vertical scroll position is the same as the number of pixels that
-   * are hidden from view above the scrollable area. Thus, a value > 0 is
-   * how much the user has scrolled from the top
-   */
-  function getCurrentScrollPosition() {
-    return $(window).scrollTop();
-  }
+  </script>
 
-  function initializeProgressElement() {
-    let navbarHeight = $("#navbar").outerHeight(true);
-    $("body").css({ "padding-top": navbarHeight });
-    $("progress-container").css({ "padding-top": navbarHeight });
-    progressBar.css({ top: navbarHeight });
-    progressBar.attr({
-      max: getDistanceToScroll(),
-      value: getCurrentScrollPosition(),
-    });
-  }
-  /*
-   * The offset between the html document height and the browser viewport
-   * height will be greater than zero if vertical scroll is possible.
-   * This is the distance the user can scroll
-   */
-  function getDistanceToScroll() {
-    return $(document).height() - $(window).height();
-  }
-
-  function resizeProgressBar() {
-    progressBar.css({ width: getWidthPercentage() + "%" });
-  }
-  // The scroll ratio equals the percentage to resize the bar
-  function getWidthPercentage() {
-    return (getCurrentScrollPosition() / getDistanceToScroll()) * 100;
-  }
-</script> </body> </html>
+</body>
+</html>
