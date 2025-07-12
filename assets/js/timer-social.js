@@ -1,6 +1,23 @@
 // timer.js
 
 
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAW3sw__h-YyGOBowZULt2iZ59CP8KkU34",
+  authDomain: "social-timer-a2315.firebaseapp.com",
+  projectId: "social-timer-a2315",
+  storageBucket: "social-timer-a2315.firebasestorage.app",
+  messagingSenderId: "68840014890",
+  appId: "1:68840014890:web:ac1b634ab00b41622eef53"
+};
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+const sessionName = new URLSearchParams(window.location.search).get("session") || "testSession1";
+document.getElementById("sessionHeader").textContent = `🔗 Session: ${sessionName}`;
+
+
 let localTimerInterval;
 let isLocalUpdate = false; // to prevent echo loop
 
