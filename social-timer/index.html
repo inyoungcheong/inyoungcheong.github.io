@@ -2,152 +2,204 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Social Pomodoro</title>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Social Pomodoro | Join or Create</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Space Grotesk', sans-serif;
-      background: url('/assets/bg.jpg') no-repeat center center / cover;
-      filter: brightness(0.7);
-      height: 100vh;
+      padding: 0;
+      background-color: #f5f5f3;
+      font-family: 'Inter', sans-serif;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      color: #eee;
+      justify-content: center;
+      height: 100vh;
     }
 
-    .overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.4);
-      backdrop-filter: blur(6px);
-      z-index: 0;
+    .title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #222;
+      margin-bottom: 1rem;
     }
 
     .container {
-      position: relative;
-      z-index: 1;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 2.5rem;
+      background: white;
+      padding: 2rem;
       border-radius: 20px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
       text-align: center;
-      max-width: 400px;
+      max-width: 420px;
       width: 90%;
     }
 
     h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      font-weight: 600;
-      color: #fff;
+      font-size: 1.25rem;
+      color: #444;
+      margin-bottom: 0.75rem;
     }
 
-    input, button {
-      font-family: inherit;
-      padding: 0.75rem 1rem;
-      margin-top: 0.8rem;
-      border: none;
-      border-radius: 12px;
-      font-size: 1rem;
+    input[type="text"] {
       width: 100%;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      margin-bottom: 1rem;
+      box-sizing: border-box;
     }
 
-    input {
-      background: rgba(255, 255, 255, 0.1);
-      color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.3);
+    .emoji-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.5rem;
+      justify-items: center;
+      margin-bottom: 1rem;
     }
 
-    input::placeholder {
-      color: #ccc;
+    .emoji {
+      font-size: 1.5rem;
+      padding: 0.5rem;
+      border-radius: 10px;
+      background-color: #f0f0f0;
+      cursor: pointer;
+    }
+
+    .emoji.selected {
+      background-color: #c3c3c3;
+    }
+
+    .emoji-label {
+      font-size: 0.85rem;
+      color: #666;
+      margin-bottom: 0.5rem;
     }
 
     button {
-      background-color: #eee;
-      color: #111;
-      font-weight: bold;
-      transition: background 0.2s ease;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #ddd;
-    }
-
-    .avatar-picker {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 1rem;
-      gap: 0.5rem;
-    }
-
-    .avatar-picker span {
-      font-size: 1.5rem;
-      padding: 0.4rem 0.6rem;
+      width: 48%;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: none;
       border-radius: 10px;
-      background: rgba(255, 255, 255, 0.15);
-      border: 1px solid rgba(255, 255, 255, 0.2);
       cursor: pointer;
-      transition: all 0.2s;
+      margin-top: 0.5rem;
+      transition: background-color 0.3s ease;
     }
 
-    .avatar-picker span.selected {
-      background-color: #fff;
-      color: #000;
-      box-shadow: 0 0 0 3px rgba(255,255,255,0.8);
+         button:first-child {
+        background-color: #e0e0e0; /* soft gray for Join */
+        color: #333;
+      }
+      
+      button:first-child:hover {
+        background-color: #d0d0d0;
+      }
+
+    button:last-child {
+      background-color: #f9e0dc; /* soft coral for Create */
+      color: #5f2a2a;
+    }
+
+    button:last-child:hover {
+      background-color: #f2cdc8;
+    }
+
+    #linkText {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .description {
+      font-size: 0.85rem;
+      color: #777;
+      margin-top: -0.5rem;
+      margin-bottom: 1.25rem;
     }
   </style>
 </head>
 <body>
-
-  <div class="overlay"></div>
-
+  <div class="title">Social Pomodoro Timer</div>
   <div class="container">
     <h1>🌱 Join or Create a Session</h1>
+    <p class="description">Create a unique session name (e.g. deep-club or design-sprint)</p>
+    <input type="text" id="sessionInput" placeholder="e.g. focus-group" />
 
-    <input type="text" id="sessionInput" placeholder="Session name (e.g., deep-club)" />
-    
-    <div class="avatar-picker" id="avatarPicker"></div>
+    <div class="emoji-label">Choose your avatar:</div>
+    <div class="emoji-grid" id="emojiGrid"></div>
 
-    <button onclick="startSession()">Enter</button>
+    <div style="display: flex; justify-content: space-between;">
+      <button onclick="joinSession()">Join</button>
+      <button onclick="createSession()">Create</button>
+    </div>
+
+    <div id="linkText"></div>
   </div>
 
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
   <script>
-    const emojis = ["🐢", "🦊", "🐰", "🐸", "🐼", "🐶", "🦁", "🐻", "🐨", "🐱"];
-    const avatarPicker = document.getElementById('avatarPicker');
-    let selectedEmoji = localStorage.getItem("selectedEmoji") || emojis[0];
+    const firebaseConfig = {
+      apiKey: "AIzaSyAW3sw__h-YyGOBowZULt2iZ59CP8KkU34",
+      authDomain: "social-timer-a2315.firebaseapp.com",
+      projectId: "social-timer-a2315",
+      storageBucket: "social-timer-a2315.appspot.com",
+      messagingSenderId: "68840014890",
+      appId: "1:68840014890:web:ac1b634ab00b41622eef53"
+    };
 
-    emojis.forEach(emoji => {
-      const span = document.createElement('span');
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    const emojis = ["🐢", "🦊", "🐰", "🐸", "🐼", "🐶", "🦁", "🐻", "🐨", "🐱"];
+    let selectedEmoji = emojis[0];
+
+    const grid = document.getElementById("emojiGrid");
+    emojis.forEach((emoji) => {
+      const span = document.createElement("span");
       span.textContent = emoji;
+      span.className = "emoji";
+      if (emoji === selectedEmoji) span.classList.add("selected");
       span.onclick = () => {
         selectedEmoji = emoji;
-        localStorage.setItem("selectedEmoji", emoji);
-        updatePicker();
+        document.querySelectorAll(".emoji").forEach(el => el.classList.remove("selected"));
+        span.classList.add("selected");
       };
-      avatarPicker.appendChild(span);
+      grid.appendChild(span);
     });
 
-    function updatePicker() {
-      avatarPicker.querySelectorAll('span').forEach(span => {
-        span.classList.toggle('selected', span.textContent === selectedEmoji);
-      });
-    }
-
-    function startSession() {
-      const session = document.getElementById('sessionInput').value.trim();
-      if (!session) {
+    async function joinSession() {
+      const name = document.getElementById("sessionInput").value.trim();
+      if (!name) {
         alert("Please enter a session name.");
         return;
       }
-      window.location.href = `session.html?session=${encodeURIComponent(session)}`;
+
+      const doc = await db.collection("sessions").doc(name).get();
+      if (!doc.exists) {
+        alert("This session does not exist.");
+        return;
+      }
+
+      localStorage.setItem("selectedEmoji", selectedEmoji);
+      window.location.href = `/social-timer/?session=${encodeURIComponent(name)}`;
     }
 
-    updatePicker();
+    function createSession() {
+      const name = document.getElementById("sessionInput").value.trim();
+      if (!name) {
+        alert("Please enter a session name.");
+        return;
+      }
+      const url = `${window.location.origin}/social-timer/?session=${encodeURIComponent(name)}`;
+      document.getElementById("linkText").textContent = `🔗 ${url}`;
+      navigator.clipboard.writeText(url).then(() => {
+        alert("Link copied to clipboard!");
+      });
+    }
   </script>
 </body>
 </html>
