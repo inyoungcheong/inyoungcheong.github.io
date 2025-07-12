@@ -52,25 +52,6 @@
       box-sizing: border-box;
     }
 
-    .emoji-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 0.5rem;
-      justify-items: center;
-      margin: 1rem 0;
-    }
-
-    .emoji {
-      font-size: 1.5rem;
-      padding: 0.4rem;
-      border-radius: 10px;
-      background-color: #eee;
-      cursor: pointer;
-    }
-
-    .emoji.selected {
-      background-color: #ccc;
-    }
 
     button {
       width: 100%;
@@ -114,14 +95,6 @@
   <div class="title">Social Pomodoro Timer</div>
 
   <div class="section">
-    <h2>🧑‍🎨 Your Name</h2>
-    <input type="text" id="nameInput" placeholder="e.g. Yuna the 🦊" />
-
-    <div class="small-label">Choose your avatar</div>
-    <div class="emoji-grid" id="emojiGrid"></div>
-  </div>
-
-  <div class="section">
     <h2>🔗 Join a Session</h2>
     <input type="text" id="joinSessionInput" placeholder="Enter session name" />
     <button class="join-btn" onclick="joinSession()">Join</button>
@@ -148,64 +121,38 @@
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
 
-    // Avatar
-    const emojis = ["🐢", "🦊", "🐰", "🐸", "🐼", "🐶", "🦁", "🐻", "🐨", "🐱"];
-    let selectedEmoji = emojis[0];
-    const grid = document.getElementById("emojiGrid");
-    emojis.forEach((emoji) => {
-      const span = document.createElement("span");
-      span.textContent = emoji;
-      span.className = "emoji";
-      if (emoji === selectedEmoji) span.classList.add("selected");
-      span.onclick = () => {
-        selectedEmoji = emoji;
-        document.querySelectorAll(".emoji").forEach(el => el.classList.remove("selected"));
-        span.classList.add("selected");
-      };
-      grid.appendChild(span);
-    });
-
-    function saveUserInfo(name, emoji) {
-      localStorage.setItem("vibeUserName", name);
-      localStorage.setItem("vibeUserAnimal", emoji);
-    }
-
-   async function joinSession() {
-      const name = document.getElementById("nameInput").value.trim();
+  
+   function joinSession() {
       const session = document.getElementById("joinSessionInput").value.trim();
-      if (!name || !session) return alert("Please enter name and session.");
+      if (!session) return alert("Please enter a session name.");
     
       db.collection("sessions").doc(session).get().then(doc => {
         if (!doc.exists) return alert("Session not found.");
-        localStorage.setItem("vibeUserName", name);
-        localStorage.setItem("vibeUserAnimal", selectedEmoji);
-        localStorage.setItem("vibeUserRole", "guest"); // 👈
-        window.location.href = `/social-timer/session.html?session=${encodeURIComponent(session)}`; // ✅ 수정됨
+    
+        localStorage.setItem("vibeUserRole", "guest"); // ✅ 역할 저장만
+        window.location.href = `/social-timer/session.html?session=${encodeURIComponent(session)}`;
       });
     }
 
 
+
     function createSession() {
-      const name = document.getElementById("nameInput").value.trim();
       let session = document.getElementById("createSessionInput").value.trim();
-      if (!name || !session) return alert("Please enter name and session.");
+      if (!session) return alert("Please enter a session name.");
     
       const randomSuffix = Math.floor(100 + Math.random() * 900);
       session = `${session}-${randomSuffix}`;
     
       const url = `/social-timer/session.html?session=${encodeURIComponent(session)}`;
     
-      // ✅ 사용자 정보 저장
-      localStorage.setItem("vibeUserName", name);
-      localStorage.setItem("vibeUserAnimal", selectedEmoji);
-      localStorage.setItem("vibeUserRole", "host"); // 👈 역할 저장
+      localStorage.setItem("vibeUserRole", "host"); // ✅ 역할 저장만
     
-      // ✅ 클립보드 복사 및 이동
       navigator.clipboard.writeText(window.location.origin + url).then(() => {
         alert("Session created! Link copied to clipboard:\n" + window.location.origin + url);
         window.location.href = url;
       });
     }
+
 
 
 
