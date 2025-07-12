@@ -66,6 +66,19 @@ no_description: true
     </select>
   </div>
 
+
+<div style="text-align: center; margin-top: 1.5rem;">
+  <label><strong>🎧 Ambient Sound:</strong></label>
+  <select id="ambientSelect" onchange="playAmbient()">
+    <option value="">No ambient</option>
+    <option value="https://archive.org/download/relaxingsounds/FIRE%202%203h%20Blazing%20Fireplace.mp3">🔥 Fireplace</option>
+    <option value="https://archive.org/download/relaxingsounds/Rain%207%20%28Lightest%29%208h%20DripsOnTrees-no%20thunder.mp3">🌧 Rain</option>
+    <option value="https://archive.org/download/relaxingsounds/Wind%201%208h%20%28or%20Rapids%29%20Gentle%2CLowPitch%2CBrownNoise.mp3">💨 Wind</option>
+    <option value="https://archive.org/download/relaxingsounds/Snowfall%20%26%20Wind%28Lite%29%2010h%20Dusk%20into%20Night-Forest.mp3">🌲 Forest</option>
+  </select>
+
+  <audio id="ambientPlayer" loop></audio>
+</div>
   
   <div>
     <h2>💬 Vibe Board</h2>
@@ -187,6 +200,19 @@ document.getElementById("sessionHeader").textContent = `🔗 Session: ${sessionN
   const fullLink = `${base}?session=${encodeURIComponent(session)}`;
   document.getElementById("generatedLink").value = fullLink;
 }
+
+ function playAmbient() {
+  const player = document.getElementById("ambientPlayer");
+  const url = document.getElementById("ambientSelect").value;
+  if (url) {
+    player.src = url;
+    player.play();
+  } else {
+    player.pause();
+    player.src = "";
+  }
+}
+  
 </script>
 
 <script src="/assets/js/timer.js"></script>
