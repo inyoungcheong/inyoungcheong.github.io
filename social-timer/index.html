@@ -8,47 +8,47 @@
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background-color: #f5f5f3;
+      padding: 2rem 1rem;
+      background-color: #f4f1ee;
       font-family: 'Inter', sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      height: 100vh;
+      line-height: 1.7;
     }
 
     .title {
       font-family: 'Playfair Display', serif;
       font-size: 2.5rem;
       font-weight: 600;
-      color: #222;
-      margin-bottom: 1rem;
+      color: #2a2a2a;
+      margin-bottom: 1.5rem;
     }
 
-    .container {
-      background: white;
-      padding: 2rem;
+    .section {
+      background: #fff;
+      padding: 1.75rem 1.5rem;
       border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-      text-align: center;
-      max-width: 420px;
-      width: 90%;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+      margin-bottom: 2rem;
+      width: 100%;
+      max-width: 400px;
     }
 
-    h1 {
-      font-size: 1.25rem;
-      color: #444;
-      margin-bottom: 0.75rem;
+    .section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: #333;
     }
 
     input[type="text"] {
       width: 100%;
-      padding: 0.75rem;
-      font-size: 1rem;
-      border-radius: 10px;
+      padding: 0.7rem;
+      margin: 0.5rem 0 1rem 0;
       border: 1px solid #ccc;
-      margin-bottom: 1rem;
+      border-radius: 10px;
+      font-size: 1rem;
       box-sizing: border-box;
     }
 
@@ -57,88 +57,83 @@
       grid-template-columns: repeat(5, 1fr);
       gap: 0.5rem;
       justify-items: center;
-      margin-bottom: 1rem;
+      margin: 1rem 0;
     }
 
     .emoji {
       font-size: 1.5rem;
-      padding: 0.5rem;
+      padding: 0.4rem;
       border-radius: 10px;
-      background-color: #f0f0f0;
+      background-color: #eee;
       cursor: pointer;
     }
 
     .emoji.selected {
-      background-color: #c3c3c3;
-    }
-
-    .emoji-label {
-      font-size: 0.85rem;
-      color: #666;
-      margin-bottom: 0.5rem;
+      background-color: #ccc;
     }
 
     button {
-      width: 48%;
+      width: 100%;
       padding: 0.75rem;
       font-size: 1rem;
       border: none;
       border-radius: 10px;
       cursor: pointer;
-      margin-top: 0.5rem;
-      transition: background-color 0.3s ease;
+      transition: background 0.3s;
     }
 
-         button:first-child {
-        background-color: #e0e0e0; /* soft gray for Join */
-        color: #333;
-      }
-      
-      button:first-child:hover {
-        background-color: #d0d0d0;
-      }
-
-    button:last-child {
-      background-color: #f9e0dc; /* soft coral for Create */
-      color: #5f2a2a;
+    .join-btn {
+      background-color: #e3e3e3;
+      color: #2f2f2f;
+    }
+    .join-btn:hover {
+      background-color: #d2d2d2;
     }
 
-    button:last-child:hover {
-      background-color: #f2cdc8;
+    .create-btn {
+      background-color: #f6d6ce;
+      color: #5a3e38;
+    }
+    .create-btn:hover {
+      background-color: #f1c7bc;
     }
 
-    #linkText {
-      margin-top: 1rem;
-      font-size: 0.9rem;
-      color: #555;
-    }
-
-    .description {
+    .small-label {
       font-size: 0.85rem;
       color: #777;
-      margin-top: -0.5rem;
-      margin-bottom: 1.25rem;
+    }
+
+    @media (max-width: 500px) {
+      body {
+        padding: 1rem;
+      }
     }
   </style>
 </head>
 <body>
   <div class="title">Social Pomodoro Timer</div>
-  <div class="container">
-    <h1>🌱 Join or Create a Session</h1>
-    <p class="description">Create a unique session name (e.g. deep-club or design-sprint)</p>
-    <input type="text" id="sessionInput" placeholder="e.g. focus-group" />
 
-    <div class="emoji-label">Choose your avatar:</div>
+  <div class="section">
+    <h2>🧑‍🎨 Your Name</h2>
+    <input type="text" id="nameInput" placeholder="e.g. Yuna the 🦊" />
+
+    <div class="small-label">Choose your avatar</div>
     <div class="emoji-grid" id="emojiGrid"></div>
-
-    <div style="display: flex; justify-content: space-between;">
-      <button onclick="joinSession()">Join</button>
-      <button onclick="createSession()">Create</button>
-    </div>
-
-    <div id="linkText"></div>
   </div>
 
+  <div class="section">
+    <h2>🔗 Join a Session</h2>
+    <input type="text" id="joinSessionInput" placeholder="Enter session name" />
+    <button class="join-btn" onclick="joinSession()">Join</button>
+  </div>
+
+  <div class="section">
+    <h2>✨ Create a New Session</h2>
+    <input type="text" id="createSessionInput" placeholder="Name your session" />
+    <button class="create-btn" onclick="createSession()">Create</button>
+  </div>
+
+  <!-- Firebase -->
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
   <script>
@@ -150,13 +145,12 @@
       messagingSenderId: "68840014890",
       appId: "1:68840014890:web:ac1b634ab00b41622eef53"
     };
-
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
 
+    // Avatar
     const emojis = ["🐢", "🦊", "🐰", "🐸", "🐼", "🐶", "🦁", "🐻", "🐨", "🐱"];
     let selectedEmoji = emojis[0];
-
     const grid = document.getElementById("emojiGrid");
     emojis.forEach((emoji) => {
       const span = document.createElement("span");
@@ -171,38 +165,32 @@
       grid.appendChild(span);
     });
 
+    function saveUserInfo(name, emoji) {
+      localStorage.setItem("vibeUserName", name);
+      localStorage.setItem("vibeUserAnimal", emoji);
+    }
+
     async function joinSession() {
-      const name = document.getElementById("sessionInput").value.trim();
-      if (!name) {
-        alert("Please enter a session name.");
-        return;
-      }
-
-      const doc = await db.collection("sessions").doc(name).get();
-      if (!doc.exists) {
-        alert("This session does not exist.");
-        return;
-      }
-
-      localStorage.setItem("selectedEmoji", selectedEmoji);
-      window.location.href = `/social-timer/?session=${encodeURIComponent(name)}`;
+      const name = document.getElementById("nameInput").value.trim();
+      const session = document.getElementById("joinSessionInput").value.trim();
+      if (!name || !session) return alert("Please enter name and session.");
+      const doc = await db.collection("sessions").doc(session).get();
+      if (!doc.exists) return alert("Session not found.");
+      saveUserInfo(name, selectedEmoji);
+      window.location.href = `/social-timer/?session=${encodeURIComponent(session)}`;
     }
 
     function createSession() {
-      const name = document.getElementById("sessionInput").value.trim();
-      if (!name) {
-        alert("Please enter a session name.");
-        return;
-      }
-      const url = `${window.location.origin}/social-timer/?session=${encodeURIComponent(name)}`;
-      document.getElementById("linkText").textContent = `🔗 ${url}`;
-      navigator.clipboard.writeText(url).then(() => {
-        alert("Link copied to clipboard!");
-      });
+      const name = document.getElementById("nameInput").value.trim();
+      const session = document.getElementById("createSessionInput").value.trim();
+      if (!name || !session) return alert("Please enter name and session.");
+      saveUserInfo(name, selectedEmoji);
+      window.location.href = `/social-timer/?session=${encodeURIComponent(session)}`;
     }
   </script>
 </body>
 </html>
+
 
 
 
