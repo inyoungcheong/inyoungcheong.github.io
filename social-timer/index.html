@@ -3,121 +3,172 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>🌱 Social Pomodoro Session</title>
+  <title>🌱 Social Pomodoro</title>
   <style>
     :root {
       --accent: #FF9687;
       --accent-hover: #ff7968;
-      --bg: #fffaf8;
-      --text: #333;
-      --muted: #777;
+      --bg-text: rgba(255,255,255,0.85);
     }
-
+    * { box-sizing: border-box; }
+    body, html {
+      margin: 0; padding: 0;
+      height: 100%;
+      font-family: 'Inter', sans-serif;
+      color: white;
+      background: #000;
+    }
     body {
-      margin: 0;
+      background: url('https://source.unsplash.com/1600x900/?nature,focus') no-repeat center/cover;
+      display: flex; justify-content: center; align-items: center;
+    }
+    .overlay {
+      position: absolute; inset: 0;
+      background: rgba(0,0,0,0.4);
+    }
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 360px;
+      width: 100%;
       padding: 2rem;
-      font-family: 'Inter', system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      justify-content: center;
+      background: rgba(0,0,0,0.5);
+      border-radius: 12px;
       text-align: center;
     }
-
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
+    h1 { margin: 0 0 1rem; font-size: 2rem; }
+    .avatar-picker {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
     }
-
-    p {
-      color: var(--muted);
-      max-width: 400px;
-      margin-bottom: 2rem;
-    }
-
-    input {
-      padding: 0.75rem 1rem;
-      font-size: 1rem;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      width: 100%;
-      max-width: 320px;
-      box-sizing: border-box;
-    }
-
-    button {
-      margin-top: 1rem;
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      border: none;
-      background-color: var(--accent);
-      color: white;
-      border-radius: 8px;
+    .avatar-picker span {
+      margin: 0 .3rem;
       cursor: pointer;
-      width: 100%;
-      max-width: 320px;
-      transition: background 0.2s ease;
+      opacity: 0.6;
+      transition: opacity 0.2s, transform 0.2s;
     }
-
-    button:hover {
-      background-color: var(--accent-hover);
+    .avatar-picker span.selected,
+    .avatar-picker span:hover {
+      opacity: 1;
+      transform: scale(1.2);
     }
-
-    .link-feedback {
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin-top: 1rem;
-      display: none;
+    input {
+      width: 100%; padding: .75rem;
+      border-radius: 8px; border: none;
+      margin-bottom: 1rem;
+      font-size: 1rem;
     }
-
-    @media (max-width: 480px) {
-      h1 { font-size: 1.6rem; }
-      input, button { font-size: 1rem; }
+    button {
+      width: 100%; padding: .75rem;
+      font-size: 1rem;
+      border: none; border-radius: 8px;
+      margin-top: .5rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-join { background: var(--accent); }
+    .btn-join:hover { background: var(--accent-hover); }
+    .btn-create { background: transparent; border: 2px solid var(--accent); color: var(--accent); }
+    .btn-create:hover { background: var(--accent); color: white; }
+    .divider {
+      margin: 1rem 0;
+      opacity: 0.7;
+      position: relative;
+    }
+    .divider::after, .divider::before {
+      content: "";
+      position: absolute;
+      top: 50%; width: 40%;
+      height: 1px; background: var(--bg-text);
+    }
+    .divider::before { left: 0; }
+    .divider::after { right: 0; }
+    .divider span { padding: 0 .5rem; color: var(--bg-text); }
+    .feedback {
+      margin-top: .5rem;
+      color: #ffdede;
+      min-height: 1.2rem;
     }
   </style>
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 </head>
 <body>
-
-  <h1>🌱 Social Pomodoro Timer</h1>
-  <p>Start a new session or join one by entering a code.</p>
-
-  <input type="text" id="sessionInput" placeholder="e.g. focus-club-39f8" />
-  <button onclick="startOrJoinSession()">Join Session</button>
-
-  <p class="link-feedback" id="linkFeedback">🔗 Link copied to clipboard!</p>
+  <div class="overlay"></div>
+  <div class="container">
+    <h1>🌱 Social Pomodoro</h1>
+    <div class="avatar-picker" id="avatarPicker">
+      <!-- Avatars are added by JS -->
+    </div>
+    <input type="text" id="joinInput" placeholder="Enter session code to join" />
+    <button class="btn-join" onclick="joinSession()">Join Session</button>
+    <div class="divider"><span>or</span></div>
+    <button class="btn-create" onclick="createSession()">Create New Session</button>
+    <div class="feedback" id="feedback"></div>
+  </div>
 
   <script>
+    // Firebase init
+    const firebaseConfig = {
+      apiKey: "AIzaSyAW3sw__h-YyGOBowZULt2iZ59CP8KkU34",
+      authDomain: "social-timer-a2315.firebaseapp.com",
+      projectId: "social-timer-a2315",
+      storageBucket: "social-timer-a2315.appspot.com",
+      messagingSenderId: "68840014890",
+      appId: "1:68840014890:web:ac1b634ab00b41622eef53"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    // Avatar picker
+    const avatars = ["🐶","🐱","🐰","🦊","🐻","🐼","🐯","🦁","🐨"];
+    let selectedAvatar = avatars[0];
+    const picker = document.getElementById('avatarPicker');
+    avatars.forEach(a => {
+      const span = document.createElement('span');
+      span.textContent = a;
+      span.onclick = () => {
+        selectedAvatar = a;
+        Array.from(picker.children).forEach(c => c.classList.toggle('selected', c===span));
+      };
+      if (a===selectedAvatar) span.classList.add('selected');
+      picker.appendChild(span);
+    });
+
+    // Session utils
     function generateSessionName() {
-      const adjectives = ["focus", "calm", "brave", "deep", "chill"];
-      const nouns = ["group", "team", "circle", "club", "zone"];
-      const rand = () => Math.random().toString(36).substring(2, 6);
-      return `${adjectives[Math.floor(Math.random() * adjectives.length)]}-${nouns[Math.floor(Math.random() * nouns.length)]}-${rand()}`;
+      const adjs = ["focus","calm","zen","deep","brave"];
+      const nouns = ["group","team","zone","circle","club"];
+      const r=() => Math.random().toString(36).substring(2,6);
+      return `${adjs[Math.floor(Math.random()*adjs.length)]}-${nouns[Math.floor(Math.random()*nouns.length)]}-${r()}`;
     }
 
-    window.onload = () => {
-      document.getElementById("sessionInput").value = generateSessionName();
-    };
+    async function joinSession(){
+      const code = document.getElementById('joinInput').value.trim();
+      if (!code) return feedback("Enter a session code to join.");
+      const doc = await db.collection('sessions').doc(code).get();
+      if (!doc.exists) return feedback("No session found 🤷‍♀️");
+      goToSession(code);
+    }
 
-    function startOrJoinSession() {
-      const input = document.getElementById("sessionInput");
-      const session = input.value.trim().replace(/\s+/g, "-").toLowerCase();
-      if (!session) {
-        alert("Please enter a session name or code.");
-        return;
-      }
-      const link = `/social-timer/?session=${encodeURIComponent(session)}`;
-      navigator.clipboard.writeText(window.location.origin + link).then(() => {
-        document.getElementById("linkFeedback").style.display = "block";
-        setTimeout(() => {
-          window.location.href = link;
-        }, 700);
+    async function createSession(){
+      const code = generateSessionName();
+      await db.collection('sessions').doc(code).set({
+        created: firebase.firestore.FieldValue.serverTimestamp()
       });
+      goToSession(code);
+    }
+
+    function goToSession(code){
+      window.location.href = `session.html?session=${encodeURIComponent(code)}&avatar=${encodeURIComponent(selectedAvatar)}`;
+    }
+
+    function feedback(msg){
+      document.getElementById('feedback').textContent = msg;
     }
   </script>
-
 </body>
 </html>
+
 
