@@ -167,6 +167,7 @@ document.getElementById("sessionHeader").textContent = `🔗 Session: ${sessionN
         const div = document.createElement("div");
         div.className = "vibe-card";
         div.innerHTML = `
+          <p style="font-size: 1.5rem; margin: 0;">${data.animal || "🐾"} <strong>${data.name || "Anon"}</strong></p>
           <p style="font-size: 2rem; margin: 0;">${data.moodEmoji || "🙂"}</p>
           <p><strong>🎯 Goal:</strong> ${data.reflection1 || "-"}</p>
           <p><strong>💭 Distraction:</strong> ${data.reflection2 || "-"}</p>
@@ -179,27 +180,38 @@ document.getElementById("sessionHeader").textContent = `🔗 Session: ${sessionN
   
   
   function submitVibe() {
-    const mood = document.getElementById("moodEmojiInput").value || "🙂";
-    const r1 = document.getElementById("reflection1Input").value;
-    const r2 = document.getElementById("reflection2Input").value;
+  const mood = document.getElementById("moodEmojiInput").value || "🙂";
+  const r1 = document.getElementById("reflection1Input").value;
+  const r2 = document.getElementById("reflection2Input").value;
 
-
-
-    db.collection("sessions").doc(sessionName)
-      .collection("participants").doc(userId)
-      .set({
-        moodEmoji: mood,
-        reflection1: r1,
-        reflection2: r2,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp()
-      })
-      .then(() => {
-        console.log("✅ Vibe submitted");
-      })
-      .catch((error) => {
-        console.error("❌ Submit error:", error);
-      });
+  // Get and store name input
+  const nameInput = document.getElementById("userNameInput");
+  if (nameInput) {
+    const name = nameInput.value.trim();
+    if (name) {
+      userName = name;
+      localStorage.setItem("vibeUserName", userName);
+    }
   }
+
+  db.collection("sessions").doc(sessionName)
+    .collection("participants").doc(userId)
+    .set({
+      animal: userAnimal,
+      name: userName || "Anonymous",
+      moodEmoji: mood,
+      reflection1: r1,
+      reflection2: r2,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp()
+    })
+    .then(() => {
+      console.log("✅ Vibe submitted");
+    })
+    .catch((error) => {
+      console.error("❌ Submit error:", error);
+    });
+}
+
 
   function generateSessionLink() {
   const session = document.getElementById("newSessionInput").value.trim();
