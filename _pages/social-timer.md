@@ -165,6 +165,8 @@ document.getElementById("sessionHeader").textContent = `🔗 Session: ${sessionN
       });
     });
 
+
+  
   
   function submitVibe() {
     const mood = document.getElementById("moodEmojiInput").value || "🙂";
@@ -215,6 +217,6 @@ document.getElementById("sessionHeader").textContent = `🔗 Session: ${sessionN
   
 </script>
 
-<script src="/assets/js/timer.js"></script>
+<script src="/assets/js/timer-social.js"></script>
 
 </body>
