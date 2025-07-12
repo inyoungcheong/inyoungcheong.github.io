@@ -145,13 +145,14 @@
     
       const url = `/social-timer/session.html?session=${encodeURIComponent(session)}`;
     
-      localStorage.setItem("vibeUserRole", "host"); // ✅ 역할 저장만
+      localStorage.setItem(`vibeUserRole-${session}`, "host"); // ✅ 역할 저장만
     
       navigator.clipboard.writeText(window.location.origin + url).then(() => {
         alert("Session created! Link copied to clipboard:\n" + window.location.origin + url);
         window.location.href = url;
       });
     }
+
 
 
 
