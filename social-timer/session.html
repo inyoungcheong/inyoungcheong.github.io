@@ -351,11 +351,11 @@
       
       
       function updateProgress() {
-        const ratio = remaining / duration;
+        const ratio = localSeconds / duration;
         const offset = fullCircle * (1 - ratio);
         progressCircle.style.strokeDashoffset = offset;
-        const m = String(Math.floor(remaining / 60)).padStart(2, '0');
-        const s = String(remaining % 60).padStart(2, '0');
+        const m = String(Math.floor(localSeconds / 60)).padStart(2, '0');
+        const s = String(localSeconds % 60).padStart(2, '0');
         timerText.textContent = `${m}:${s}`;
       }
       
