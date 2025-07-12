@@ -65,9 +65,14 @@ no_description: true
 
   firebase.initializeApp(firebaseConfig);
   const db = firebase.firestore();
-</script>
 
-<script>
+   // Get or generate user ID
+  let userId = localStorage.getItem("vibeUserId");
+  if (!userId) {
+    userId = "user" + Math.floor(Math.random() * 100000);
+    localStorage.setItem("vibeUserId", userId);
+  }
+  
   db.collection("sessions")
     .doc("testSession1")
     .collection("participants")
@@ -86,17 +91,14 @@ no_description: true
         container.appendChild(div);
       });
     });
-</script>
 
-<script>
+  
   function submitVibe() {
     const mood = document.getElementById("moodEmojiInput").value || "🙂";
     const r1 = document.getElementById("reflection1Input").value;
     const r2 = document.getElementById("reflection2Input").value;
 
-    // You can generate user ID however you want; here’s a quick example:
-    const userId = "user" + Math.floor(Math.random() * 10000);
-
+    
     db.collection("sessions").doc("testSession1")
       .collection("participants").doc(userId)
       .set({
