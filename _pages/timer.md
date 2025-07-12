@@ -9,19 +9,20 @@ no_description: true
 
 <style>
   .callout-box {
-    background-color: #fff8ec;
-    border-left: 4px solid var(--accent-focus);
-    padding: 1rem 1.25rem;
-    border-radius: 8px;
+    background-color: #f8f8f8;
+    border-left: 4px solid #7a6ff0;
+    padding: 1.25rem;
+    border-radius: 10px;
+    font-family: system-ui, sans-serif;
     margin-bottom: 2rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
   }
 
   details.callout-box summary {
     cursor: pointer;
     font-weight: 600;
-    font-size: 1.05rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    color: #333;
     outline: none;
   }
 
@@ -29,58 +30,56 @@ no_description: true
     content: "▲";
     float: right;
     font-size: 0.8rem;
-    margin-left: 0.5rem;
+    color: #888;
   }
 
   details.callout-box summary::after {
     content: "▼";
     float: right;
     font-size: 0.8rem;
-    margin-left: 0.5rem;
+    color: #888;
   }
 
   .callout-box ul {
-    margin: 0.5rem 0 0 1rem;
-    padding: 0;
-    line-height: 1.6;
+    margin-top: 1rem;
+    padding-left: 1.2rem;
+    line-height: 1.7;
+    color: #444;
+    font-size: 0.95rem;
   }
 
   .callout-box li {
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
   }
 
   @media (prefers-color-scheme: dark) {
     .callout-box {
-      background-color: #2c2c2c;
-      color: #ddd;
-      border-left-color: var(--accent-focus);
+      background-color: #2a2a2a;
+      border-left-color: #a493ff;
+      color: #eee;
+    }
+    .callout-box ul {
+      color: #ccc;
+    }
+    details.callout-box summary {
+      color: #eee;
     }
   }
 </style>
 
+
 <details class="callout-box">
   <summary>💡 How to Use This Timer</summary>
   <ul>
-    <li>
-      ⏱️ This is a Pomodoro timer: 5-minute short breaks and a 30-minute long break after 4 focus sessions. You can adjust your focus session to 25, 50, or 90 minutes.
-    </li>
-    <li>
-      🔊 I always like to have white noise when I focus. There are looped music options below the timer, or you can unfold “More Ambient Sounds” to access longer tracks from 
-      <a href="https://archive.org/details/relaxingsounds/" target="_blank">archive.org</a> curated by GenreFan.
-    </li>
-    <li>
-      ✅ You can add goals for the day. Breaking tasks into small chunks makes them feel more doable. Add as many as you like, assign time, and check them off when complete.
-    </li>
-    <li>
-      🧠 If the task feels too intimidating or hard to break down, talk to this 
-      <a href="https://inyoungcheong.github.io/planner" target="_blank">customized chatbot</a> I built!  
-      It will help you de-clutter your mind and clarify what to do next.
-    </li>
-    <li>
-      🧾 When a focus session ends, a block appears in “Today's Focus Blocks.” Label it to reflect what you did—even if you got distracted (e.g., “Netflix”). This helps you track habits over time.
-    </li>
+    <li> This is a Pomodoro timer ⏱️! You can adjust your focus session to 25, 50, or 90 minutes. 5-minute short breaks and a 30-minute long break after 4 focus sessions.</li>
+    <li> I always like to have white noise when I focus. You’ll find looped music below the timer, or unfold “More Ambient Sounds” for long-play tracks from <a href="https://archive.org/details/relaxingsounds/" target="_blank">archive.org</a> curated by GenreFan.</li>
+    <li> You can add goals for the day. Breaking tasks into small chunks makes them easier to tackle. Add as many as you like, assign time, and check them off ✅ when you’re done. </li>
+    <li> Feeling stuck or overwhelmed? Try this <a href="https://inyoungcheong.github.io/planner" target="_blank">customized chatbot</a> I built. It can help you de-clutter and reframe your tasks more clearly.</li>
+    <li> After a focus session, a block appears in “Today's Focus Blocks.” Label it to reflect what you actually did, even if you got distracted (e.g., “Watching Netflix”). This helps track habits over time.</li>
+    <li> Good luck with your work today! </li>
   </ul>
 </details>
+
 
 
 
