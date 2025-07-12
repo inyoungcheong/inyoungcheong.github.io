@@ -93,20 +93,29 @@ function pauseTimer() {
 
   db.collection("sessions").doc(sessionName).get().then(doc => {
     const data = doc.data()?.timer;
-    if (!data || !data.startTime) return;
+    if (!data) return;
 
-    const remaining = getRemainingTime(data.startTime, data.duration);
+    let remaining = 0;
 
+    if (data.status === "running" && data.startTime) {
+      remaining = getRemainingTime(data.startTime, data.duration);
+    } else {
+      remaining = data.duration || 1500;
+    }
+
+    // Save remaining time and mark as paused
     db.collection("sessions").doc(sessionName).set({
       timer: {
         status: "paused",
         duration: remaining
+        // omit startTime when paused
       }
     }, { merge: true }).then(() => {
       isLocalUpdate = false;
     });
   });
 }
+
 
 
 function resetTimer() {
