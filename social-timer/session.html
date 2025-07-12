@@ -92,7 +92,7 @@
   </div>
 </div>
 
-  <!-- Firebase SDK -->
+
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
   <script>
@@ -106,15 +106,17 @@
     };
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
-
-    // Get session name from URL
+  
     const session = new URLSearchParams(window.location.search).get("session");
-    document.getElementById("sessionTitle").textContent = `🔗 Session: ${session}`;
-
     const name = localStorage.getItem("vibeUserName");
     const emoji = localStorage.getItem("vibeUserAnimal");
-
-    // Register self in Firestore
+    const role = localStorage.getItem("vibeUserRole");
+    const controls = document.querySelector(".controls");
+    const timerText = document.getElementById("timer");
+  
+    document.getElementById("sessionTitle").textContent = `🔗 Session: ${session}`;
+  
+    // 👥 참가자 등록 및 표시
     if (session && name && emoji) {
       db.collection("sessions").doc(session).collection("participants").doc(name).set({
         name,
@@ -122,8 +124,7 @@
         goal: "",
         timestamp: Date.now()
       });
-
-      // Subscribe to participant list
+  
       db.collection("sessions").doc(session).collection("participants")
         .orderBy("timestamp")
         .onSnapshot(snapshot => {
@@ -135,8 +136,8 @@
           });
         });
     }
-
-    // Auto-save goal
+  
+    // ✏️ 목표 입력 실시간 저장
     const goalInput = document.getElementById("goalInput");
     goalInput.addEventListener("input", () => {
       if (session && name) {
@@ -144,124 +145,125 @@
           .collection("participants").doc(name).update({ goal: goalInput.innerText });
       }
     });
-
-
-    // 1. 타이머 초기화
-  let localSeconds = 1500;
-  let localTimer = null;
-  let isRunning = false;
-
-  const timerText = document.getElementById("timer");
-
-  function displayTime(sec) {
-    const m = String(Math.floor(sec / 60)).padStart(2, "0");
-    const s = String(sec % 60).padStart(2, "0");
-    timerText.textContent = `${m}:${s}`;
-  }
-
-  function updateRemoteTimer(state) {
-    db.collection("sessions").doc(session).collection("state").doc("timer").set(state);
-  }
-
-  // 2. 수신: 타이머 상태 실시간 반영
-  db.collection("sessions").doc(session).collection("state").doc("timer")
-    .onSnapshot(doc => {
-      const data = doc.data();
-      if (!data) return;
-
-      localSeconds = data.remainingSeconds;
-      isRunning = data.isRunning;
-      displayTime(localSeconds);
-
-      if (isRunning) startLocalTimer();
-      else stopLocalTimer();
-    });
-
-  // 3. 로컬 타이머 실행
-  function startLocalTimer() {
-    stopLocalTimer();
-    localTimer = setInterval(() => {
-      localSeconds--;
-      if (localSeconds <= 0) {
-        stopLocalTimer();
-        isRunning = false;
-      }
-      displayTime(localSeconds);
-    }, 1000);
-  }
-
-  function stopLocalTimer() {
-    if (localTimer) clearInterval(localTimer);
-    localTimer = null;
-  }
-
-  // 4. 버튼 핸들러 (모두가 시작/정지 가능)
-  function startTimer() {
-    updateRemoteTimer({
-      isRunning: true,
-      remainingSeconds: localSeconds,
-      lastUpdated: Date.now()
-    });
-  }
-
-  function pauseTimer() {
-    updateRemoteTimer({
-      isRunning: false,
-      remainingSeconds: localSeconds,
-      lastUpdated: Date.now()
-    });
-  }
-
-  function resetTimer() {
-    localSeconds = 1500;
-    updateRemoteTimer({
-      isRunning: false,
-      remainingSeconds: 1500,
-      lastUpdated: Date.now()
-    });
-  }
-  const role = localStorage.getItem("vibeUserRole");
-  const controls = document.querySelector(".controls");
-  if (role !== "host") {
-      // 비활성화 버튼
+  
+    // 🕓 타이머 변수
+    let localSeconds = 1500;
+    let localTimer = null;
+    let isRunning = false;
+  
+    function displayTime(sec) {
+      const m = String(Math.floor(sec / 60)).padStart(2, "0");
+      const s = String(sec % 60).padStart(2, "0");
+      timerText.textContent = `${m}:${s}`;
+    }
+  
+    function startLocalTimer() {
+      stopLocalTimer();
+      localTimer = setInterval(() => {
+        localSeconds--;
+        if (localSeconds <= 0) {
+          stopLocalTimer();
+          isRunning = false;
+        }
+        displayTime(localSeconds);
+      }, 1000);
+    }
+  
+    function stopLocalTimer() {
+      if (localTimer) clearInterval(localTimer);
+      localTimer = null;
+    }
+  
+    function updateRemoteTimer(state) {
+      db.collection("sessions").doc(session).collection("state").doc("timer").set(state);
+    }
+  
+    // 🔁 실시간 타이머 수신 + 보정
+    db.collection("sessions").doc(session).collection("state").doc("timer")
+      .onSnapshot(doc => {
+        const data = doc.data();
+        if (!data) return;
+  
+        const elapsed = Math.floor((Date.now() - data.lastUpdated) / 1000);
+        localSeconds = data.isRunning
+          ? Math.max(0, data.remainingSeconds - elapsed)
+          : data.remainingSeconds;
+  
+        isRunning = data.isRunning;
+        displayTime(localSeconds);
+  
+        if (isRunning) startLocalTimer();
+        else stopLocalTimer();
+      });
+  
+    // 🎮 호스트만 조작 가능
+    if (role !== "host") {
       controls.querySelectorAll("button").forEach(btn => {
         btn.disabled = true;
         btn.style.opacity = "0.5";
         btn.style.cursor = "not-allowed";
       });
-    
-      // 이쁘고 친절한 안내 문구 추가
+  
       const notice = document.createElement("div");
       notice.innerHTML = `🚫 <strong>Only the host</strong> can control the timer.`;
-      notice.style.fontSize = "0.95rem";
-      notice.style.color = "#5c5c5c";
-      notice.style.background = "#f9f2f2";
-      notice.style.border = "1px solid #e0dada";
-      notice.style.borderRadius = "8px";
-      notice.style.padding = "0.75rem 1rem";
-      notice.style.marginTop = "1rem";
-      notice.style.textAlign = "center";
-      notice.style.fontFamily = "'Inter', sans-serif";
+      Object.assign(notice.style, {
+        fontSize: "0.95rem",
+        color: "#5c5c5c",
+        background: "#f9f2f2",
+        border: "1px solid #e0dada",
+        borderRadius: "8px",
+        padding: "0.75rem 1rem",
+        marginTop: "1rem",
+        textAlign: "center"
+      });
       controls.appendChild(notice);
     }
-
+  
+    // 🎬 조작 함수들
+    function startTimer() {
+      if (role !== "host") return;
+      updateRemoteTimer({
+        isRunning: true,
+        remainingSeconds: localSeconds,
+        lastUpdated: Date.now()
+      });
+    }
+  
+    function pauseTimer() {
+      if (role !== "host") return;
+      updateRemoteTimer({
+        isRunning: false,
+        remainingSeconds: localSeconds,
+        lastUpdated: Date.now()
+      });
+    }
+  
+    function resetTimer() {
+      if (role !== "host") return;
+      localSeconds = 1500;
+      updateRemoteTimer({
+        isRunning: false,
+        remainingSeconds: 1500,
+        lastUpdated: Date.now()
+      });
+    }
+  
+    // 🙋‍♀️ 사용자 입력
     function submitUser() {
-      const name = document.getElementById("nameInput").value.trim();
-      if (!name) return alert("Please enter your name.");
-      localStorage.setItem("vibeUserName", name);
+      const inputName = document.getElementById("nameInput").value.trim();
+      if (!inputName) return alert("Please enter your name.");
+      localStorage.setItem("vibeUserName", inputName);
       localStorage.setItem("vibeUserAnimal", selectedEmoji);
-      localStorage.setItem("vibeUserRole", "guest"); // 또는 host로 구분
-    
+      localStorage.setItem("vibeUserRole", "guest");
       document.getElementById("userSetup").style.display = "none";
       document.getElementById("mainApp").style.display = "block";
     }
-
+  
     window.onload = () => {
-      const name = localStorage.getItem("vibeUserName");
-      const animal = localStorage.getItem("vibeUserAnimal");
       displayTime(localSeconds);
-    
-      if (name && animal) {
+      const n = localStorage.getItem("vibeUserName");
+      const a = localStorage.getItem("vibeUserAnimal");
+      if (n && a) {
         document.getElementById("userSetup").style.display = "none";
         document.getElementById("mainApp").style.display = "block";
       } else {
@@ -270,30 +272,33 @@
         document.getElementById("mainApp").style.display = "none";
       }
     };
-
-
+  
+    // 🐾 Avatar Grid
     const emojis = ["🐢", "🦊", "🐰", "🐸", "🐼", "🐶", "🦁", "🐻", "🐨", "🐱"];
-      let selectedEmoji = emojis[0];
-      
-      function renderAvatarGrid() {
-        const grid = document.getElementById("emojiGrid");
-        emojis.forEach((emoji) => {
-          const span = document.createElement("span");
-          span.textContent = emoji;
-          span.style.cursor = "pointer";
-          span.style.fontSize = "1.5rem";
-          span.style.padding = "0.5rem";
-          span.style.borderRadius = "10px";
-          span.style.background = "#eee";
-          span.onclick = () => {
-            selectedEmoji = emoji;
-            [...grid.children].forEach(el => el.style.background = "#eee");
-            span.style.background = "#ccc";
-          };
-          grid.appendChild(span);
+    let selectedEmoji = emojis[0];
+  
+    function renderAvatarGrid() {
+      const grid = document.getElementById("emojiGrid");
+      emojis.forEach((emoji) => {
+        const span = document.createElement("span");
+        span.textContent = emoji;
+        Object.assign(span.style, {
+          cursor: "pointer",
+          fontSize: "1.5rem",
+          padding: "0.5rem",
+          borderRadius: "10px",
+          background: "#eee"
         });
-      }
+        span.onclick = () => {
+          selectedEmoji = emoji;
+          [...grid.children].forEach(el => el.style.background = "#eee");
+          span.style.background = "#ccc";
+        };
+        grid.appendChild(span);
+      });
+    }
   </script>
+
 </body>
 </html>
 
