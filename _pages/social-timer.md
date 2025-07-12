@@ -32,6 +32,23 @@ no_description: true
     <div id="vibeBoard"></div>
   </div>
 
+  <div id="submitPanel">
+  <h3>📝 Your Notebook </h3>
+  <label>Mood Emoji:
+    <input type="text" id="moodEmojiInput" placeholder="😄" maxlength="2" />
+  </label><br><br>
+
+  <label>What’s one thing you’d feel proud to finish today?<br>
+    <input type="text" id="reflection1Input" placeholder="Finish my sh**ty first draft" />
+  </label><br><br>
+
+  <label>What distracted you today?<br>
+    <input type="text" id="reflection2Input" placeholder="Snack breaks becoming snack meals" />
+  </label><br><br>
+
+  <button onclick="submitVibe()">Submit</button>
+</div>
+
 <!-- Firebase v8 SDKs -->
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
@@ -71,5 +88,30 @@ no_description: true
     });
 </script>
 
+<script>
+  function submitVibe() {
+    const mood = document.getElementById("moodEmojiInput").value || "🙂";
+    const r1 = document.getElementById("reflection1Input").value;
+    const r2 = document.getElementById("reflection2Input").value;
+
+    // You can generate user ID however you want; here’s a quick example:
+    const userId = "user" + Math.floor(Math.random() * 10000);
+
+    db.collection("sessions").doc("testSession1")
+      .collection("participants").doc(userId)
+      .set({
+        moodEmoji: mood,
+        reflection1: r1,
+        reflection2: r2,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      })
+      .then(() => {
+        console.log("✅ Vibe submitted");
+      })
+      .catch((error) => {
+        console.error("❌ Submit error:", error);
+      });
+  }
+</script>
 
 </body>
