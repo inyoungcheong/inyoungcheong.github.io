@@ -129,10 +129,11 @@
       db.collection("sessions").doc(session).get().then(doc => {
         if (!doc.exists) return alert("Session not found.");
     
-        localStorage.setItem("vibeUserRole", "guest"); // ✅ 역할 저장만
+        localStorage.setItem(`vibeUserRole-${session}`, "guest"); // ✅ Match host format
         window.location.href = `/social-timer/session.html?session=${encodeURIComponent(session)}`;
       });
     }
+
 
 
 
