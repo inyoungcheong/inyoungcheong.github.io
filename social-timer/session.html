@@ -462,6 +462,22 @@
       box-shadow: 0 8px 32px rgba(124, 131, 253, 0.07);
       border: 1.5px solid #EAF0FB;
     }
+
+    .note-card,
+      .public-dashboard {
+        background: #ffffff;
+        border: 1.5px solid #EAF0FB;
+        border-radius: 16px;
+        padding: 2rem;
+        box-shadow: 0 8px 32px rgba(124, 131, 253, 0.04);
+        transition: box-shadow 0.3s ease;
+      }
+      
+      .note-card:hover,
+      .public-dashboard:hover {
+        box-shadow: 0 12px 36px rgba(124, 131, 253, 0.08);
+      }
+
     
     .note-card h3 {
       font-size: 1.1rem;
@@ -936,7 +952,7 @@
           <div id="goalChecklist">
             <div class="goal-row">
               <input type="checkbox" />
-              <input type="text" placeholder="Write a small actionable item..." value="Review project requirements" />
+              <input type="text" id="editableGoal" placeholder="" value="" />
               <input type="number" placeholder="15" min="1" max="999" />
               <span class="minutes-label">min</span>
               <button class="remove-goal">✕</button>
@@ -1484,6 +1500,36 @@
         goal: text
       });
     }
+
+    
+      const placeholderList = [
+        "Finish sh**ty first draft ✍️",
+        "Clean messy data 🧹",
+        "Read Chapter 3 📘",
+        "Fix one small bug 🐞",
+        "Write intro paragraph 📝",
+        "Send a status update 📤",
+        "Make a doable chunk 🧩",
+        "Break task into steps 🪜"
+      ];
+    
+      let index = 0;
+    
+      function rotatePlaceholder() {
+        const input = document.getElementById("editableGoal");
+        if (input && input !== document.activeElement) {
+          input.placeholder = placeholderList[index % placeholderList.length];
+          index++;
+        }
+      }
+    
+      // 변경 주기: 4초마다
+      setInterval(rotatePlaceholder, 4000);
+    
+      // 페이지 로드시 초기 설정
+      document.addEventListener("DOMContentLoaded", rotatePlaceholder);
+    
+
   </script>
 </body>
 </html>
