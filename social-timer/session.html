@@ -50,20 +50,26 @@
     }
 
     /* Theme Selector */
-    .theme-selector {
+    .theme-selector-wrapper {
       position: fixed;
-      top: 2rem;
-      left: 2rem;
+      top: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
       z-index: 1000;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(20px);
-      padding: 0.75rem;
-      border-radius: 20px;
-      border: 1px solid rgba(234, 240, 251, 0.6);
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    
+    .theme-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #64748b;
+      margin-bottom: 0.4rem;
+      background: rgba(255,255,255,0.6);
+      backdrop-filter: blur(10px);
+      padding: 0.2rem 0.75rem;
+      border-radius: 10px;
+      display: inline-block;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     }
 
     .theme-btn {
@@ -982,6 +988,15 @@
     <div class="container">
       <!-- Timer Section -->
       <div class="timer-section">
+        <div class="theme-selector-wrapper">
+            <div class="theme-label">🎨 Choose Theme</div>
+            <div class="theme-selector">
+              <button class="theme-btn active" data-theme="purple" onclick="setTheme('purple')" title="Classic Purple"></button>
+              <button class="theme-btn" data-theme="red" onclick="setTheme('red')" title="Cherry Red"></button>
+              <button class="theme-btn" data-theme="teal" onclick="setTheme('teal')" title="Ocean Teal"></button>
+              <button class="theme-btn" data-theme="yellow" onclick="setTheme('yellow')" title="Sunny Yellow"></button>
+            </div>
+          </div>
         <div id="phaseLabel">Focus</div>
         <div class="timer-circle">
           <svg viewBox="0 0 100 100" width="280" height="280">
@@ -1005,10 +1020,11 @@
         <div class="ambient-section">
           <label style="display: block; margin-bottom: 0.75rem; font-size: 0.9rem; font-weight: 500; color: #64748b;">🎧 Ambient Sound</label>
           <div class="ambient-buttons">
-            <button class="ambient-btn" onclick="setAmbient('fire')">🔥</button>
-            <button class="ambient-btn" onclick="setAmbient('rain')">🌧</button>
-            <button class="ambient-btn" onclick="setAmbient('wind')">💨</button>
-            <button class="ambient-btn" onclick="setAmbient('forest')">🌲</button>
+            <button class="ambient-btn" onclick="setAmbient('fire', this)">🔥</button>
+            <button class="ambient-btn" onclick="setAmbient('rain', this)">🌧</button>
+            <button class="ambient-btn" onclick="setAmbient('wind', this)">💨</button>
+            <button class="ambient-btn" onclick="setAmbient('forest', this)">🌲</button>
+            <button class="ambient-btn" onclick="setAmbient(null, this)">🔇</button> 
           </div>
         </div>
 
@@ -1454,20 +1470,23 @@
       forest: "https://archive.org/download/relaxingsounds/Snowfall%20%26%20Wind%28Lite%29%2010h%20Dusk%20into%20Night-Forest.mp3"
     };
     
-    function setAmbient(type) {
+    function setAmbient(type, el) {
       const url = ambientMap[type];
+      const player = document.getElementById("ambientPlayer");
+    
       if (url) {
-        ambientPlayer.src = url;
-        ambientPlayer.play();
+        player.src = url;
+        player.play();
       } else {
-        ambientPlayer.pause();
-        ambientPlayer.src = "";
+        player.pause();
+        player.src = "";
       }
     
-      // Update active button styling
+      // Update active state
       document.querySelectorAll(".ambient-btn").forEach(btn => btn.classList.remove("active"));
-      event.target.classList.add("active");
+      if (el) el.classList.add("active");
     }
+
 
     const checklistKey = `goalChecklist-${session}`;
 
