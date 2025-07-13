@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Minimalist Timer
-permalink: /timer/
+permalink: /timer2/
 description: A pomodoro timer with my go-to ambient sounds. 
 no_title: true
 no_description: true
