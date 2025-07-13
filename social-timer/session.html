@@ -101,9 +101,12 @@
     <button onclick="submitUser()" style="padding: 0.6rem 1.2rem; border-radius: 10px;">Enter Session</button>
   </div>
 
+  <audio src="assets/beep.wav" id="beep"></audio>
+  
 <div id="mainApp" style="display: none;">
   <div class="container">
     <div class="left">
+      <h3 id="phaseLabel" style="text-align:center;">Focus</h3>
       <div class="circle-timer">
         <svg viewBox="0 0 220 220" width="220" height="220">
           <circle class="bg" cx="110" cy="110" r="100" />
@@ -116,11 +119,12 @@
         <button onclick="startTimer()">Start</button>
         <button onclick="pauseTimer()">Pause</button>
         <button onclick="resetTimer()">Reset</button>
-        <select onchange="setFocusDuration(this.value)">
-                <option value="1500">25 min</option>
-                <option value="2700">45 min</option>
-                <option value="5400">90 min</option>
-      </select>
+      
+        <select id="focusSelect" onchange="setFocusDuration(this.value)">
+          <option value="1500">25 min</option>
+          <option value="2700">45 min</option>
+          <option value="5400">90 min</option>
+        </select>
       </div>
 
       <div class="card" id="vibeBoardContainer" style="margin-top: 2rem;">
@@ -243,15 +247,23 @@
       }
   
       // 타이머 권한 제어
+
       if (localStorage.getItem(roleKey) !== "host") {
         controls.querySelectorAll("button").forEach(btn => {
           btn.disabled = true;
           btn.style.opacity = "0.5";
           btn.style.cursor = "not-allowed";
         });
-  
+      
+        const select = document.getElementById("focusSelect");
+        if (select) {
+          select.disabled = true;
+          select.style.opacity = "0.5";
+          select.style.cursor = "not-allowed";
+        }
+      
         const notice = document.createElement("div");
-        notice.innerHTML = `🚫 <strong>Only the host</strong> can control the timer.`;
+        notice.innerHTML = `<strong>Only the host</strong> can control the timer.`;
         notice.style.fontSize = "0.95rem";
         notice.style.color = "#5c5c5c";
         notice.style.background = "#f9f2f2";
@@ -262,8 +274,8 @@
         notice.style.textAlign = "center";
         controls.appendChild(notice);
       }
-  
-  
+
+              
       // 목표 실시간 저장
       goalInput.addEventListener("input", () => {
         if (session && name) {
@@ -272,14 +284,50 @@
           .collection("participants").doc(name).update({ goal: cleaned });
       }
     });
+      updatePhaseLabel(); 
     };
   
-    // 타이머
-    let localSeconds = 1500;
-    let duration = localSeconds;
-    let localTimer = null;
+    let focusDuration = 1500; // 기본값: 25분
+    let phaseIndex = 0;
+    let localSeconds = focusDuration;
+    let duration = focusDuration;
     let isRunning = false;
-  
+    let localTimer = null;
+    
+    // 알림 사운드
+    const beep = document.getElementById("beep");
+    
+    // Pomodoro phases (생성 함수)
+    function getPhases(focus) {
+      return [
+        { label: "Focus", duration: focus },
+        { label: "Break", duration: 300 },
+        { label: "Focus", duration: focus },
+        { label: "Break", duration: 300 },
+        { label: "Focus", duration: focus },
+        { label: "Break", duration: 300 },
+        { label: "Focus", duration: focus },
+        { label: "Long Break", duration: 1200 }
+      ];
+    }
+    
+    let phases = getPhases(focusDuration);
+    
+    // 타이머 텍스트 & 원형 애니메이션
+    const timerText = document.getElementById("timerText");
+    const progressCircle = document.querySelector("circle.progress");
+    const fullCircle = 2 * Math.PI * 100;
+    
+    function updateProgress() {
+      const ratio = localSeconds / duration;
+      const offset = fullCircle * (1 - ratio);
+      progressCircle.style.strokeDashoffset = offset;
+    
+      const m = String(Math.floor(localSeconds / 60)).padStart(2, '0');
+      const s = String(localSeconds % 60).padStart(2, '0');
+      timerText.textContent = `${m}:${s}`;
+    }
+    
     function displayTime(sec) {
       const m = String(Math.floor(sec / 60)).padStart(2, "0");
       const s = String(sec % 60).padStart(2, "0");
@@ -287,22 +335,82 @@
       updateProgress();
     }
     
+    // 자동 타이머 실행 로직
     function startLocalTimer() {
       stopLocalTimer();
       localTimer = setInterval(() => {
         localSeconds--;
+        updateProgress();
         if (localSeconds <= 0) {
-          stopLocalTimer();
-          isRunning = false;
+          beep.play();
+          nextPhase();
         }
-        displayTime(localSeconds);
       }, 1000);
     }
-
     
+    function stopLocalTimer() {
+      if (localTimer) clearInterval(localTimer);
+      localTimer = null;
+    }
+    
+    function pauseTimer() {
+      updateRemoteTimer({
+        isRunning: false,
+        remainingSeconds: localSeconds,
+        lastUpdated: Date.now()
+      });
+    }
+    
+    function resetTimer() {
+      localSeconds = duration;
+      updateRemoteTimer({
+        isRunning: false,
+        remainingSeconds: localSeconds,
+        lastUpdated: Date.now()
+      });
+      displayTime(localSeconds); // ✅ update clock immediately
+    }
+    
+    
+    // focus 시간 선택 (host만 가능)
+    function setFocusDuration(sec) {
+      focusDuration = parseInt(sec);
+      phases = getPhases(focusDuration);
+      phaseIndex = 0;
+    
+      localSeconds = phases[phaseIndex].duration;
+      duration = localSeconds;
+      displayTime(localSeconds);
+      updatePhaseLabel(); 
+    }
+    
+    // remote timer 상태 업데이트
     function updateRemoteTimer(state) {
       db.collection("sessions").doc(session).collection("state").doc("timer").set(state);
     }
+    
+    function startTimer() {
+      updatePhaseLabel(); // ✅ 안전하게 phase 텍스트 갱신
+      updateRemoteTimer({
+        isRunning: true,
+        remainingSeconds: localSeconds,
+        lastUpdated: Date.now()
+      });
+    }
+
+    
+    // Firestore로부터 동기화된 타이머 상태 적용
+    db.collection("sessions").doc(session).collection("state").doc("timer")
+      .onSnapshot(doc => {
+        const data = doc.data();
+        if (!data) return;
+        localSeconds = data.remainingSeconds;
+        isRunning = data.isRunning;
+        displayTime(localSeconds);
+        if (isRunning) startLocalTimer();
+        else stopLocalTimer();
+      });
+
 
         // 🌈 Vibe Board – goal만 표시
     db.collection("sessions").doc(session).collection("participants")
@@ -332,70 +440,23 @@
         });
       });
 
-  
-    db.collection("sessions").doc(session).collection("state").doc("timer")
-      .onSnapshot(doc => {
-        const data = doc.data();
-        if (!data) return;
-        localSeconds = data.remainingSeconds;
-        isRunning = data.isRunning;
-        displayTime(localSeconds);
-        if (isRunning) startLocalTimer();
-        else stopLocalTimer();
-      });
-
-
-    const fullCircle = 2 * Math.PI * 100; // r = 100
-      const progressCircle = document.querySelector("circle.progress");
-      const timerText = document.getElementById("timerText");
-      
-      
-      function updateProgress() {
-        const ratio = localSeconds / duration;
-        const offset = fullCircle * (1 - ratio);
-        progressCircle.style.strokeDashoffset = offset;
-        const m = String(Math.floor(localSeconds / 60)).padStart(2, '0');
-        const s = String(localSeconds % 60).padStart(2, '0');
-        timerText.textContent = `${m}:${s}`;
-      }
-      
-      function startTimer() {
-        updateRemoteTimer({
-          isRunning: true,
-          remainingSeconds: localSeconds,
-          lastUpdated: Date.now()
-        });
-      }
-    
-     function resetTimer() {
-        localSeconds = duration;
-        updateRemoteTimer({
-          isRunning: false,
-          remainingSeconds: localSeconds,
-          lastUpdated: Date.now()
-        });
-      }
-   
-    function stopLocalTimer() {
-      if (localTimer) clearInterval(localTimer);
-      localTimer = null;
+  function updatePhaseLabel() {
+      document.getElementById("phaseLabel").textContent = phases[phaseIndex].label;
     }
-  
     
-    function pauseTimer() {
+    function nextPhase() {
+      phaseIndex = (phaseIndex + 1) % phases.length;
+      const phase = phases[phaseIndex];
+      localSeconds = phase.duration;
+      duration = phase.duration;
+    
+      updatePhaseLabel(); // ✅ update UI
       updateRemoteTimer({
-        isRunning: false,
+        isRunning: true,
         remainingSeconds: localSeconds,
         lastUpdated: Date.now()
       });
     }
-
-   function setFocusDuration(sec) {
-      localSeconds = parseInt(sec);
-      duration = localSeconds; // 이걸로 원형 애니메이션 정확하게
-      displayTime(localSeconds);
-    }
-    
   </script>
 
 
