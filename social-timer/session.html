@@ -258,7 +258,7 @@
     }
     
     #timerText {
-      font-size: 2rem;
+      font-size: 1.6rem;
       font-weight: 800;
       fill: #1e293b;
       font-family: 'Plus Jakarta Sans', sans-serif;
@@ -376,6 +376,21 @@
       border-color: var(--accent-primary);
       background: rgba(var(--accent-primary), 0.1);
     }
+
+    .loading-msg {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      margin-top: 0.75rem;
+      transition: opacity 0.3s ease;
+      opacity: 1;
+      text-align: center;
+    }
+    
+    .hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
 
     
     /* Dashboard Section */
@@ -1096,12 +1111,13 @@
           <div class="ambient-section">
             <label>🎧 Ambient Sound</label>
             <div class="theme-buttons">
-              <button class="theme-btn">🔥</button>
-              <button class="theme-btn">🌧️</button>
-              <button class="theme-btn">🌊</button>
-              <button class="theme-btn">🌲</button>
-              <button class="theme-btn">🔇</button>
+              <button class="theme-btn" data-sound="Fire">🔥</button>
+              <button class="theme-btn" data-sound="Rain">🌧️</button>
+              <button class="theme-btn" data-sound="Ocean">🌊</button>
+              <button class="theme-btn" data-sound="Forest">🌲</button>
+              <button class="theme-btn" data-sound="Muted">🔇</button>
             </div>
+            <div id="sound-loading-msg" class="loading-msg hidden">Loading sound...</div>
           </div>
         </div>
 
@@ -1564,6 +1580,31 @@
       document.querySelectorAll(".ambient-btn").forEach(btn => btn.classList.remove("active"));
       if (el) el.classList.add("active");
     }
+
+    
+      const ambientButtons = document.querySelectorAll('.theme-btn[data-sound]');
+      const loadingMsg = document.getElementById('sound-loading-msg');
+    
+      ambientButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const soundName = btn.getAttribute('data-sound');
+    
+          // 텍스트 설정
+          if (soundName === 'Muted') {
+            loadingMsg.textContent = 'Sound off';
+          } else {
+            loadingMsg.textContent = `Loading ${soundName} sound...`;
+          }
+    
+          // 표시 및 자동 숨김
+          loadingMsg.classList.remove('hidden');
+          setTimeout(() => {
+            loadingMsg.classList.add('hidden');
+          }, 3000);
+        });
+      });
+   
+
 
 
     const checklistKey = `goalChecklist-${session}`;
