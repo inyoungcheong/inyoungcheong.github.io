@@ -50,48 +50,54 @@
     }
 
     /* Theme Selector */
+    /* 기존 fixed 스타일 제거하고 inline화 */
     .theme-selector-wrapper {
-      position: fixed;
-      top: 1rem;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 1000;
+      position: static; /* or remove this line entirely */
+      transform: none;
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    
+    
+    /* theme 버튼 스타일 통일: ambient와 동일하게 */
+    .theme-buttons,
+    .ambient-buttons {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+    
+    .theme-label,
+    .ambient-section label {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #64748b;
+      margin-bottom: 0.5rem;
       text-align: center;
     }
     
-    .theme-label {
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: #64748b;
-      margin-bottom: 0.4rem;
-      background: rgba(255,255,255,0.6);
-      backdrop-filter: blur(10px);
-      padding: 0.2rem 0.75rem;
-      border-radius: 10px;
-      display: inline-block;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    }
-
     .theme-btn {
-      width: 16px;
-      height: 16px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
-      border: 2px solid rgba(255, 255, 255, 0.8);
+      border: 2px solid transparent;
       cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      transition: all 0.2s ease;
     }
-
+    
     .theme-btn:hover {
-      transform: scale(1.25);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      transform: scale(1.1);
+      border-color: var(--accent-primary);
     }
-
+    
     .theme-btn.active {
-      transform: scale(1.3);
-      border-color: #1e293b;
-      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3), 0 4px 12px rgba(0, 0, 0, 0.25);
+      border-color: var(--accent-primary);
+      box-shadow: 0 0 0 2px rgba(var(--accent-primary), 0.15);
     }
 
     .theme-btn[data-theme="purple"] {
@@ -108,6 +114,14 @@
 
     .theme-btn[data-theme="yellow"] {
       background: #F5DF4D;
+    }
+
+    .settings-bar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.75rem;
+      margin-top: 2rem;
     }
     
     header {
@@ -893,27 +907,7 @@
       box-shadow: 0 12px 36px rgba(124, 131, 253, 0.13);
     }
 
-    
-    /* Responsive Design */
-    @media (max-width: 1024px) {
-      .container {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-      
-      .notes-section {
-        grid-template-columns: 1fr;
-      }
-
-      .theme-inline-palette {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        margin-bottom: 1rem;
-        margin-top: 1rem;
-      }
-      
-      .theme-dot {
+    .theme-dot {
         width: 48px;
         height: 48px;
         border-radius: 50%;
@@ -940,6 +934,55 @@
       .theme-dot[data-theme="red"]    { background: #BB2649; }
       .theme-dot[data-theme="teal"]   { background: #009473; }
       .theme-dot[data-theme="yellow"] { background: #F5DF4D; }
+
+
+      .circle-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: 2px solid transparent;
+        background: rgba(255,255,255,0.9);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      }
+      
+      .circle-btn:hover {
+        transform: scale(1.1);
+        border-color: var(--accent-primary);
+      }
+      
+      .circle-btn.active {
+        background: var(--accent-primary);
+        color: white;
+        border-color: var(--accent-primary);
+      }
+
+    
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .notes-section {
+        grid-template-columns: 1fr;
+      }
+
+      .theme-inline-palette {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+      }}
+      
+      
+
 
     
     @media (max-width: 768px) {
@@ -1037,23 +1080,31 @@
           </select>
         </div>
 
-        <div class="ambient-section">
-          <label style="display: block; margin-bottom: 0.75rem; font-size: 0.9rem; font-weight: 500; color: #64748b;">🎨 Theme</label>
-          <div class="theme-inline-palette">
-            <button class="theme-dot active" data-theme="purple" onclick="setTheme('purple')"></button>
-            <button class="theme-dot" data-theme="red" onclick="setTheme('red')"></button>
-            <button class="theme-dot" data-theme="teal" onclick="setTheme('teal')"></button>
-            <button class="theme-dot" data-theme="yellow" onclick="setTheme('yellow')"></button>
+        <div class="settings-bar">
+          <!-- 🎨 Theme Selector -->
+          <div class="theme-selector-wrapper">
+            <div class="theme-label">🎨 Theme</div>
+            <div class="theme-buttons">
+              <button class="theme-btn" data-theme="purple" style="background:#7C83FD;"></button>
+              <button class="theme-btn" data-theme="red" style="background:#BB2649;"></button>
+              <button class="theme-btn" data-theme="teal" style="background:#009473;"></button>
+              <button class="theme-btn" data-theme="yellow" style="background:#F5DF4D;"></button>
+            </div>
           </div>
-          <label style="display: block; margin-bottom: 0.75rem; font-size: 0.9rem; font-weight: 500; color: #64748b;">🎧 Ambient Sound</label>
-          <div class="ambient-buttons">
-            <button class="ambient-btn" onclick="setAmbient('fire', this)">🔥</button>
-            <button class="ambient-btn" onclick="setAmbient('rain', this)">🌧</button>
-            <button class="ambient-btn" onclick="setAmbient('wind', this)">💨</button>
-            <button class="ambient-btn" onclick="setAmbient('forest', this)">🌲</button>
-            <button class="ambient-btn" onclick="setAmbient(null, this)">🔇</button> 
+        
+          <!-- 🎧 Ambient Sound -->
+          <div class="ambient-section">
+            <label>🎧 Ambient Sound</label>
+            <div class="theme-buttons">
+              <button class="theme-btn">🔥</button>
+              <button class="theme-btn">🌧️</button>
+              <button class="theme-btn">🌊</button>
+              <button class="theme-btn">🌲</button>
+              <button class="theme-btn">🔇</button>
+            </div>
           </div>
         </div>
+
 
         <audio id="ambientPlayer" loop></audio>
       </div>
