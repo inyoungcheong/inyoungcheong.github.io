@@ -905,13 +905,42 @@
         grid-template-columns: 1fr;
       }
 
-      .theme-selector {
-        flex-direction: row;
-        top: 1rem;
-        left: 50%;
-        transform: translateX(-50%);
+      .theme-inline-palette {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
       }
-    }
+      
+      .theme-dot {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+      }
+      
+      /* 호버 시 살짝 떠오르게 */
+      .theme-dot:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+      }
+      
+      /* 현재 선택된 테마 표시 */
+      .theme-dot.active {
+        outline: 3px solid var(--accent-primary);
+        outline-offset: 2px;
+      }
+      
+      /* 테마 색상별 배경 */
+      .theme-dot[data-theme="purple"] { background: #7C83FD; }
+      .theme-dot[data-theme="red"]    { background: #BB2649; }
+      .theme-dot[data-theme="teal"]   { background: #009473; }
+      .theme-dot[data-theme="yellow"] { background: #F5DF4D; }
+
     
     @media (max-width: 768px) {
       .container {
@@ -988,15 +1017,6 @@
     <div class="container">
       <!-- Timer Section -->
       <div class="timer-section">
-        <div class="theme-selector-wrapper">
-            <div class="theme-label">🎨 Choose Theme</div>
-            <div class="theme-selector">
-              <button class="theme-btn active" data-theme="purple" onclick="setTheme('purple')" title="Classic Purple"></button>
-              <button class="theme-btn" data-theme="red" onclick="setTheme('red')" title="Cherry Red"></button>
-              <button class="theme-btn" data-theme="teal" onclick="setTheme('teal')" title="Ocean Teal"></button>
-              <button class="theme-btn" data-theme="yellow" onclick="setTheme('yellow')" title="Sunny Yellow"></button>
-            </div>
-          </div>
         <div id="phaseLabel">Focus</div>
         <div class="timer-circle">
           <svg viewBox="0 0 100 100" width="280" height="280">
@@ -1018,6 +1038,13 @@
         </div>
 
         <div class="ambient-section">
+          <label style="display: block; margin-bottom: 0.75rem; font-size: 0.9rem; font-weight: 500; color: #64748b;">🎨 Theme</label>
+          <div class="theme-inline-palette">
+            <button class="theme-dot active" data-theme="purple" onclick="setTheme('purple')"></button>
+            <button class="theme-dot" data-theme="red" onclick="setTheme('red')"></button>
+            <button class="theme-dot" data-theme="teal" onclick="setTheme('teal')"></button>
+            <button class="theme-dot" data-theme="yellow" onclick="setTheme('yellow')"></button>
+          </div>
           <label style="display: block; margin-bottom: 0.75rem; font-size: 0.9rem; font-weight: 500; color: #64748b;">🎧 Ambient Sound</label>
           <div class="ambient-buttons">
             <button class="ambient-btn" onclick="setAmbient('fire', this)">🔥</button>
@@ -1655,6 +1682,12 @@
         index++;
       }
     }
+
+    document.querySelectorAll('.theme-dot').forEach(btn => {
+      btn.classList.remove('active');
+    });
+    document.querySelector(`.theme-dot[data-theme="${theme}"]`).classList.add('active');
+
 
     // Rotate placeholder every 4 seconds
     setInterval(rotatePlaceholder, 4000);
