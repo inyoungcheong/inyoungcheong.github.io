@@ -107,6 +107,17 @@
       gap: 3rem;
       align-items: start;
     }
+
+    .section-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #7C83FD;
+      margin-bottom: 1rem;
+    }
+
     
     /* Timer Section */
     .timer-section {
@@ -202,8 +213,8 @@
       cursor: not-allowed;
     }
 
-    /* Footer */ 
-    .footer {
+    /* Footer */
+     .footer {
       width: 100%;
       padding: 2rem 1rem;
       background: rgba(245, 247, 250, 0.6);
@@ -211,7 +222,6 @@
       border-top: 1px solid #EAF0FB;
       text-align: center;
       margin-top: auto;
-      font-family: 'Inter', sans-serif;
     }
     
     .footer-text {
@@ -225,16 +235,9 @@
       font-weight: 600;
       transition: color 0.2s;
     }
-    
     .footer-link:hover {
       color: #96BAFF;
       text-decoration: underline;
-    }
-    
-    .footer-subtext {
-      font-size: 0.8rem;
-      color: #9ca3af;
-      margin-top: 0.5rem;
     }
 
 
@@ -353,6 +356,8 @@
     .goal-input-container {
       position: relative;
       margin-top: 1rem;
+      padding: 1rem 1.25rem; /* 내부 좌우 여백 확보 */
+      box-sizing: border-box; /* padding 포함해서 100% 처리 */
     }
     
     #editableGoal {
@@ -441,6 +446,7 @@
       bbackground: rgba(255,255,255,0.97);
       backdrop-filter: blur(16px);
       border-radius: 20px;
+      padding: 2rem 1.75rem;
       box-shadow: 0 8px 32px rgba(124, 131, 253, 0.07);
       border: 1.5px solid #EAF0FB;
     }
@@ -880,12 +886,15 @@
         </div>
 
         <div class="ambient-buttons">
-         <label for="ambientSelect">🎧 Ambient Sound</label>
-          <button class="ambient-btn" onclick="setAmbient('fire')">🔥</button>
-          <button class="ambient-btn" onclick="setAmbient('rain')">🌧</button>
-          <button class="ambient-btn" onclick="setAmbient('wind')">💨</button>
-          <button class="ambient-btn" onclick="setAmbient('forest')">🌲</button>
+          <label for="ambientSelect" style="display: block; margin-bottom: 0.5rem;">🎧 Ambient Sound</label>
+          <div style="display: flex; justify-content: center; gap: 1rem;">
+            <button class="ambient-btn">🔥</button>
+            <button class="ambient-btn">🌧</button>
+            <button class="ambient-btn">💨</button>
+            <button class="ambient-btn">🌲</button>
+          </div>
         </div>
+
         
         <audio id="ambientPlayer" loop></audio>
       </div>
@@ -893,9 +902,8 @@
       <!-- Dashboard Section -->
       <div class="dashboard-section">
         <div class="public-dashboard">
-          <div class="dashboard-title">
-            🌈 Public Dashboard
-          </div>
+          <div class="dashboard-title section-title">🌈 Public Dashboard</div>
+
           
           <div id="vibeBoard"></div>
           
@@ -909,10 +917,10 @@
       <!-- Notes Section -->
       <div class="notes-section">
         <div class="note-card">
-          <h3>✨ De-cluttering Checklist</h3>
+          <h3 class="section-title">De-cluttering Checklist</h3>
           <p style="font-size: 0.85rem; color: #94a3b8; font-style: italic;">*not visible to others</p>
           
-          <label>🧩 Break your goals into small, doable chunks with time estimates. Check them off as you go.</label>
+          <label>Break your goals into small, doable chunks with time estimates. Check them off as you go.</label>
           <div id="goalChecklist">
             <div class="goal-row">
               <input type="checkbox" />
@@ -926,14 +934,14 @@
         </div>
         
         <div class="note-card">
-          <h3>📝 Thoughts and Reflections</h3>
+          <h3 class="section-title">Thoughts and Reflections</h3>
           <p style="font-size: 0.85rem; color: #94a3b8; font-style: italic;">*not visible to others</p>
           
           <label style="margin-bottom: 1rem;">🚧 What are the barriers?</label>
-          <textarea placeholder="What's stopping me from starting? What thoughts are holding me back? What would I tell a friend facing this same challenge?" style="min-height: 100px; margin-bottom: 1.5rem;"></textarea>
+          <textarea placeholder="What's stopping you from starting? What thoughts are holding you back? What would you tell a friend facing this same challenge?" style="min-height: 100px; margin-bottom: 1.5rem;"></textarea>
           
           <label>💭 What am I noticing?</label>
-          <textarea id="noteInput" placeholder="What am I grateful for today? What patterns am I noticing in my work? What's energizing me right now? What would help me feel more focused?" style="min-height: 120px;"></textarea>
+          <textarea id="noteInput" placeholder="What are you grateful for today? What patterns are you noticing in your work? What's energizing you right now? What would help you feel more focused?" style="min-height: 120px;"></textarea>
         </div>
       </div>
     </div>
@@ -941,17 +949,18 @@
     <div id="saveToast">Saved ✔️</div>
   </div
 
-<footer class="footer">
-  <div class="footer-content">
-    <div class="footer-text">
-      Built by 
-      <a href="https://inyoungcheong.github.io" class="footer-link" target="_blank">Inyoung Cheong</a>
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-text">
+        Built by 
+        <a href="https://inyoungcheong.github.io" class="footer-link" target="_blank">Inyoung Cheong</a>
+      </div>
+      <div style="font-size: 0.8rem; color: #9ca3af; margin-top: 0.5rem;">
+        Helping you stay focused and productive
+      </div>
     </div>
-    <div class="footer-subtext">
-      Helping you stay focused and productive
-    </div>
-  </div>
-</footer>
+  </footer>
+
 
 
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
