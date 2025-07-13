@@ -63,22 +63,29 @@
     /* TIMER circle fix */
       circle.bg {
         stroke: #e5e7eb;
+        fill: none;
       }
       
       circle.progress {
-        stroke: #6366F1;
+        stroke: #6366F1; /* 예쁜 보라색 */
+        fill: none;
+        stroke-width: 8;
         stroke-dasharray: 628.32;
-        stroke-dashoffset: 628.32; /* ← start hidden */
+        stroke-dashoffset: 628.32;
         transform: rotate(-90deg);
         transform-origin: center;
         transition: stroke-dashoffset 0.5s linear;
       }
-
     svg text {
       font-size: 1.8rem;
       fill: #111;
       font-family: 'Inter', sans-serif;
     }
+
+    svg {
+      background: transparent; /* 검정 배경 제거 */
+    }
+
     
     #phaseLabel {
       font-size: 1.2rem;
@@ -203,6 +210,13 @@
       font-style: italic;
     }
 
+    #timerText {
+      fill: #333; /* 텍스트 컬러 설정 */
+      font-size: 1.5rem;
+      font-weight: bold;
+      pointer-events: none;
+    }
+
     #ambientSelect {
       margin-top: 1rem;
       padding: 0.5rem;
@@ -220,27 +234,30 @@
     }
     
     .goal-display {
-      flex: 1;
-      min-height: 1.5rem;
-      border: 1px solid transparent;
-      padding: 0.4rem 0.6rem;
+      border: 1px solid #ddd;
       border-radius: 8px;
-      background: #fff;
-      transition: border 0.2s ease;
+      padding: 0.6rem 0.8rem;
       font-size: 0.95rem;
+      font-family: 'Inter', sans-serif;
+      background: #fff;
+      width: 100%;
+      min-height: 2.5rem;
+      outline: none;
+      transition: border 0.2s ease;
     }
     
     .goal-display:focus {
       border-color: #6366F1;
-      outline: none;
+      background: #f3f4ff;
     }
-    
+
     .goal-display[data-placeholder]:not(:focus):empty::before {
       content: attr(data-placeholder);
-      color: #bbb;
+      color: #aaa;
       font-style: italic;
       pointer-events: none;
     }
+
     
     #editGoalBtn {
       background: transparent;
@@ -260,10 +277,10 @@
 <body>
   <header id="sessionTitle">Loading session...</header>
   <div id="userSetup" style="text-align: center; padding: 2rem;">
-    <h2>👋 Enter Your Name and Choose an Avatar</h2>
+    <h2> Set your name & character 🧸 </h2>
     <input type="text" id="nameInput" placeholder="Your name" style="padding: 0.6rem; border-radius: 10px; font-size: 1rem; margin-bottom: 1rem;" />
     <div id="emojiGrid" style="display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;"></div>
-    <button onclick="submitUser()" style="padding: 0.6rem 1.2rem; border-radius: 10px;">Enter Session</button>
+    <button onclick="submitUser()" style="padding: 0.6rem 1.2rem; border-radius: 10px;">Let’s Go 🚀</button>
   </div>
 
   <audio src="assets/beep.wav" id="beep"></audio>
