@@ -167,10 +167,10 @@
           <text id="timerText" x="110" y="120" text-anchor="middle">25:00</text>
         </svg>
         <div class="controls" style="margin-top: 1rem;">
-          <button onclick="startTimer()">Start</button>
-          <button onclick="pauseTimer()">Pause</button>
-          <button onclick="resetTimer()">Reset</button>
-          <select onchange="setFocusDuration(this.value)">
+          <button type="button" onclick="startTimer()">Start</button>
+          <button type="button" onclick="pauseTimer()">Pause</button>
+          <button type="button" onclick="resetTimer()">Reset</button>
+          <select id="focusSelect" onchange="setFocusDuration(this.value)">
             <option value="1500">25 min</option>
             <option value="2700">45 min</option>
             <option value="5400">90 min</option>
