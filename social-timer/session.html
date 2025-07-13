@@ -214,31 +214,33 @@
     }
 
     /* Footer */
-     .footer {
-      width: 100%;
-      padding: 2rem 1rem;
-      background: rgba(245, 247, 250, 0.6);
-      backdrop-filter: blur(12px);
-      border-top: 1px solid #EAF0FB;
+    footer {
+      margin-top: 5rem;
+      padding: 3rem 1.5rem 5rem;
       text-align: center;
-      margin-top: auto;
+      background: rgba(245, 247, 250, 0.7);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid #EAF0FB;
     }
     
-    .footer-text {
-      font-size: 0.98rem;
+    .footer-content {
+      max-width: 800px;
+      margin: 0 auto;
       color: #6C757D;
+      font-size: 0.9rem;
     }
     
     .footer-link {
       color: #7C83FD;
-      text-decoration: none;
       font-weight: 600;
-      transition: color 0.2s;
+      text-decoration: none;
     }
+    
     .footer-link:hover {
       color: #96BAFF;
       text-decoration: underline;
     }
+
 
 
 
@@ -313,17 +315,27 @@
     }
     
     .public-dashboard {
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(20px);
-      border-radius: 20px;
       padding: 2rem;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
-      border: 1px solid #EAF0FB;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
+    
+    .public-dashboard input[type="text"] {
+      width: 100%;
+      max-width: 400px;
+      padding: 0.75rem 1rem;
+      text-align: center; /* input 내용도 가운데 정렬 */
+      border: 1.5px solid #EAF0FB;
+      border-radius: 12px;
+      background: #F5F7FA;
+    }
+
     
     .dashboard-title {
       font-size: 1.2rem;
       font-weight: 600;
+      text-align: center;
       margin-bottom: 1.5rem;
       color: #6C757D;
       display: flex;
@@ -902,7 +914,7 @@
       <!-- Dashboard Section -->
       <div class="dashboard-section">
         <div class="public-dashboard">
-          <div class="dashboard-title section-title">🌈 Public Dashboard</div>
+          <div class="dashboard-title section-title">Public Dashboard</div>
 
           
           <div id="vibeBoard"></div>
