@@ -4,107 +4,349 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Social Pomodoro | Join or Create</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      padding: 2rem 1rem;
-      background-color: #f4f1ee;
+      padding: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
       font-family: 'Inter', sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
-      line-height: 1.7;
+      justify-content: center;
+      line-height: 1.6;
+      position: relative;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+      width: 100%;
+      max-width: 500px;
+      flex-grow: 1;
+      justify-content: center;
     }
 
     .title {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.8rem;
       font-weight: 600;
-      color: #2a2a2a;
-      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 3rem;
+      text-align: center;
+      letter-spacing: -0.01em;
+      position: relative;
+    }
+
+    .title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 2px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 2px;
+      opacity: 0.6;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      color: #64748b;
+      margin-bottom: 3rem;
+      text-align: center;
+      font-weight: 400;
     }
 
     .section {
-      background: #fff;
-      padding: 1.75rem 1.5rem;
-      border-radius: 20px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(20px);
+      padding: 2.5rem 2rem;
+      border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.8);
       margin-bottom: 2rem;
       width: 100%;
-      max-width: 400px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .section:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 48px rgba(0, 0, 0, 0.1);
     }
 
     .section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-      color: #333;
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #334155;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section p {
+      font-size: 0.9rem;
+      color: #64748b;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
     }
 
     input[type="text"] {
       width: 100%;
-      padding: 0.7rem;
-      margin: 0.5rem 0 1rem 0;
-      border: 1px solid #ccc;
-      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
       font-size: 1rem;
-      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      color: #334155;
+      outline: none;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
+    input[type="text"]:focus {
+      border-color: #6366f1;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+    }
+
+    input[type="text"]::placeholder {
+      color: #94a3b8;
+      font-style: italic;
+    }
 
     button {
       width: 100%;
-      padding: 0.75rem;
+      padding: 1rem 1.5rem;
       font-size: 1rem;
+      font-weight: 500;
       border: none;
-      border-radius: 10px;
+      border-radius: 12px;
       cursor: pointer;
-      transition: background 0.3s;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+    }
+
+    button:active {
+      transform: translateY(0);
     }
 
     .join-btn {
-      background-color: #e3e3e3;
-      color: #2f2f2f;
+      background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+      color: #475569;
+      box-shadow: 0 4px 12px rgba(71, 85, 105, 0.15);
     }
+
     .join-btn:hover {
-      background-color: #d2d2d2;
+      background: linear-gradient(135deg, #cbd5e1, #b4c6d1);
+      box-shadow: 0 6px 20px rgba(71, 85, 105, 0.25);
     }
 
     .create-btn {
-      background-color: #f6d6ce;
-      color: #5a3e38;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: white;
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
     }
+
     .create-btn:hover {
-      background-color: #f1c7bc;
+      background: linear-gradient(135deg, #5b56f1, #7c3aed);
+      box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
     }
 
-    .small-label {
-      font-size: 0.85rem;
-      color: #777;
+    /* Add ripple effect */
+    button::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transition: width 0.6s, height 0.6s, top 0.6s, left 0.6s;
+      transform: translate(-50%, -50%);
+      z-index: 0;
     }
 
-    @media (max-width: 500px) {
-      body {
+    button:active::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    button span {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Footer */
+    .footer {
+      width: 100%;
+      padding: 2rem 1rem;
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(20px);
+      border-top: 1px solid rgba(226, 232, 240, 0.8);
+      text-align: center;
+      margin-top: auto;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-text {
+      font-size: 0.9rem;
+      color: #64748b;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-link {
+      color: #6366f1;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .footer-link:hover {
+      color: #5b56f1;
+      text-decoration: underline;
+    }
+
+    .footer-heart {
+      display: inline-block;
+      color: #ef4444;
+      animation: pulse 2s infinite;
+      margin: 0 0.25rem;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    /* Decorative elements */
+    .bg-decoration {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .bg-decoration::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 20%, rgba(99, 102, 241, 0.1) 0%, transparent 70%),
+                  radial-gradient(circle at 70% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 70%);
+      animation: float 20s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      33% { transform: translate(30px, -30px) rotate(120deg); }
+      66% { transform: translate(-20px, 20px) rotate(240deg); }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 600px) {
+      .container {
         padding: 1rem;
+      }
+
+      .title {
+        font-size: 2rem;
+      }
+
+      .subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .section {
+        padding: 2rem 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .section h2 {
+        font-size: 1.2rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .title {
+        font-size: 1.8rem;
+      }
+
+      .section {
+        padding: 1.5rem 1rem;
       }
     }
   </style>
 </head>
 <body>
-  <div class="title">Social Pomodoro Timer</div>
+  <div class="bg-decoration"></div>
+  
+  <div class="container">
+    <h1 class="title">Social Pomodoro Timer</h1>
 
-  <div class="section">
-    <h2>🔗 Join a Session</h2>
-    <input type="text" id="joinSessionInput" placeholder="Enter session name" />
-    <button class="join-btn" onclick="joinSession()">Join</button>
+    <div class="section">
+      <h2>🔗 Join a Session</h2>
+      <p>Enter a session name to join an existing focus group</p>
+      <input type="text" id="joinSessionInput" placeholder="e.g., study-squad-456" />
+      <button class="join-btn" onclick="joinSession()">
+        <span>Join Session</span>
+      </button>
+    </div>
+
+    <div class="section">
+      <h2>✨ Create a New Session</h2>
+      <p>Start a new session and invite others to focus with you</p>
+      <input type="text" id="createSessionInput" placeholder="e.g., morning-focus, deep-work" />
+      <button class="create-btn" onclick="createSession()">
+        <span>Create Session</span>
+      </button>
+    </div>
   </div>
 
-  <div class="section">
-    <h2>✨ Create a New Session</h2>
-    <input type="text" id="createSessionInput" placeholder="Name your session" />
-    <button class="create-btn" onclick="createSession()">Create</button>
-  </div>
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-text">
+        Built with <span class="footer-heart">♥</span> by 
+        <a href="#" class="footer-link">Inyoung Cheong</a>
+      </div>
+      <div style="font-size: 0.8rem; color: #94a3b8; margin-top: 0.5rem;">
+        Helping you stay focused and productive
+      </div>
+    </div>
+  </footer>
 
   <!-- Firebase -->
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
@@ -121,21 +363,36 @@
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
 
-  
-   function joinSession() {
+    function joinSession() {
       const session = document.getElementById("joinSessionInput").value.trim();
-      if (!session) return alert("Please enter a session name.");
+      if (!session) {
+        alert("Please enter a session name.");
+        return;
+      }
     
+      // Show loading state
+      const joinBtn = document.querySelector('.join-btn span');
+      const originalText = joinBtn.textContent;
+      joinBtn.textContent = 'Joining...';
+      
       db.collection("sessions").doc(session).get().then(doc => {
-        if (!doc.exists) return alert("Session not found.");
+        if (!doc.exists) {
+          // Reset button
+          joinBtn.textContent = originalText;
+          alert("Session not found. Please check the session name and try again.");
+          return;
+        }
     
-        localStorage.setItem(`vibeUserRole-${session}`, "guest"); // ✅ Match host format
+        // Session exists, set role and redirect
+        localStorage.setItem(`vibeUserRole-${session}`, "guest");
         window.location.href = `/social-timer/session.html?session=${encodeURIComponent(session)}`;
+      }).catch(error => {
+        // Reset button on error
+        joinBtn.textContent = originalText;
+        console.error("Error checking session:", error);
+        alert("Error connecting to session. Please try again.");
       });
     }
-
-
-
 
     function createSession() {
       let session = document.getElementById("createSessionInput").value.trim();
@@ -146,7 +403,7 @@
     
       const url = `/social-timer/session.html?session=${encodeURIComponent(session)}`;
     
-      localStorage.setItem(`vibeUserRole-${session}`, "host"); // ✅ 역할 저장만
+      localStorage.setItem(`vibeUserRole-${session}`, "host");
     
       navigator.clipboard.writeText(window.location.origin + url).then(() => {
         alert("Session created! Link copied to clipboard:\n" + window.location.origin + url);
@@ -154,18 +411,17 @@
       });
     }
 
+    // Add enter key support
+    document.getElementById("joinSessionInput").addEventListener("keypress", function(e) {
+      if (e.key === "Enter") joinSession();
+    });
 
-
-
-
+    document.getElementById("createSessionInput").addEventListener("keypress", function(e) {
+      if (e.key === "Enter") createSession();
+    });
   </script>
-
-
-
-  
 </body>
 </html>
-
 
 
 
