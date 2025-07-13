@@ -127,15 +127,29 @@
         </select>
       </div>
 
+      <div style="text-align: center; margin-top: 1.5rem;">
+        <label><strong>🎧 Ambient Sound:</strong></label>
+        <select id="ambientSelect" onchange="playAmbient()">
+          <option value="">No ambient</option>
+          <option value="https://archive.org/download/relaxingsounds/FIRE%202%203h%20Blazing%20Fireplace.mp3">🔥 Fireplace</option>
+          <option value="https://archive.org/download/relaxingsounds/Rain%207%20%28Lightest%29%208h%20DripsOnTrees-no%20thunder.mp3">🌧 Rain</option>
+          <option value="https://archive.org/download/relaxingsounds/Wind%201%208h%20%28or%20Rapids%29%20Gentle%2CLowPitch%2CBrownNoise.mp3">💨 Wind</option>
+          <option value="https://archive.org/download/relaxingsounds/Snowfall%20%26%20Wind%28Lite%29%2010h%20Dusk%20into%20Night-Forest.mp3">🌲 Forest</option>
+        </select>
+      
+        <audio id="ambientPlayer" loop></audio>
+      </div>
+
+      
+
+    </div>
+
+    <div class="right">
       <div class="card" id="vibeBoardContainer" style="margin-top: 2rem;">
         <h3>🌈 Dashboard </h3>
         <div id="vibeBoard" style="display: flex; flex-direction: column; gap: 1rem;"></div>
         <p style="font-size: 0.9rem; color: #666;">✨ Everyone’s goals appear here.</p>
       </div>
-
-    </div>
-
-    <div class="right">
       <div class="card">
         <h3>🎯 Your Goal</h3>
         <div class="goal-area" contenteditable="true" id="goalInput">• </div>
@@ -457,6 +471,19 @@
         lastUpdated: Date.now()
       });
     }
+
+   function playAmbient() {
+      const player = document.getElementById("ambientPlayer");
+      const url = document.getElementById("ambientSelect").value;
+      if (url) {
+        player.src = url;
+        player.play();
+      } else {
+        player.pause();
+        player.src = "";
+      }
+    }
+      
   </script>
 
 
