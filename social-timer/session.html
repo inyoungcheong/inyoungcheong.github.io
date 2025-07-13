@@ -373,24 +373,20 @@
     }
     
     #editableGoal {
-      width: 100%;
-      min-height: 3.5rem;
-      max-height: 6rem;
+      height: 3.5rem;
       padding: 1rem 1.25rem;
       border: 2px solid #EAF0FB;
       border-radius: 12px;
       background: rgba(255, 255, 255, 0.9);
       backdrop-filter: blur(10px);
-      font-size: 0.95rem;
+      font-size: 1rem;
       font-family: 'Inter', sans-serif;
       color: #334155;
-      line-height: 1.5;
       resize: none;
-      outline: none;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      overflow-y: auto;
       box-sizing: border-box;
+      transition: all 0.3s ease;
     }
+
     
     #editableGoal:focus {
       border-color: #6366f1;
@@ -407,24 +403,19 @@
     
     /* Goal save button */
     #saveGoalBtn {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: none;
-      border: none;
-      font-size: 1.1rem;
-      cursor: pointer;
-      opacity: 0.4;
+      font-size: 1.5rem;
+      opacity: 0.7;
+      color: #94a3b8;
+      top: 0.75rem;
+      right: 0.75rem;
       transition: all 0.2s ease;
-      color: #9ca3af;
-      padding: 0.25rem;
-      border-radius: 6px;
-      display: none;
     }
     
     .goal-input-container:hover #saveGoalBtn {
-      opacity: 0.7;
+      opacity: 1;
+      color: #6366f1;
     }
+
     
     #saveGoalBtn:hover {
       opacity: 1;
@@ -882,13 +873,7 @@
 
   <audio src="assets/beep.wav" id="beep"></audio>
   
-  <div id="userSetup" style="display: none;">
-    <h2>Set your name & character 🧸</h2>
-    <input type="text" id="nameInput" placeholder="Your name" />
-    <div id="emojiGrid"></div>
-    <button onclick="submitUser()" style="padding: 1rem 2rem; border-radius: 12px; background: #6366f1; color: white; border: none; font-weight: 500; cursor: pointer; transition: all 0.2s ease;">Let's Go 🚀</button>
-  </div>
-
+  
   <div id="mainApp">
     <div class="container">
       <!-- Timer Section -->
@@ -931,6 +916,7 @@
       <div class="dashboard-section">
         <div class="public-dashboard">
           <div class="dashboard-title section-title">Public Dashboard</div>
+          <h2 class="dashboard-title" id="goalTitle">My Goal</h2>
 
           
           <div id="vibeBoard"></div>
@@ -1522,6 +1508,22 @@
           index++;
         }
       }
+    document.addEventListener("DOMContentLoaded", () => {
+      const title = document.getElementById("goalTitle");
+    
+      const name = localStorage.getItem(nameKey) || "";
+      const emoji = localStorage.getItem(emojiKey) || "";
+    
+      if (emoji && name) {
+        title.textContent = `${emoji} ${name}'s Goal`;
+      } else {
+        title.textContent = "My Goal";
+      }
+    
+      // 기존 placeholder 설정도 여기 있었다면 계속 유지
+      document.getElementById("editableGoal").placeholder = getRandomPlaceholder();
+    });
+
     
       // 변경 주기: 4초마다
       setInterval(rotatePlaceholder, 4000);
