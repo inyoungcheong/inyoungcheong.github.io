@@ -650,12 +650,9 @@
     <div class="invitation-container">
       <div class="pulse-dot"></div>
       <div class="invitation-text">
-        <span>Join me in</span>
         <span class="session-name" id="sessionName">creative-work</span>
-        <span>for focused work together</span>
       </div>
       <div class="copy-hint">
-        <span>📋</span>
         <span>Click to copy invite link</span>
       </div>
     </div>
@@ -1111,8 +1108,9 @@
       document.querySelectorAll("#goalChecklist .goal-row").forEach(row => {
         const input = row.querySelector('input[type="text"]');
         const checkbox = row.querySelector('input[type="checkbox"]');
+        const timeInput = row.querySelector('input[type="number"]');
         if (input && input.value.trim()) {
-          items.push({ text: input.value, done: checkbox.checked });
+          items.push({ text: input.value, done: checkbox.checked, time: timeInput.value });
         }
       });
       localStorage.setItem(checklistKey, JSON.stringify(items));
@@ -1121,13 +1119,14 @@
     function loadChecklistFromStorage() {
       const saved = localStorage.getItem(checklistKey);
       if (saved) {
-        JSON.parse(saved).forEach(item => addGoalRow(item.text, item.done));
+        JSON.parse(saved).forEach(item => addGoalRow(item.text, item.done, item.time));
       } else {
         addGoalRow();
       }
     }
+
     
-    function addGoalRow(text = "", checked = false) {
+    function addGoalRow(text = "", checked = false, time = "") {
       const container = document.getElementById("goalChecklist");
       const row = document.createElement("div");
       row.className = "goal-row";
@@ -1147,6 +1146,30 @@
       input.maxLength = 80;
       input.oninput = saveChecklistToStorage;
     
+      const timeInput = document.createElement("input");
+      timeInput.type = "number";
+      timeInput.placeholder = "15";
+      timeInput.min = 1;
+      timeInput.max = 999;
+      timeInput.value = time;
+      timeInput.oninput = saveChecklistToStorage;
+      timeInput.style.width = "70px";
+      timeInput.style.padding = "0.5rem 0.5rem";
+      timeInput.style.border = "1px solid #e2e8f0";
+      timeInput.style.borderRadius = "8px";
+      timeInput.style.background = "rgba(255, 255, 255, 0.8)";
+      timeInput.style.fontSize = "0.85rem";
+      timeInput.style.fontFamily = "'Inter', sans-serif";
+      timeInput.style.color = "#334155";
+      timeInput.style.outline = "none";
+      timeInput.style.transition = "all 0.2s ease";
+      timeInput.style.flexShrink = "0";
+      timeInput.style.textAlign = "center";
+    
+      const minutesLabel = document.createElement("span");
+      minutesLabel.className = "minutes-label";
+      minutesLabel.textContent = "min";
+    
       const remove = document.createElement("button");
       remove.innerHTML = "✕";
       remove.className = "remove-goal";
@@ -1157,11 +1180,14 @@
     
       row.appendChild(checkbox);
       row.appendChild(input);
+      row.appendChild(timeInput);
+      row.appendChild(minutesLabel);
       row.appendChild(remove);
     
       if (checked) row.classList.add("checked");
       container.appendChild(row);
     }
+
     
     window.addEventListener("load", loadChecklistFromStorage);
 
@@ -1236,5 +1262,4 @@
   </script>
 </body>
 </html>
-
 
