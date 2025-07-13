@@ -171,16 +171,41 @@
     .prompt-area textarea,
     .note-area textarea {
       min-width: 200px;
+      min-height: 220px; 
+      line-height: 1.6;
+      font-size: 1rem;
+      padding: 1rem;
       overflow-y: auto; 
+      background: #fafafa; 
       box-sizing: border-box;
     }
     
-    .prompt-area label, .note-area label {
-      font-weight: 600;
-      margin-bottom: 0.4rem;
-      display: block;
-      color: #444;
+    .prompt-area label {
+        font-size: 1.05rem;
+        line-height: 1.6;
+        margin-top: 1.2rem;
+        margin-bottom: 0.5rem;
+        display: block;
+        font-weight: bold;
+      }
+      
+      .prompt-area p {
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+        color: #666;
+        line-height: 1.6;
+      }
+      
+      #goalChecklist .goal-row {
+        margin-bottom: 0.4rem;
+      }
+
+    #goalChecklist .goal-row input[type="text"] {
+      font-size: 1rem;
+      padding: 0.5rem;
+      border-radius: 6px;
     }
+
     
     /* 타자기 스타일 textarea */
     .prompt-area textarea, .note-area textarea {
@@ -211,10 +236,10 @@
     }
 
     #timerText {
-      fill: #333; /* 텍스트 컬러 설정 */
-      font-size: 1.5rem;
-      font-weight: bold;
-      pointer-events: none;
+      fill: #1e1e1e;
+      font-size: 2.2rem;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
     }
 
     #ambientSelect {
@@ -242,35 +267,93 @@
       background: #fff;
       width: 100%;
       min-height: 2.5rem;
+      line-height: 1.5;
       outline: none;
-      transition: border 0.2s ease;
+      transition: border 0.2s ease, background 0.2s ease;
+      display: flex;
+      align-items: center;  /* 👈 이 줄 추가 */
+      white-space: pre-wrap; /* 줄바꿈 유지 */
     }
+
     
     .goal-display:focus {
       border-color: #6366F1;
       background: #f3f4ff;
     }
 
-    .goal-display[data-placeholder]:not(:focus):empty::before {
+    .goal-display[data-placeholder]:empty:before {
       content: attr(data-placeholder);
       color: #aaa;
       font-style: italic;
       pointer-events: none;
     }
 
+
+    input[type="text"]:focus,
+      textarea:focus,
+      .goal-display:focus {
+        background: #f3f4ff; /* 연한 보라 배경 */
+        transition: background 0.2s ease;
+      }
+      
+      input[type="text"],
+      textarea,
+      .goal-display {
+        transition: background 0.2s ease;
+      }
+
+    textarea,
+      input[type="text"] {
+        background: #fafafa;
+        border: none;
+        outline: none;
+      }
+      
+      textarea:focus,
+      input[type="text"]:focus {
+        background: #f3f4ff;
+      }
+
+
     
+    #userGoalRow {
+      justify-content: space-between;
+    }
     #editGoalBtn {
-      background: transparent;
       border: none;
+      background: transparent;
       font-size: 1rem;
       cursor: pointer;
-      color: #777;
-      padding: 0.2rem;
+      padding: 0 0.2rem;
+      opacity: 0.5;
+      transition: 0.2s;
     }
 
-    #editGoalBtn:hover {
-      color: #6366F1;
+    
+    #userGoalRow:hover #editGoalBtn {
+      opacity: 1;
     }
+
+   @media (max-width: 768px) {
+      .dashboard-timer-row,
+      .notepad-area {
+        flex-direction: column;
+      }
+    
+      .controls {
+        flex-direction: column;
+      }
+    
+      #vibeBoardContainer {
+        max-height: none;
+      }
+    
+      #goalChecklist .goal-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
 
   </style>
 </head>
@@ -351,7 +434,22 @@
         <textarea id="noteInput" placeholder="Thoughts, reflections, ideas... (private)"></textarea>
       </div>
     </div>
-
+    
+    <!-- HTML 어딘가 (보통 body 끝에) -->
+    <div id="saveToast" style="
+      display: none;
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background: #4ade80;
+      color: white;
+      padding: 0.75rem 1.2rem;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      z-index: 999;
+      transition: opacity 0.4s ease;
+    ">Saved ✔️</div>
 
 
 
@@ -388,6 +486,16 @@
   
     let selectedEmoji = "🐢";
     const emojis = ["🐢", "🦊", "🐰", "🐸", "🐼", "🐶", "🦁", "🐻", "🐨", "🐱"];
+
+    function showSaveToast() {
+      const toast = document.getElementById("saveToast");
+      toast.style.display = "block";
+      toast.style.opacity = "1";
+      setTimeout(() => {
+        toast.style.opacity = "0";
+        setTimeout(() => (toast.style.display = "none"), 400);
+      }, 1000);
+    }
   
     function renderAvatarGrid() {
       const grid = document.getElementById("emojiGrid");
@@ -757,18 +865,38 @@
     
     // 🔒 작성 완료 시 잠금
     editable.addEventListener("blur", () => {
+
+      const goalText = editable.textContent.trim();
+        if (goalText !== "") {
+          // 또는 작은 체크 아이콘 띄우기
+          showCheckMark(editable); 
+        }
+      });
+      
+      function showCheckMark(el) {
+        const mark = document.createElement("span");
+        mark.textContent = "✔️";
+        mark.style.marginLeft = "0.5rem";
+        el.appendChild(mark);
+        setTimeout(() => mark.remove(), 1000);
+      }
+
+    editable.addEventListener("blur", () => {
       let goalText = editable.textContent.trim();
       if (goalText === "") {
         editable.innerHTML = ""; // Clean residual <br>
         return;
       }
+    
       editable.setAttribute("contenteditable", "false");
       editBtn.style.display = "inline-block";
       saveGoal(goalText);
+      showSaveToast();
+      showCheckMark(editable);
     });
-
+    
     editable.addEventListener("focus", () => {
-      if (editable.innerText.trim() === "") {
+      if (editable.innerText.trim() === "What's your main goal for this session?") {
         editable.innerHTML = ""; // placeholder 잔상 제거
       }
     });
