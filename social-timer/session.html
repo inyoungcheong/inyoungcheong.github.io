@@ -279,6 +279,7 @@
     
     /* Notes Section */
     .notes-section {
+      grid-column: 1 / -1;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 2rem;
@@ -321,7 +322,7 @@
     
     .note-card textarea {
       width: 100%;
-      min-height: 120px;
+      min-height: 180px;
       padding: 1rem;
       border: 1px solid #e2e8f0;
       border-radius: 12px;
@@ -563,6 +564,15 @@
 <body>
   <header id="sessionTitle">Loading session...</header>
   
+  <div id="userSetup" style="text-align: center; padding: 4rem 2rem; max-width: 500px; margin: 2rem auto; background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px); border-radius: 24px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06); border: 1px solid rgba(255, 255, 255, 0.8);">
+    <h2 style="font-weight: 600; color: #334155; margin-bottom: 2rem;">Set your name & character 🧸</h2>
+    <input type="text" id="nameInput" placeholder="Your name" style="padding: 1rem 1.5rem; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 1rem; font-family: 'Inter', sans-serif; width: 100%; max-width: 300px; margin-bottom: 2rem; background: rgba(255, 255, 255, 0.9); outline: none; transition: all 0.2s ease;" />
+    <div id="emojiGrid" style="display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2rem;"></div>
+    <button onclick="submitUser()" style="padding: 1rem 2rem; border-radius: 12px; background: #6366f1; color: white; border: none; font-weight: 500; cursor: pointer; transition: all 0.2s ease;">Let's Go 🚀</button>
+  </div>
+
+  <audio src="assets/beep.wav" id="beep"></audio>
+  
   <div id="userSetup" style="display: none;">
     <h2>Set your name & character 🧸</h2>
     <input type="text" id="nameInput" placeholder="Your name" />
@@ -570,9 +580,7 @@
     <button onclick="submitUser()" style="padding: 1rem 2rem; border-radius: 12px; background: #6366f1; color: white; border: none; font-weight: 500; cursor: pointer; transition: all 0.2s ease;">Let's Go 🚀</button>
   </div>
 
-  <audio src="assets/beep.wav" id="beep"></audio>
-  
-  <div id="mainApp" style="display: none;">
+  <div id="mainApp">
     <div class="container">
       <!-- Timer Section -->
       <div class="timer-section">
@@ -624,25 +632,32 @@
           </div>
         </div>
       </div>
-    </div>
-    
-    <!-- Notes Section -->
-    <div class="notes-section">
-      <div class="note-card">
-        <h3>✨ Idea Note</h3>
-        <p>Some prompts to guide your day. Only you can see this note.</p>
-        
-        <label>🧩 Break your goals into small, doable chunks. Check them off as you go.</label>
-        <div id="goalChecklist"></div>
-        <button onclick="addGoalRow()" class="add-goal-button">+ Add item</button>
-        
-        <label style="margin-top: 2rem;">🚧 What's the biggest barrier?</label>
-        <textarea placeholder="overthinking, Slack ping storms, perfectionism..."></textarea>
-      </div>
       
-      <div class="note-card">
-        <h3>📝 Free Notes</h3>
-        <textarea id="noteInput" placeholder="Thoughts, reflections, ideas... (private)"></textarea>
+      <!-- Notes Section -->
+      <div class="notes-section">
+        <div class="note-card">
+          <h3>✨ Let's de-clutter tasks!</h3>
+          <p style="font-size: 0.85rem; color: #94a3b8; font-style: italic;">*not visible to others</p>
+          
+          <label>🧩 Break your goals into small, doable chunks. Check them off as you go.</label>
+          <div id="goalChecklist">
+            <div class="goal-row">
+              <input type="checkbox" />
+              <input type="text" placeholder="Write a small actionable item..." value="Review project requirements" />
+              <button class="remove-goal">✕</button>
+            </div>
+          </div>
+          <button onclick="addGoalRow()" class="add-goal-button">+ Add item</button>
+          
+          <label style="margin-top: 2rem;">🚧 What's the biggest barrier?</label>
+          <textarea placeholder="overthinking, Slack ping storms, perfectionism..."></textarea>
+        </div>
+        
+        <div class="note-card">
+          <h3>📝 Thoughts and Reflections</h3>
+          <p style="font-size: 0.85rem; color: #94a3b8; font-style: italic;">*not visible to others</p>
+          <textarea id="noteInput" placeholder="What am I grateful for today? What patterns am I noticing in my work? What's energizing me right now? What would help me feel more focused?"></textarea>
+        </div>
       </div>
     </div>
     
@@ -693,14 +708,24 @@
       emojis.forEach((emoji) => {
         const span = document.createElement("span");
         span.textContent = emoji;
+        span.style.cursor = "pointer";
+        span.style.fontSize = "2rem";
+        span.style.padding = "1rem";
+        span.style.borderRadius = "12px";
+        span.style.background = "rgba(255, 255, 255, 0.8)";
+        span.style.border = "2px solid transparent";
+        span.style.transition = "all 0.2s ease";
         span.onclick = () => {
           selectedEmoji = emoji;
-          [...grid.children].forEach(el => el.classList.remove("selected"));
-          span.classList.add("selected");
+          [...grid.children].forEach(el => {
+            el.style.background = "rgba(255, 255, 255, 0.8)";
+            el.style.borderColor = "transparent";
+            el.style.transform = "scale(1)";
+          });
+          span.style.background = "rgba(99, 102, 241, 0.1)";
+          span.style.borderColor = "#6366f1";
+          span.style.transform = "scale(1.1)";
         };
-        if (emoji === selectedEmoji) {
-          span.classList.add("selected");
-        }
         grid.appendChild(span);
       });
     }
