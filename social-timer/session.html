@@ -20,21 +20,79 @@
     }
     
     header {
-      font-weight: 300;
-      font-size: 1.5rem;
-      padding: 2rem 1.5rem 1rem;
+      font-weight: 400;
+      font-size: 1rem;
+      padding: 1.5rem 2rem;
       text-align: center;
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 246, 243, 0.8) 100%);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(223, 207, 190, 0.3);
       position: sticky;
       top: 0;
       z-index: 10;
+      cursor: pointer;
+      transition: all 0.3s ease;
     }
 
-    #sessionTitle {
-      color: #475569;
-      font-weight: 400;
+    header:hover {
+      background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, rgba(127, 205, 205, 0.05) 100%);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .invitation-container {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .invitation-text {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #4a5568;
+      font-weight: 500;
+    }
+
+    .session-name {
+      background: linear-gradient(135deg, #FFD700, #7FCDCD);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 600;
+      margin: 0 0.25rem;
+    }
+
+    .copy-hint {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      opacity: 0.7;
+      transition: opacity 0.2s ease;
+    }
+
+    header:hover .copy-hint {
+      opacity: 1;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background: #10b981;
+      border-radius: 50%;
+      animation: pulse-dot 2s infinite;
+      margin-right: 0.5rem;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 0.6; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.2); }
     }
     
     .container {
@@ -253,28 +311,36 @@
       pointer-events: none;
     }
     
-    #editGoalBtn {
+    /* Goal save button */
+    #saveGoalBtn {
       position: absolute;
       top: 1rem;
       right: 1rem;
       background: none;
       border: none;
-      font-size: 1rem;
+      font-size: 1.1rem;
       cursor: pointer;
-      opacity: 0;
-      transition: opacity 0.2s ease;
-      color: #64748b;
+      opacity: 0.4;
+      transition: all 0.2s ease;
+      color: #9ca3af;
       padding: 0.25rem;
       border-radius: 6px;
+      display: none;
     }
     
-    .goal-input-container:hover #editGoalBtn {
+    .goal-input-container:hover #saveGoalBtn {
+      opacity: 0.7;
+    }
+    
+    #saveGoalBtn:hover {
       opacity: 1;
+      background: rgba(255, 215, 0, 0.1);
+      color: #FFD700;
     }
     
-    #editGoalBtn:hover {
-      background: rgba(99, 102, 241, 0.1);
-      color: #6366f1;
+    #saveGoalBtn.saved {
+      color: #10b981;
+      opacity: 0.8;
     }
     
     /* Notes Section */
@@ -348,7 +414,7 @@
       font-style: italic;
     }
     
-    /* Checklist */
+    /* Checklist with time estimates */
     .goal-row {
       display: flex;
       align-items: center;
@@ -359,16 +425,13 @@
       transition: background 0.2s ease;
     }
     
-    .goal-row:hover {
-      background: rgba(248, 250, 252, 0.8);
-    }
-    
     .goal-row input[type="checkbox"] {
       width: 18px;
       height: 18px;
       border-radius: 4px;
       border: 2px solid #d1d5db;
       cursor: pointer;
+      flex-shrink: 0;
     }
     
     .goal-row input[type="text"] {
@@ -384,10 +447,31 @@
       transition: all 0.2s ease;
     }
     
-    .goal-row input[type="text"]:focus {
-      border-color: #6366f1;
+    .goal-row input[type="number"] {
+      width: 70px;
+      padding: 0.5rem 0.5rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.8);
+      font-size: 0.85rem;
+      font-family: 'Inter', sans-serif;
+      color: #334155;
+      outline: none;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+      text-align: center;
+    }
+    
+    .goal-row input[type="number"]:focus {
+      border-color: #FFD700;
       background: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.1);
+      box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.1);
+    }
+    
+    .minutes-label {
+      font-size: 0.8rem;
+      color: #6b7280;
+      flex-shrink: 0;
     }
     
     .remove-goal {
@@ -521,83 +605,6 @@
       border-color: #6366f1;
       transform: scale(1.1);
     }
-
-      /* Footer */
-    .footer {
-      width: 100%;
-      padding: 2rem 1rem;
-      background: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(20px);
-      border-top: 1px solid rgba(226, 232, 240, 0.8);
-      text-align: center;
-      margin-top: auto;
-    }
-
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .footer-text {
-      font-size: 0.9rem;
-      color: #64748b;
-      margin-bottom: 0.5rem;
-    }
-
-    .footer-link {
-      color: #6366f1;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.2s ease;
-    }
-
-    .footer-link:hover {
-      color: #5b56f1;
-      text-decoration: underline;
-    }
-
-    .footer-heart {
-      display: inline-block;
-      color: #ef4444;
-      animation: pulse 2s infinite;
-      margin: 0 0.25rem;
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-    }
-
-    /* Decorative elements */
-    .bg-decoration {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: -1;
-      overflow: hidden;
-    }
-
-    .bg-decoration::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle at 30% 20%, rgba(99, 102, 241, 0.1) 0%, transparent 70%),
-                  radial-gradient(circle at 70% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 70%);
-      animation: float 20s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translate(0, 0) rotate(0deg); }
-      33% { transform: translate(30px, -30px) rotate(120deg); }
-      66% { transform: translate(-20px, 20px) rotate(240deg); }
-    }
-
     
     /* Responsive Design */
     @media (max-width: 1024px) {
@@ -639,7 +646,20 @@
   </style>
 </head>
 <body>
-  <header id="sessionTitle">Loading session...</header>
+  <header id="sessionHeader" onclick="copyInviteLink()">
+    <div class="invitation-container">
+      <div class="pulse-dot"></div>
+      <div class="invitation-text">
+        <span>Join me in</span>
+        <span class="session-name" id="sessionName">creative-work</span>
+        <span>for focused work together</span>
+      </div>
+      <div class="copy-hint">
+        <span>📋</span>
+        <span>Click to copy invite link</span>
+      </div>
+    </div>
+  </header>
   
   <div id="userSetup" style="text-align: center; padding: 4rem 2rem; max-width: 500px; margin: 2rem auto; background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px); border-radius: 24px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06); border: 1px solid rgba(255, 255, 255, 0.8);">
     <h2 style="font-weight: 600; color: #334155; margin-bottom: 2rem;">Set your name & character 🧸</h2>
@@ -705,7 +725,7 @@
           
           <div class="goal-input-container">
             <div id="editableGoal" contenteditable="true" data-placeholder="What's one meaningful task you'll focus on?"></div>
-            <button id="editGoalBtn" style="display: none;">✏️</button>
+            <button id="saveGoalBtn">✓</button>
           </div>
         </div>
       </div>
@@ -713,45 +733,37 @@
       <!-- Notes Section -->
       <div class="notes-section">
         <div class="note-card">
-          <h3>✨ Let's de-clutter tasks!</h3>
+          <h3>✨ De-cluttering Checklist</h3>
           <p style="font-size: 0.85rem; color: #94a3b8; font-style: italic;">*not visible to others</p>
           
-          <label>🧩 Break your goals into small, doable chunks. Check them off as you go.</label>
+          <label>🧩 Break your goals into small, doable chunks with time estimates. Check them off as you go.</label>
           <div id="goalChecklist">
             <div class="goal-row">
               <input type="checkbox" />
               <input type="text" placeholder="Write a small actionable item..." value="Review project requirements" />
+              <input type="number" placeholder="15" min="1" max="999" />
+              <span class="minutes-label">min</span>
               <button class="remove-goal">✕</button>
             </div>
           </div>
           <button onclick="addGoalRow()" class="add-goal-button">+ Add item</button>
-          
-          <label style="margin-top: 2rem;">🚧 What's the biggest barrier?</label>
-          <textarea placeholder="overthinking, Slack ping storms, perfectionism..."></textarea>
         </div>
         
         <div class="note-card">
           <h3>📝 Thoughts and Reflections</h3>
           <p style="font-size: 0.85rem; color: #94a3b8; font-style: italic;">*not visible to others</p>
-          <textarea id="noteInput" placeholder="What am I grateful for today? What patterns am I noticing in my work? What's energizing me right now? What would help me feel more focused?"></textarea>
+          
+          <label style="margin-bottom: 1rem;">🚧 What are the barriers?</label>
+          <textarea placeholder="What's stopping me from starting? What thoughts are holding me back? What would I tell a friend facing this same challenge?" style="min-height: 100px; margin-bottom: 1.5rem;"></textarea>
+          
+          <label>💭 What am I noticing?</label>
+          <textarea id="noteInput" placeholder="What am I grateful for today? What patterns am I noticing in my work? What's energizing me right now? What would help me feel more focused?" style="min-height: 120px;"></textarea>
         </div>
       </div>
     </div>
     
     <div id="saveToast">Saved ✔️</div>
   </div>
-
-  <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-text">
-        Built by 
-        <a href="https://inyoungcheong.github.io" class="footer-link">Inyoung Cheong</a>
-      </div>
-      <div style="font-size: 0.8rem; color: #94a3b8; margin-top: 0.5rem;">
-        The sky is vast enough for all birds to fly. 
-      </div>
-    </div>
-  </footer>
 
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
@@ -768,7 +780,32 @@
     const db = firebase.firestore();
   
     const session = new URLSearchParams(window.location.search).get("session");
-    document.getElementById("sessionTitle").textContent = `Your Focus Room: ${session}`;
+    document.getElementById("sessionName").textContent = session || "focus-room";
+    
+    // Copy invite link function
+    function copyInviteLink() {
+      const inviteUrl = window.location.href;
+      navigator.clipboard.writeText(inviteUrl).then(() => {
+        // Show success feedback
+        const header = document.getElementById("sessionHeader");
+        const originalHTML = header.innerHTML;
+        
+        header.innerHTML = `
+          <div class="invitation-container">
+            <div style="color: #10b981; font-weight: 500;">
+              ✓ Invite link copied to clipboard!
+            </div>
+          </div>
+        `;
+        
+        setTimeout(() => {
+          header.innerHTML = originalHTML;
+        }, 2000);
+      }).catch(() => {
+        // Fallback for browsers that don't support clipboard API
+        alert('Copy this link to invite others:\n' + window.location.href);
+      });
+    }
   
     const nameKey = `vibeUserName-${session}`;
     const emojiKey = `vibeUserAnimal-${session}`;
@@ -1129,7 +1166,7 @@
     window.addEventListener("load", loadChecklistFromStorage);
 
     const editable = document.getElementById("editableGoal");
-    const editBtn = document.getElementById("editGoalBtn");
+    const saveBtn = document.getElementById("saveGoalBtn");
     
     function showCheckMark(el) {
       const mark = document.createElement("span");
@@ -1139,18 +1176,31 @@
       setTimeout(() => mark.remove(), 1000);
     }
 
-    editable.addEventListener("blur", () => {
+    // Show save button when user starts typing
+    editable.addEventListener("input", () => {
+      if (editable.textContent.trim()) {
+        saveBtn.style.display = "block";
+        saveBtn.classList.remove("saved");
+      }
+    });
+
+    // Save goal when clicking save button
+    saveBtn.addEventListener("click", () => {
       let goalText = editable.textContent.trim();
       if (goalText === "") {
-        editable.innerHTML = "";
+        saveBtn.style.display = "none";
         return;
       }
     
-      editable.setAttribute("contenteditable", "false");
-      editBtn.style.display = "inline-block";
       saveGoal(goalText);
+      saveBtn.classList.add("saved");
       showSaveToast();
       showCheckMark(editable);
+      
+      setTimeout(() => {
+        saveBtn.style.display = "none";
+        saveBtn.classList.remove("saved");
+      }, 2000);
     });
     
     editable.addEventListener("focus", () => {
@@ -1159,10 +1209,22 @@
       }
     });
     
-    editBtn.addEventListener("click", () => {
-      editable.setAttribute("contenteditable", "true");
-      editable.focus();
-      editBtn.style.display = "none";
+    // Auto-save when clicking outside (original behavior preserved)
+    editable.addEventListener("blur", () => {
+      let goalText = editable.textContent.trim();
+      if (goalText === "") {
+        editable.innerHTML = "";
+        saveBtn.style.display = "none";
+        return;
+      }
+      
+      // Only auto-save if the save button is visible (meaning there are unsaved changes)
+      if (saveBtn.style.display === "block" && !saveBtn.classList.contains("saved")) {
+        saveGoal(goalText);
+        showSaveToast();
+        showCheckMark(editable);
+        saveBtn.style.display = "none";
+      }
     });
     
     function saveGoal(text) {
