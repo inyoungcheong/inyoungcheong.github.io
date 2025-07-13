@@ -133,6 +133,11 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.04);
       transition: 0.2s ease;
     }
+
+    .vibe-card span[contenteditable="true"]:focus {
+      background: #eef;
+      border-radius: 4px;
+    }
     
     /* 노트 구역 */
     .notepad-area {
@@ -393,6 +398,11 @@
           select.style.opacity = "0.5";
           select.style.cursor = "not-allowed";
         }
+
+        const focusSelect = document.getElementById("focusSelect");
+        if (focusSelect) {
+          setFocusDuration(focusSelect.value);  // ⬅️ 최초 duration 설정!
+        }
       
         const notice = document.createElement("div");
         notice.innerHTML = `<strong>Only the host</strong> can control the timer.`;
@@ -545,7 +555,7 @@
 
 
         // 🌈 Vibe Board – goal만 표시
-    db.collection("sessions").doc(session).collection("participants")
+     db.collection("sessions").doc(session).collection("participants")
       .orderBy("timestamp")
       .onSnapshot(snapshot => {
         const board = document.getElementById("vibeBoard");
@@ -553,21 +563,60 @@
     
         snapshot.forEach(doc => {
           const p = doc.data();
-          const goal = p.goal || "-";
-          const name = p.name || "Anonymous";
+          const goal = p.goal || "";
+          const participantName = p.name || "Anonymous";
           const emoji = p.emoji || "🐾";
     
           const div = document.createElement("div");
           div.className = "vibe-card";
     
-          div.innerHTML = `
-            <span>${emoji}</span>
-            <strong>${name}</strong>
-            <span style="color: #555;">${goal}</span>
-          `;
+          const nameSpan = document.createElement("strong");
+          nameSpan.textContent = participantName;
+    
+          const goalSpan = document.createElement("span");
+          goalSpan.innerText = goal || "목표를 입력해주세요. 동료들과 나눌 수 있도록 ✨";
+          goalSpan.style.color = goal ? "#555" : "#aaa";
+          goalSpan.style.fontStyle = goal ? "normal" : "italic";
+    
+          if (participantName === name) {
+            goalSpan.contentEditable = true;
+            goalSpan.style.borderBottom = "1px dashed #ccc";
+            goalSpan.style.padding = "0 0.4rem";
+            goalSpan.style.minWidth = "80px";
+            goalSpan.style.outline = "none";
+    
+            goalSpan.oninput = () => {
+              // 글자 수 제한 (80자)
+              if (goalSpan.innerText.length > 80) {
+                goalSpan.innerText = goalSpan.innerText.substring(0, 80);
+                document.execCommand("undo"); // prevent typing past limit
+                return;
+              }
+    
+              // 저장
+              db.collection("sessions").doc(session)
+                .collection("participants").doc(name)
+                .update({ goal: goalSpan.innerText.trim() });
+    
+              // 저장 알림 효과
+              goalSpan.style.background = "#e0f2fe";
+              setTimeout(() => {
+                goalSpan.style.background = "transparent";
+              }, 500);
+    
+            };
+          }
+    
+          div.appendChild(document.createTextNode(emoji + " "));
+          div.appendChild(nameSpan);
+          div.appendChild(document.createTextNode(" "));
+          div.appendChild(goalSpan);
+    
           board.appendChild(div);
         });
       });
+
+
 
   function updatePhaseLabel() {
       document.getElementById("phaseLabel").textContent = phases[phaseIndex].label;
