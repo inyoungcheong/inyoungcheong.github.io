@@ -95,7 +95,7 @@
     .theme-selector {
       position: fixed;
       top: 2rem;
-      right: 2rem;
+      left: 2rem;
       z-index: 1000;
       display: flex;
       gap: 0.75rem;
@@ -193,8 +193,6 @@
 
     /* Timer Section */
     .timer-section {
-      position: sticky;
-      top: 2rem;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -331,6 +329,22 @@
       backdrop-filter: blur(10px);
       appearance: none;
       position: relative;
+    }
+
+    .select-input.loading {
+      background: var(--accent-gradient);
+      color: white;
+      pointer-events: none;
+    }
+
+    .select-input.loading::after {
+      content: 'Music loading...';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 0.875rem;
+      font-weight: 600;
     }
 
     .select-input:focus {
@@ -573,9 +587,11 @@
       outline: none;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-start;
       font-family: 'Outfit', sans-serif;
       letter-spacing: -0.01em;
+      text-align: left;
+      width: 100%;
     }
 
     .help-content {
@@ -614,10 +630,6 @@
         gap: 2rem;
       }
 
-      .timer-section {
-        position: static;
-      }
-
       body {
         padding: 1rem;
       }
@@ -626,7 +638,7 @@
     @media (max-width: 768px) {
       .theme-selector {
         top: 1rem;
-        right: 1rem;
+        left: 1rem;
         gap: 0.5rem;
         padding: 0.5rem;
       }
@@ -677,6 +689,11 @@
       .main-container {
         gap: 1.5rem;
       }
+
+      .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+      }
     }
 
     /* Enhanced Animations */
@@ -714,6 +731,76 @@
       animation: shimmer 3s infinite;
       pointer-events: none;
     }
+
+    /* Footer */
+    .footer {
+      margin-top: 4rem;
+      padding: 3rem 2rem;
+      text-align: center;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border-top: 1px solid var(--border-color);
+      border-radius: var(--border-radius) var(--border-radius) 0 0;
+    }
+
+    .footer-content {
+      max-width: 600px;
+      margin: 0 auto;
+      color: var(--text-secondary);
+      font-family: 'Manrope', sans-serif;
+    }
+
+    .footer-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: var(--accent-gradient);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .footer-description {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-link {
+      color: var(--accent-primary);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: var(--border-radius-small);
+      border: 1px solid var(--border-color);
+      background: var(--secondary-bg);
+      transition: all 0.3s ease;
+      font-family: 'Manrope', sans-serif;
+    }
+
+    .footer-link:hover {
+      background: var(--accent-gradient);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .footer-credits {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-color);
+    }
   </style>
 </head>
 <body>
@@ -728,7 +815,7 @@
     <!-- Timer Section -->
     <div class="timer-section">
       <div class="glass-card">
-        <div class="card-title">Minimalist Timer</div>
+        <div class="card-title">🍅 Focus Timer</div>
         
         <div class="timer-status" id="status">Ready to focus – let's begin!</div>
         
@@ -804,6 +891,19 @@
       </div>
     </div>
   </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-title">Focus • Flow • Flourish</div>
+      <div class="footer-description">
+        Struggling with task planning or feeling overwhelmed? Chat with my <a href="https://inyoungcheong.github.io/planner" target="_blank" style="color: var(--accent-primary); text-decoration: none; font-weight: 600; border-bottom: 1px solid var(--accent-primary);">motivation partner AI</a> — completely free, no login needed!
+      </div>
+      <div class="footer-credits">
+        Built by <a href="https://inyoungcheong.github.io" target="_blank" style="color: var(--accent-primary); text-decoration: none; font-weight: 700; border-bottom: 1px solid transparent; transition: border-color 0.2s ease;" onmouseover="this.style.borderBottomColor='var(--accent-primary)'" onmouseout="this.style.borderBottomColor='transparent'">Inyoung Cheong</a> • Ambient sounds courtesy of Archive.org
+      </div>
+    </div>
+  </footer>
 
   <script>
     // Timer variables - enhanced from timer.js
@@ -998,12 +1098,19 @@
     let currentAudio = null;
 
     function changeAmbient(type) {
+      const ambientSelect = document.getElementById('ambientSelect');
+      
+      // Stop current audio
       if (currentAudio) {
         currentAudio.pause();
         currentAudio = null;
       }
       
       if (!type) return;
+      
+      // Show loading state
+      ambientSelect.classList.add('loading');
+      ambientSelect.style.color = 'transparent'; // Hide select text during loading
       
       const ambientUrls = {
         'fire1': 'https://archive.org/download/relaxingsounds/FIRE%202%203h%20Blazing%20Fireplace.mp3',
@@ -1018,7 +1125,34 @@
         currentAudio = new Audio(ambientUrls[type]);
         currentAudio.loop = true;
         currentAudio.volume = 0.4;
-        currentAudio.play().catch(e => console.log('Audio play failed:', e));
+        
+        // Handle successful loading
+        currentAudio.addEventListener('canplaythrough', () => {
+          setTimeout(() => {
+            ambientSelect.classList.remove('loading');
+            ambientSelect.style.color = '';
+          }, 1000); // Keep loading indicator for 1 second after ready
+        });
+        
+        // Handle loading errors
+        currentAudio.addEventListener('error', () => {
+          ambientSelect.classList.remove('loading');
+          ambientSelect.style.color = '';
+          console.log('Audio loading failed');
+        });
+        
+        // Start playing
+        currentAudio.play().catch(e => {
+          ambientSelect.classList.remove('loading');
+          ambientSelect.style.color = '';
+          console.log('Audio play failed:', e);
+        });
+        
+        // Fallback: Remove loading state after 5 seconds regardless
+        setTimeout(() => {
+          ambientSelect.classList.remove('loading');
+          ambientSelect.style.color = '';
+        }, 5000);
       }
     }
 
