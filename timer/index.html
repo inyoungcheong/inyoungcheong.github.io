@@ -156,9 +156,9 @@
       backdrop-filter: blur(20px);
       border-radius: var(--border-radius);
       padding: 3rem;
-      box-shadow: var(--shadow-large);
+      box-shadow: var(--shadow-medium);
       border: 1px solid var(--border-color);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
       overflow: hidden;
     }
@@ -174,8 +174,8 @@
     }
 
     .glass-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 32px 64px -12px rgba(0, 0, 0, 0.15);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-large);
     }
 
     .card-title {
@@ -583,7 +583,7 @@
       cursor: pointer;
       font-weight: 700;
       font-size: 1.25rem;
-      color: var(--text-primary);
+      color: var(--text-muted);
       outline: none;
       display: flex;
       align-items: center;
@@ -815,7 +815,7 @@
     <!-- Timer Section -->
     <div class="timer-section">
       <div class="glass-card">
-        <div class="card-title">🍅 Focus Timer</div>
+        <div class="card-title">Minimalist Timer</div>
         
         <div class="timer-status" id="status">Ready to focus – let's begin!</div>
         
@@ -860,7 +860,7 @@
       <!-- Help Section -->
       <div class="help-section">
         <details>
-          <summary class="help-toggle">✨ How to Master Your Focus</summary>
+          <summary class="help-toggle">💡 How to Master This Timer</summary>
           <div class="help-content">
             <ul>
               <li>This Pomodoro timer helps you work in focused 25-90 minute sessions with breaks in between. After 4 focus sessions, enjoy a well-deserved long break!</li>
@@ -875,7 +875,7 @@
 
       <!-- Goals Section -->
       <div class="glass-card goals-section">
-        <div class="card-title">🎯 Today's Mission</div>
+        <div class="card-title">⭐ Today's Mission</div>
         <div id="goalList"></div>
         <button class="add-goal-btn" onclick="addGoal()">+ Add New Goal</button>
       </div>
