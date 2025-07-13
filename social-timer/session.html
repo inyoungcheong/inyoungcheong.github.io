@@ -26,8 +26,8 @@
       padding: 1.5rem 2rem;
       text-align: center;
       background: linear-gradient(135deg, #F5F7FA 0%, #EAF0FB 100%);
-        border-bottom: 1px solid #EAF0FB;
-        color: #22223B;
+      border-bottom: 1px solid #EAF0FB;
+      color: #22223B;
       backdrop-filter: blur(20px);
       border-bottom: 1px solid rgba(223, 207, 190, 0.3);
       position: sticky;
@@ -213,11 +213,10 @@
       cursor: not-allowed;
     }
 
-    /* Footer */
+    /* Footer - Fixed styling */
     footer {
-      margin-top: 5rem;
-      padding: 3rem 1.5rem 5rem;
-      text-align: center;
+      margin-top: 3rem;
+      padding: 2rem 1.5rem;
       background: rgba(245, 247, 250, 0.7);
       backdrop-filter: blur(10px);
       border-top: 1px solid #EAF0FB;
@@ -226,6 +225,7 @@
     .footer-content {
       max-width: 800px;
       margin: 0 auto;
+      text-align: center;
       color: #6C757D;
       font-size: 0.9rem;
     }
@@ -240,15 +240,11 @@
       color: #96BAFF;
       text-decoration: underline;
     }
-
-
-
-
-    
     
     /* Ambient Sound */
     .ambient-section {
       text-align: center;
+      margin-top: 1.5rem;
     }
     
     .ambient-section label {
@@ -258,25 +254,12 @@
       margin-bottom: 0.75rem;
       color: #64748b;
     }
-    
-    #ambientSelect {
-      padding: 0.75rem 1rem;
-      border-radius: 12px;
-      border: 1px solid #EAF0FB;
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(10px);
-      font-size: 0.9rem;
-      color: #475569;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      font-family: 'Inter', sans-serif;
-    }
 
     .ambient-buttons {
       display: flex;
       justify-content: center;
       gap: 1rem;
-      margin-top: 1.5rem;
+      margin-top: 0.75rem;
     }
     
     .ambient-btn {
@@ -319,18 +302,16 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-    }
-    
-    .public-dashboard input[type="text"] {
-      width: 100%;
-      max-width: 400px;
-      padding: 0.75rem 1rem;
-      text-align: center; /* input 내용도 가운데 정렬 */
+      background: #ffffff;
       border: 1.5px solid #EAF0FB;
-      border-radius: 12px;
-      background: #F5F7FA;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(124, 131, 253, 0.04);
+      transition: box-shadow 0.3s ease;
     }
 
+    .public-dashboard:hover {
+      box-shadow: 0 12px 36px rgba(124, 131, 253, 0.08);
+    }
     
     .dashboard-title {
       font-size: 1.2rem;
@@ -351,6 +332,8 @@
       border: 1px solid #EAF0FB;
       transition: all 0.2s ease;
       backdrop-filter: blur(10px);
+      width: 100%;
+      max-width: 400px;
     }
     
     .vibe-card:hover {
@@ -364,16 +347,16 @@
       font-weight: 600;
     }
     
-    /* Fixed Goal Input */
+    /* Fixed Goal Input - consistent sizing */
     .goal-input-container {
-      position: relative;
+      width: 100%;
+      max-width: 400px;
       margin-top: 1rem;
-      padding: 1rem 1.25rem; /* 내부 좌우 여백 확보 */
-      box-sizing: border-box; /* padding 포함해서 100% 처리 */
     }
     
     #editableGoal {
-      height: 3.5rem;
+      width: 100%;
+      min-height: 3.5rem;
       padding: 1rem 1.25rem;
       border: 2px solid #EAF0FB;
       border-radius: 12px;
@@ -385,9 +368,11 @@
       resize: none;
       box-sizing: border-box;
       transition: all 0.3s ease;
+      outline: none;
+      overflow: hidden;
+      line-height: 1.5;
     }
 
-    
     #editableGoal:focus {
       border-color: #6366f1;
       background: rgba(255, 255, 255, 0.95);
@@ -403,12 +388,21 @@
     
     /* Goal save button */
     #saveGoalBtn {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
       font-size: 1.5rem;
       opacity: 0.7;
       color: #94a3b8;
-      top: 0.75rem;
-      right: 0.75rem;
+      background: none;
+      border: none;
+      cursor: pointer;
       transition: all 0.2s ease;
+      display: none;
+    }
+    
+    .goal-input-container {
+      position: relative;
     }
     
     .goal-input-container:hover #saveGoalBtn {
@@ -416,7 +410,6 @@
       color: #6366f1;
     }
 
-    
     #saveGoalBtn:hover {
       opacity: 1;
       background: rgba(255, 215, 0, 0.1);
@@ -446,29 +439,17 @@
     }
     
     .note-card {
-      bbackground: rgba(255,255,255,0.97);
-      backdrop-filter: blur(16px);
-      border-radius: 20px;
-      padding: 2rem 1.75rem;
-      box-shadow: 0 8px 32px rgba(124, 131, 253, 0.07);
+      background: #ffffff;
       border: 1.5px solid #EAF0FB;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 8px 32px rgba(124, 131, 253, 0.04);
+      transition: box-shadow 0.3s ease;
     }
 
-    .note-card,
-      .public-dashboard {
-        background: #ffffff;
-        border: 1.5px solid #EAF0FB;
-        border-radius: 16px;
-        padding: 2rem;
-        box-shadow: 0 8px 32px rgba(124, 131, 253, 0.04);
-        transition: box-shadow 0.3s ease;
-      }
-      
-      .note-card:hover,
-      .public-dashboard:hover {
-        box-shadow: 0 12px 36px rgba(124, 131, 253, 0.08);
-      }
-
+    .note-card:hover {
+      box-shadow: 0 12px 36px rgba(124, 131, 253, 0.08);
+    }
     
     .note-card h3 {
       font-size: 1.1rem;
@@ -574,7 +555,6 @@
       z-index: 1;
     }
 
-
     /* Input Fields */ 
     input[type="text"] {
       width: 100%;
@@ -600,7 +580,6 @@
       font-style: italic;
     }
 
-    
     /* Checklist with time estimates */
     .goal-row {
       display: flex;
@@ -898,26 +877,23 @@
           </select>
         </div>
 
-        <div class="ambient-buttons">
-          <label for="ambientSelect" style="display: block; margin-bottom: 0.5rem;">🎧 Ambient Sound</label>
-          <div style="display: flex; justify-content: center; gap: 1rem;">
-            <button class="ambient-btn">🔥</button>
-            <button class="ambient-btn">🌧</button>
-            <button class="ambient-btn">💨</button>
-            <button class="ambient-btn">🌲</button>
+        <div class="ambient-section">
+          <label style="display: block; margin-bottom: 0.75rem; font-size: 0.9rem; font-weight: 500; color: #64748b;">🎧 Ambient Sound</label>
+          <div class="ambient-buttons">
+            <button class="ambient-btn" onclick="setAmbient('fire')">🔥</button>
+            <button class="ambient-btn" onclick="setAmbient('rain')">🌧</button>
+            <button class="ambient-btn" onclick="setAmbient('wind')">💨</button>
+            <button class="ambient-btn" onclick="setAmbient('forest')">🌲</button>
           </div>
         </div>
 
-        
         <audio id="ambientPlayer" loop></audio>
       </div>
       
       <!-- Dashboard Section -->
       <div class="dashboard-section">
         <div class="public-dashboard">
-          <div class="dashboard-title section-title">Public Dashboard</div>
-          <h2 class="dashboard-title" id="goalTitle">My Goal</h2>
-
+          <div class="section-title">Public Dashboard</div>
           
           <div id="vibeBoard"></div>
           
@@ -931,14 +907,14 @@
       <!-- Notes Section -->
       <div class="notes-section">
         <div class="note-card">
-          <h3 class="section-title">De-cluttering Checklist</h3>
-          <p style="font-size: 0.85rem; color: #94a3b8; font-style: italic;">*not visible to others</p>
+          <div class="section-title" style="text-align: center;">De-cluttering Checklist</div>
+          <p style="font-size: 0.85rem; color: #94a3b8; font-style: italic; text-align: center; margin-bottom: 1.5rem;">*not visible to others</p>
           
           <label>Break your goals into small, doable chunks with time estimates. Check them off as you go.</label>
           <div id="goalChecklist">
             <div class="goal-row">
               <input type="checkbox" />
-              <input type="text" id="editableGoal" placeholder="" value="" />
+              <input type="text" placeholder="Write a small actionable item..." />
               <input type="number" placeholder="15" min="1" max="999" />
               <span class="minutes-label">min</span>
               <button class="remove-goal">✕</button>
@@ -948,8 +924,8 @@
         </div>
         
         <div class="note-card">
-          <h3 class="section-title">Thoughts and Reflections</h3>
-          <p style="font-size: 0.85rem; color: #94a3b8; font-style: italic;">*not visible to others</p>
+          <div class="section-title" style="text-align: center;">Thoughts and Reflections</div>
+          <p style="font-size: 0.85rem; color: #94a3b8; font-style: italic; text-align: center; margin-bottom: 1.5rem;">*not visible to others</p>
           
           <label style="margin-bottom: 1rem;">🚧 What are the barriers?</label>
           <textarea placeholder="What's stopping you from starting? What thoughts are holding you back? What would you tell a friend facing this same challenge?" style="min-height: 100px; margin-bottom: 1.5rem;"></textarea>
@@ -961,11 +937,11 @@
     </div>
     
     <div id="saveToast">Saved ✔️</div>
-  </div
+  </div>
 
-  <footer class="footer">
+  <footer>
     <div class="footer-content">
-      <div class="footer-text">
+      <div>
         Built by 
         <a href="https://inyoungcheong.github.io" class="footer-link" target="_blank">Inyoung Cheong</a>
       </div>
@@ -974,8 +950,6 @@
       </div>
     </div>
   </footer>
-
-
 
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
@@ -1322,11 +1296,10 @@
         ambientPlayer.src = "";
       }
     
-      // 버튼 active 클래스 처리
+      // Update active button styling
       document.querySelectorAll(".ambient-btn").forEach(btn => btn.classList.remove("active"));
       event.target.classList.add("active");
     }
-
 
     const checklistKey = `goalChecklist-${session}`;
 
@@ -1346,13 +1319,14 @@
     function loadChecklistFromStorage() {
       const saved = localStorage.getItem(checklistKey);
       if (saved) {
+        const container = document.getElementById("goalChecklist");
+        container.innerHTML = "";
         JSON.parse(saved).forEach(item => addGoalRow(item.text, item.done, item.time));
       } else {
         addGoalRow();
       }
     }
 
-    
     function addGoalRow(text = "", checked = false, time = "") {
       const container = document.getElementById("goalChecklist");
       const row = document.createElement("div");
@@ -1380,18 +1354,6 @@
       timeInput.max = 999;
       timeInput.value = time;
       timeInput.oninput = saveChecklistToStorage;
-      timeInput.style.width = "70px";
-      timeInput.style.padding = "0.5rem 0.5rem";
-      timeInput.style.border = "1px solid #e2e8f0";
-      timeInput.style.borderRadius = "8px";
-      timeInput.style.background = "rgba(255, 255, 255, 0.8)";
-      timeInput.style.fontSize = "0.85rem";
-      timeInput.style.fontFamily = "'Inter', sans-serif";
-      timeInput.style.color = "#334155";
-      timeInput.style.outline = "none";
-      timeInput.style.transition = "all 0.2s ease";
-      timeInput.style.flexShrink = "0";
-      timeInput.style.textAlign = "center";
     
       const minutesLabel = document.createElement("span");
       minutesLabel.className = "minutes-label";
@@ -1415,7 +1377,6 @@
       container.appendChild(row);
     }
 
-    
     window.addEventListener("load", loadChecklistFromStorage);
 
     const editable = document.getElementById("editableGoal");
@@ -1487,50 +1448,32 @@
       });
     }
 
-    
-      const placeholderList = [
-        "Finish sh**ty first draft ✍️",
-        "Clean messy data 🧹",
-        "Read Chapter 3 📘",
-        "Fix one small bug 🐞",
-        "Write intro paragraph 📝",
-        "Send a status update 📤",
-        "Make a doable chunk 🧩",
-        "Break task into steps 🪜"
-      ];
-    
-      let index = 0;
-    
-      function rotatePlaceholder() {
-        const input = document.getElementById("editableGoal");
-        if (input && input !== document.activeElement) {
-          input.placeholder = placeholderList[index % placeholderList.length];
-          index++;
-        }
-      }
-    document.addEventListener("DOMContentLoaded", () => {
-      const title = document.getElementById("goalTitle");
-    
-      const name = localStorage.getItem(nameKey) || "";
-      const emoji = localStorage.getItem(emojiKey) || "";
-    
-      if (emoji && name) {
-        title.textContent = `${emoji} ${name}'s Goal`;
-      } else {
-        title.textContent = "My Goal";
-      }
-    
-      // 기존 placeholder 설정도 여기 있었다면 계속 유지
-      document.getElementById("editableGoal").placeholder = getRandomPlaceholder();
-    });
+    const placeholderList = [
+      "Finish sh**ty first draft ✍️",
+      "Clean messy data 🧹",
+      "Read Chapter 3 📘",
+      "Fix one small bug 🐞",
+      "Write intro paragraph 📝",
+      "Send a status update 📤",
+      "Make a doable chunk 🧩",
+      "Break task into steps 🪜"
+    ];
 
-    
-      // 변경 주기: 4초마다
-      setInterval(rotatePlaceholder, 4000);
-    
-      // 페이지 로드시 초기 설정
-      document.addEventListener("DOMContentLoaded", rotatePlaceholder);
-    
+    let index = 0;
+
+    function rotatePlaceholder() {
+      const input = document.getElementById("editableGoal");
+      if (input && input !== document.activeElement) {
+        input.setAttribute("data-placeholder", placeholderList[index % placeholderList.length]);
+        index++;
+      }
+    }
+
+    // Rotate placeholder every 4 seconds
+    setInterval(rotatePlaceholder, 4000);
+
+    // Initial placeholder setup
+    document.addEventListener("DOMContentLoaded", rotatePlaceholder);
 
   </script>
 </body>
