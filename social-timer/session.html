@@ -9,7 +9,7 @@
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background: #f4f1ee;
+      background: #f9f9f9;
       color: #333;
       line-height: 1.6;
     }
@@ -22,6 +22,18 @@
       background: #fff;
       box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     }
+
+    #sessionTitle {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      margin: 1.5rem auto 1rem;
+      text-align: center;
+      border-bottom: 2px solid #e5e7eb;
+      max-width: 400px;
+      padding-bottom: 0.5rem;
+      color: #1a1a1a;
+    }
+
     
     .container {
       max-width: 1000px;
@@ -48,6 +60,20 @@
       flex-direction: column;
       align-items: center;
     }
+    /* TIMER circle fix */
+      circle.bg {
+        stroke: #e5e7eb;
+      }
+      
+      circle.progress {
+        stroke: #6366F1;
+        stroke-dasharray: 628.32;
+        stroke-dashoffset: 628.32; /* ← start hidden */
+        transform: rotate(-90deg);
+        transform-origin: center;
+        transition: stroke-dashoffset 0.5s linear;
+      }
+
     
     #phaseLabel {
       font-size: 1.2rem;
@@ -56,38 +82,56 @@
     
     .controls {
       display: flex;
-      flex-direction: column;
-      align-items: center;
       gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
       margin-top: 1rem;
     }
     
-    .controls button, .controls select {
+    .controls button,
+    .controls select {
       padding: 0.5rem 1rem;
-      border-radius: 8px;
-      border: 1px solid #ccc;
+      font-size: 0.9rem;
+      border-radius: 10px;
+      border: 1px solid #ddd;
       background: #fff;
-      font-size: 0.95rem;
-      cursor: pointer;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+      transition: all 0.2s ease;
+    }
+    
+    .controls button:hover {
+      background: #eef2ff;;
+      border-color: #6366F1;
     }
     
     /* 대시보드 */
     #vibeBoardContainer {
-      flex: 1 1 320px;
-      background: #fff;
-      border-radius: 16px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
-      max-height: 300px;
+      padding: 1rem;
+      max-height: 280px;
       overflow-y: auto;
     }
     
+    #vibeBoardContainer h3 {
+      margin-bottom: 0.5rem;
+    }
     .vibe-card {
-      background-color: #fdfdfd;
-      border-left: 4px solid #FF9687;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+      background: #ffffff;
+      border-radius: 8px;
+      border-left: 4px solid #6366F1;
+      color: #333;
+      padding: 0.3rem 0.6rem;
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      font-size: 0.95rem;
+      margin: 0;
+      margin-bottom: 0.25rem;
+    }
+
+    .vibe-card:hover {
+      background: #f3f4f6;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+      transition: 0.2s ease;
     }
     
     /* 노트 구역 */
@@ -106,6 +150,12 @@
       box-shadow: 0 4px 16px rgba(0,0,0,0.05);
       font-family: 'Courier New', monospace;
     }
+
+    .prompt-area textarea,
+    .note-area textarea {
+      max-width: 100%;
+      box-sizing: border-box;
+    }
     
     .prompt-area label, .note-area label {
       font-weight: 600;
@@ -117,7 +167,7 @@
     /* 타자기 스타일 textarea */
     .prompt-area textarea, .note-area textarea {
       width: 100%;
-      min-height: 120px;
+      min-height: 90px;
       resize: vertical;
       padding: 1rem;
       font-size: 0.95rem;
@@ -138,8 +188,17 @@
     }
     
     textarea::placeholder {
-      color: #aaa;
+      color: #999;
       font-style: italic;
+    }
+
+    #ambientSelect {
+      margin-top: 1rem;
+      padding: 0.5rem;
+      font-size: 0.9rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      background: #fff;
     }
 
 
@@ -166,15 +225,27 @@
           <circle class="progress" cx="110" cy="110" r="100" />
           <text id="timerText" x="110" y="120" text-anchor="middle">25:00</text>
         </svg>
-        <div class="controls" style="margin-top: 1rem;">
-          <button type="button" onclick="startTimer()">Start</button>
-          <button type="button" onclick="pauseTimer()">Pause</button>
-          <button type="button" onclick="resetTimer()">Reset</button>
+        <div class="controls">
+          <button onclick="startTimer()">Start</button>
+          <button onclick="pauseTimer()">Pause</button>
+          <button onclick="resetTimer()">Reset</button>
           <select id="focusSelect" onchange="setFocusDuration(this.value)">
             <option value="1500">25 min</option>
             <option value="2700">45 min</option>
             <option value="5400">90 min</option>
           </select>
+        </div>
+
+        <div style="text-align: center;">
+          <label for="ambientSelect" style="display:block; margin-top:1rem;"><strong>🎧 Ambient Sound:</strong></label>
+          <select id="ambientSelect" onchange="playAmbient()">
+            <option value="">No ambient</option>
+            <option value="https://archive.org/download/relaxingsounds/FIRE%202%203h%20Blazing%20Fireplace.mp3">🔥 Fireplace</option>
+            <option value="https://archive.org/download/relaxingsounds/Rain%207%20%28Lightest%29%208h%20DripsOnTrees-no%20thunder.mp3">🌧 Rain</option>
+            <option value="https://archive.org/download/relaxingsounds/Wind%201%208h%20%28or%20Rapids%29%20Gentle%2CLowPitch%2CBrownNoise.mp3">💨 Wind</option>
+            <option value="https://archive.org/download/relaxingsounds/Snowfall%20%26%20Wind%28Lite%29%2010h%20Dusk%20into%20Night-Forest.mp3">🌲 Forest</option>
+          </select>
+          <audio id="ambientPlayer" loop></audio>
         </div>
       </div>
       
@@ -182,18 +253,6 @@
         <h3>🌈 Dashboard</h3>
         <div id="vibeBoard" style="display: flex; flex-direction: column; gap: 1rem;"></div>
         <p style="font-size: 0.9rem; color: #666;">✨ Everyone’s goals appear here.</p>
-
-            <div style="margin-top: 1.5rem;">
-      <label><strong>🎧 Ambient Sound:</strong></label>
-      <select id="ambientSelect" onchange="playAmbient()">
-        <option value="">No ambient</option>
-        <option value="https://archive.org/download/relaxingsounds/FIRE%202%203h%20Blazing%20Fireplace.mp3">🔥 Fireplace</option>
-        <option value="https://archive.org/download/relaxingsounds/Rain%207%20%28Lightest%29%208h%20DripsOnTrees-no%20thunder.mp3">🌧 Rain</option>
-        <option value="https://archive.org/download/relaxingsounds/Wind%201%208h%20%28or%20Rapids%29%20Gentle%2CLowPitch%2CBrownNoise.mp3">💨 Wind</option>
-        <option value="https://archive.org/download/relaxingsounds/Snowfall%20%26%20Wind%28Lite%29%2010h%20Dusk%20into%20Night-Forest.mp3">🌲 Forest</option>
-      </select>
-      <audio id="ambientPlayer" loop></audio>
-    </div>
   </div>
 </div>
     
@@ -500,14 +559,11 @@
     
           const div = document.createElement("div");
           div.className = "vibe-card";
-          div.style.borderLeft = "4px solid #FF9687";
-          div.style.padding = "1rem";
-          div.style.borderRadius = "10px";
-          div.style.background = "#f9f9f9";
     
           div.innerHTML = `
-            <p style="font-size: 1.2rem;">${emoji} <strong>${name}</strong></p>
-            <p><strong>🎯</strong> ${goal}</p>
+            <span>${emoji}</span>
+            <strong>${name}</strong>
+            <span style="color: #555;">${goal}</span>
           `;
           board.appendChild(div);
         });
