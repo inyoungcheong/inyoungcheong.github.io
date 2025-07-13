@@ -4,92 +4,73 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Enhanced Pomodoro Timer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    /* Theme: Teal Ocean (Default) - 톤다운 */
+    /* Theme Variables */
     :root {
-      --primary-bg: #f8fdfb;
-      --secondary-bg: #ffffff;
-      --card-bg: rgba(255, 255, 255, 0.85);
-      --text-primary: #0f3c38;
-      --text-secondary: #155e56;
-      --text-muted: #7dd3d8;
+      --primary-bg: linear-gradient(135deg, #fafbfc 0%, #f7f9fb 50%, #f0f4f8 100%);
+      --secondary-bg: rgba(255, 255, 255, 0.9);
+      --card-bg: rgba(255, 255, 255, 0.8);
+      --glass-bg: rgba(255, 255, 255, 0.1);
+      --text-primary: #1a202c;
+      --text-secondary: #4a5568;
+      --text-muted: #a0aec0;
+      --neutral-100: #f7fafc;
+      --neutral-200: #edf2f7;
+      --neutral-300: #e2e8f0;
+      --neutral-800: #2d3748;
+      --neutral-900: #1a202c;
       --accent-primary: #2ba3b3;
       --accent-secondary: #5bc5d3;
-      --accent-focus: #1a8fa1;
-      --accent-break: #16748a;
-      --border-color: #c7f0e8;
-      --shadow-light: 0 4px 20px rgba(43, 163, 179, 0.12);
-      --shadow-medium: 0 8px 32px rgba(43, 163, 179, 0.18);
-      --border-radius: 16px;
-      --border-radius-small: 8px;
+      --accent-gradient: linear-gradient(135deg, #2ba3b3 0%, #5bc5d3 100%);
+      --border-color: rgba(226, 232, 240, 0.6);
+      --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --shadow-large: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      --border-radius: 24px;
+      --border-radius-small: 12px;
+      --border-radius-large: 32px;
     }
 
     /* Theme: Pink Sunset */
     [data-theme="pink"] {
-      --primary-bg: #fef7f7;
-      --secondary-bg: #ffffff;
-      --card-bg: rgba(255, 255, 255, 0.85);
-      --text-primary: #881337;
-      --text-secondary: #be185d;
-      --text-muted: #f9a8d4;
+      --primary-bg: linear-gradient(135deg, #fef7f7 0%, #fdf2f8 50%, #fce7f3 100%);
       --accent-primary: #ee6d8a;
       --accent-secondary: #f472b6;
-      --accent-focus: #ec4899;
-      --accent-break: #db2777;
-      --border-color: #fce7f3;
-      --shadow-light: 0 4px 20px rgba(238, 109, 138, 0.15);
-      --shadow-medium: 0 8px 32px rgba(238, 109, 138, 0.25);
+      --accent-gradient: linear-gradient(135deg, #ee6d8a 0%, #f472b6 100%);
     }
 
     /* Theme: Warm Brown */
     [data-theme="brown"] {
-      --primary-bg: #fafaf9;
-      --secondary-bg: #ffffff;
-      --card-bg: rgba(255, 255, 255, 0.85);
-      --text-primary: #44403c;
-      --text-secondary: #78716c;
-      --text-muted: #d6d3d1;
+      --primary-bg: linear-gradient(135deg, #fafaf9 0%, #f5f5f4 50%, #f0f0ef 100%);
       --accent-primary: #a59a8b;
       --accent-secondary: #d4c4b0;
-      --accent-focus: #92817a;
-      --accent-break: #7c6f64;
-      --border-color: #e7e5e4;
-      --shadow-light: 0 4px 20px rgba(165, 154, 139, 0.15);
-      --shadow-medium: 0 8px 32px rgba(165, 154, 139, 0.25);
+      --accent-gradient: linear-gradient(135deg, #a59a8b 0%, #d4c4b0 100%);
     }
 
     @media (prefers-color-scheme: dark) {
       :root {
-        --primary-bg: #0a2e2c;
-        --secondary-bg: #0f3c38;
-        --card-bg: rgba(15, 60, 56, 0.8);
-        --text-primary: #d1f2ea;
-        --text-secondary: #a7e6d7;
-        --text-muted: #7dd3d8;
-        --border-color: #155e56;
-        --shadow-light: 0 4px 20px rgba(0, 0, 0, 0.2);
-        --shadow-medium: 0 8px 32px rgba(0, 0, 0, 0.3);
+        --primary-bg: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+        --secondary-bg: rgba(30, 41, 59, 0.9);
+        --card-bg: rgba(30, 41, 59, 0.7);
+        --glass-bg: rgba(15, 23, 42, 0.3);
+        --text-primary: #f1f5f9;
+        --text-secondary: #cbd5e1;
+        --text-muted: #64748b;
+        --neutral-100: #334155;
+        --neutral-200: #475569;
+        --neutral-300: #64748b;
+        --neutral-800: #f1f5f9;
+        --neutral-900: #ffffff;
+        --border-color: rgba(71, 85, 105, 0.4);
       }
 
       [data-theme="pink"] {
-        --primary-bg: #4c0519;
-        --secondary-bg: #881337;
-        --card-bg: rgba(136, 19, 55, 0.8);
-        --text-primary: #fce7f3;
-        --text-secondary: #f9a8d4;
-        --text-muted: #f472b6;
-        --border-color: #be185d;
+        --primary-bg: linear-gradient(135deg, #4c0519 0%, #881337 50%, #be185d 100%);
       }
 
       [data-theme="brown"] {
-        --primary-bg: #292524;
-        --secondary-bg: #44403c;
-        --card-bg: rgba(68, 64, 60, 0.8);
-        --text-primary: #fafaf9;
-        --text-secondary: #e7e5e4;
-        --text-muted: #d6d3d1;
-        --border-color: #78716c;
+        --primary-bg: linear-gradient(135deg, #292524 0%, #44403c 50%, #57534e 100%);
       }
     }
 
@@ -100,109 +81,143 @@
     }
 
     body {
-      font-family: 'Inter', system-ui, sans-serif;
-      background: linear-gradient(135deg, var(--primary-bg) 0%, #f8fafc 100%);
+      font-family: 'Outfit', 'Inter', system-ui, sans-serif;
+      background: var(--primary-bg);
       color: var(--text-primary);
       line-height: 1.6;
       min-height: 100vh;
-      padding: 1rem;
-      transition: all 0.3s ease;
+      padding: 2rem 1rem;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      font-weight: 400;
     }
 
     /* Theme Selector */
     .theme-selector {
       position: fixed;
-      top: 1.5rem;
-      right: 1.5rem;
+      top: 2rem;
+      right: 2rem;
       z-index: 1000;
       display: flex;
-      gap: 0.5rem;
-      background: transparent;
-      padding: 0;
+      gap: 0.75rem;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      padding: 0.75rem;
+      border-radius: 50px;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-medium);
     }
 
     .theme-btn {
-      width: 12px;
-      height: 12px;
+      width: 16px;
+      height: 16px;
       border-radius: 50%;
       border: 2px solid rgba(255, 255, 255, 0.8);
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      box-shadow: var(--shadow-soft);
     }
 
     .theme-btn:hover {
-      transform: scale(1.3);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      transform: scale(1.25);
+      box-shadow: var(--shadow-medium);
     }
 
     .theme-btn.active {
-      transform: scale(1.4);
-      border-color: rgba(255, 255, 255, 1);
-      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.4), 0 4px 12px rgba(0, 0, 0, 0.25);
+      transform: scale(1.3);
+      border-color: var(--neutral-900);
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3), var(--shadow-medium);
     }
 
     .theme-btn[data-theme="teal"] {
-      background: linear-gradient(45deg, #2ba3b3, #5bc5d3);
+      background: linear-gradient(135deg, #2ba3b3, #5bc5d3);
     }
 
     .theme-btn[data-theme="brown"] {
-      background: linear-gradient(45deg, #a59a8b, #d4c4b0);
+      background: linear-gradient(135deg, #a59a8b, #d4c4b0);
     }
 
     .theme-btn[data-theme="pink"] {
-      background: linear-gradient(45deg, #ee6d8a, #f472b6);
+      background: linear-gradient(135deg, #ee6d8a, #f472b6);
     }
 
     .main-container {
       max-width: 1400px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 350px 1fr;
-      gap: 2rem;
+      grid-template-columns: 400px 1fr;
+      gap: 3rem;
       align-items: start;
     }
 
-    /* Card Styling */
-    .card {
+    /* Glass Card Effect */
+    .glass-card {
       background: var(--card-bg);
       backdrop-filter: blur(20px);
       border-radius: var(--border-radius);
-      padding: 2rem;
-      box-shadow: var(--shadow-light);
+      padding: 3rem;
+      box-shadow: var(--shadow-large);
       border: 1px solid var(--border-color);
-      transition: all 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
     }
 
-    .card:hover {
-      box-shadow: var(--shadow-medium);
-      transform: translateY(-2px);
+    .glass-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    }
+
+    .glass-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 32px 64px -12px rgba(0, 0, 0, 0.15);
     }
 
     .card-title {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: var(--accent-primary);
-      margin-bottom: 1.5rem;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      background: var(--accent-gradient);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 2rem;
       text-align: center;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: -0.02em;
     }
 
     /* Timer Section */
     .timer-section {
       position: sticky;
-      top: 1rem;
+      top: 2rem;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
+    .timer-status {
+      text-align: center;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      padding: 1rem 2rem;
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      border-radius: 50px;
+      border: 1px solid var(--border-color);
+      font-family: 'Manrope', sans-serif;
+      letter-spacing: 0.025em;
+    }
+
     .circle-timer {
-      width: 240px;
-      height: 240px;
+      width: 280px;
+      height: 280px;
       margin: 2rem 0;
       position: relative;
       display: flex;
@@ -210,143 +225,122 @@
       justify-content: center;
     }
 
-    .timer-display {
-      font-size: 2.5rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      text-align: center;
+    .circle-timer svg {
+      filter: drop-shadow(0 8px 32px rgba(0, 0, 0, 0.12));
+      transition: all 0.3s ease;
     }
 
-    .timer-status {
-      text-align: center;
-      font-size: 1.1rem;
-      font-weight: 500;
-      color: var(--text-secondary);
-      margin-bottom: 1rem;
-      padding: 0.5rem 1rem;
-      background: rgba(124, 131, 253, 0.1);
-      border-radius: 20px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+    .circle-timer text {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 16px;
+      fill: var(--text-primary);
+      letter-spacing: -0.01em;
     }
 
-    /* Controls */
+    /* Enhanced Controls */
     .controls {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 1.5rem;
       width: 100%;
       align-items: center;
     }
 
     .button-group {
       display: flex;
-      gap: 0.75rem;
+      gap: 1rem;
       flex-wrap: wrap;
       justify-content: center;
     }
 
     .btn {
-      padding: 0.75rem 1.5rem;
+      padding: 1rem 2rem;
       border: none;
       border-radius: var(--border-radius-small);
-      font-size: 0.95rem;
-      font-weight: 500;
-      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: 'Manrope', sans-serif;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       background: var(--secondary-bg);
       color: var(--text-primary);
       border: 1px solid var(--border-color);
+      position: relative;
+      overflow: hidden;
+      letter-spacing: 0.025em;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .btn:hover::before {
+      left: 100%;
     }
 
     .btn:hover {
-      background: var(--accent-primary);
+      background: var(--accent-gradient);
       color: white;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(124, 131, 253, 0.3);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-medium);
+      border-color: transparent;
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+      background: var(--accent-gradient);
       color: white;
       border: none;
+      font-weight: 700;
     }
 
     .btn-primary:hover {
-      background: linear-gradient(135deg, var(--accent-secondary), #b8fff9);
-      transform: translateY(-2px);
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: var(--shadow-large);
+    }
+
+    .select-group {
+      display: flex;
+      gap: 1rem;
+      width: 100%;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
     .select-input {
-      padding: 0.75rem 1rem;
+      padding: 1rem 1.5rem;
       border: 1px solid var(--border-color);
       border-radius: var(--border-radius-small);
       background: var(--secondary-bg);
       color: var(--text-primary);
-      font-size: 0.95rem;
-      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-family: 'Manrope', sans-serif;
+      font-weight: 500;
       cursor: pointer;
-      transition: all 0.2s ease;
-      min-width: 120px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      min-width: 160px;
+      backdrop-filter: blur(10px);
+      appearance: none;
+      position: relative;
     }
 
     .select-input:focus {
       outline: none;
       border-color: var(--accent-primary);
-      box-shadow: 0 0 0 3px rgba(124, 131, 253, 0.1);
+      box-shadow: 0 0 0 3px rgba(43, 163, 179, 0.1);
+      background: var(--neutral-100);
     }
 
-    /* Ambient Sound Section */
-    .ambient-section {
-      margin-top: 1.5rem;
-      text-align: center;
-    }
-
-    .ambient-toggle {
-      background: none;
-      border: none;
-      color: var(--accent-primary);
-      font-size: 1rem;
-      cursor: pointer;
-      padding: 0.5rem;
-      border-radius: var(--border-radius-small);
-      transition: all 0.2s ease;
-    }
-
-    .ambient-toggle:hover {
-      background: rgba(124, 131, 253, 0.1);
-    }
-
-    .ambient-grid {
-      display: none;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .ambient-item {
-      background: var(--secondary-bg);
-      border: 1px solid var(--border-color);
-      border-radius: var(--border-radius-small);
-      padding: 1rem;
-      text-align: center;
-      transition: all 0.2s ease;
-    }
-
-    .ambient-item:hover {
-      background: var(--accent-primary);
-      color: white;
-      transform: translateY(-2px);
-    }
-
-    .ambient-item iframe {
-      width: 100%;
-      height: 30px;
-      border: none;
-      margin-top: 0.5rem;
-      border-radius: 4px;
+    .select-input:hover {
+      border-color: var(--accent-primary);
+      background: var(--neutral-100);
     }
 
     /* Goals Section */
@@ -357,23 +351,26 @@
     .goal-row {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-      padding: 0.75rem;
-      margin-bottom: 0.5rem;
+      gap: 1rem;
+      padding: 1rem;
+      margin-bottom: 0.75rem;
       background: var(--secondary-bg);
       border: 1px solid var(--border-color);
       border-radius: var(--border-radius-small);
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      backdrop-filter: blur(10px);
     }
 
     .goal-row:hover {
-      background: rgba(124, 131, 253, 0.05);
+      background: var(--neutral-100);
       transform: translateX(4px);
+      box-shadow: var(--shadow-soft);
     }
 
     .goal-row.checked {
       opacity: 0.6;
-      background: rgba(148, 163, 184, 0.1);
+      background: var(--glass-bg);
+      border-style: dashed;
     }
 
     .goal-row.checked input[type="text"] {
@@ -382,10 +379,11 @@
     }
 
     .goal-row input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
+      width: 20px;
+      height: 20px;
       accent-color: var(--accent-primary);
       cursor: pointer;
+      border-radius: 4px;
     }
 
     .goal-row input[type="text"] {
@@ -395,32 +393,38 @@
       font-size: 1rem;
       color: var(--text-primary);
       outline: none;
-      padding: 0.25rem;
+      padding: 0.5rem;
+      font-family: 'Manrope', sans-serif;
+      font-weight: 500;
     }
 
     .goal-row input[type="text"]:focus {
-      background: rgba(124, 131, 253, 0.1);
-      border-radius: 4px;
+      background: var(--glass-bg);
+      border-radius: 8px;
     }
 
     .goal-row input[type="text"]::placeholder {
       color: var(--text-muted);
       font-style: italic;
+      font-weight: 400;
     }
 
     .goal-row input[type="number"] {
-      width: 60px;
-      padding: 0.25rem;
+      width: 70px;
+      padding: 0.5rem;
       border: 1px solid var(--border-color);
-      border-radius: 4px;
+      border-radius: 8px;
       text-align: center;
-      background: var(--card-bg);
+      background: var(--glass-bg);
       color: var(--text-primary);
+      font-family: 'Manrope', sans-serif;
+      font-weight: 600;
     }
 
     .goal-row .time-label {
-      font-size: 0.85rem;
+      font-size: 0.875rem;
       color: var(--text-muted);
+      font-weight: 500;
     }
 
     .goal-row .remove-btn {
@@ -428,11 +432,16 @@
       border: none;
       color: var(--text-muted);
       cursor: pointer;
-      font-size: 1.2rem;
-      padding: 0.25rem;
-      border-radius: 4px;
+      font-size: 1.25rem;
+      padding: 0.5rem;
+      border-radius: 50%;
       transition: all 0.2s ease;
       opacity: 0;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .goal-row:hover .remove-btn {
@@ -442,24 +451,29 @@
     .goal-row .remove-btn:hover {
       background: rgba(239, 68, 68, 0.1);
       color: #ef4444;
+      transform: scale(1.1);
     }
 
     .add-goal-btn {
       width: 100%;
-      padding: 0.75rem;
-      background: none;
+      padding: 1rem;
+      background: var(--glass-bg);
       border: 2px dashed var(--border-color);
       border-radius: var(--border-radius-small);
       color: var(--text-secondary);
       font-size: 1rem;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      font-family: 'Manrope', sans-serif;
+      font-weight: 600;
+      backdrop-filter: blur(10px);
     }
 
     .add-goal-btn:hover {
       border-color: var(--accent-primary);
       color: var(--accent-primary);
-      background: rgba(124, 131, 253, 0.05);
+      background: rgba(43, 163, 179, 0.05);
+      transform: translateY(-2px);
     }
 
     /* Focus Blocks Section */
@@ -469,160 +483,168 @@
 
     .block-controls {
       display: flex;
-      gap: 0.75rem;
-      margin-bottom: 1.5rem;
+      gap: 1rem;
+      margin-bottom: 2rem;
       align-items: center;
     }
 
     .block-input {
       flex: 1;
-      padding: 0.75rem 1rem;
+      padding: 1rem 1.5rem;
       border: 1px solid var(--border-color);
       border-radius: var(--border-radius-small);
       background: var(--secondary-bg);
       color: var(--text-primary);
       font-size: 1rem;
       outline: none;
-      transition: all 0.2s ease;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      font-family: 'Manrope', sans-serif;
+      font-weight: 500;
+      backdrop-filter: blur(10px);
     }
 
     .block-input:focus {
       border-color: var(--accent-primary);
-      box-shadow: 0 0 0 3px rgba(124, 131, 253, 0.1);
+      box-shadow: 0 0 0 3px rgba(43, 163, 179, 0.1);
+      background: var(--neutral-100);
     }
 
     .block-input::placeholder {
       color: var(--text-muted);
+      font-weight: 400;
     }
 
     .block-item {
       background: var(--secondary-bg);
       border: 1px solid var(--border-color);
       border-radius: var(--border-radius-small);
-      padding: 1rem;
-      margin-bottom: 0.75rem;
-      transition: all 0.2s ease;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      backdrop-filter: blur(10px);
     }
 
     .block-item:hover {
-      background: rgba(124, 131, 253, 0.05);
+      background: var(--neutral-100);
       transform: translateX(4px);
+      box-shadow: var(--shadow-soft);
     }
 
     .block-item.unlabeled {
       opacity: 0.7;
       font-style: italic;
       border-style: dashed;
+      cursor: pointer;
     }
 
     .block-time {
-      font-size: 0.85rem;
+      font-size: 0.875rem;
       color: var(--text-muted);
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.5rem;
+      font-family: 'Manrope', sans-serif;
+      font-weight: 600;
     }
 
     .block-label {
-      font-weight: 500;
+      font-weight: 600;
       color: var(--text-primary);
+      font-family: 'Manrope', sans-serif;
     }
 
     /* Help Section */
     .help-section {
-      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      background: var(--glass-bg);
       border-left: 4px solid var(--accent-primary);
       border-radius: var(--border-radius);
-      padding: 1.5rem;
+      padding: 2rem;
       margin-bottom: 2rem;
-      box-shadow: var(--shadow-light);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border-color);
     }
 
     .help-toggle {
       cursor: pointer;
-      font-weight: 600;
-      font-size: 1.1rem;
+      font-weight: 700;
+      font-size: 1.25rem;
       color: var(--text-primary);
       outline: none;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      font-family: 'Outfit', sans-serif;
+      letter-spacing: -0.01em;
     }
 
     .help-content {
-      margin-top: 1rem;
-      line-height: 1.7;
+      margin-top: 1.5rem;
+      line-height: 1.8;
       color: var(--text-secondary);
       text-align: left;
+      font-family: 'Manrope', sans-serif;
+      font-weight: 500;
     }
 
     .help-content ul {
-      padding-left: 1.2rem;
+      padding-left: 1.5rem;
     }
 
     .help-content li {
-      margin-bottom: 0.75rem;
+      margin-bottom: 1rem;
     }
 
     .help-content a {
       color: var(--accent-primary);
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 600;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s ease;
     }
 
     .help-content a:hover {
-      text-decoration: underline;
+      border-bottom-color: var(--accent-primary);
     }
 
     /* Responsive Design */
-    @media (max-width: 1024px) {
-      .theme-selector {
-        position: relative;
-        top: 0;
-        right: 0;
-        margin-bottom: 1rem;
-        justify-content: center;
-      }
-
+    @media (max-width: 1200px) {
       .main-container {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 2rem;
       }
 
       .timer-section {
         position: static;
       }
+
+      body {
+        padding: 1rem;
+      }
     }
 
     @media (max-width: 768px) {
-      body {
-        padding: 0.5rem;
-      }
-
       .theme-selector {
+        top: 1rem;
+        right: 1rem;
+        gap: 0.5rem;
         padding: 0.5rem;
-        gap: 0.25rem;
       }
 
       .theme-btn {
-        width: 35px;
-        height: 35px;
+        width: 14px;
+        height: 14px;
       }
 
-      .theme-btn::before {
-        width: 16px;
-        height: 16px;
-      }
-
-      .card {
-        padding: 1.5rem;
+      .glass-card {
+        padding: 2rem;
       }
 
       .circle-timer {
-        width: 200px;
-        height: 200px;
+        width: 240px;
+        height: 240px;
       }
 
-      .timer-display {
-        font-size: 2rem;
+      .circle-timer text {
+        font-size: 14px;
       }
 
       .button-group {
@@ -634,6 +656,14 @@
         width: 100%;
       }
 
+      .select-group {
+        flex-direction: column;
+      }
+
+      .select-input {
+        width: 100%;
+      }
+
       .block-controls {
         flex-direction: column;
       }
@@ -641,72 +671,97 @@
       .block-input {
         width: 100%;
       }
+
+      .main-container {
+        gap: 1.5rem;
+      }
     }
 
-    /* Animations */
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
+    /* Enhanced Animations */
+    @keyframes pulse-soft {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.02); }
     }
 
-    .timer-running .timer-display {
-      animation: pulse 2s infinite;
+    .timer-running .circle-timer {
+      animation: pulse-soft 3s infinite;
     }
 
     .fade-in {
-      animation: fadeIn 0.3s ease-in;
+      animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
+      from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    .glass-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      animation: shimmer 3s infinite;
+      pointer-events: none;
     }
   </style>
 </head>
 <body>
   <!-- Theme Selector -->
   <div class="theme-selector">
-    <button class="theme-btn active" data-theme="teal" onclick="setTheme('teal')" title="Teal Ocean"></button>
-    <button class="theme-btn" data-theme="pink" onclick="setTheme('pink')" title="Pink Sunset"></button>
-    <button class="theme-btn" data-theme="brown" onclick="setTheme('brown')" title="Warm Brown"></button>
+    <button class="theme-btn active" data-theme="teal" onclick="setTheme('teal')" title="Ocean Teal"></button>
+    <button class="theme-btn" data-theme="brown" onclick="setTheme('brown')" title="Warm Earth"></button>
+    <button class="theme-btn" data-theme="pink" onclick="setTheme('pink')" title="Sunset Pink"></button>
   </div>
 
   <div class="main-container">
     <!-- Timer Section -->
     <div class="timer-section">
-      <div class="card">
-        <div class="card-title">🍅 Pomodoro Timer</div>
+      <div class="glass-card">
+        <div class="card-title">🍅 Focus Timer</div>
         
-        <div class="timer-status" id="status">Focus time – let's go!</div>
+        <div class="timer-status" id="status">Ready to focus – let's begin!</div>
         
         <div class="circle-timer">
-          <div class="timer-display" id="timerDisplay">25:00</div>
+          <svg viewBox="0 0 100 100" width="280" height="280">
+            <circle cx="50" cy="50" r="45" fill="none" stroke="var(--border-color)" stroke-width="1.5" opacity="0.3" />
+            <path id="pie" fill="var(--accent-primary)" transform="rotate(0,50,50)" />
+            <text x="50" y="55" text-anchor="middle" font-size="14" fill="var(--text-primary)" id="timerText">25:00</text>
+          </svg>
         </div>
         
         <div class="controls">
           <div class="button-group">
-            <button class="btn btn-primary" onclick="startTimer()">▶ Start</button>
+            <button class="btn btn-primary" onclick="startTimer()">▶ Start Focus</button>
             <button class="btn" onclick="pauseTimer()">⏸ Pause</button>
             <button class="btn" onclick="resetTimer()">⏹ Reset</button>
           </div>
           
-          <select class="select-input" id="focusDuration" onchange="setFocusDuration(this.value)">
-            <option value="25">25 minutes</option>
-            <option value="50">50 minutes</option>
-            <option value="90">90 minutes</option>
-          </select>
-          
-          <select class="select-input" id="ambientSelect" onchange="changeAmbient(this.value)">
-            <option value="">🔇 No Sound</option>
-            <option value="fire1">🔥 Blazing Fireplace</option>
-            <option value="fire2">🔥 Crackling Campfire</option>
-            <option value="waterfall">💧 River Rapids</option>
-            <option value="train">🚂 Train Journey</option>
-            <option value="airplane">✈️ Airplane Cabin</option>
-            <option value="snowfall">❄️ Snowfall & Wind</option>
-            <option value="rainforest">🌿 Rainforest</option>
-            <option value="rain">🌧️ Gentle Rain</option>
-          </select>
+          <div class="select-group">
+            <select class="select-input" id="focusDuration" onchange="setFocusDuration(this.value)">
+              <option value="25">🎯 25 minutes</option>
+              <option value="50">⚡ 50 minutes</option>
+              <option value="90">🚀 90 minutes</option>
+            </select>
+            
+            <select class="select-input" id="ambientSelect" onchange="changeAmbient(this.value)">
+              <option value="">🔇 Silence</option>
+              <option value="fire1">🔥 Fireplace</option>
+              <option value="fire2">🏕️ Campfire</option>
+              <option value="waterfall">🌊 Waterfall</option>
+              <option value="train">🚂 Train</option>
+              <option value="snowfall">❄️ Snowfall</option>
+              <option value="rain">🌧️ Rain</option>
+            </select>
+          </div>
         </div>
       </div>
     </div>
@@ -716,32 +771,32 @@
       <!-- Help Section -->
       <div class="help-section">
         <details>
-          <summary class="help-toggle">💡 How to Use This Timer</summary>
+          <summary class="help-toggle">✨ How to Master Your Focus</summary>
           <div class="help-content">
             <ul>
-              <li>This is a Pomodoro timer ⏱️! You can adjust your focus session to 25, 50, or 90 minutes. 5-minute short breaks and a 30-minute long break after 4 focus sessions.</li>
-              <li>Choose from various ambient sounds to help you focus. You'll find quick options in the dropdown, or expand "More Ambient Sounds" for extended tracks from <a href="https://archive.org/details/relaxingsounds/" target="_blank">archive.org</a>.</li>
-              <li>Add goals for the day and break tasks into small chunks to make them easier to tackle. Add time estimates and check them off ✅ when you're done.</li>
-              <li>After each focus session, label what you actually worked on in the "Today's Focus Blocks" section - even if you got distracted! This helps track habits over time.</li>
-              <li>Good luck with your work today! 🚀</li>
+              <li>This Pomodoro timer helps you work in focused 25-90 minute sessions with breaks in between. After 4 focus sessions, enjoy a well-deserved long break!</li>
+              <li>Choose ambient sounds to create your perfect focus environment. Each track is hours long, perfect for extended work sessions.</li>
+              <li>Set daily goals and break them into manageable chunks. Add time estimates and check them off as you complete them.</li>
+              <li>After each session, label what you accomplished. This builds awareness of your productivity patterns over time.</li>
+              <li>Stay consistent and watch your focus improve day by day! 🌟</li>
             </ul>
           </div>
         </details>
       </div>
 
       <!-- Goals Section -->
-      <div class="card goals-section">
-        <div class="card-title">📋 Today's Goals</div>
+      <div class="glass-card goals-section">
+        <div class="card-title">🎯 Today's Mission</div>
         <div id="goalList"></div>
-        <button class="add-goal-btn" onclick="addGoal()">+ Add Goal</button>
+        <button class="add-goal-btn" onclick="addGoal()">+ Add New Goal</button>
       </div>
 
       <!-- Focus Blocks Section -->
-      <div class="card focus-blocks">
-        <div class="card-title">⏰ Today's Focus Blocks</div>
+      <div class="glass-card focus-blocks">
+        <div class="card-title">⚡ Focus Sessions</div>
         <div class="block-controls">
-          <input type="text" class="block-input" id="taskInput" placeholder="What did you work on?">
-          <button class="btn btn-primary" onclick="labelLastBlock()">Label Block</button>
+          <input type="text" class="block-input" id="taskInput" placeholder="What did you accomplish in this session?">
+          <button class="btn btn-primary" onclick="labelLastBlock()">Save Progress</button>
         </div>
         <div id="logList"></div>
       </div>
@@ -749,21 +804,47 @@
   </div>
 
   <script>
-    // Timer variables
-    let currentTime = 25 * 60; // 25 minutes in seconds
-    let isRunning = false;
-    let isPaused = false;
+    // Timer variables - enhanced from timer.js
+    let focusTime = 25 * 60;
+    let shortBreakTime = 5 * 60;
+    let longBreakTime = 30 * 60;
+    let time = focusTime;
     let timerInterval = null;
-    let currentPhase = 'focus'; // 'focus', 'break', 'longBreak'
-    let completedPomodoros = 0;
+    let timerRunning = false;
+    let isFocus = true;
+    let focusCount = 0;
     let sessionLog = [];
 
-    // Audio for notifications
-    const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+H0+Q==');
+    // Audio setup
+    let audioContext, currentSource, gainNode;
+    const gentleBell = new Audio("https://cdn.pixabay.com/download/audio/2022/03/15/audio_5fa3e3c5a7.mp3?filename=soft-bell-6555.mp3");
+    
+    // SVG Circle drawing functions
+    const pie = document.getElementById("pie");
+    
+    function polarToCartesian(cx, cy, r, angle) {
+      const rad = (angle - 90) * Math.PI / 180;
+      return [cx + r * Math.cos(rad), cy + r * Math.sin(rad)];
+    }
+
+    function drawPie(percent) {
+      const [cx, cy, r] = [50, 50, 45];
+      const angle = percent * 360;
+      const [x, y] = polarToCartesian(cx, cy, r, angle);
+      const largeArc = angle > 180 ? 1 : 0;
+      const d = `
+        M ${cx} ${cy}
+        L ${cx} ${cy - r}
+        A ${r} ${r} 0 ${largeArc} 1 ${x} ${y}
+        Z
+      `;
+      pie.setAttribute("d", d);
+    }
 
     // Initialize
     document.addEventListener('DOMContentLoaded', function() {
       updateDisplay();
+      updateStatus();
       loadGoals();
       loadBlocks();
       loadTheme();
@@ -774,7 +855,6 @@
       document.documentElement.setAttribute('data-theme', theme);
       localStorage.setItem('pomodoro-theme', theme);
       
-      // Update active theme button
       document.querySelectorAll('.theme-btn').forEach(btn => {
         btn.classList.remove('active');
       });
@@ -788,179 +868,175 @@
 
     // Timer functions
     function startTimer() {
-      if (!isRunning) {
-        isRunning = true;
-        document.body.classList.add('timer-running');
-        timerInterval = setInterval(tick, 1000);
-        updateStatus();
+      if (timerRunning) return;
+      timerRunning = true;
+      document.body.classList.add('timer-running');
+
+      if (audioContext && audioContext.state === 'suspended') {
+        audioContext.resume();
       }
+
+      updateStatus();
+      timerInterval = setInterval(() => {
+        time--;
+        updateDisplay();
+        if (time <= 0) {
+          completeSession();
+        }
+      }, 1000);
     }
 
     function pauseTimer() {
-      if (isRunning) {
-        isRunning = false;
-        isPaused = true;
+      if (timerRunning) {
+        timerRunning = false;
         clearInterval(timerInterval);
         document.body.classList.remove('timer-running');
         updateStatus();
+        fadeOutAmbient();
       }
     }
 
     function resetTimer() {
-      isRunning = false;
-      isPaused = false;
+      timerRunning = false;
       clearInterval(timerInterval);
       document.body.classList.remove('timer-running');
-      
-      const focusDuration = parseInt(document.getElementById('focusDuration').value);
-      currentTime = focusDuration * 60;
-      currentPhase = 'focus';
-      
+      time = focusTime;
+      isFocus = true;
       updateDisplay();
       updateStatus();
     }
 
-    function tick() {
-      if (currentTime > 0) {
-        currentTime--;
-        updateDisplay();
-      } else {
-        // Timer finished
-        audio.play();
-        completeSession();
-      }
-    }
-
     function completeSession() {
-      isRunning = false;
+      timerRunning = false;
       clearInterval(timerInterval);
       document.body.classList.remove('timer-running');
+      gentleBell.play();
       
-      // Log the completed session
-      const now = new Date();
-      const timeString = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+      const endTime = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
       
-      if (currentPhase === 'focus') {
-        completedPomodoros++;
-        const duration = parseInt(document.getElementById('focusDuration').value);
+      if (isFocus) {
+        focusCount++;
         sessionLog.push({
-          time: timeString,
-          duration: duration,
-          label: '',
-          type: 'focus'
+          text: '',
+          duration: `${focusTime / 60} min`,
+          time: endTime,
+          type: 'focus',
+          label: ''
         });
         
-        // Switch to break
-        if (completedPomodoros % 4 === 0) {
-          currentPhase = 'longBreak';
-          currentTime = 30 * 60; // 30 minutes
-        } else {
-          currentPhase = 'break';
-          currentTime = 5 * 60; // 5 minutes
-        }
+        time = (focusCount % 4 === 0) ? longBreakTime : shortBreakTime;
+        isFocus = false;
       } else {
-        // Break finished, back to focus
-        currentPhase = 'focus';
-        const focusDuration = parseInt(document.getElementById('focusDuration').value);
-        currentTime = focusDuration * 60;
+        time = focusTime;
+        isFocus = true;
       }
       
       updateDisplay();
       updateStatus();
       saveBlocks();
       loadBlocks();
+      
+      setTimeout(() => startTimer(), 1000);
     }
 
     function updateDisplay() {
-      const minutes = Math.floor(currentTime / 60);
-      const seconds = currentTime % 60;
-      const display = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-      document.getElementById('timerDisplay').textContent = display;
+      const minutes = Math.floor(time / 60).toString().padStart(2, '0');
+      const seconds = (time % 60).toString().padStart(2, '0');
+      document.getElementById('timerText').textContent = `${minutes}:${seconds}`;
+      
+      const total = isFocus ? focusTime : (focusCount % 4 === 0 ? longBreakTime : shortBreakTime);
+      const progress = 1 - (time / total);
+      drawPie(progress);
+      
+      pie.setAttribute("fill", isFocus ? "var(--accent-primary)" : "var(--accent-secondary)");
     }
 
     function updateStatus() {
       const statusEl = document.getElementById('status');
       
-      if (isRunning) {
-        if (currentPhase === 'focus') {
-          statusEl.textContent = '🎯 Focus Time - Stay Concentrated!';
-        } else if (currentPhase === 'break') {
-          statusEl.textContent = '☕ Short Break - Relax a Bit!';
+      if (timerRunning) {
+        if (isFocus) {
+          statusEl.textContent = '🎯 Deep Focus Mode - You\'re in the zone!';
+        } else if (focusCount % 4 === 0) {
+          statusEl.textContent = '🏖️ Long Break - Recharge completely!';
         } else {
-          statusEl.textContent = '🏖️ Long Break - Well Deserved!';
+          statusEl.textContent = '☕ Quick Break - Stretch and breathe!';
         }
-      } else if (isPaused) {
-        statusEl.textContent = '⏸️ Paused - Ready to Continue?';
       } else {
-        statusEl.textContent = '🍅 Ready to Focus - Let\'s Go!';
+        if (isFocus) {
+          statusEl.textContent = '🚀 Ready to focus – let\'s begin!';
+        } else {
+          statusEl.textContent = '⏸️ Break time – take it easy!';
+        }
       }
     }
 
     function setFocusDuration(minutes) {
-      if (!isRunning) {
-        currentTime = minutes * 60;
+      focusTime = parseInt(minutes) * 60;
+      if (!timerRunning && isFocus) {
+        time = focusTime;
         updateDisplay();
       }
     }
 
     // Ambient sound functions
+    function fadeOutAmbient() {
+      if (gainNode && currentSource) {
+        gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 1.0);
+        setTimeout(() => {
+          try { currentSource.stop(); } catch (e) {}
+          currentSource.disconnect();
+          gainNode.disconnect();
+          currentSource = null;
+          gainNode = null;
+        }, 1100);
+      }
+    }
+
     let currentAudio = null;
-    
+
     function changeAmbient(type) {
-      // Stop current audio if playing
       if (currentAudio) {
         currentAudio.pause();
         currentAudio = null;
       }
       
-      if (type) {
-        const ambientUrls = {
-          'fire1': 'https://archive.org/download/relaxingsounds/FIRE%202%203h%20Blazing%20Fireplace.mp3',
-          'fire2': 'https://archive.org/download/relaxingsounds/FIRE%201%2010h%20CracklingCampfire%2CCrickets%2CRainOrRiver-Night.mp3',
-          'waterfall': 'https://archive.org/download/relaxingsounds/Falls%201%209h%20River%20Rapids(High%20pitch)%2CLiteSplashing.mp3',
-          'train': 'https://archive.org/download/relaxingsounds/Train%203%209h%20Med.LiteRumble-NoHornsOrBells.mp3',
-          'airplane': 'https://archive.org/download/relaxingsounds/Wind%201%208h%20(or%20Rapids)%20Gentle%2CLowPitch%2CBrownNoise.mp3',
-          'snowfall': 'https://archive.org/download/relaxingsounds/Snowfall%20%26%20Wind(Lite)%2010h%20Dusk%20into%20Night-Forest.mp3',
-          'rainforest': 'https://archive.org/download/relaxingsounds/Snowfall%20%26%20Wind(Lite)%2010h%20Dusk%20into%20Night-Forest.mp3',
-          'rain': 'https://archive.org/download/relaxingsounds/Rain%207%20(Lightest)%208h%20DripsOnTrees-no%20thunder.mp3'
-        };
-        
-        if (ambientUrls[type]) {
-          currentAudio = new Audio(ambientUrls[type]);
-          currentAudio.loop = true;
-          currentAudio.volume = 0.3;
-          currentAudio.play().catch(e => console.log('Audio play failed:', e));
-        }
+      if (!type) return;
+      
+      const ambientUrls = {
+        'fire1': 'https://archive.org/download/relaxingsounds/FIRE%202%203h%20Blazing%20Fireplace.mp3',
+        'fire2': 'https://archive.org/download/relaxingsounds/FIRE%201%2010h%20CracklingCampfire%2CCrickets%2CRainOrRiver-Night.mp3',
+        'waterfall': 'https://archive.org/download/relaxingsounds/Falls%201%209h%20River%20Rapids(High%20pitch)%2CLiteSplashing.mp3',
+        'train': 'https://archive.org/download/relaxingsounds/Train%203%209h%20Med.LiteRumble-NoHornsOrBells.mp3',
+        'snowfall': 'https://archive.org/download/relaxingsounds/Snowfall%20%26%20Wind(Lite)%2010h%20Dusk%20into%20Night-Forest.mp3',
+        'rain': 'https://archive.org/download/relaxingsounds/Rain%207%20(Lightest)%208h%20DripsOnTrees-no%20thunder.mp3'
+      };
+      
+      if (ambientUrls[type]) {
+        currentAudio = new Audio(ambientUrls[type]);
+        currentAudio.loop = true;
+        currentAudio.volume = 0.4;
+        currentAudio.play().catch(e => console.log('Audio play failed:', e));
       }
     }
 
-    function toggleAmbientList() {
-      const grid = document.getElementById('ambientGrid');
-      const toggle = document.querySelector('.ambient-toggle');
-      const isVisible = grid.style.display === 'grid';
-      
-      grid.style.display = isVisible ? 'none' : 'grid';
-      toggle.innerHTML = isVisible ? 
-        '🎧 More Ambient Sounds 🔽' : 
-        '🎧 Hide Ambient Sounds 🔼';
-    }
-
     // Goals functions
-    function addGoal() {
+    function addGoal(text = "", checked = false, time = "") {
       const goalList = document.getElementById('goalList');
       const goalRow = document.createElement('div');
       goalRow.className = 'goal-row fade-in';
       
       goalRow.innerHTML = `
-        <input type="checkbox" onchange="toggleGoal(this)">
-        <input type="text" placeholder="Enter your goal..." onkeypress="handleGoalKeypress(event, this)">
-        <input type="number" placeholder="25" min="1" max="999">
+        <input type="checkbox" onchange="toggleGoal(this)" ${checked ? 'checked' : ''}>
+        <input type="text" placeholder="What do you want to accomplish today?" value="${text}" onkeypress="handleGoalKeypress(event, this)" onblur="saveGoals()">
+        <input type="number" placeholder="25" min="1" max="999" value="${time}" onchange="saveGoals()">
         <span class="time-label">min</span>
         <button class="remove-btn" onclick="removeGoal(this)">×</button>
       `;
       
       goalList.appendChild(goalRow);
-      goalRow.querySelector('input[type="text"]').focus();
+      if (checked) goalRow.classList.add('checked');
+      if (!text) goalRow.querySelector('input[type="text"]').focus();
       saveGoals();
     }
 
@@ -988,3 +1064,88 @@
         const checkbox = row.querySelector('input[type="checkbox"]');
         const textInput = row.querySelector('input[type="text"]');
         const numberInput = row.querySelector('input[type="number"]');
+        
+        if (textInput && textInput.value.trim()) {
+          goals.push({
+            text: textInput.value,
+            checked: checkbox.checked,
+            time: numberInput.value || ''
+          });
+        }
+      });
+      localStorage.setItem('pomodoro-goals', JSON.stringify(goals));
+    }
+
+    function loadGoals() {
+      const saved = localStorage.getItem('pomodoro-goals');
+      if (saved) {
+        const goals = JSON.parse(saved);
+        const goalList = document.getElementById('goalList');
+        goalList.innerHTML = '';
+        goals.forEach(goal => addGoal(goal.text, goal.checked, goal.time));
+      } else {
+        for (let i = 0; i < 3; i++) {
+          addGoal();
+        }
+      }
+    }
+
+    // Focus blocks functions
+    function labelLastBlock() {
+      const input = document.getElementById('taskInput');
+      const label = input.value.trim();
+      
+      if (label && sessionLog.length > 0) {
+        for (let i = sessionLog.length - 1; i >= 0; i--) {
+          if (sessionLog[i].type === 'focus' && !sessionLog[i].label) {
+            sessionLog[i].label = label;
+            break;
+          }
+        }
+        input.value = '';
+        saveBlocks();
+        loadBlocks();
+      }
+    }
+
+    function saveBlocks() {
+      localStorage.setItem('pomodoro-blocks', JSON.stringify(sessionLog));
+    }
+
+    function loadBlocks() {
+      const saved = localStorage.getItem('pomodoro-blocks');
+      if (saved) {
+        sessionLog = JSON.parse(saved);
+      }
+      
+      const logList = document.getElementById('logList');
+      logList.innerHTML = '';
+      
+      sessionLog.forEach((session, index) => {
+        if (session.type === 'focus') {
+          const block = document.createElement('div');
+          block.className = `block-item ${session.label ? '' : 'unlabeled'}`;
+          
+          block.innerHTML = `
+            <div class="block-time">${session.time} • ${session.duration} focus session</div>
+            <div class="block-label">${session.label || 'Click to add what you accomplished...'}</div>
+          `;
+          
+          if (!session.label) {
+            block.addEventListener('click', () => {
+              const newLabel = prompt('What did you accomplish in this session?');
+              if (newLabel && newLabel.trim()) {
+                session.label = newLabel.trim();
+                saveBlocks();
+                loadBlocks();
+              }
+            });
+          }
+          
+          logList.appendChild(block);
+        }
+      });
+    }
+  </script>
+</body>
+</html>
