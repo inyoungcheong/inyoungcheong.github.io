@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Social Pomodoro | Join or Create</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
@@ -14,7 +14,7 @@
       margin: 0;
       padding: 0;
       min-height: 100vh;
-      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      background: linear-gradient(135deg, #fefefe 0%, #f7f5f3 100%);
       font-family: 'Inter', sans-serif;
       display: flex;
       flex-direction: column;
@@ -36,15 +36,15 @@
     }
 
     .title {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Nunito', sans-serif;
       font-size: 2rem;
       font-weight: 700;
-      background: linear-gradient(90deg, #334155, #0f172a);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: #45b8ac;
+      margin-bottom: 3rem;
       text-align: center;
-      letter-spacing: -0.01em;
-      margin-bottom: 2rem;
+      letter-spacing: -0.02em;
+      position: relative;
+      white-space: nowrap;
     }
 
     .title::after {
@@ -55,41 +55,41 @@
       transform: translateX(-50%);
       width: 80px;
       height: 2px;
-      background: linear-gradient(135deg, #667eea, #764ba2);
+      background: linear-gradient(135deg, #fbbf24, #10b981);
       border-radius: 2px;
-      opacity: 0.6;
+      opacity: 0.8;
     }
 
     .subtitle {
       font-size: 1.1rem;
-      color: #64748b;
+      color: #4a5568;
       margin-bottom: 3rem;
       text-align: center;
       font-weight: 400;
     }
 
     .section {
-      background: rgba(255, 255, 255, 0.7);
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(20px);
       padding: 2.5rem 2rem;
       border-radius: 24px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.8);
-      margin-bottom: 2rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      margin-bottom: 4rem;
       width: 100%;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .section:hover {
       transform: translateY(-2px);
-      box-shadow: 0 12px 48px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 12px 48px rgba(0, 0, 0, 0.06);
     }
 
     .section h2 {
       font-size: 1.3rem;
       font-weight: 600;
       margin-bottom: 1rem;
-      color: #334155;
+      color: #2d3748;
       display: flex;
       align-items: center;
       gap: 0.75rem;
@@ -97,7 +97,7 @@
 
     .section p {
       font-size: 0.9rem;
-      color: #64748b;
+      color: #718096;
       margin-bottom: 1.5rem;
       line-height: 1.5;
     }
@@ -110,21 +110,21 @@
       border-radius: 12px;
       font-size: 1rem;
       font-family: 'Inter', sans-serif;
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(10px);
-      color: #334155;
+      color: #2d3748;
       outline: none;
       transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     input[type="text"]:focus {
-      border-color: #6366f1;
-      background: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+      border-color: #a8d8ea;
+      background: rgba(255, 255, 255, 1);
+      box-shadow: 0 0 0 3px rgba(168, 216, 234, 0.2);
     }
 
     input[type="text"]::placeholder {
-      color: #94a3b8;
+      color: #a0aec0;
       font-style: italic;
     }
 
@@ -150,26 +150,15 @@
       transform: translateY(0);
     }
 
-    .join-btn {
-      background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
-      color: #475569;
-      box-shadow: 0 4px 12px rgba(71, 85, 105, 0.15);
-    }
-
-    .join-btn:hover {
-      background: linear-gradient(135deg, #cbd5e1, #b4c6d1);
-      box-shadow: 0 6px 20px rgba(71, 85, 105, 0.25);
-    }
-
     .create-btn {
-      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      background: linear-gradient(135deg, #4a5568, #2d3748);
       color: white;
-      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+      box-shadow: 0 4px 12px rgba(45, 55, 72, 0.3);
     }
 
     .create-btn:hover {
-      background: linear-gradient(135deg, #5b56f1, #7c3aed);
-      box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+      background: linear-gradient(135deg, #2d3748, #1a202c);
+      box-shadow: 0 6px 20px rgba(45, 55, 72, 0.4);
     }
 
     /* Add ripple effect */
@@ -215,32 +204,20 @@
 
     .footer-text {
       font-size: 0.9rem;
-      color: #64748b;
+      color: #718096;
       margin-bottom: 0.5rem;
     }
 
     .footer-link {
-      color: #6366f1;
+      color: #a8d8ea;
       text-decoration: none;
       font-weight: 500;
       transition: color 0.2s ease;
     }
 
     .footer-link:hover {
-      color: #5b56f1;
+      color: #7dd3fc;
       text-decoration: underline;
-    }
-
-    .footer-heart {
-      display: inline-block;
-      color: #ef4444;
-      animation: pulse 2s infinite;
-      margin: 0 0.25rem;
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
     }
 
     /* Decorative elements */
@@ -262,8 +239,8 @@
       left: -50%;
       width: 200%;
       height: 200%;
-      background: radial-gradient(circle at 30% 20%, rgba(99, 102, 241, 0.1) 0%, transparent 70%),
-                  radial-gradient(circle at 70% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 70%);
+      background: radial-gradient(circle at 30% 20%, rgba(251, 191, 36, 0.03) 0%, transparent 90%),
+                  radial-gradient(circle at 70% 80%, rgba(16, 185, 129, 0.02) 0%, transparent 90%);
       animation: float 20s ease-in-out infinite;
     }
 
@@ -314,22 +291,20 @@
   
   <div class="container">
     <h1 class="title">Social Pomodoro Timer</h1>
-
-    <div class="section">
-      <h2>🔗 Join a Session</h2>
-      <p>Enter a session name to join an existing focus group</p>
-      <input type="text" id="joinSessionInput" placeholder="e.g., study-squad-456" />
-      <button class="join-btn" onclick="joinSession()">
-        <span>Join Session</span>
-      </button>
+    
+    <div style="text-align: center; margin-bottom: 3rem; max-width: 480px; margin-left: auto; margin-right: auto;">
+      <p style="font-size: 1.1rem; color: #4b5563; line-height: 1.6; margin-bottom: 1.5rem;">
+        Built for shared accountability and communal focus. You can go further when you're together.
+      </p>
+      <p style="font-size: 0.9rem; color: #6b7280; line-height: 1.5;">
+        Create a focus room and invite others to join your productive journey.
+      </p>
     </div>
 
     <div class="section">
-      <h2>✨ Create a New Session</h2>
-      <p>Start a new session and invite others to focus with you</p>
       <input type="text" id="createSessionInput" placeholder="e.g., morning-focus, deep-work" />
       <button class="create-btn" onclick="createSession()">
-        <span>Create Session</span>
+        <span>Create Focus Room</span>
       </button>
     </div>
   </div>
@@ -338,10 +313,10 @@
     <div class="footer-content">
       <div class="footer-text">
         Built by 
-        <a href="https://inyoungcheong.github.io" class="footer-link">Inyoung Cheong</a>
+        <a href="https://inyoungcheong.github.io" class="footer-link" target="_blank">Inyoung Cheong</a>
       </div>
-      <div style="font-size: 0.8rem; color: #94a3b8; margin-top: 0.5rem;">
-        The sky is vast enough for all birds to fly. 
+      <div style="font-size: 0.8rem; color: #9ca3af; margin-top: 0.5rem;">
+        Helping you stay focused and productive
       </div>
     </div>
   </footer>
@@ -361,37 +336,6 @@
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
 
-    function joinSession() {
-      const session = document.getElementById("joinSessionInput").value.trim();
-      if (!session) {
-        alert("Please enter a session name.");
-        return;
-      }
-    
-      // Show loading state
-      const joinBtn = document.querySelector('.join-btn span');
-      const originalText = joinBtn.textContent;
-      joinBtn.textContent = 'Joining...';
-      
-      db.collection("sessions").doc(session).get().then(doc => {
-        if (!doc.exists) {
-          // Reset button
-          joinBtn.textContent = originalText;
-          alert("Session not found. Please check the session name and try again.");
-          return;
-        }
-    
-        // Session exists, set role and redirect
-        localStorage.setItem(`vibeUserRole-${session}`, "guest");
-        window.location.href = `/social-timer/session.html?session=${encodeURIComponent(session)}`;
-      }).catch(error => {
-        // Reset button on error
-        joinBtn.textContent = originalText;
-        console.error("Error checking session:", error);
-        alert("Error connecting to session. Please try again.");
-      });
-    }
-
     function createSession() {
       let session = document.getElementById("createSessionInput").value.trim();
       if (!session) return alert("Please enter a session name.");
@@ -408,11 +352,6 @@
         window.location.href = url;
       });
     }
-
-    // Add enter key support
-    document.getElementById("joinSessionInput").addEventListener("keypress", function(e) {
-      if (e.key === "Enter") joinSession();
-    });
 
     document.getElementById("createSessionInput").addEventListener("keypress", function(e) {
       if (e.key === "Enter") createSession();
