@@ -1178,6 +1178,7 @@
           <div id="vibeBoard"></div>
           
           <div class="goal-input-container">
+            <div style="font-size: 0.9rem; color: #64748b; text-align: center; margin-bottom: 0.75rem; font-weight: 500;">✏️ Update your focus goal:</div>
             <div id="editableGoal" contenteditable="true" data-placeholder="What's one meaningful task you'll focus on?"></div>
             <button id="saveGoalBtn">✓</button>
           </div>
@@ -1637,17 +1638,25 @@
           const goal = p.goal || "";
           const participantName = p.name || "Anonymous";
           const emoji = p.emoji || "🐾";
-
-          if (participantName === name) return; 
     
           const div = document.createElement("div");
           div.className = "vibe-card";
-    
+          
+          // Add special styling for your own goal
+          if (participantName === name) {
+            div.style.background = "rgba(var(--accent-primary), 0.08)";
+            div.style.borderColor = "var(--accent-primary)";
+            div.style.borderWidth = "2px";
+          }
+          
           const nameSpan = document.createElement("strong");
           nameSpan.textContent = participantName;
-
           if (p.role === "host") {
             nameSpan.innerHTML += ' 👑';
+          }
+          // Add "You" indicator for your own goal
+          if (participantName === name) {
+            nameSpan.innerHTML += ' (You)';
           }
     
           const goalSpan = document.createElement("span");
