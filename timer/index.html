@@ -48,6 +48,29 @@
       --accent-gradient: linear-gradient(135deg, #a59a8b 0%, #d4c4b0 100%);
     }
 
+    @media (min-width: 1201px) {
+      .timer-section .glass-card {
+        width: 100%;
+      }
+    }
+  
+    @media (max-width: 1200px) {
+      .main-container {
+        grid-template-columns: 1fr;
+      }
+      .timer-section .glass-card {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 768px) {
+        .footer-content {
+          text-align: center;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+
     @media (prefers-color-scheme: dark) {
       :root {
         --primary-bg: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
@@ -581,14 +604,15 @@
 
     .help-toggle {
       cursor: pointer;
-      font-weight: 700;
+      font-weight: 500;
       font-size: 1.25rem;
-      color: var(--text-muted);
+      .help-toggle {
+      color: var(--text-secondary); /* was --text-muted */
       outline: none;
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Manrope', sans-serif;
       letter-spacing: -0.01em;
       text-align: left;
       width: 100%;
@@ -1213,18 +1237,17 @@
     }
 
     function loadGoals() {
-      const saved = localStorage.getItem('pomodoro-goals');
-      if (saved) {
-        const goals = JSON.parse(saved);
-        const goalList = document.getElementById('goalList');
-        goalList.innerHTML = '';
-        goals.forEach(goal => addGoal(goal.text, goal.checked, goal.time));
-      } else {
-        for (let i = 0; i < 3; i++) {
-          addGoal();
-        }
-      }
+    const saved = localStorage.getItem('pomodoro-goals');
+    const goalList = document.getElementById('goalList');
+    goalList.innerHTML = '';
+    if (saved) {
+      const goals = JSON.parse(saved);
+      goals.forEach(goal => addGoal(goal.text, goal.checked, goal.time));
+    } else {
+      addGoal();
+      addGoal();
     }
+  }
 
     // Focus blocks functions
     function labelLastBlock() {
