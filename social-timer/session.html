@@ -16,27 +16,28 @@
       --accent-primary: #7C83FD;
       --accent-secondary: #96baff;
       --accent-gradient: linear-gradient(135deg, #7C83FD 0%, #96baff 100%);
+      --pie-color: rgba(124, 131, 253, 0.25);
     }
-
     /* Theme: Red */
     [data-theme="red"] {
       --accent-primary: #BB2649;
       --accent-secondary: #d64570;
       --accent-gradient: linear-gradient(135deg, #BB2649 0%, #d64570 100%);
+      --pie-color: rgba(187, 38, 73, 0.25);
     }
-
     /* Theme: Teal */
     [data-theme="teal"] {
       --accent-primary: #009473;
       --accent-secondary: #00b894;
       --accent-gradient: linear-gradient(135deg, #009473 0%, #00b894 100%);
+      --pie-color: rgba(0, 148, 115, 0.25);
     }
-
     /* Theme: Yellow */
     [data-theme="yellow"] {
       --accent-primary: #F5DF4D;
       --accent-secondary: #f7e66e;
       --accent-gradient: linear-gradient(135deg, #F5DF4D 0%, #f7e66e 100%);
+      --pie-color: rgba(245, 223, 77, 0.4);
     }
 
     body {
@@ -594,7 +595,7 @@
     
     .note-card textarea {
       width: 100%;
-      min-height: 150px; /* 180px에서 150px로 줄임 */
+      min-height: 200px; /* 180px에서 150px로 줄임 */
       padding: 1.25rem; /* 1rem에서 1.25rem으로 증가 */
       border: 1px solid #e2e8f0;
       border-radius: 12px;
@@ -680,6 +681,7 @@
     /* Checklist checked state styling */
     .goal-row.checked {
       opacity: 0.6;
+      transition: all 0.3s ease; 
     }
     
     .goal-row.checked input[type="text"] {
@@ -1130,16 +1132,17 @@
         <div class="timer-circle">
           <svg viewBox="0 0 100 100" width="280" height="280">
             <circle cx="50" cy="50" r="45" fill="none" stroke="var(--border-color)" stroke-width="1.5" opacity="0.3" />
-            <path id="pie" fill="var(--accent-primary)" transform="rotate(0,50,50)" />
+            <path id="pie" fill="var(--pie-color)" transform="rotate(0,50,50)" />
             <text x="50" y="55" text-anchor="middle" font-size="14" fill="var(--text-primary)" id="timerText">25:00</text>
           </svg>
         </div>
         
         <div class="controls">
-          <button onclick="startTimer()">Start</button>
-          <button onclick="pauseTimer()">Pause</button>
-          <button onclick="resetTimer()">Reset</button>
-          <select id="focusSelect" onchange="setFocusDuration(this.value)">
+            <button onclick="startTimer()">Start</button>
+            <button onclick="pauseTimer()">Pause</button>
+            <button onclick="resetTimer()">Reset</button>
+            <button onclick="finishTimer()" style="background: #ef4444; color: white;">Finish</button>
+            <select id="focusSelect" onchange="setFocusDuration(this.value)">
             <option value="1500">25 min</option>
             <option value="2700">45 min</option>
             <option value="5400">90 min</option>
@@ -1205,10 +1208,10 @@
           <p style="font-size: 1.1rem; color: #94a3b8; font-style: italic; text-align: center; margin-bottom: 1.5rem;">*not visible to others</p>
           
           <label style="margin-bottom: 1rem; font-size: 1.1rem;">🚧 What are the barriers?</label>
-          <textarea placeholder="What's stopping you from starting? What thoughts are holding you back? What would you tell a friend facing this same challenge?" style="min-height: 100px; margin-bottom: 1.5rem; font-size: 1.1rem;"></textarea>
+          <textarea placeholder="What's stopping you from starting? What thoughts are holding you back? What would you tell a friend facing this same challenge?" style="min-height: 160px; margin-bottom: 1.5rem; font-size: 1.1rem;"></textarea>
           
           <label style="font-size: 1.1rem;">💭 What am I noticing?</label>
-          <textarea id="noteInput" placeholder="What are you grateful for today? What patterns are you noticing in your work? What's energizing you right now? What would help you feel more focused?" style="min-height: 120px; font-size: 1.1rem;"></textarea>
+          <textarea id="noteInput" placeholder="What are you grateful for today? What patterns are you noticing in your work? What's energizing you right now? What would help you feel more focused?" style="min-height: 180px; font-size: 1.1rem;"></textarea>
         </div>
       </div>
     </div>
@@ -1464,6 +1467,7 @@
     let duration = focusDuration;
     let isRunning = false;
     let localTimer = null;
+    let timerStartTime = null; // Track when timer actually started
     
     const beep = document.getElementById("beep");
     
@@ -1493,14 +1497,18 @@
     
     function startLocalTimer() {
       stopLocalTimer();
+      timerStartTime = Date.now();
       localTimer = setInterval(() => {
-        localSeconds--;
+        // Calculate elapsed time since start to stay in sync
+        const elapsed = Math.floor((Date.now() - timerStartTime) / 1000);
+        localSeconds = Math.max(0, duration - elapsed);
+        
         updateProgress();
         if (localSeconds <= 0) {
           beep.play();
           nextPhase();
         }
-      }, 1000);
+      }, 100); // Update more frequently for smoother display
     }
     
     function stopLocalTimer() {
@@ -1512,7 +1520,9 @@
       updateRemoteTimer({
         isRunning: false,
         remainingSeconds: localSeconds,
-        lastUpdated: Date.now()
+        lastUpdated: Date.now(),
+        phaseIndex: phaseIndex,
+        duration: duration
       });
     }
     
@@ -1521,7 +1531,9 @@
       updateRemoteTimer({
         isRunning: false,
         remainingSeconds: localSeconds,
-        lastUpdated: Date.now()
+        lastUpdated: Date.now(),
+        phaseIndex: phaseIndex,
+        duration: duration
       });
       displayTime(localSeconds);
     }
@@ -1542,22 +1554,75 @@
     }
     
     function startTimer() {
-      updatePhaseLabel();
+  updatePhaseLabel();
+  timerStartTime = Date.now();
+  duration = localSeconds; // Set duration to current remaining time
+  updateRemoteTimer({
+    isRunning: true,
+    remainingSeconds: localSeconds,
+    lastUpdated: Date.now(),
+    phaseIndex: phaseIndex,
+    duration: duration
+  });
+}
+
+    function finishTimer() {
       updateRemoteTimer({
-        isRunning: true,
-        remainingSeconds: localSeconds,
-        lastUpdated: Date.now()
+        isRunning: false,
+        remainingSeconds: 0,
+        lastUpdated: Date.now(),
+        phaseIndex: phaseIndex,
+        duration: duration,
+        finished: true
       });
+      
+      // Show completion message
+      const phaseLabel = document.getElementById("phaseLabel");
+      const originalText = phaseLabel.textContent;
+      phaseLabel.textContent = "Good work today! 🎉";
+      phaseLabel.style.color = "#10b981";
+      
+      setTimeout(() => {
+        phaseLabel.textContent = originalText;
+        phaseLabel.style.color = "";
+      }, 3000);
     }
     
     db.collection("sessions").doc(session).collection("state").doc("timer")
       .onSnapshot(doc => {
         const data = doc.data();
         if (!data) return;
-        localSeconds = data.remainingSeconds;
+        
+        // Sync phase if different
+        if (data.phaseIndex !== undefined && data.phaseIndex !== phaseIndex) {
+          phaseIndex = data.phaseIndex;
+          updatePhaseLabel();
+        }
+        
+        // Calculate actual remaining time based on server timestamp
+        if (data.isRunning && data.lastUpdated) {
+          const elapsed = Math.floor((Date.now() - data.lastUpdated) / 1000);
+          localSeconds = Math.max(0, data.remainingSeconds - elapsed);
+          duration = data.duration || localSeconds;
+          timerStartTime = Date.now() - (elapsed * 1000);
+        } else {
+          localSeconds = data.remainingSeconds || 0;
+          duration = data.duration || localSeconds;
+        }
+        
         isRunning = data.isRunning;
+        
+        // Handle finish state
+        if (data.finished) {
+          localSeconds = 0;
+          isRunning = false;
+          const phaseLabel = document.getElementById("phaseLabel");
+          phaseLabel.textContent = "Session Complete! 🎉";
+          phaseLabel.style.color = "#10b981";
+        }
+        
         displayTime(localSeconds);
-        if (isRunning) startLocalTimer();
+        if (isRunning && localSeconds > 0) startLocalTimer();
         else stopLocalTimer();
       });
 
@@ -1613,7 +1678,9 @@
       updateRemoteTimer({
         isRunning: true,
         remainingSeconds: localSeconds,
-        lastUpdated: Date.now()
+        lastUpdated: Date.now(), 
+        phaseIndex: phaseIndex, 
+        duration: duration
       });
     }
 
