@@ -550,15 +550,15 @@
       grid-column: 1 / -1;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin-top: 1rem;
+      gap: 3rem;
+      margin-top: 2rem;
     }
     
     .note-card {
       background: #ffffff;
       border: 1.5px solid #EAF0FB;
       border-radius: 16px;
-      padding: 2rem;
+      padding: 2.5rem;
       box-shadow: 0 8px 32px rgba(124, 131, 253, 0.04);
       transition: box-shadow 0.3s ease;
     }
@@ -580,7 +580,7 @@
     .note-card p {
       font-size: 0.85rem;
       color: #64748b;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
       line-height: 1.5;
     }
     
@@ -588,25 +588,26 @@
       display: block;
       font-size: 1.1rem;
       font-weight: 500;
-      margin-bottom: 0.75rem;
+      margin-bottom: 1rem;
       color: #475569;
     }
     
     .note-card textarea {
       width: 100%;
-      min-height: 180px;
-      padding: 1rem;
+      min-height: 150px; /* 180px에서 150px로 줄임 */
+      padding: 1.25rem; /* 1rem에서 1.25rem으로 증가 */
       border: 1px solid #e2e8f0;
       border-radius: 12px;
       background: rgba(255, 255, 255, 0.8);
       backdrop-filter: blur(10px);
-      font-size: 1.1rem;
+      font-size: 1.1rem; 
       font-family: 'Inter', sans-serif;
       color: #334155;
-      line-height: 1.6;
+      line-height: 1.7; /* 1.6에서 1.7로 증가 */
       resize: vertical;
       outline: none;
       transition: all 0.2s ease;
+      margin-bottom: 1.5rem; /* 하단 여백 추가 */
     }
     
     .note-card textarea:focus {
@@ -705,7 +706,7 @@
       align-items: center;
       gap: 0.75rem;
       margin-bottom: 0.75rem;
-      padding: 0.5rem;
+      padding: 0.75rem;
       border-radius: 8px;
       transition: all 0.3s ease;
     }
@@ -785,7 +786,7 @@
       background: none;
       border: 2px dashed #d1d5db;
       color: #64748b;
-      padding: 0.75rem;
+      padding: 1rem;
       border-radius: 8px;
       cursor: pointer;
       font-size: 1.1rem;
