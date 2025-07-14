@@ -1721,18 +1721,7 @@
         });
       });
 
-    const checklistKey = `goalChecklist-${session}`;
-
-    function saveChecklistToStorage() {
-      const items = [];
-      document.querySelectorAll("#goalChecklist .goal-row").forEach(row => {
-        const input = row.querySelector('input[type="text"]');
-        const checkbox = row.querySelector('input[type="checkbox"]');
-        const timeInput = row.querySelector('input[type="number"]');
-        if (input && input.value.trim()) {
-          items.push({ text: input.value, done: checkbox.checked, time: timeInput.value });
-        }
-      });
+  
 
 
 
@@ -1833,6 +1822,16 @@
       }
     });
 
+    // Theme button click handlers 추가
+      document.querySelectorAll('.theme-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const theme = btn.getAttribute('data-theme');
+          if (theme) {
+            setTheme(theme);
+          }
+        });
+      });
+
     // Save goal when clicking save button
     saveBtn.addEventListener("click", () => {
       let goalText = editable.textContent.trim();
@@ -1903,12 +1902,6 @@
         index++;
       }
     }
-
-    document.querySelectorAll('.theme-dot').forEach(btn => {
-      btn.classList.remove('active');
-    });
-    document.querySelector(`.theme-dot[data-theme="${theme}"]`).classList.add('active');
-
 
     // Rotate placeholder every 4 seconds
     setInterval(rotatePlaceholder, 4000);
