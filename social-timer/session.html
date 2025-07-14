@@ -101,19 +101,123 @@
     }
 
     .theme-btn[data-theme="purple"] {
-      background: #7C83FD;
+      background: #7C83FD;<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pomodoro Session</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    /* Theme Variables */
+    :root {
+      --accent-primary: #7C83FD;
+      --accent-secondary: #96baff;
+      --accent-gradient: linear-gradient(135deg, #7C83FD 0%, #96baff 100%);
+    }
+
+    /* Theme: Red */
+    [data-theme="red"] {
+      --accent-primary: #BB2649;
+      --accent-secondary: #d64570;
+      --accent-gradient: linear-gradient(135deg, #BB2649 0%, #d64570 100%);
+    }
+
+    /* Theme: Teal */
+    [data-theme="teal"] {
+      --accent-primary: #009473;
+      --accent-secondary: #00b894;
+      --accent-gradient: linear-gradient(135deg, #009473 0%, #00b894 100%);
+    }
+
+    /* Theme: Yellow */
+    [data-theme="yellow"] {
+      --accent-primary: #F5DF4D;
+      --accent-secondary: #f7e66e;
+      --accent-gradient: linear-gradient(135deg, #F5DF4D 0%, #f7e66e 100%);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      color: #1e293b;
+      line-height: 1.6;
+      min-height: 100vh;
+      transition: all 0.3s ease;
+    }
+
+    /* Theme Selector */
+    .theme-selector-wrapper {
+      position: static;
+      transform: none;
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    
+    /* theme 버튼 스타일 개선 */
+    .theme-buttons,
+    .ambient-buttons {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+    
+    .theme-label,
+    .ambient-section label {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #64748b;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    
+    .theme-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .theme-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+    
+    .theme-btn.active {
+      border-color: rgba(255,255,255,0.9);
+      box-shadow: 0 0 0 2px var(--accent-primary), 0 4px 16px rgba(0,0,0,0.15);
+      transform: scale(1.05);
+    }
+
+    .theme-btn[data-theme="purple"] {
+      background: linear-gradient(135deg, #7C83FD 0%, #9BB5FF 100%);
     }
 
     .theme-btn[data-theme="red"] {
-      background: #BB2649;
+      background: linear-gradient(135deg, #BB2649 0%, #E85A4F 100%);
     }
 
     .theme-btn[data-theme="teal"] {
-      background: #009473;
+      background: linear-gradient(135deg, #009473 0%, #00D2A6 100%);
     }
 
     .theme-btn[data-theme="yellow"] {
-      background: #F5DF4D;
+      background: linear-gradient(135deg, #F5DF4D 0%, #F9E784 100%);
     }
 
     .settings-bar {
@@ -258,11 +362,11 @@
     }
     
     #timerText {
-      font-size: 1.6rem;
-      font-weight: 800;
-      fill: #1e293b;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      letter-spacing: -0.02em;
+      font-size: 1.3rem;
+      font-weight: 600;
+      fill: #64748b;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.5px;
     }
     
     .controls {
@@ -346,35 +450,39 @@
     .ambient-buttons {
       display: flex;
       justify-content: center;
-      gap: 1rem;
+      gap: 0.75rem;
       margin-top: 0.75rem;
     }
     
     .ambient-btn {
-      font-size: 1.4rem;
-      width: 48px;
-      height: 48px;
+      font-size: 1.8rem;
+      width: 52px;
+      height: 52px;
       border-radius: 50%;
-      border: 2px solid transparent;
-      background: #F5F7FA;
+      border: 3px solid transparent;
+      background: rgba(255,255,255,0.9);
       cursor: pointer;
-      transition: all 0.2s ease;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      transition: all 0.25s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
       display: flex;
       align-items: center;
       justify-content: center;
+      backdrop-filter: blur(10px);
     }
     
     .ambient-btn:hover {
-      background: #fff;
+      background: rgba(255,255,255,1);
       border-color: var(--accent-secondary);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(var(--accent-primary), 0.1);
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 6px 16px rgba(var(--accent-primary), 0.12);
     }
     
     .ambient-btn.active {
       border-color: var(--accent-primary);
       background: rgba(var(--accent-primary), 0.1);
+      backdrop-filter: blur(10px);
+      transform: scale(1.05);
+      box-shadow: 0 0 0 2px var(--accent-primary), 0 4px 12px rgba(var(--accent-primary), 0.2);
     }
 
     .loading-msg {
@@ -391,8 +499,6 @@
       visibility: hidden;
     }
 
-
-    
     /* Dashboard Section */
     .dashboard-section {
       display: flex;
@@ -994,11 +1100,8 @@
         gap: 1rem;
         margin-bottom: 1rem;
         margin-top: 1rem;
-      }}
-      
-      
-
-
+      }
+    }
     
     @media (max-width: 768px) {
       .container {
@@ -1039,13 +1142,6 @@
   </style>
 </head>
 <body>
-  <!-- Theme Selector -->
-  <div class="theme-selector">
-    <button class="theme-btn active" data-theme="purple" onclick="setTheme('purple')" title="Classic Purple"></button>
-    <button class="theme-btn" data-theme="red" onclick="setTheme('red')" title="Cherry Red"></button>
-    <button class="theme-btn" data-theme="teal" onclick="setTheme('teal')" title="Ocean Teal"></button>
-    <button class="theme-btn" data-theme="yellow" onclick="setTheme('yellow')" title="Sunny Yellow"></button>
-  </div>
 
   <header id="sessionHeader" onclick="copyInviteLink()">
     <div class="invitation-container">
@@ -1100,22 +1196,22 @@
           <div class="theme-selector-wrapper">
             <div class="theme-label">🎨 Theme</div>
             <div class="theme-buttons">
-              <button class="theme-btn" data-theme="purple" style="background:#7C83FD;"></button>
-              <button class="theme-btn" data-theme="red" style="background:#BB2649;"></button>
-              <button class="theme-btn" data-theme="teal" style="background:#009473;"></button>
-              <button class="theme-btn" data-theme="yellow" style="background:#F5DF4D;"></button>
+              <button class="theme-btn" data-theme="purple" style="background:linear-gradient(135deg, #7C83FD 0%, #9BB5FF 100%);"></button>
+              <button class="theme-btn" data-theme="red" style="background:linear-gradient(135deg, #BB2649 0%, #E85A4F 100%);"></button>
+              <button class="theme-btn" data-theme="teal" style="background:linear-gradient(135deg, #009473 0%, #00D2A6 100%);"></button>
+              <button class="theme-btn" data-theme="yellow" style="background:linear-gradient(135deg, #F5DF4D 0%, #F9E784 100%);"></button>
             </div>
           </div>
         
           <!-- 🎧 Ambient Sound -->
           <div class="ambient-section">
             <label>🎧 Ambient Sound</label>
-            <div class="theme-buttons">
-              <button class="theme-btn" data-sound="Fire">🔥</button>
-              <button class="theme-btn" data-sound="Rain">🌧️</button>
-              <button class="theme-btn" data-sound="Ocean">🌊</button>
-              <button class="theme-btn" data-sound="Forest">🌲</button>
-              <button class="theme-btn" data-sound="Muted">🔇</button>
+            <div class="ambient-buttons">
+              <button class="ambient-btn" data-sound="Fire">🔥</button>
+              <button class="ambient-btn" data-sound="Rain">🌧️</button>
+              <button class="ambient-btn" data-sound="Ocean">🌊</button>
+              <button class="ambient-btn" data-sound="Forest">🌲</button>
+              <button class="ambient-btn" data-sound="Muted">🔇</button>
             </div>
             <div id="sound-loading-msg" class="loading-msg hidden">Loading sound...</div>
           </div>
@@ -1581,29 +1677,62 @@
       if (el) el.classList.add("active");
     }
 
-    
-      const ambientButtons = document.querySelectorAll('.theme-btn[data-sound]');
+      document.querySelectorAll('.theme-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const theme = btn.getAttribute('data-theme');
+          if (theme) {
+            setTheme(theme);
+          }
+        });
+      });
+
+      const ambientButtons = document.querySelectorAll('.ambient-btn[data-sound]');
       const loadingMsg = document.getElementById('sound-loading-msg');
     
       ambientButtons.forEach(btn => {
         btn.addEventListener('click', () => {
           const soundName = btn.getAttribute('data-sound');
+          
+          // Set ambient sound
+          if (soundName === 'Fire') {
+            setAmbient('fire', btn);
+          } else if (soundName === 'Rain') {
+            setAmbient('rain', btn);
+          } else if (soundName === 'Ocean') {
+            setAmbient('wind', btn);
+          } else if (soundName === 'Forest') {
+            setAmbient('forest', btn);
+          } else if (soundName === 'Muted') {
+            setAmbient(null, btn);
+          }
     
-          // 텍스트 설정
+          // Loading message
           if (soundName === 'Muted') {
             loadingMsg.textContent = 'Sound off';
           } else {
             loadingMsg.textContent = `Loading ${soundName} sound...`;
           }
     
-          // 표시 및 자동 숨김
+          // Display and auto hide
           loadingMsg.classList.remove('hidden');
           setTimeout(() => {
             loadingMsg.classList.add('hidden');
           }, 3000);
         });
       });
-   
+
+    const checklistKey = `goalChecklist-${session}`;
+
+    function saveChecklistToStorage() {
+      const items = [];
+      document.querySelectorAll("#goalChecklist .goal-row").forEach(row => {
+        const input = row.querySelector('input[type="text"]');
+        const checkbox = row.querySelector('input[type="checkbox"]');
+        const timeInput = row.querySelector('input[type="number"]');
+        if (input && input.value.trim()) {
+          items.push({ text: input.value, done: checkbox.checked, time: timeInput.value });
+        }
+      });
 
 
 
