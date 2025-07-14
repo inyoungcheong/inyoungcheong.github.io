@@ -1141,7 +1141,7 @@
             <button onclick="startTimer()">Start</button>
             <button onclick="pauseTimer()">Pause</button>
             <button onclick="resetTimer()">Reset</button>
-            <button onclick="finishTimer()" style="background: #ef4444; color: white;">Finish</button>
+            <button onclick="finishTimer()" style="background: #f87171; color: white;">Finish</button>
             <select id="focusSelect" onchange="setFocusDuration(this.value)">
             <option value="1500">25 min</option>
             <option value="2700">45 min</option>
@@ -1441,18 +1441,34 @@
   
       if (localStorage.getItem(roleKey) !== "host") {
         controls.querySelectorAll("button").forEach(btn => {
-          btn.disabled = true;
+          if (btn.onclick && btn.onclick.toString().includes('finishTimer')) {
+            // Hide finish button for guests
+            btn.style.display = 'none';
+          } else {
+            btn.disabled = true;
+          }
         });
       
         const select = document.getElementById("focusSelect");
         if (select) {
           select.disabled = true;
         }
-
         const focusSelect = document.getElementById("focusSelect");
         if (focusSelect) {
           setFocusDuration(focusSelect.value);
         }
+      
+        // Add leave button for guests
+        const leaveBtn = document.createElement("button");
+        leaveBtn.textContent = "Leave Session";
+        leaveBtn.style.background = "#6b7280";
+        leaveBtn.style.color = "white";
+        leaveBtn.onclick = () => {
+          if (confirm("Are you sure you want to leave this session?")) {
+            window.close();
+          }
+        };
+        controls.appendChild(leaveBtn);
       
         const notice = document.createElement("div");
         notice.innerHTML = `<div style="font-size: 0.85rem; color: #64748b; background: rgba(248, 250, 252, 0.8); border: 1px solid #EAF0FB; border-radius: 8px; padding: 0.75rem; margin-top: 1rem; text-align: center;"><strong>Only the host</strong> can control the timer.</div>`;
@@ -1568,6 +1584,11 @@
 }
 
     function finishTimer() {
+      // Show confirmation dialog for host
+      if (!confirm("Are you sure you want to finish this timer session for everyone?\n\nThis will end the session for all participants.\n\nClick OK to finish\nClick Cancel to continue")) {
+        return; // Host clicked Cancel - go back to timer
+      }
+      
       updateRemoteTimer({
         isRunning: false,
         remainingSeconds: 0,
@@ -1579,14 +1600,8 @@
       
       // Show completion message
       const phaseLabel = document.getElementById("phaseLabel");
-      const originalText = phaseLabel.textContent;
-      phaseLabel.textContent = "Good work today! 🎉";
+      phaseLabel.textContent = "Session Complete! 🎉";
       phaseLabel.style.color = "#10b981";
-      
-      setTimeout(() => {
-        phaseLabel.textContent = originalText;
-        phaseLabel.style.color = "";
-      }, 3000);
     }
     
     db.collection("sessions").doc(session).collection("state").doc("timer")
@@ -1594,37 +1609,45 @@
         const data = doc.data();
         if (!data) return;
         
+        console.log("Timer sync data:", data); // Debug log
+        
         // Sync phase if different
         if (data.phaseIndex !== undefined && data.phaseIndex !== phaseIndex) {
           phaseIndex = data.phaseIndex;
           updatePhaseLabel();
         }
         
-        // Calculate actual remaining time based on server timestamp
+        // Always use the server data as source of truth
         if (data.isRunning && data.lastUpdated) {
-          const elapsed = Math.floor((Date.now() - data.lastUpdated) / 1000);
+          const now = Date.now();
+          const elapsed = Math.floor((now - data.lastUpdated) / 1000);
           localSeconds = Math.max(0, data.remainingSeconds - elapsed);
-          duration = data.duration || localSeconds;
-          timerStartTime = Date.now() - (elapsed * 1000);
+          duration = data.duration || data.remainingSeconds;
+          timerStartTime = now - (elapsed * 1000);
         } else {
           localSeconds = data.remainingSeconds || 0;
           duration = data.duration || localSeconds;
+          timerStartTime = null;
         }
         
-        isRunning = data.isRunning;
+        isRunning = data.isRunning || false;
         
         // Handle finish state
         if (data.finished) {
           localSeconds = 0;
           isRunning = false;
+          stopLocalTimer();
           const phaseLabel = document.getElementById("phaseLabel");
           phaseLabel.textContent = "Session Complete! 🎉";
           phaseLabel.style.color = "#10b981";
         }
         
         displayTime(localSeconds);
-        if (isRunning && localSeconds > 0) startLocalTimer();
-        else stopLocalTimer();
+        if (isRunning && localSeconds > 0) {
+          startLocalTimer();
+        } else {
+          stopLocalTimer();
+        }
       });
 
     db.collection("sessions").doc(session).collection("participants")
@@ -1794,7 +1817,12 @@
         row.classList.toggle("checked", checkbox.checked);
         saveChecklistToStorage();
       };
-    
+      
+      // Apply checked state immediately if loaded as checked
+      if (checked) {
+        row.classList.add("checked");
+      }
+      
       const input = document.createElement("input");
       input.type = "text";
       input.placeholder = "Write a small actionable item...";
