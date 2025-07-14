@@ -938,34 +938,49 @@
       box-shadow: 0 12px 36px rgba(124, 131, 253, 0.13);
     }
 
+    .theme-dots {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      justify-content: center;
+    }
+    
     .theme-dot {
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        border: none;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
-      }
-      
-      /* 호버 시 살짝 떠오르게 */
-      .theme-dot:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-      }
-      
-      /* 현재 선택된 테마 표시 */
-      .theme-dot.active {
-        outline: 3px solid var(--accent-primary);
-        outline-offset: 2px;
-      }
-      
-      /* 테마 색상별 배경 */
-      .theme-dot[data-theme="purple"] { background: #7C83FD; }
-      .theme-dot[data-theme="red"]    { background: #BB2649; }
-      .theme-dot[data-theme="teal"]   { background: #009473; }
-      .theme-dot[data-theme="yellow"] { background: #F5DF4D; }
-
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      opacity: 0.4;
+    }
+    
+    .theme-dot:hover {
+      opacity: 0.8;
+      transform: scale(1.2);
+    }
+    
+    .theme-dot.active {
+      opacity: 1;
+      transform: scale(1.1);
+      box-shadow: 0 0 0 2px rgba(255,255,255,0.8);
+    }
+    
+    .theme-dot[data-theme="purple"] {
+      background: #a5b4fc;
+    }
+    
+    .theme-dot[data-theme="red"] {
+      background: #fca5a5;
+    }
+    
+    .theme-dot[data-theme="teal"] {
+      background: #5eead4;
+    }
+    
+    .theme-dot[data-theme="yellow"] {
+      background: #fde047;
+    }
 
       .circle-btn {
         width: 36px;
@@ -1103,7 +1118,15 @@
     <div class="container">
       <!-- Timer Section -->
       <div class="timer-section">
-        <div id="phaseLabel">Focus</div>
+        <div class="timer-section">
+          <div class="theme-dots">
+            <button class="theme-dot active" data-theme="purple"></button>
+            <button class="theme-dot" data-theme="red"></button>
+            <button class="theme-dot" data-theme="teal"></button>
+            <button class="theme-dot" data-theme="yellow"></button>
+          </div>
+          
+          <div id="phaseLabel">Focus</div>
         <div class="timer-circle">
           <svg viewBox="0 0 100 100" width="280" height="280">
             <circle cx="50" cy="50" r="45" fill="none" stroke="var(--border-color)" stroke-width="1.5" opacity="0.3" />
@@ -1124,17 +1147,6 @@
         </div>
 
         <div class="settings-bar">
-          <!-- 🎨 Theme Selector -->
-          <div class="theme-selector-wrapper">
-            <div class="theme-label">🎨 Theme</div>
-            <div class="theme-buttons">
-              <button class="theme-btn" data-theme="purple" style="background:#7C83FD;"></button>
-              <button class="theme-btn" data-theme="red" style="background:#BB2649;"></button>
-              <button class="theme-btn" data-theme="teal" style="background:#009473;"></button>
-              <button class="theme-btn" data-theme="yellow" style="background:#F5DF4D;"></button>
-            </div>
-          </div>
-        
           <!-- 🎧 Ambient Sound -->
           <div class="ambient-section">
             <label>🎧 Ambient Sound</label>
@@ -1243,10 +1255,30 @@
       document.querySelector(`[data-theme="${theme}"]`).classList.add('active');
     }
 
-    function loadTheme() {
-      const savedTheme = localStorage.getItem('pomodoro-theme') || 'purple';
-      setTheme(savedTheme);
-    }
+     document.querySelectorAll('.theme-dot').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const theme = btn.getAttribute('data-theme');
+          if (theme) {
+            setTheme(theme);
+          }
+        });
+      });
+      
+      function setTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('pomodoro-theme', theme);
+        
+        // theme-dot 활성화 상태 업데이트 (이 부분이 추가로 필요!)
+        document.querySelectorAll('.theme-dot').forEach(btn => {
+          btn.classList.remove('active');
+        });
+        document.querySelector(`[data-theme="${theme}"]`).classList.add('active');
+      }
+      
+      function loadTheme() {
+        const savedTheme = localStorage.getItem('pomodoro-theme') || 'purple';
+        setTheme(savedTheme);
+      }
     
     // Copy invite link function
     function copyInviteLink() {
