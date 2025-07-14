@@ -73,58 +73,67 @@
     
     .theme-label,
     .ambient-section label {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: 500;
       color: #64748b;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.25rem;
       text-align: center;
     }
     
     .theme-btn {
-      width: 44px;
-      height: 44px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
-      border: 3px solid transparent;
+      border: 2px solid rgba(255,255,255,0.8);
       cursor: pointer;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      transition: all 0.25s ease;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08), 
+                  0 1px 3px rgba(0,0,0,0.06);
+      transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
     }
     
     .theme-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      transform: scale(1.1);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.12), 
+                  0 2px 8px rgba(0,0,0,0.08);
+      border-color: rgba(255,255,255,1);
     }
     
     .theme-btn.active {
-      border-color: rgba(255,255,255,0.9);
-      box-shadow: 0 0 0 2px var(--accent-primary), 0 4px 16px rgba(0,0,0,0.15);
+      border-color: rgba(255,255,255,1);
+      box-shadow: 0 0 0 3px rgba(var(--accent-primary), 0.2), 
+                  0 4px 20px rgba(0,0,0,0.15);
       transform: scale(1.05);
     }
 
     .theme-btn[data-theme="purple"] {
-      background: linear-gradient(135deg, #7C83FD 0%, #9BB5FF 100%);
+      background: linear-gradient(135deg, #e0e7ff 0%, #f3f4f6 100%);
+      border: 2px solid #a5b4fc;
     }
     
     .theme-btn[data-theme="red"] {
-      background: linear-gradient(135deg, #BB2649 0%, #E85A4F 100%);
+      background: linear-gradient(135deg, #fee2e2 0%, #f3f4f6 100%);
+      border: 2px solid #fca5a5;
     }
     
     .theme-btn[data-theme="teal"] {
-      background: linear-gradient(135deg, #009473 0%, #00D2A6 100%);
+      background: linear-gradient(135deg, #ccfbf1 0%, #f3f4f6 100%);
+      border: 2px solid #5eead4;
     }
     
     .theme-btn[data-theme="yellow"] {
-      background: linear-gradient(135deg, #F5DF4D 0%, #F9E784 100%);
+      background: linear-gradient(135deg, #fefce8 0%, #f3f4f6 100%);
+      border: 2px solid #fde047;
     }
 
     .settings-bar {
       display: flex;
-      flex-direction: column;
+      flex-direction: row; /* column에서 row로 변경 */
       align-items: center;
-      gap: 1.75rem;
-      margin-top: 2rem;
+      justify-content: center;
+      gap: 3rem; /* 간격 늘림 */
+      margin-top: 1.5rem; /* 마진 줄임 */
     }
     
     header {
@@ -340,9 +349,9 @@
     
     .ambient-section label {
       display: block;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       font-weight: 500;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.25rem;
       color: #64748b;
     }
 
@@ -985,6 +994,24 @@
 
     
     /* Responsive Design */
+
+    @media (max-width: 768px) {
+      .settings-bar {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      
+      .theme-btn {
+        width: 32px;
+        height: 32px;
+      }
+      
+      .ambient-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+      }
+    }
     @media (max-width: 1024px) {
       .container {
         grid-template-columns: 1fr;
