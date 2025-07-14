@@ -81,107 +81,6 @@
     }
     
     .theme-btn {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      border: 2px solid transparent;
-      cursor: pointer;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-      transition: all 0.2s ease;
-    }
-    
-    .theme-btn:hover {
-      transform: scale(1.1);
-      border-color: var(--accent-primary);
-    }
-    
-    .theme-btn.active {
-      border-color: var(--accent-primary);
-      box-shadow: 0 0 0 2px rgba(var(--accent-primary), 0.15);
-    }
-
-    .theme-btn[data-theme="purple"] {
-      background: #7C83FD;<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pomodoro Session</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    /* Theme Variables */
-    :root {
-      --accent-primary: #7C83FD;
-      --accent-secondary: #96baff;
-      --accent-gradient: linear-gradient(135deg, #7C83FD 0%, #96baff 100%);
-    }
-
-    /* Theme: Red */
-    [data-theme="red"] {
-      --accent-primary: #BB2649;
-      --accent-secondary: #d64570;
-      --accent-gradient: linear-gradient(135deg, #BB2649 0%, #d64570 100%);
-    }
-
-    /* Theme: Teal */
-    [data-theme="teal"] {
-      --accent-primary: #009473;
-      --accent-secondary: #00b894;
-      --accent-gradient: linear-gradient(135deg, #009473 0%, #00b894 100%);
-    }
-
-    /* Theme: Yellow */
-    [data-theme="yellow"] {
-      --accent-primary: #F5DF4D;
-      --accent-secondary: #f7e66e;
-      --accent-gradient: linear-gradient(135deg, #F5DF4D 0%, #f7e66e 100%);
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-      color: #1e293b;
-      line-height: 1.6;
-      min-height: 100vh;
-      transition: all 0.3s ease;
-    }
-
-    /* Theme Selector */
-    .theme-selector-wrapper {
-      position: static;
-      transform: none;
-      margin-top: 1rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-    }
-    
-    /* theme 버튼 스타일 개선 */
-    .theme-buttons,
-    .ambient-buttons {
-      display: flex;
-      gap: 0.75rem;
-      justify-content: center;
-    }
-    
-    .theme-label,
-    .ambient-section label {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: #64748b;
-      margin-bottom: 0.5rem;
-      text-align: center;
-    }
-    
-    .theme-btn {
       width: 44px;
       height: 44px;
       border-radius: 50%;
@@ -207,15 +106,15 @@
     .theme-btn[data-theme="purple"] {
       background: linear-gradient(135deg, #7C83FD 0%, #9BB5FF 100%);
     }
-
+    
     .theme-btn[data-theme="red"] {
       background: linear-gradient(135deg, #BB2649 0%, #E85A4F 100%);
     }
-
+    
     .theme-btn[data-theme="teal"] {
       background: linear-gradient(135deg, #009473 0%, #00D2A6 100%);
     }
-
+    
     .theme-btn[data-theme="yellow"] {
       background: linear-gradient(135deg, #F5DF4D 0%, #F9E784 100%);
     }
@@ -450,7 +349,7 @@
     .ambient-buttons {
       display: flex;
       justify-content: center;
-      gap: 0.75rem;
+      gap: 1rem;
       margin-top: 0.75rem;
     }
     
@@ -499,6 +398,8 @@
       visibility: hidden;
     }
 
+
+    
     /* Dashboard Section */
     .dashboard-section {
       display: flex;
@@ -1100,8 +1001,11 @@
         gap: 1rem;
         margin-bottom: 1rem;
         margin-top: 1rem;
-      }
-    }
+      }}
+      
+      
+
+
     
     @media (max-width: 768px) {
       .container {
@@ -1142,6 +1046,7 @@
   </style>
 </head>
 <body>
+  <!-- Theme Selector -->
 
   <header id="sessionHeader" onclick="copyInviteLink()">
     <div class="invitation-container">
@@ -1196,10 +1101,10 @@
           <div class="theme-selector-wrapper">
             <div class="theme-label">🎨 Theme</div>
             <div class="theme-buttons">
-              <button class="theme-btn" data-theme="purple" style="background:linear-gradient(135deg, #7C83FD 0%, #9BB5FF 100%);"></button>
-              <button class="theme-btn" data-theme="red" style="background:linear-gradient(135deg, #BB2649 0%, #E85A4F 100%);"></button>
-              <button class="theme-btn" data-theme="teal" style="background:linear-gradient(135deg, #009473 0%, #00D2A6 100%);"></button>
-              <button class="theme-btn" data-theme="yellow" style="background:linear-gradient(135deg, #F5DF4D 0%, #F9E784 100%);"></button>
+              <button class="theme-btn" data-theme="purple" style="background:#7C83FD;"></button>
+              <button class="theme-btn" data-theme="red" style="background:#BB2649;"></button>
+              <button class="theme-btn" data-theme="teal" style="background:#009473;"></button>
+              <button class="theme-btn" data-theme="yellow" style="background:#F5DF4D;"></button>
             </div>
           </div>
         
@@ -1677,15 +1582,7 @@
       if (el) el.classList.add("active");
     }
 
-      document.querySelectorAll('.theme-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const theme = btn.getAttribute('data-theme');
-          if (theme) {
-            setTheme(theme);
-          }
-        });
-      });
-
+    
       const ambientButtons = document.querySelectorAll('.ambient-btn[data-sound]');
       const loadingMsg = document.getElementById('sound-loading-msg');
     
@@ -1705,23 +1602,21 @@
           } else if (soundName === 'Muted') {
             setAmbient(null, btn);
           }
-    
-          // Loading message
+      
+          // Loading message (기존 코드 유지)
           if (soundName === 'Muted') {
             loadingMsg.textContent = 'Sound off';
           } else {
             loadingMsg.textContent = `Loading ${soundName} sound...`;
           }
-    
-          // Display and auto hide
+      
           loadingMsg.classList.remove('hidden');
           setTimeout(() => {
             loadingMsg.classList.add('hidden');
           }, 3000);
         });
       });
-
-  
+   
 
 
 
@@ -1822,16 +1717,6 @@
       }
     });
 
-    // Theme button click handlers 추가
-      document.querySelectorAll('.theme-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const theme = btn.getAttribute('data-theme');
-          if (theme) {
-            setTheme(theme);
-          }
-        });
-      });
-
     // Save goal when clicking save button
     saveBtn.addEventListener("click", () => {
       let goalText = editable.textContent.trim();
@@ -1902,6 +1787,21 @@
         index++;
       }
     }
+
+    document.querySelectorAll('.theme-dot').forEach(btn => {
+      btn.classList.remove('active');
+    });
+    document.querySelector(`.theme-dot[data-theme="${theme}"]`).classList.add('active');
+
+    document.querySelectorAll('.theme-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const theme = btn.getAttribute('data-theme');
+        if (theme) {
+          setTheme(theme);
+        }
+      });
+    });
+
 
     // Rotate placeholder every 4 seconds
     setInterval(rotatePlaceholder, 4000);
