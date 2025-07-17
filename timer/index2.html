@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Focus Timer & Motivation Partner</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-bg: linear-gradient(135deg, #fafbfc 0%, #f7f9fb 50%, #f0f4f8 100%);
+      --secondary-bg: rgba(255, 255, 255, 0.9);
+      --card-bg: rgba(255, 255, 255, 0.8);
+      --glass-bg: rgba(255, 255, 255, 0.1);
+      --text-primary: #1a202c;
+      --text-secondary: #4a5568;
+      --text-muted: #a0aec0;
+      --neutral-100: #f7fafc;
+      --neutral-200: #edf2f7;
+      --neutral-300: #e2e8f0;
+      --neutral-800: #2d3748;
+      --neutral-900: #1a202c;
+      --accent-primary: #2ba3b3;
+      --accent-secondary: #5bc5d3;
+      --accent-gradient: linear-gradient(135deg, #2ba3b3 0%, #5bc5d3 100%);
+      --border-color: rgba(226, 232, 240, 0.6);
+      --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --shadow-large: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      --border-radius: 24px;
+      --border-radius-small: 12px;
+      --border-radius-large: 32px;
+    }
+
+    [data-theme="pink"] {
+      --primary-bg: linear-gradient(135deg, #fef7f7 0%, #fdf2f8 50%, #fce7f3 100%);
+      --accent-primary: #ee6d8a;
+      --accent-secondary: #f472b6;
+      --accent-gradient: linear-gradient(135deg, #ee6d8a 0%, #f472b6 100%);
+    }
+
+    [data-theme="brown"] {
+      --primary-bg: linear-gradient(135deg, #fafaf9 0%, #f5f5f4 50%, #f0f0ef 100%);
+      --accent-primary: #a59a8b;
+      --accent-secondary: #d4c4b0;
+      --accent-gradient: linear-gradient(135deg, #a59a8b 0%, #d4c4b0 100%);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --primary-bg: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+        --secondary-bg: rgba(30, 41, 59, 0.9);
+        --card-bg: rgba(30, 41, 59, 0.7);
+        --glass-bg: rgba(15, 23, 42, 0.3);
+        --text-primary: #f1f5f9;
+        --text-secondary: #cbd5e1;
+        --text-muted: #64748b;
+        --neutral-100: #334155;
+        --neutral-200: #475569;
+        --neutral-300: #64748b;
+        --neutral-800: #f1f5f9;
+        --neutral-900: #ffffff;
+        --border-color: rgba(71, 85, 105, 0.4);
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Outfit', 'Inter', system-ui, sans-serif;
+      background: var(--primary-bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+      padding: 1rem;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      font-weight: 400;
+    }
+
+    .theme-selector {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 1000;
+      display: flex;
+      gap: 0.5rem;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      padding: 0.5rem;
+      border-radius: 50px;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-medium);
+    }
+
+    .theme-btn {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.8);
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .theme-btn:hover {
+      transform: scale(1.25);
+    }
+
+    .theme-btn.active {
+      transform: scale(1.3);
+      border-color: var(--neutral-900);
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+    }
+
+    .theme-btn[data-theme="teal"] {
+      background: linear-gradient(135deg, #2ba3b3, #5bc5d3);
+    }
+
+    .theme-btn[data-theme="brown"] {
+      background: linear-gradient(135deg, #a59a8b, #d4c4b0);
+    }
+
+    .theme-btn[data-theme="pink"] {
+      background: linear-gradient(135deg, #ee6d8a, #f472b6);
+    }
+
+    .main-container {
+      max-width: 480px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .glass-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      box-shadow: var(--shadow-medium);
+      border: 1px solid var(--border-color);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glass-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    }
+
+    .card-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: var(--accent-gradient);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      letter-spacing: -0.02em;
+    }
+
+    /* Timer Section */
+    .timer-section {
+      text-align: center;
+    }
+
+    .timer-status {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      padding: 0.75rem 1.5rem;
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      border-radius: 50px;
+      border: 1px solid var(--border-color);
+      font-family: 'Manrope', sans-serif;
+    }
+
+    .circle-timer {
+      width: 200px;
+      height: 200px;
+      margin: 1.5rem auto;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .circle-timer svg {
+      filter: drop-shadow(0 8px 32px rgba(0, 0, 0, 0.12));
+      transition: all 0.3s ease;
+    }
+
+    .circle-timer text {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 14px;
+      fill: var(--text-primary);
+    }
+
+    .controls {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      width: 100%;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: var(--border-radius-small);
+      font-size: 0.9rem;
+      font-weight: 600;
+      font-family: 'Manrope', sans-serif;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      background: var(--secondary-bg);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn:hover {
+      background: var(--accent-gradient);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-medium);
+      border-color: transparent;
+    }
+
+    .btn-primary {
+      background: var(--accent-gradient);
+      color: white;
+      border: none;
+      font-weight: 700;
+    }
+
+    .select-group {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+
+    .select-input {
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius-small);
+      background: var(--secondary-bg);
+      color: var(--text-primary);
+      font-size: 0.9rem;
+      font-family: 'Manrope', sans-serif;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      backdrop-filter: blur(10px);
+      appearance: none;
+      flex: 1;
+    }
+
+    .select-input:focus {
+      outline: none;
+      border-color: var(--accent-primary);
+      box-shadow: 0 0 0 3px rgba(43, 163, 179, 0.1);
+    }
+
+    /* Chatbot Section */
+    .chatbot-section {
+      display: flex;
+      flex-direction: column;
+      height: 600px;
+    }
+
+    .usage-info {
+      text-align: center;
+      margin-bottom: 1rem;
+      padding: 0.5rem 1rem;
+      background: rgba(43, 163, 179, 0.1);
+      border: 1px solid var(--accent-primary);
+      border-radius: 15px;
+      color: var(--accent-primary);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius-small);
+      padding: 1rem;
+      margin-bottom: 1rem;
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+    }
+
+    .message {
+      margin-bottom: 1rem;
+      padding: 0.75rem 1rem;
+      border-radius: 15px;
+      max-width: 85%;
+      word-wrap: break-word;
+      line-height: 1.4;
+    }
+
+    .message.user {
+      background: var(--accent-gradient);
+      color: white;
+      margin-left: auto;
+      text-align: right;
+    }
+
+    .message.bot {
+      background: var(--secondary-bg);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+      margin-right: auto;
+    }
+
+    .message.system {
+      background: var(--glass-bg);
+      color: var(--text-muted);
+      text-align: center;
+      font-style: italic;
+      margin: 0.5rem auto;
+      max-width: 90%;
+    }
+
+    .chat-input-container {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    #message-input {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      font-size: 0.9rem;
+      outline: none;
+      background: var(--secondary-bg);
+      color: var(--text-primary);
+      font-family: 'Manrope', sans-serif;
+    }
+
+    #message-input:focus {
+      border-color: var(--accent-primary);
+      box-shadow: 0 0 0 3px rgba(43, 163, 179, 0.1);
+    }
+
+    #send-button {
+      padding: 0.75rem 1.5rem;
+      background: var(--accent-gradient);
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+      font-weight: 600;
+      font-family: 'Manrope', sans-serif;
+    }
+
+    #send-button:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-medium);
+    }
+
+    #send-button:disabled {
+      background: var(--neutral-300);
+      cursor: not-allowed;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 0.5rem;
+    }
+
+    .typing-indicator {
+      display: inline-block;
+    }
+
+    .typing-indicator span {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-primary);
+      margin: 0 2px;
+      animation: typing 1.4s infinite;
+    }
+
+    .typing-indicator span:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .typing-indicator span:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes typing {
+      0%, 60%, 100% {
+        transform: translateY(0);
+        opacity: 0.5;
+      }
+      30% {
+        transform: translateY(-8px);
+        opacity: 1;
+      }
+    }
+
+    .rate-limit-warning {
+      background: rgba(239, 68, 68, 0.1);
+      color: #dc2626;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      border-radius: var(--border-radius-small);
+      padding: 1rem;
+      margin-top: 1rem;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    /* Goals Section */
+    .goal-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem;
+      margin-bottom: 0.5rem;
+      background: var(--secondary-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius-small);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .goal-row:hover {
+      background: var(--neutral-100);
+      transform: translateX(4px);
+    }
+
+    .goal-row.checked {
+      opacity: 0.6;
+      background: var(--glass-bg);
+      border-style: dashed;
+    }
+
+    .goal-row input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--accent-primary);
+      cursor: pointer;
+    }
+
+    .goal-row input[type="text"] {
+      flex: 1;
+      border: none;
+      background: transparent;
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      outline: none;
+      padding: 0.25rem;
+      font-family: 'Manrope', sans-serif;
+    }
+
+    .goal-row input[type="text"]::placeholder {
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    .goal-row input[type="number"] {
+      width: 60px;
+      padding: 0.25rem;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      text-align: center;
+      background: var(--glass-bg);
+      color: var(--text-primary);
+      font-size: 0.85rem;
+      font-family: 'Manrope', sans-serif;
+    }
+
+    .goal-row .time-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .goal-row .remove-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 1.1rem;
+      padding: 0.25rem;
+      opacity: 0;
+      transition: all 0.2s ease;
+    }
+
+    .goal-row:hover .remove-btn {
+      opacity: 1;
+    }
+
+    .goal-row .remove-btn:hover {
+      color: #ef4444;
+    }
+
+    .add-goal-btn {
+      width: 100%;
+      padding: 0.75rem;
+      background: var(--glass-bg);
+      border: 2px dashed var(--border-color);
+      border-radius: var(--border-radius-small);
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      font-family: 'Manrope', sans-serif;
+      font-weight: 600;
+    }
+
+    .add-goal-btn:hover {
+      border-color: var(--accent-primary);
+      color: var(--accent-primary);
+      background: rgba(43, 163, 179, 0.05);
+    }
+
+    /* Focus Blocks Section */
+    .block-controls {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      align-items: center;
+    }
+
+    .block-input {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius-small);
+      background: var(--secondary-bg);
+      color: var(--text-primary);
+      font-size: 0.9rem;
+      outline: none;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      font-family: 'Manrope', sans-serif;
+    }
+
+    .block-input:focus {
+      border-color: var(--accent-primary);
+      box-shadow: 0 0 0 3px rgba(43, 163, 179, 0.1);
+    }
+
+    .block-item {
+      background: var(--secondary-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius-small);
+      padding: 1rem;
+      margin-bottom: 0.75rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .block-item:hover {
+      background: var(--neutral-100);
+      transform: translateX(4px);
+    }
+
+    .block-item.unlabeled {
+      opacity: 0.7;
+      font-style: italic;
+      border-style: dashed;
+      cursor: pointer;
+    }
+
+    .block-time {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+      font-family: 'Manrope', sans-serif;
+      font-weight: 600;
+    }
+
+    .block-label {
+      font-weight: 600;
+      color: var(--text-primary);
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 480px) {
+      .main-container {
+        max-width: 100%;
+        padding: 0 0.5rem;
+      }
+
+      .glass-card {
+        padding: 1.5rem;
+      }
+
+      .button-group {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .select-group {
+        flex-direction: column;
+      }
+
+      .block-controls {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .chatbot-section {
+        height: 500px; /* 모바일에서는 조금 작게 */
+      }
+    }
+
+    /* Timer running animation */
+    @keyframes pulse-soft {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.02); }
+    }
+
+    .timer-running .circle-timer {
+      animation: pulse-soft 3s infinite;
+    }
+  </style>
+</head>
+<body>
+  <div class="theme-selector">
+    <button class="theme-btn active" data-theme="teal" onclick="setTheme('teal')" title="Ocean Teal"></button>
+    <button class="theme-btn" data-theme="brown" onclick="setTheme('brown')" title="Warm Earth"></button>
+    <button class="theme-btn" data-theme="pink" onclick="setTheme('pink')" title="Sunset Pink"></button>
+  </div>
+
+  <div class="main-container">
+    <!-- Timer Section -->
+    <div class="glass-card timer-section">
+      <div class="card-title">⏰ Focus Timer</div>
+      
+      <div class="timer-status" id="status">Ready to focus – let's begin!</div>
+      
+      <div class="circle-timer">
+        <svg viewBox="0 0 100 100" width="200" height="200">
+          <circle cx="50" cy="50" r="45" fill="none" stroke="var(--border-color)" stroke-width="1.5" opacity="0.3" />
+          <path id="pie" fill="var(--accent-primary)" transform="rotate(0,50,50)" />
+          <text x="50" y="55" text-anchor="middle" font-size="14" fill="var(--text-primary)" id="timerText">25:00</text>
+        </svg>
+      </div>
+      
+      <div class="controls">
+        <div class="button-group">
+          <button class="btn btn-primary" onclick="startTimer()">▶ Start</button>
+          <button class="btn" onclick="pauseTimer()">⏸ Pause</button>
+          <button class="btn" onclick="resetTimer()">⏹ Reset</button>
+        </div>
+        
+        <div class="select-group">
+          <select class="select-input" id="focusDuration" onchange="setFocusDuration(this.value)">
+            <option value="25">🎯 25 min</option>
+            <option value="50">⚡ 50 min</option>
+            <option value="90">🚀 90 min</option>
+          </select>
+          
+          <select class="select-input" id="ambientSelect" onchange="changeAmbient(this.value)">
+            <option value="">🔇 Silence</option>
+            <option value="fire1">🔥 Fire</option>
+            <option value="rain">🌧️ Rain</option>
+            <option value="waterfall">🌊 Water</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chatbot Section -->
+    <div class="glass-card chatbot-section">
+      <div class="card-title">💬 Motivation Partner</div>
+      
+      <div class="usage-info">
+        <small>💡 Usage: <span id="usage-count">0</span>/30 messages today</small>
+      </div>
+
+      <div id="chat-messages" class="chat-messages">
+        <div class="message bot">
+          Hi! I help tackle emotional blockers behind procrastination like fear, overwhelm, and perfectionism. What's on your mind? ✨
+        </div>
+      </div>
+
+      <div class="chat-input-container">
+        <input type="text" id="message-input" placeholder="Tell me what's blocking you...">
+        <button id="send-button">Send</button>
+      </div>
+
+      <div id="loading" class="loading hidden">
+        <div class="typing-indicator">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <div id="rate-limit-warning" class="rate-limit-warning hidden">
+        <p>⚠️ You've reached the daily message limit (30 messages). Please try again tomorrow!</p>
+        <small>This helps manage server costs. Thank you for understanding! 💝</small>
+      </div>
+    </div>
+
+    <!-- Goals Section -->
+    <div class="glass-card">
+      <div class="card-title">⭐ Today's Goals</div>
+      <div id="goalList"></div>
+      <button class="add-goal-btn" onclick="addGoal()">+ Add Goal</button>
+    </div>
+
+    <!-- Focus Blocks Section -->
+    <div class="glass-card">
+      <div class="card-title">⚡ Focus Sessions</div>
+      <div class="block-controls">
+        <input type="text" class="block-input" id="taskInput" placeholder="What did you accomplish?">
+        <button class="btn btn-primary" onclick="labelLastBlock()">Save</button>
+      </div>
+      <div id="logList"></div>
+    </div>
+  </div>
+
+  <script>
+    // Timer variables
+    let focusTime = 25 * 60;
+    let shortBreakTime = 5 * 60;
+    let longBreakTime = 30 * 60;
+    let time = focusTime;
+    let timerInterval = null;
+    let timerRunning = false;
+    let isFocus = true;
+    let focusCount = 0;
+    let sessionLog = [];
+    let lastTimestamp = Date.now();
+
+    // Chatbot variables
+    let conversationId = null;
+    const apiUrl = 'https://working-chatbot-api-production.up.railway.app/api/chat';
+    const maxMessages = 30;
+    const usageKey = 'dailyPlanner_usage_' + getTodayKey();
+
+    // Audio
+    let currentAudio = null;
+    const gentleBell = new Audio("https://cdn.pixabay.com/download/audio/2022/03/15/audio_5fa3e3c5a7.mp3?filename=soft-bell-6555.mp3");
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+      updateDisplay();
+      updateStatus();
+      loadGoals();
+      loadBlocks();
+      loadTheme();
+      updateUsageDisplay();
+      setupChatEventListeners();
+      
+      if (!isRateLimited()) {
+        enableChatInput();
+      } else {
+        showRateLimit();
+      }
+
+      // Handle page visibility change to keep timer accurate
+      document.addEventListener('visibilitychange', handleVisibilityChange);
+      window.addEventListener('focus', handleWindowFocus);
+      window.addEventListener('blur', handleWindowBlur);
+    });
+
+    // Fix timer accuracy when switching tabs
+    function handleVisibilityChange() {
+      if (document.visibilityState === 'visible' && timerRunning) {
+        const now = Date.now();
+        const elapsed = Math.floor((now - lastTimestamp) / 1000);
+        time = Math.max(0, time - elapsed);
+        updateDisplay();
+        
+        if (time <= 0) {
+          completeSession();
+        }
+      }
+      lastTimestamp = Date.now();
+    }
+
+    function handleWindowFocus() {
+      if (timerRunning) {
+        lastTimestamp = Date.now();
+      }
+    }
+
+    function handleWindowBlur() {
+      if (timerRunning) {
+        lastTimestamp = Date.now();
+      }
+    }
+
+    // SVG Circle drawing
+    const pie = document.getElementById("pie");
+    
+    function polarToCartesian(cx, cy, r, angle) {
+      const rad = (angle - 90) * Math.PI / 180;
+      return [cx + r * Math.cos(rad), cy + r * Math.sin(rad)];
+    }
+
+    function drawPie(percent) {
+      const [cx, cy, r] = [50, 50, 45];
+      const angle = percent * 360;
+      const [x, y] = polarToCartesian(cx, cy, r, angle);
+      const largeArc = angle > 180 ? 1 : 0;
+      const d = `
+        M ${cx} ${cy}
+        L ${cx} ${cy - r}
+        A ${r} ${r} 0 ${largeArc} 1 ${x} ${y}
+        Z`;
+      pie.setAttribute("d", d);
+    }
+
+    // Theme functions
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('pomodoro-theme', theme);
+      
+      document.querySelectorAll('.theme-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      document.querySelector(`[data-theme="${theme}"]`).classList.add('active');
+    }
+
+    function loadTheme() {
+      const savedTheme = localStorage.getItem('pomodoro-theme') || 'teal';
+      setTheme(savedTheme);
+    }
+
+    // Timer functions
+    function startTimer() {
+      if (timerRunning) return;
+      timerRunning = true;
+      document.body.classList.add('timer-running');
+      lastTimestamp = Date.now();
+
+      updateStatus();
+      timerInterval = setInterval(() => {
+        const now = Date.now();
+        const elapsed = Math.floor((now - lastTimestamp) / 1000);
+        time = Math.max(0, time - elapsed);
+        lastTimestamp = now;
+        
+        updateDisplay();
+        if (time <= 0) {
+          completeSession();
+        }
+      }, 1000);
+    }
+
+    function pauseTimer() {
+      if (timerRunning) {
+        timerRunning = false;
+        clearInterval(timerInterval);
+        document.body.classList.remove('timer-running');
+        updateStatus();
+        fadeOutAmbient();
+      }
+    }
+
+    function resetTimer() {
+      timerRunning = false;
+      clearInterval(timerInterval);
+      document.body.classList.remove('timer-running');
+      time = focusTime;
+      isFocus = true;
+      updateDisplay();
+      updateStatus();
+    }
+
+    function completeSession() {
+      timerRunning = false;
+      clearInterval(timerInterval);
+      document.body.classList.remove('timer-running');
+      gentleBell.play();
+      
+      const endTime = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+      
+      if (isFocus) {
+        focusCount++;
+        sessionLog.push({
+          text: '',
+          duration: `${focusTime / 60} min`,
+          time: endTime,
+          type: 'focus',
+          label: ''
+        });
+        
+        time = (focusCount % 4 === 0) ? longBreakTime : shortBreakTime;
+        isFocus = false;
+      } else {
+        time = focusTime;
+        isFocus = true;
+      }
+      
+      updateDisplay();
+      updateStatus();
+      saveBlocks();
+      loadBlocks();
+      
+      setTimeout(() => startTimer(), 1000);
+    }
+
+    function updateDisplay() {
+      const minutes = Math.floor(time / 60).toString().padStart(2, '0');
+      const seconds = (time % 60).toString().padStart(2, '0');
+      document.getElementById('timerText').textContent = `${minutes}:${seconds}`;
+      
+      const total = isFocus ? focusTime : (focusCount % 4 === 0 ? longBreakTime : shortBreakTime);
+      const progress = 1 - (time / total);
+      drawPie(progress);
+      
+      pie.setAttribute("fill", isFocus ? "var(--accent-primary)" : "var(--accent-secondary)");
+      
+      // Update page title
+      document.title = `${minutes}:${seconds} - Focus Timer`;
+    }
+
+    function updateStatus() {
+      const statusEl = document.getElementById('status');
+      
+      if (timerRunning) {
+        if (isFocus) {
+          statusEl.textContent = '🎯 Deep Focus Mode - You\'re in the zone!';
+        } else if (focusCount % 4 === 0) {
+          statusEl.textContent = '🏖️ Long Break - Recharge completely!';
+        } else {
+          statusEl.textContent = '☕ Quick Break - Stretch and breathe!';
+        }
+      } else {
+        if (isFocus) {
+          statusEl.textContent = '🚀 Ready to focus – let\'s begin!';
+        } else {
+          statusEl.textContent = '⏸️ Break time – take it easy!';
+        }
+      }
+    }
+
+    function setFocusDuration(minutes) {
+      focusTime = parseInt(minutes) * 60;
+      if (!timerRunning && isFocus) {
+        time = focusTime;
+        updateDisplay();
+      }
+    }
+
+    // Ambient sound functions
+    function fadeOutAmbient() {
+      if (currentAudio) {
+        currentAudio.pause();
+        currentAudio = null;
+      }
+    }
+
+    function changeAmbient(type) {
+      if (currentAudio) {
+        currentAudio.pause();
+        currentAudio = null;
+      }
+      
+      if (!type) return;
+      
+      const ambientUrls = {
+        'fire1': 'https://archive.org/download/relaxingsounds/FIRE%202%203h%20Blazing%20Fireplace.mp3',
+        'rain': 'https://archive.org/download/relaxingsounds/Rain%207%20(Lightest)%208h%20DripsOnTrees-no%20thunder.mp3',
+        'waterfall': 'https://archive.org/download/relaxingsounds/Falls%201%209h%20River%20Rapids(High%20pitch)%2CLiteSplashing.mp3'
+      };
+      
+      if (ambientUrls[type]) {
+        currentAudio = new Audio(ambientUrls[type]);
+        currentAudio.loop = true;
+        currentAudio.volume = 0.4;
+        currentAudio.play().catch(e => console.log('Audio play failed:', e));
+      }
+    }
+
+    // Chatbot functions
+    function getTodayKey() {
+      const today = new Date();
+      return today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    }
+
+    function getUsageCount() {
+      const stored = localStorage.getItem(usageKey);
+      return stored ? parseInt(stored) : 0;
+    }
+
+    function incrementUsage() {
+      const current = getUsageCount();
+      localStorage.setItem(usageKey, (current + 1).toString());
+      updateUsageDisplay();
+    }
+
+    function updateUsageDisplay() {
+      const usage = getUsageCount();
+      document.getElementById('usage-count').textContent = usage;
+      
+      if (usage >= maxMessages) {
+        showRateLimit();
+      }
+    }
+
+    function showRateLimit() {
+      disableChatInput();
+      document.getElementById('rate-limit-warning').classList.remove('hidden');
+      addMessage('You\'ve reached today\'s message limit. See you tomorrow! 🌅', 'system');
+    }
+
+    function isRateLimited() {
+      return getUsageCount() >= maxMessages;
+    }
+
+    function setupChatEventListeners() {
+      document.getElementById('send-button').addEventListener('click', () => sendMessage());
+      document.getElementById('message-input').addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          sendMessage();
+        }
+      });
+    }
+
+    async function sendMessage() {
+      if (isRateLimited()) {
+        showRateLimit();
+        return;
+      }
+
+      const message = document.getElementById('message-input').value.trim();
+      if (!message) return;
+
+      addMessage(message, 'user');
+      document.getElementById('message-input').value = '';
+      disableChatInput();
+
+      incrementUsage();
+
+      try {
+        const response = await callAPI(message);
+        addMessage(response.message, 'bot');
+        
+        if (response.conversationId) {
+          conversationId = response.conversationId;
+        }
+      } catch (error) {
+        addMessage('Sorry, I encountered an error. Please try again later.', 'bot');
+        console.error('Error:', error);
+      } finally {
+        if (!isRateLimited()) {
+          enableChatInput();
+        }
+      }
+    }
+
+    async function callAPI(message) {
+      showLoading();
+      
+      try {
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            message,
+            conversationId: conversationId
+          })
+        });
+
+        hideLoading();
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        return await response.json();
+      } catch (error) {
+        hideLoading();
+        throw error;
+      }
+    }
+
+    function addMessage(text, sender) {
+      const messageDiv = document.createElement('div');
+      messageDiv.className = `message ${sender}`;
+      messageDiv.textContent = text;
+      
+      const chatMessages = document.getElementById('chat-messages');
+      chatMessages.appendChild(messageDiv);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function enableChatInput() {
+      if (!isRateLimited()) {
+        document.getElementById('message-input').disabled = false;
+        document.getElementById('send-button').disabled = false;
+      }
+    }
+
+    function disableChatInput() {
+      document.getElementById('message-input').disabled = true;
+      document.getElementById('send-button').disabled = true;
+    }
+
+    function showLoading() {
+      document.getElementById('loading').classList.remove('hidden');
+    }
+
+    function hideLoading() {
+      document.getElementById('loading').classList.add('hidden');
+    }
+
+    // Goals functions
+    function addGoal(text = "", checked = false, time = "") {
+      const goalList = document.getElementById('goalList');
+      const goalRow = document.createElement('div');
+      goalRow.className = 'goal-row';
+      
+      goalRow.innerHTML = `
+        <input type="checkbox" onchange="toggleGoal(this)" ${checked ? 'checked' : ''}>
+        <input type="text" placeholder="What do you want to accomplish?" value="${text}" onkeypress="handleGoalKeypress(event, this)" onblur="saveGoals()">
+        <input type="number" placeholder="25" min="1" max="999" value="${time}" onchange="saveGoals()">
+        <span class="time-label">min</span>
+        <button class="remove-btn" onclick="removeGoal(this)">×</button>
+      `;
+      
+      goalList.appendChild(goalRow);
+      if (checked) goalRow.classList.add('checked');
+      if (!text) goalRow.querySelector('input[type="text"]').focus();
+      saveGoals();
+    }
+
+    function toggleGoal(checkbox) {
+      const row = checkbox.parentElement;
+      row.classList.toggle('checked', checkbox.checked);
+      saveGoals();
+    }
+
+    function removeGoal(button) {
+      button.parentElement.remove();
+      saveGoals();
+    }
+
+    function handleGoalKeypress(event, input) {
+      if (event.key === 'Enter') {
+        input.blur();
+        saveGoals();
+      }
+    }
+
+    function saveGoals() {
+      const goals = [];
+      document.querySelectorAll('.goal-row').forEach(row => {
+        const checkbox = row.querySelector('input[type="checkbox"]');
+        const textInput = row.querySelector('input[type="text"]');
+        const numberInput = row.querySelector('input[type="number"]');
+        
+        if (textInput && textInput.value.trim()) {
+          goals.push({
+            text: textInput.value,
+            checked: checkbox.checked,
+            time: numberInput.value || ''
+          });
+        }
+      });
+      localStorage.setItem('pomodoro-goals', JSON.stringify(goals));
+    }
+
+    function loadGoals() {
+      const saved = localStorage.getItem('pomodoro-goals');
+      const goalList = document.getElementById('goalList');
+      goalList.innerHTML = '';
+      if (saved) {
+        const goals = JSON.parse(saved);
+        goals.forEach(goal => addGoal(goal.text, goal.checked, goal.time));
+      } else {
+        addGoal();
+        addGoal();
+      }
+    }
+
+    // Focus blocks functions
+    function labelLastBlock() {
+      const input = document.getElementById('taskInput');
+      const label = input.value.trim();
+      
+      if (label && sessionLog.length > 0) {
+        for (let i = sessionLog.length - 1; i >= 0; i--) {
+          if (sessionLog[i].type === 'focus' && !sessionLog[i].label) {
+            sessionLog[i].label = label;
+            break;
+          }
+        }
+        input.value = '';
+        saveBlocks();
+        loadBlocks();
+      }
+    }
+
+    function saveBlocks() {
+      localStorage.setItem('pomodoro-blocks', JSON.stringify(sessionLog));
+    }
+
+    function loadBlocks() {
+      const saved = localStorage.getItem('pomodoro-blocks');
+      if (saved) {
+        sessionLog = JSON.parse(saved);
+      }
+      
+      const logList = document.getElementById('logList');
+      logList.innerHTML = '';
+      
+      sessionLog.forEach((session, index) => {
+        if (session.type === 'focus') {
+          const block = document.createElement('div');
+          block.className = `block-item ${session.label ? '' : 'unlabeled'}`;
+          
+          block.innerHTML = `
+            <div class="block-time">${session.time} • ${session.duration} focus session</div>
+            <div class="block-label">${session.label || 'Click to add what you accomplished...'}</div>
+          `;
+          
+          if (!session.label) {
+            block.addEventListener('click', () => {
+              const newLabel = prompt('What did you accomplish in this session?');
+              if (newLabel && newLabel.trim()) {
+                session.label = newLabel.trim();
+                saveBlocks();
+                loadBlocks();
+              }
+            });
+          }
+          
+          logList.appendChild(block);
+        }
+      });
+    }
+  </script>
+</body>
+</html>
