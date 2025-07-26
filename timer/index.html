@@ -764,6 +764,22 @@
     const apiUrl = 'https://working-chatbot-api-production.up.railway.app/api/chat';
     const maxMessages = 30;
     const usageKey = 'dailyPlanner_usage_' + getTodayKey();
+    const openingMessages = [
+      "What's calling for your attention today? ✨",
+      "How are you feeling about today's possibilities? 🌟",
+      "What's one thing you're looking forward to tackling? 🎯",
+      "What's been stirring in your mind this morning? 💭",
+      "How would you like this day to unfold? 🌈",
+      "What feels most important to focus on right now? ⚡",
+      "What's awakening your creative energy today? 🚀",
+      "How are you hoping to spend your time today? ⏰",
+      "What would make today feel meaningful for you? 💫",
+      "What thoughts are pulling at you today? 🧠"
+    ];
+    
+    function getRandomOpeningMessage() {
+      return openingMessages[Math.floor(Math.random() * openingMessages.length)];
+    }
 
     // Audio
     let currentAudio = null;
@@ -784,6 +800,10 @@
       } else {
         showRateLimit();
       }
+
+      const initialMessage = getRandomOpeningMessage();
+      addMessage(initialMessage, 'bot');
+
 
       // Handle page visibility change to keep timer accurate
       document.addEventListener('visibilitychange', handleVisibilityChange);
