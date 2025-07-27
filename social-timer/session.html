@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pomodoro Session</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet">
   <style> 
     * {
@@ -394,7 +393,7 @@
       align-items: start;
       grid-template-areas: 
         "timer dashboard"
-        "chatbot blocks";
+        "blocks chatbot";
     }
 
     .timer-section { grid-area: timer; }
@@ -1038,46 +1037,7 @@
       }
     }
 
-    /* Section Cards */
-    .section {
-      background: rgba(255,255,255,0.97);
-      backdrop-filter: blur(16px);
-      padding: 2.3rem 2rem;
-      border-radius: 20px;
-      box-shadow: 0 8px 32px rgba(124, 131, 253, 0.07);
-      border: 1.5px solid #EAF0FB;
-      margin-bottom: 3rem;
-      width: 100%;
-      transition: box-shadow 0.2s;
-    }
-    .section:hover {
-      box-shadow: 0 12px 36px rgba(124, 131, 253, 0.13);
-    }
 
-    .circle-btn {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      border: 2px solid transparent;
-      background: rgba(255,255,255,0.9);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.2s ease;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-    }
-    
-    .circle-btn:hover {
-      transform: scale(1.1);
-      border-color: var(--accent-primary);
-    }
-    
-    .circle-btn.active {
-      background: var(--accent-primary);
-      color: white;
-      border-color: var(--accent-primary);
-    }
 
     
     /* Responsive Design */
@@ -1117,7 +1077,7 @@
       .chat-messages {
         min-height: 300px;
       }
-    }
+  
 
       .chatbot-section.glass-card {
         border-radius: 16px;
@@ -1138,17 +1098,7 @@
         box-shadow: 0 8px 32px rgba(124, 131, 253, 0.04);
       }
         
-      .notes-section {
-        grid-template-columns: 1fr;
-      }
 
-      .theme-inline-palette {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        margin-bottom: 1rem;
-        margin-top: 1rem;
-      }
       
     /* Add better mobile responsiveness */
     @media (max-width: 480px) {
@@ -1709,22 +1659,7 @@
       const personalizedMessage = `Hi, ${userName}! ${getRandomOpeningMessage()}`;
       addMessage(personalizedMessage, 'bot');
     };
-
-    // Organize code into modules
-      const TimerManager = {
-        init() { /* timer initialization */ },
-        start() { /* start timer */ },
-        pause() { /* pause timer */ },
-        reset() { /* reset timer */ }
-      };
       
-      const ChatManager = {
-        init() { /* chat initialization */ },
-        sendMessage() { /* send message */ },
-        handleResponse() { /* handle response */ }
-      };
-
-    
     let focusDuration = 1500;
     let phaseIndex = 0;
     let localSeconds = focusDuration;
@@ -2180,45 +2115,6 @@
    
 
 
-
-    const checklistKey = `goalChecklist-${session}`;
-
-    function saveChecklistToStorage() {
-      const items = [];
-      document.querySelectorAll("#goalChecklist .goal-row").forEach(row => {
-        const input = row.querySelector('input[type="text"]');
-        const checkbox = row.querySelector('input[type="checkbox"]');
-        const timeInput = row.querySelector('input[type="number"]');
-        if (input && input.value.trim()) {
-          items.push({ text: input.value, done: checkbox.checked, time: timeInput.value });
-        }
-      });
-      localStorage.setItem(checklistKey, JSON.stringify(items));
-    }
-    
-    function loadChecklistFromStorage() {
-      const saved = localStorage.getItem(checklistKey);
-      if (saved) {
-        const container = document.getElementById("goalChecklist");
-        container.innerHTML = "";
-        JSON.parse(saved).forEach(item => addGoalRow(item.text, item.done, item.time));
-      } else {
-        addGoalRow();
-      }
-    }
-
-    function addGoalRow(text = "", checked = false, time = "") {
-      const container = document.getElementById("goalChecklist");
-      const row = document.createElement("div");
-      row.className = "goal-row";
-    
-      const checkbox = document.createElement("input");
-      checkbox.type = "checkbox";
-      checkbox.checked = checked;
-      checkbox.onchange = () => {
-        row.classList.toggle("checked", checkbox.checked);
-        saveChecklistToStorage();
-      };
       
       // Apply checked state immediately if loaded as checked
       if (checked) {
@@ -2261,8 +2157,6 @@
       if (checked) row.classList.add("checked");
       container.appendChild(row);
     }
-
-    window.addEventListener("load", loadChecklistFromStorage);
 
     const editable = document.getElementById("editableGoal");
     const saveBtn = document.getElementById("saveGoalBtn");
