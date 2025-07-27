@@ -512,7 +512,7 @@
     }
     
     #timerText {
-      font-size: 2rem;
+      font-size: 1.4rem;
       font-weight: 500;
       fill: #64748b;
       font-family: 'Plus Jakarta Sans', sans-serif;
@@ -680,11 +680,20 @@
     .public-dashboard {
       padding: 2rem;
       display: flex;
+      max-height: 500px;
       flex-direction: column;
       align-items: center;
       border-radius: 16px;
       box-shadow: 0 8px 32px rgba(124, 131, 253, 0.04);
       transition: box-shadow 0.3s ease;
+    }
+
+    #vibeBoard {
+      width: 100%;
+      max-height: 300px;
+      overflow-y: auto;
+      margin-bottom: 1rem;
+      padding-right: 0.5rem;
     }
 
     .public-dashboard:hover {
@@ -711,7 +720,6 @@
       transition: all 0.2s ease;
       backdrop-filter: blur(10px);
       width: 100%;
-      max-width: 400px;
       min-height: 3rem; /* 최소 높이 설정 */
       box-sizing: border-box;
     }
@@ -737,7 +745,6 @@
     /* Fixed Goal Input - consistent sizing */
     .goal-input-container {
       width: 100%;
-      max-width: 400px;
       margin-top: 1rem;
       position: relative;
     }
@@ -1322,6 +1329,7 @@
           </div>
         </div>
       </div>
+    </div>
 
       <!-- Private Board Header -->
       <div style="grid-column: 1 / -1; text-align: center; margin: 3rem 0 1rem 0;">
@@ -1329,14 +1337,14 @@
           🔒 Private Board
         </h2>
         <p style="font-size: 1rem; color: #64748b; margin-bottom: 2rem;">
-          Only visible to you - not shared with others
+        👇🏻The sections below are only visible to you.
         </p>
       </div>
 
-
+    <div class="container">
       <!-- Chatbot Section -->
       <div class="glass-card chatbot-section">
-        <div class="card-title">💡 AI Motivation Partner</div>
+        <div class="card-title">✨ AI Motivation Partner</div>
         <p style="font-size: 0.9rem; color: #94a3b8; text-align: center; margin-bottom: 1rem; font-style: italic;">
           Declutter blockers. Conversation history is not saved.
         </p>
@@ -1384,10 +1392,10 @@
     </div>
 
       
-    </div>
+  </div>
     
     <div id="saveToast">Saved ✔️</div>
-  </div>
+
 
   <footer>
     <div class="footer-content">
@@ -1587,11 +1595,25 @@
         timestamp: Date.now()
       });
     
-      // 페이지 맨 위로 스크롤
-      window.scrollTo(0, 0);
+      const userSetup = document.getElementById("userSetup");
+      const mainApp = document.getElementById("mainApp");
       
-      document.getElementById("userSetup").style.display = "none";
-      document.getElementById("mainApp").style.display = "block";
+      userSetup.style.transition = "opacity 0.3s ease";
+      userSetup.style.opacity = "0";
+      
+      setTimeout(() => {
+        userSetup.style.display = "none";
+        mainApp.style.display = "block";
+        mainApp.style.opacity = "0";
+        mainApp.style.transition = "opacity 0.3s ease";
+        
+        // 페이지 맨 위로 스크롤
+        window.scrollTo(0, 0);
+        
+        setTimeout(() => {
+          mainApp.style.opacity = "1";
+        }, 50);
+      }, 300);
     }
 
     // Pie chart drawing functions
@@ -1949,11 +1971,12 @@
     
     function nextPhase() {
         if (phases[phaseIndex].label === "Focus") {
-        const endTime = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+        const endTime = new Date();
+        const timeStr = endTime.toLocaleDateString() + ' ' + endTime.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
         sessionLog.push({
           text: '',
           duration: `${focusDuration / 60} min`,
-          time: endTime,
+          time: timeStr,
           type: 'focus',
           label: ''
         });
