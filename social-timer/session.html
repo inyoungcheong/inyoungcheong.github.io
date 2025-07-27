@@ -644,7 +644,7 @@
       display: flex;
       flex-direction: column;
       gap: 2rem;
-      padding: 0 1rem; /* 좌우 여백 추가 */
+      padding: 0 1rem;
     }
     
     .public-dashboard {
@@ -722,11 +722,11 @@
       border-width: 2px !important;
     }
     
-    /* Goal Input - 수정된 부분 */
+    /* Goal Input */
     .goals-input-container {
       width: 100%;
       margin-bottom: 1.5rem;
-      padding: 0 1rem; /* 좌우 여백 추가 */
+      padding: 0 1rem;
     }
 
     .goals-input-container > div:first-child {
@@ -766,7 +766,7 @@
       background: rgba(255, 255, 255, 0.9);
       transition: all 0.2s ease;
       width: 100%;
-      min-width: 0; /* flex가 제대로 작동하도록 */
+      min-width: 0;
     }
     
     .goal-input:focus {
@@ -888,6 +888,11 @@
       box-shadow: 0 0 0 2px rgba(var(--accent-primary), 0.2);
     }
     
+    input[type="text"]::placeholder {
+      color: #B3B8C3;
+      font-style: italic;
+    }
+    
     /* Toast */
     #saveToast {
       position: fixed;
@@ -989,25 +994,25 @@
           "dashboard" 
           "chatbot"
           "blocks";
-        padding: 1.5rem 1rem; /* 모바일에서 여백 조정 */
+        padding: 1.5rem 1rem;
       }
 
       .dashboard-section {
-        padding: 0 0.5rem; /* 모바일에서 추가 여백 조정 */
+        padding: 0 0.5rem;
       }
 
       .goals-input-container {
-        padding: 0; /* 모바일에서는 패딩 제거 */
+        padding: 0;
       }
 
       .focus-blocks-section,
       .chatbot-section {
-        min-height: 400px; /* 높이 조정 */
+        min-height: 400px;
         height: auto;
       }
       
       .chat-messages {
-        min-height: 350px; /* 모바일에서 채팅창 높이 증가 */
+        min-height: 350px;
         max-height: 450px;
       }
     }
@@ -1030,7 +1035,7 @@
       }
 
       .container {
-        padding: 1rem 0.75rem; /* 모바일 패딩 조정 */
+        padding: 1rem 0.75rem;
         gap: 1.5rem;
       }
       
@@ -1038,27 +1043,27 @@
       .public-dashboard,
       .chatbot-section,
       .focus-blocks-section {
-        padding: 1.5rem 1.25rem; /* 모바일 카드 패딩 조정 */
+        padding: 1.5rem 1.25rem;
       }
       
       .dashboard-section {
-        padding: 0; /* 모바일에서 패딩 제거 */
+        padding: 0;
       }
 
       .goals-input-container {
-        padding: 0 0.75rem; /* 모바일에서 최소 여백 유지 */
+        padding: 0 0.75rem;
       }
       
       .chatbot-section {
         height: auto; 
-        min-height: 400px; /* 최소 높이 설정 */
+        min-height: 400px;
       }
 
       .chat-messages {
         flex: 1; 
         height: auto; 
-        max-height: 400px; /* 최대 높이 증가 */
-        min-height: 300px; /* 최소 높이 증가 */
+        max-height: 400px;
+        min-height: 300px;
       }
 
       .focus-blocks-section {
@@ -1071,13 +1076,12 @@
         overflow-y: auto;
       }
       
-      /* 모바일에서 타이머 텍스트 크기 조정 */
       #timerText {
-        font-size: 1.1rem; /* 모바일에서 더 작게 */
+        font-size: 1.1rem;
       }
       
       .timer-circle svg {
-        width: 240px; /* 모바일에서 타이머 크기 조정 */
+        width: 240px;
         height: 240px;
       }
       
@@ -1098,7 +1102,7 @@
       }
       
       .goal-input {
-        padding: 0.7rem 0.9rem; /* 모바일에서 패딩 조정 */
+        padding: 0.7rem 0.9rem;
         font-size: 0.9rem;
       }
 
@@ -1109,7 +1113,7 @@
 
       #userSetup {
         padding: 2rem 1.5rem;
-        margin: 1rem 0.75rem; /* 모바일에서 마진 조정 */
+        margin: 1rem 0.75rem;
         max-width: calc(100% - 1.5rem);
       }
 
@@ -1134,7 +1138,7 @@
       }
 
       .section-title {
-        font-size: 1.2rem; /* 모바일에서 제목 크기 조정 */
+        font-size: 1.2rem;
         margin-bottom: 1rem;
       }
     }
@@ -1151,7 +1155,7 @@
       }
 
       #timerText {
-        font-size: 1rem; /* 더 작은 화면에서 텍스트 크기 조정 */
+        font-size: 1rem;
       }
       
       .controls {
@@ -1163,7 +1167,7 @@
       .public-dashboard,
       .chatbot-section,
       .focus-blocks-section {
-        padding: 1rem; /* 더 작은 화면에서 패딩 조정 */
+        padding: 1rem;
       }
 
       .goals-input-container {
@@ -1177,7 +1181,7 @@
       }
 
       .chat-messages {
-        min-height: 250px; /* 더 작은 화면에서도 적절한 높이 */
+        min-height: 250px;
         max-height: 350px;
       }
     }
@@ -1208,7 +1212,6 @@
   <audio src="assets/beep.wav" id="beep"></audio>
   
   <div id="mainApp">
-
     <div class="container">
       <!-- Timer Section -->
       <div class="timer-section">
@@ -1241,7 +1244,6 @@
         </div>
 
         <div class="settings-bar">
-          <!-- 🎧 Ambient Sound -->
           <div class="ambient-section">
             <label>🎧 Ambient Sound</label>
             <div class="ambient-buttons">
@@ -1334,15 +1336,19 @@
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
   <script>
-
     function getTodayKey() {
       const today = new Date();
       return today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     }
 
+    // Global variables
+    let conversationId = null;
+    let name = null;
+    let emoji = null;
+    let role = null;
+    let userGoals = [];
     
     // Chatbot variables
-    let conversationId = null;
     const apiUrl = 'https://working-chatbot-api-production.up.railway.app/api/chat';
     const maxMessages = 30;
     const usageKey = 'dailyPlanner_usage_' + getTodayKey();
@@ -1355,14 +1361,49 @@
       "Hey there, what would make today feel productive? Let me help you 🌟"
     ];
     
-    // Session log - make it session-specific
+    // Session
     const session = new URLSearchParams(window.location.search).get("session") || "focus-room";
-
     
+    // Timer variables
+    let focusDuration = 1500;
+    let phaseIndex = 0;
+    let localSeconds = focusDuration;
+    let duration = focusDuration;
+    let isRunning = false;
+    let localTimer = null;
+    let timerStartTime = null;
+    let unsubscribeTimer = null;
+    let unsubscribeParticipants = null;
+    
+    // Constants
+    const controls = document.querySelector(".controls");
+    let selectedEmoji = "🐢";
+    const emojis = ["🐢", "🦊", "🐰", "🐸", "🐼", "🐶", "🦁", "🐻", "🐨", "🐱"];
+    const beep = document.getElementById("beep");
+    const pie = document.getElementById("pie");
+    const timerText = document.getElementById("timerText");
+    
+    const placeholderList = [
+      "Finish sh**ty first draft ✍️",
+      "Clean messy data 🧹",
+      "Read Chapter 3 📘",
+      "Fix one small bug 🐞",
+      "Write intro paragraph 📝",
+      "Send a status update 📤",
+      "Make a doable chunk 🧩",
+      "Break task into steps 🪜"
+    ];
+
+    // Keys for localStorage
+    const nameKey = `vibeUserName-${session}`;
+    const emojiKey = `vibeUserAnimal-${session}`;
+    const roleKey = `vibeUserRole-${session}`;
+
     function getRandomOpeningMessage() {
       return openingMessages[Math.floor(Math.random() * openingMessages.length)];
     }
     
+    // Firebase config
     const firebaseConfig = {
       apiKey: "AIzaSyAW3sw__h-YyGOBowZULt2iZ59CP8KkU34",
       authDomain: "social-timer-a2315.firebaseapp.com",
@@ -1371,9 +1412,43 @@
       messagingSenderId: "68840014890",
       appId: "1:68840014890:web:ac1b634ab00b41622eef53"
     };
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore();
-  
+    
+    let db = null;
+    
+    // Safe Firebase initialization
+    function initializeFirebase() {
+      try {
+        if (typeof firebase !== 'undefined') {
+          firebase.initializeApp(firebaseConfig);
+          db = firebase.firestore();
+          console.log('Firebase initialized successfully');
+          return true;
+        }
+      } catch (error) {
+        console.warn('Firebase initialization failed:', error);
+      }
+      return false;
+    }
+    
+    // Safe Firebase operations
+    function safeFirebaseCall(callback) {
+      if (db) {
+        try {
+          callback();
+        } catch (error) {
+          console.warn('Firebase operation failed:', error);
+        }
+      }
+    }
+
+    // Load user data from localStorage
+    function loadUserData() {
+      name = localStorage.getItem(nameKey);
+      emoji = localStorage.getItem(emojiKey);
+      role = localStorage.getItem(roleKey);
+    }
+
+    // Initialize session name
     document.getElementById("sessionName").textContent = session;
     
     // Theme functions
@@ -1421,19 +1496,6 @@
         alert('Copy this link to invite others:\n' + window.location.href);
       });
     }
-  
-    const nameKey = `vibeUserName-${session}`;
-    const emojiKey = `vibeUserAnimal-${session}`;
-    const roleKey = `vibeUserRole-${session}`;
-  
-    let name = localStorage.getItem(nameKey);
-    let emoji = localStorage.getItem(emojiKey);
-    let role = localStorage.getItem(roleKey);
-  
-    const controls = document.querySelector(".controls");
-  
-    let selectedEmoji = "🐢";
-    const emojis = ["🐢", "🦊", "🐰", "🐸", "🐼", "🐶", "🦁", "🐻", "🐨", "🐱"];
 
     function showSaveToast() {
       const toast = document.getElementById("saveToast");
@@ -1446,11 +1508,8 @@
     function showErrorMessage(message) {
       alert(message);
     }
-    
-    function showErrorToast(message) {
-      console.error(message);
-    }
-  
+
+    // Avatar grid
     function renderAvatarGrid() {
       const grid = document.getElementById("emojiGrid");
       grid.innerHTML = "";
@@ -1478,7 +1537,7 @@
         grid.appendChild(span);
       });
     }
-  
+
     function submitUser() {
       const input = document.getElementById("nameInput");
       const userName = input.value.trim();
@@ -1496,7 +1555,7 @@
       function sanitizeInput(input) {
         const div = document.createElement('div');
         div.textContent = input;
-        return div.innerHTML.substring(0, 50); // Also enforce length limit
+        return div.innerHTML.substring(0, 50);
       }
       
       const sanitizedName = sanitizeInput(userName);
@@ -1509,11 +1568,13 @@
       localStorage.setItem(emojiKey, emoji);
       localStorage.setItem(roleKey, role);
       
-      db.collection("sessions").doc(session).collection("participants").doc(name).set({
-        name,
-        emoji,
-        goals: [],
-        timestamp: Date.now()
+      safeFirebaseCall(() => {
+        db.collection("sessions").doc(session).collection("participants").doc(name).set({
+          name,
+          emoji,
+          goals: [],
+          timestamp: Date.now()
+        });
       });
     
       const userSetup = document.getElementById("userSetup");
@@ -1532,12 +1593,26 @@
         
         setTimeout(() => {
           mainApp.style.opacity = "1";
+          initializeGoalSystem();
         }, 50);
       }, 300);
     }
 
-    // Pie chart drawing functions
-    const pie = document.getElementById("pie");
+    // Timer functions
+    function getPhases(focus) {
+      return [
+        { label: "Focus", duration: focus },
+        { label: "Break", duration: 300 },
+        { label: "Focus", duration: focus },
+        { label: "Break", duration: 300 },
+        { label: "Focus", duration: focus },
+        { label: "Break", duration: 300 },
+        { label: "Focus", duration: focus },
+        { label: "Long Break", duration: 1200 }
+      ];
+    }
+    
+    let phases = getPhases(focusDuration);
     
     function polarToCartesian(cx, cy, r, angle) {
       const rad = (angle - 90) * Math.PI / 180;
@@ -1565,138 +1640,8 @@
     
       const m = String(Math.floor(localSeconds / 60)).padStart(2, '0');
       const s = String(localSeconds % 60).padStart(2, '0');
-      document.getElementById('timerText').textContent = `${m}:${s}`;
+      timerText.textContent = `${m}:${s}`;
     }
-
-    // Goal 시스템 안전한 초기화
-    function initializeGoalSystem() {
-      if (document.getElementById('addGoalBtn') && !window.goalSystemInitialized) {
-        setupGoalEventListeners();
-        initializeGoals();
-        window.goalSystemInitialized = true; // 중복 방지
-      }
-    }
-
-    // DOMContentLoaded에서 기본 UI 초기화
-    document.addEventListener('DOMContentLoaded', () => {
-      loadTheme();
-      
-      document.querySelectorAll('.theme-dot').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const theme = btn.getAttribute('data-theme');
-          if (theme) {
-            setTheme(theme);
-          }
-        });
-      });
-      
-      // Goal 시스템 초기화 (Firebase 없이도 작동)
-      initializeGoalSystem();
-    });
-
-    window.onload = () => {
-      displayTime(localSeconds);
-      
-      if (name && emoji) {
-        window.scrollTo(0, 0);
-        document.getElementById("userSetup").style.display = "none";
-        document.getElementById("mainApp").style.display = "block";
-    
-        db.collection("sessions").doc(session).collection("participants").doc(name).set({
-          name,
-          emoji,
-          goals: [], 
-          timestamp: Date.now()
-        });
-        
-        // Goal 시스템 다시 초기화 (Firebase 연결 후)
-        initializeGoalSystem();
-      } else {
-        renderAvatarGrid();
-        document.getElementById("userSetup").style.display = "block";
-        document.getElementById("mainApp").style.display = "none";
-      }
-    
-      if (localStorage.getItem(roleKey) !== "host") {
-        controls.querySelectorAll("button").forEach(btn => {
-          if (btn.onclick && btn.onclick.toString().includes('finishTimer')) {
-            btn.style.display = 'none';
-          } else {
-            btn.disabled = true;
-          }
-        });
-      
-        const select = document.getElementById("focusSelect");
-        if (select) {
-          select.disabled = true;
-        }
-        const focusSelect = document.getElementById("focusSelect");
-        if (focusSelect) {
-          setFocusDuration(focusSelect.value);
-        }
-      
-        const leaveBtn = document.createElement("button");
-        leaveBtn.textContent = "Leave Session";
-        leaveBtn.style.background = "#6b7280";
-        leaveBtn.style.color = "white";
-        leaveBtn.onclick = () => {
-          if (confirm("Are you sure you want to leave this session?")) {
-            window.close();
-          }
-        };
-        controls.appendChild(leaveBtn);
-      
-        const notice = document.createElement("div");
-        notice.innerHTML = `<div style="font-size: 0.85rem; color: #64748b; background: rgba(248, 250, 252, 0.8); border: 1px solid #EAF0FB; border-radius: 8px; padding: 0.75rem; margin-top: 1rem; text-align: center;"><strong>Only the host</strong> can control the timer.</div>`;
-        controls.appendChild(notice);
-      }
-              
-      updatePhaseLabel(); 
-      updateUsageDisplay();
-      setupChatEventListeners();
-      loadBlocks();
-      
-      if (!isRateLimited()) {
-        enableChatInput();
-      } else {
-        showRateLimit();
-      }
-    
-      const userName = name || "there";
-      const personalizedMessage = `Hi, ${userName}! ${getRandomOpeningMessage()}`;
-      addMessage(personalizedMessage, 'bot');
-
-      window.addEventListener('beforeunload', () => {
-        if (unsubscribeTimer) unsubscribeTimer();
-        if (unsubscribeParticipants) unsubscribeParticipants();
-      });
-      
-    };
-
-    let focusDuration = 1500;
-    let phaseIndex = 0;
-    let localSeconds = focusDuration;
-    let duration = focusDuration;
-    let isRunning = false;
-    let localTimer = null;
-    let timerStartTime = null;
-
-    let unsubscribeTimer = null;
-    let unsubscribeParticipants = null;
-    
-    const beep = document.getElementById("beep");
-    
-    function getPhases(focus) {
-      return [
-        { label: "Focus", duration: focus },
-        { label: "Long Break", duration: 1200 } },
-        { label: "Long Break", duration: 1200 }
-      ];
-    }
-    
-    let phases = getPhases(focusDuration);
-    
-    const timerText = document.getElementById("timerText");
     
     function displayTime(sec) {
       const m = String(Math.floor(sec / 60)).padStart(2, "0");
@@ -1759,7 +1704,9 @@
     }
     
     function updateRemoteTimer(state) {
-      db.collection("sessions").doc(session).collection("state").doc("timer").set(state);
+      safeFirebaseCall(() => {
+        db.collection("sessions").doc(session).collection("state").doc("timer").set(state);
+      });
     }
     
     function startTimer() {
@@ -1793,97 +1740,6 @@
       phaseLabel.textContent = "Session Complete! 🎉";
       phaseLabel.style.color = "#10b981";
     }
-        
-    
-    unsubscribeTimer = db.collection("sessions").doc(session).collection("state").doc("timer")
-      .onSnapshot(doc => {
-        const data = doc.data();
-        if (!data) return;
-        
-        console.log("Timer sync data:", data);
-        
-        if (data.phaseIndex !== undefined && data.phaseIndex !== phaseIndex) {
-          phaseIndex = data.phaseIndex;
-          updatePhaseLabel();
-        }
-        
-        if (data.isRunning && data.lastUpdated) {
-          const now = Date.now();
-          const elapsed = Math.floor((now - data.lastUpdated) / 1000);
-          localSeconds = Math.max(0, data.remainingSeconds - elapsed);
-          duration = data.duration || data.remainingSeconds;
-          timerStartTime = now - (elapsed * 1000);
-        } else {
-          localSeconds = data.remainingSeconds || 0;
-          duration = data.duration || localSeconds;
-          timerStartTime = null;
-        }
-        
-        isRunning = data.isRunning || false;
-        
-        if (data.finished) {
-          localSeconds = 0;
-          isRunning = false;
-          stopLocalTimer();
-          const phaseLabel = document.getElementById("phaseLabel");
-          phaseLabel.textContent = "Session Complete! 🎉";
-          phaseLabel.style.color = "#10b981";
-        }
-        
-        displayTime(localSeconds);
-        if (isRunning && localSeconds > 0) {
-          startLocalTimer();
-        } else {
-          stopLocalTimer();
-        }
-      });
-
-    
-    unsubscribeParticipants = db.collection("sessions").doc(session).collection("participants")
-      .orderBy("timestamp")
-      .onSnapshot(snapshot => {
-        const board = document.getElementById("vibeBoard");
-        board.innerHTML = "";
-    
-        snapshot.forEach(doc => {
-          const p = doc.data();
-          const goals = p.goals || (p.goal ? [p.goal] : []);
-          const participantName = p.name || "Anonymous";
-          const emoji = p.emoji || "🐾";
-    
-          const div = document.createElement("div");
-          div.className = "vibe-card";
-          
-          if (participantName === name) {
-            div.style.background = "rgba(var(--accent-primary), 0.08)";
-            div.style.borderColor = "var(--accent-primary)";
-            div.style.borderWidth = "2px";
-          }
-          
-          const nameSpan = document.createElement("strong");
-          nameSpan.textContent = participantName;
-          if (p.role === "host") {
-            nameSpan.innerHTML += ' 👑';
-          }
-          if (participantName === name) {
-            nameSpan.innerHTML += ' (You)';
-          }
-    
-          const goalText = goals.length > 0 ? goals.map(g => `• ${g}`).join('\n') : "Setting up focus goals...";
-          const goalSpan = document.createElement("span");
-          goalSpan.innerText = goalText;
-          goalSpan.style.color = goals.length > 0 ? "#475569" : "#94a3b8";
-          goalSpan.style.fontStyle = goals.length > 0 ? "normal" : "italic";
-          goalSpan.style.whiteSpace = 'pre-line';
-    
-          div.appendChild(document.createTextNode(emoji + " "));
-          div.appendChild(nameSpan);
-          div.appendChild(document.createTextNode(" "));
-          div.appendChild(goalSpan);
-    
-          board.appendChild(div);
-        });
-      });
 
     function updatePhaseLabel() {
       document.getElementById("phaseLabel").textContent = phases[phaseIndex].label;
@@ -1899,8 +1755,9 @@
           type: 'focus'
         };
         
-        // Firebase
-        db.collection("sessions").doc(session).collection("teamLogs").add(logData);
+        safeFirebaseCall(() => {
+          db.collection("sessions").doc(session).collection("teamLogs").add(logData);
+        });
       }
       
       phaseIndex = (phaseIndex + 1) % phases.length;
@@ -1918,6 +1775,106 @@
       });
     }
 
+    // Firebase listeners
+    function setupFirebaseListeners() {
+      if (!db) return;
+      
+      try {
+        unsubscribeTimer = db.collection("sessions").doc(session).collection("state").doc("timer")
+          .onSnapshot(doc => {
+            const data = doc.data();
+            if (!data) return;
+            
+            console.log("Timer sync data:", data);
+            
+            if (data.phaseIndex !== undefined && data.phaseIndex !== phaseIndex) {
+              phaseIndex = data.phaseIndex;
+              updatePhaseLabel();
+            }
+            
+            if (data.isRunning && data.lastUpdated) {
+              const now = Date.now();
+              const elapsed = Math.floor((now - data.lastUpdated) / 1000);
+              localSeconds = Math.max(0, data.remainingSeconds - elapsed);
+              duration = data.duration || data.remainingSeconds;
+              timerStartTime = now - (elapsed * 1000);
+            } else {
+              localSeconds = data.remainingSeconds || 0;
+              duration = data.duration || localSeconds;
+              timerStartTime = null;
+            }
+            
+            isRunning = data.isRunning || false;
+            
+            if (data.finished) {
+              localSeconds = 0;
+              isRunning = false;
+              stopLocalTimer();
+              const phaseLabel = document.getElementById("phaseLabel");
+              phaseLabel.textContent = "Session Complete! 🎉";
+              phaseLabel.style.color = "#10b981";
+            }
+            
+            displayTime(localSeconds);
+            if (isRunning && localSeconds > 0) {
+              startLocalTimer();
+            } else {
+              stopLocalTimer();
+            }
+          });
+
+        unsubscribeParticipants = db.collection("sessions").doc(session).collection("participants")
+          .orderBy("timestamp")
+          .onSnapshot(snapshot => {
+            const board = document.getElementById("vibeBoard");
+            if (!board) return;
+            
+            board.innerHTML = "";
+        
+            snapshot.forEach(doc => {
+              const p = doc.data();
+              const goals = p.goals || (p.goal ? [p.goal] : []);
+              const participantName = p.name || "Anonymous";
+              const emoji = p.emoji || "🐾";
+        
+              const div = document.createElement("div");
+              div.className = "vibe-card";
+              
+              if (participantName === name) {
+                div.style.background = "rgba(var(--accent-primary), 0.08)";
+                div.style.borderColor = "var(--accent-primary)";
+                div.style.borderWidth = "2px";
+              }
+              
+              const nameSpan = document.createElement("strong");
+              nameSpan.textContent = participantName;
+              if (p.role === "host") {
+                nameSpan.innerHTML += ' 👑';
+              }
+              if (participantName === name) {
+                nameSpan.innerHTML += ' (You)';
+              }
+        
+              const goalText = goals.length > 0 ? goals.map(g => `• ${g}`).join('\n') : "Setting up focus goals...";
+              const goalSpan = document.createElement("span");
+              goalSpan.innerText = goalText;
+              goalSpan.style.color = goals.length > 0 ? "#475569" : "#94a3b8";
+              goalSpan.style.fontStyle = goals.length > 0 ? "normal" : "italic";
+              goalSpan.style.whiteSpace = 'pre-line';
+        
+              div.appendChild(document.createTextNode(emoji + " "));
+              div.appendChild(nameSpan);
+              div.appendChild(document.createTextNode(" "));
+              div.appendChild(goalSpan);
+        
+              board.appendChild(div);
+            });
+          });
+      } catch (error) {
+        console.warn('Failed to setup Firebase listeners:', error);
+      }
+    }
+
     // Chatbot functions
     function getUsageCount() {
       const stored = localStorage.getItem(usageKey);
@@ -1932,7 +1889,10 @@
 
     function updateUsageDisplay() {
       const usage = getUsageCount();
-      document.getElementById('usage-count').textContent = usage;
+      const usageElement = document.getElementById('usage-count');
+      if (usageElement) {
+        usageElement.textContent = usage;
+      }
       
       if (usage >= maxMessages) {
         showRateLimit();
@@ -1941,7 +1901,10 @@
 
     function showRateLimit() {
       disableChatInput();
-      document.getElementById('rate-limit-warning').classList.remove('hidden');
+      const warningElement = document.getElementById('rate-limit-warning');
+      if (warningElement) {
+        warningElement.classList.remove('hidden');
+      }
       addMessage('You\'ve reached today\'s message limit. See you tomorrow! 🌅', 'system');
     }
 
@@ -1950,13 +1913,21 @@
     }
 
     function setupChatEventListeners() {
-      document.getElementById('send-button').addEventListener('click', () => sendMessage());
-      document.getElementById('message-input').addEventListener('keypress', (e) => {
-        if (e.key === 'Enter' && !e.shiftKey) {
-          e.preventDefault();
-          sendMessage();
-        }
-      });
+      const sendButton = document.getElementById('send-button');
+      const messageInput = document.getElementById('message-input');
+      
+      if (sendButton) {
+        sendButton.addEventListener('click', () => sendMessage());
+      }
+      
+      if (messageInput) {
+        messageInput.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            sendMessage();
+          }
+        });
+      }
     }
 
     async function sendMessage() {
@@ -1965,11 +1936,14 @@
         return;
       }
 
-      const message = document.getElementById('message-input').value.trim();
+      const messageInput = document.getElementById('message-input');
+      if (!messageInput) return;
+      
+      const message = messageInput.value.trim();
       if (!message) return;
 
       addMessage(message, 'user');
-      document.getElementById('message-input').value = '';
+      messageInput.value = '';
       disableChatInput();
 
       incrementUsage();
@@ -2025,31 +1999,43 @@
       messageDiv.textContent = text;
       
       const chatMessages = document.getElementById('chat-messages');
-      chatMessages.appendChild(messageDiv);
-      chatMessages.scrollTop = chatMessages.scrollHeight;
+      if (chatMessages) {
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
     }
 
     function enableChatInput() {
       if (!isRateLimited()) {
-        document.getElementById('message-input').disabled = false;
-        document.getElementById('send-button').disabled = false;
+        const messageInput = document.getElementById('message-input');
+        const sendButton = document.getElementById('send-button');
+        if (messageInput) messageInput.disabled = false;
+        if (sendButton) sendButton.disabled = false;
       }
     }
 
     function disableChatInput() {
-      document.getElementById('message-input').disabled = true;
-      document.getElementById('send-button').disabled = true;
+      const messageInput = document.getElementById('message-input');
+      const sendButton = document.getElementById('send-button');
+      if (messageInput) messageInput.disabled = true;
+      if (sendButton) sendButton.disabled = true;
     }
 
     function showLoading() {
-      document.getElementById('loading').classList.remove('hidden');
+      const loadingElement = document.getElementById('loading');
+      if (loadingElement) {
+        loadingElement.classList.remove('hidden');
+      }
     }
 
     function hideLoading() {
-      document.getElementById('loading').classList.add('hidden');
+      const loadingElement = document.getElementById('loading');
+      if (loadingElement) {
+        loadingElement.classList.add('hidden');
+      }
     }
 
-    const ambientPlayer = document.getElementById("ambientPlayer");
+    // Ambient sound functions
     const ambientMap = {
       fire: "https://archive.org/download/relaxingsounds/FIRE%202%203h%20Blazing%20Fireplace.mp3",
       rain: "https://archive.org/download/relaxingsounds/Rain%207%20%28Lightest%29%208h%20DripsOnTrees-no%20thunder.mp3",
@@ -2060,14 +2046,15 @@
     function setAmbient(type, el) {
       const url = ambientMap[type];
       const player = document.getElementById("ambientPlayer");
+      const loadingMsg = document.getElementById('sound-loading-msg');
     
-      if (url) {
+      if (url && player) {
         player.src = url;
         player.play().catch(error => {
           console.warn('Audio playback failed:', error);
-          loadingMsg.textContent = 'Audio playback blocked';
+          if (loadingMsg) loadingMsg.textContent = 'Audio playback blocked';
         });
-      } else {
+      } else if (player) {
         player.pause();
         player.src = "";
       }
@@ -2076,59 +2063,55 @@
       if (el) el.classList.add("active");
     }
 
-    const ambientButtons = document.querySelectorAll('.ambient-btn[data-sound]');
-    const loadingMsg = document.getElementById('sound-loading-msg');
+    function setupAmbientButtons() {
+      const ambientButtons = document.querySelectorAll('.ambient-btn[data-sound]');
+      const loadingMsg = document.getElementById('sound-loading-msg');
 
-    ambientButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const soundName = btn.getAttribute('data-sound');
-        
-        if (soundName === 'Fire') {
-          setAmbient('fire', btn);
-        } else if (soundName === 'Rain') {
-          setAmbient('rain', btn);
-        } else if (soundName === 'Ocean') {
-          setAmbient('wind', btn);
-        } else if (soundName === 'Forest') {
-          setAmbient('forest', btn);
-        } else if (soundName === 'Muted') {
-          setAmbient(null, btn);
-        }
-    
-        if (soundName === 'Muted') {
-          loadingMsg.textContent = 'Sound off';
-        } else {
-          loadingMsg.textContent = `Loading ${soundName} sound...`;
-        }
-    
-        loadingMsg.classList.remove('hidden');
-        setTimeout(() => {
-          loadingMsg.classList.add('hidden');
-        }, 3000);
+      ambientButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const soundName = btn.getAttribute('data-sound');
+          
+          if (soundName === 'Fire') {
+            setAmbient('fire', btn);
+          } else if (soundName === 'Rain') {
+            setAmbient('rain', btn);
+          } else if (soundName === 'Ocean') {
+            setAmbient('wind', btn);
+          } else if (soundName === 'Forest') {
+            setAmbient('forest', btn);
+          } else if (soundName === 'Muted') {
+            setAmbient(null, btn);
+          }
+      
+          if (loadingMsg) {
+            if (soundName === 'Muted') {
+              loadingMsg.textContent = 'Sound off';
+            } else {
+              loadingMsg.textContent = `Loading ${soundName} sound...`;
+            }
+      
+            loadingMsg.classList.remove('hidden');
+            setTimeout(() => {
+              loadingMsg.classList.add('hidden');
+            }, 3000);
+          }
+        });
       });
-    });
-
-    
-    function showCheckMark(el) {
-      const mark = document.createElement("span");
-      mark.textContent = "✔️";
-      mark.style.marginLeft = "0.5rem";
-      el.appendChild(mark);
-      setTimeout(() => mark.remove(), 1000);
     }
 
-    // Goal management - 수정된 부분
-    let userGoals = [];
-    
+    // Goal management functions
     function setupGoalEventListeners() {
       const addBtn = document.getElementById('addGoalBtn');
-      if (addBtn) {
+      if (addBtn && !addBtn.hasAttribute('data-listener-added')) {
         addBtn.addEventListener('click', addGoal);
+        addBtn.setAttribute('data-listener-added', 'true');
       }
     }
     
     function initializeGoals() {
-      userGoals = [''];
+      if (userGoals.length === 0) {
+        userGoals = [''];
+      }
       renderGoals();
       setTimeout(() => {
         const firstInput = document.querySelector('.goal-input');
@@ -2158,11 +2141,24 @@
         goalItem.innerHTML = `
           <input type="text" class="goal-input" value="${goal}" 
                  placeholder="${placeholder}"
-                 onblur="updateGoal(${index}, this.value)"
-                 onkeypress="if(event.key==='Enter') this.blur()">
-          <span class="remove-goal" onclick="removeGoal(${index})">×</span>
+                 data-index="${index}">
+          <span class="remove-goal" data-index="${index}">×</span>
         `;
         goalsList.appendChild(goalItem);
+      });
+      
+      // Add event listeners to the newly created elements
+      goalsList.querySelectorAll('.goal-input').forEach(input => {
+        const index = parseInt(input.getAttribute('data-index'));
+        input.addEventListener('blur', () => updateGoal(index, input.value));
+        input.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') input.blur();
+        });
+      });
+      
+      goalsList.querySelectorAll('.remove-goal').forEach(span => {
+        const index = parseInt(span.getAttribute('data-index'));
+        span.addEventListener('click', () => removeGoal(index));
       });
       
       addBtn.textContent = `+ Add goal (${userGoals.length}/3)`;
@@ -2183,111 +2179,93 @@
     }
     
     function updateGoal(index, value) {
-      userGoals[index] = value.trim();
-      saveGoals();
+      if (index >= 0 && index < userGoals.length) {
+        userGoals[index] = value.trim();
+        saveGoals();
+      }
     }
     
     function removeGoal(index) {
-      userGoals.splice(index, 1);
-      if (userGoals.length === 0) {
-        userGoals = [''];
+      if (index >= 0 && index < userGoals.length) {
+        userGoals.splice(index, 1);
+        if (userGoals.length === 0) {
+          userGoals = [''];
+        }
+        renderGoals();
+        saveGoals();
       }
-      renderGoals();
-      saveGoals();
     }
     
     function saveGoals() {
       const filteredGoals = userGoals.filter(goal => goal.trim() !== '');
       if (name) {
-        db.collection("sessions").doc(session).collection("participants").doc(name).update({
-          goals: filteredGoals
-        }).catch(error => {
-          console.error("Error saving goals:", error);
-        });
-      }
-    }
-    
-    // Global functions for onclick handlers
-    window.addGoal = addGoal;
-    window.updateGoal = updateGoal;
-    window.removeGoal = removeGoal;
-
-    const placeholderList = [
-      "Finish sh**ty first draft ✍️",
-      "Clean messy data 🧹",
-      "Read Chapter 3 📘",
-      "Fix one small bug 🐞",
-      "Write intro paragraph 📝",
-      "Send a status update 📤",
-      "Make a doable chunk 🧩",
-      "Break task into steps 🪜"
-    ];
-
-    let index = 0;
-
-    function rotatePlaceholder() {
-      const input = document.getElementById("editableGoal");
-      if (input && input !== document.activeElement) {
-        input.setAttribute("data-placeholder", placeholderList[index % placeholderList.length]);
-        index++;
-      }
-    }
-
-    document.querySelectorAll('.theme-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const theme = btn.getAttribute('data-theme');
-        if (theme) {
-          setTheme(theme);
-        }
-      });
-    });
-
-    function saveBlocks() {
-    }
-
-    function loadBlocks() {
-      db.collection("sessions").doc(session).collection("teamLogs")
-        .orderBy("timestamp", "desc")
-        .limit(15)
-        .onSnapshot(snapshot => {
-          const logList = document.getElementById('logList');
-          logList.innerHTML = '';
-          
-          snapshot.forEach(doc => {
-            const log = doc.data();
-            const isMyLog = log.userName === name;
-            const block = document.createElement('div');
-            block.className = 'block-item';
-            
-            if (isMyLog && !log.label) {
-              // clickable 
-              block.innerHTML = `
-                <div class="block-time">${log.userEmoji} You • ${getRelativeTime(log.timestamp)}</div>
-                <div class="block-label" style="color: #94a3b8; font-style: italic; cursor: pointer;">Click to add what you did...</div>
-              `;
-              block.addEventListener('click', () => {
-                const newLabel = prompt('What did you accomplish in this session?');
-                if (newLabel && newLabel.trim()) {
-                  doc.ref.update({ label: newLabel.trim() });
-                }
-              });
-            } else if (!log.label) {
-              // other's unlabeld logs 
-              block.innerHTML = `
-                <div class="block-time">${log.userEmoji} ${log.userName} • ${getRelativeTime(log.timestamp)}</div>
-                <div class="block-label" style="color: #94a3b8; font-style: italic;">(hasn't shared yet)</div>
-              `;
-            } else {
-              // Labeled logs 
-              block.innerHTML = `
-                <div class="block-time">${log.userEmoji} ${isMyLog ? 'You' : log.userName} • ${getRelativeTime(log.timestamp)}</div>
-                <div class="block-label">${log.label}</div>
-              `;
-            }
-            
-            logList.appendChild(block);
+        safeFirebaseCall(() => {
+          db.collection("sessions").doc(session).collection("participants").doc(name).update({
+            goals: filteredGoals
+          }).catch(error => {
+            console.error("Error saving goals:", error);
           });
         });
+      }
+    }
+
+    function initializeGoalSystem() {
+      if (document.getElementById('addGoalBtn') && !window.goalSystemInitialized) {
+        setupGoalEventListeners();
+        initializeGoals();
+        window.goalSystemInitialized = true;
+      }
+    }
+
+    // Team logs
+    function loadBlocks() {
+      if (!db) return;
+      
+      try {
+        db.collection("sessions").doc(session).collection("teamLogs")
+          .orderBy("timestamp", "desc")
+          .limit(15)
+          .onSnapshot(snapshot => {
+            const logList = document.getElementById('logList');
+            if (!logList) return;
+            
+            logList.innerHTML = '';
+            
+            snapshot.forEach(doc => {
+              const log = doc.data();
+              const isMyLog = log.userName === name;
+              const block = document.createElement('div');
+              block.className = 'block-item';
+              
+              if (isMyLog && !log.label) {
+                block.innerHTML = `
+                  <div class="block-time">${log.userEmoji} You • ${getRelativeTime(log.timestamp)}</div>
+                  <div class="block-label" style="color: #94a3b8; font-style: italic; cursor: pointer;">Click to add what you did...</div>
+                `;
+                block.addEventListener('click', () => {
+                  const newLabel = prompt('What did you accomplish in this session?');
+                  if (newLabel && newLabel.trim()) {
+                    doc.ref.update({ label: newLabel.trim() });
+                  }
+                });
+              } else if (!log.label) {
+                block.innerHTML = `
+                  <div class="block-time">${log.userEmoji} ${log.userName} • ${getRelativeTime(log.timestamp)}</div>
+                  <div class="block-label" style="color: #94a3b8; font-style: italic;">(hasn't shared yet)</div>
+                `;
+              } else {
+                block.innerHTML = `
+                  <div class="block-time">${log.userEmoji} ${isMyLog ? 'You' : log.userName} • ${getRelativeTime(log.timestamp)}</div>
+                  <div class="block-label">${log.label}</div>
+                `;
+              }
+              
+              logList.appendChild(block);
+            });
+          });
+      } catch (error) {
+        console.warn('Failed to load blocks:', error);
+      }
     }
     
     function getRelativeTime(timestamp) {
@@ -2298,10 +2276,133 @@
       if (diff < 1440) return `${Math.floor(diff / 60)} hours ago`;
       return 'yesterday';
     }
-    
 
-    setInterval(rotatePlaceholder, 4000);
-    document.addEventListener("DOMContentLoaded", rotatePlaceholder);
+    // Timer control permissions
+    function setupTimerControls() {
+      if (localStorage.getItem(roleKey) !== "host") {
+        const controlButtons = controls.querySelectorAll("button");
+        controlButtons.forEach(btn => {
+          if (btn.onclick && btn.onclick.toString().includes('finishTimer')) {
+            btn.style.display = 'none';
+          } else {
+            btn.disabled = true;
+          }
+        });
+      
+        const select = document.getElementById("focusSelect");
+        if (select) {
+          select.disabled = true;
+        }
+        
+        const focusSelect = document.getElementById("focusSelect");
+        if (focusSelect) {
+          setFocusDuration(focusSelect.value);
+        }
+      
+        const leaveBtn = document.createElement("button");
+        leaveBtn.textContent = "Leave Session";
+        leaveBtn.style.background = "#6b7280";
+        leaveBtn.style.color = "white";
+        leaveBtn.onclick = () => {
+          if (confirm("Are you sure you want to leave this session?")) {
+            window.close();
+          }
+        };
+        controls.appendChild(leaveBtn);
+      
+        const notice = document.createElement("div");
+        notice.innerHTML = `<div style="font-size: 0.85rem; color: #64748b; background: rgba(248, 250, 252, 0.8); border: 1px solid #EAF0FB; border-radius: 8px; padding: 0.75rem; margin-top: 1rem; text-align: center;"><strong>Only the host</strong> can control the timer.</div>`;
+        controls.appendChild(notice);
+      }
+    }
+
+    // Main initialization
+    function initialize() {
+      loadTheme();
+      loadUserData();
+      
+      // Setup theme dots
+      document.querySelectorAll('.theme-dot').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const theme = btn.getAttribute('data-theme');
+          if (theme) {
+            setTheme(theme);
+          }
+        });
+      });
+      
+      // Initialize Firebase
+      const firebaseInitialized = initializeFirebase();
+      
+      // Check if user already set up
+      if (name && emoji) {
+        window.scrollTo(0, 0);
+        document.getElementById("userSetup").style.display = "none";
+        document.getElementById("mainApp").style.display = "block";
+
+        if (firebaseInitialized) {
+          safeFirebaseCall(() => {
+            db.collection("sessions").doc(session).collection("participants").doc(name).set({
+              name,
+              emoji,
+              goals: [], 
+              timestamp: Date.now()
+            });
+          });
+          
+          setupFirebaseListeners();
+          loadBlocks();
+        }
+        
+        initializeGoalSystem();
+        setupTimerControls();
+      } else {
+        renderAvatarGrid();
+        document.getElementById("userSetup").style.display = "block";
+        document.getElementById("mainApp").style.display = "none";
+      }
+
+      // Initialize other components
+      displayTime(localSeconds);
+      updatePhaseLabel();
+      updateUsageDisplay();
+      setupChatEventListeners();
+      setupAmbientButtons();
+      
+      if (!isRateLimited()) {
+        enableChatInput();
+      } else {
+        showRateLimit();
+      }
+
+      // Add opening message
+      const userName = name || "there";
+      const personalizedMessage = `Hi, ${userName}! ${getRandomOpeningMessage()}`;
+      addMessage(personalizedMessage, 'bot');
+
+      // Cleanup on page unload
+      window.addEventListener('beforeunload', () => {
+        if (unsubscribeTimer) unsubscribeTimer();
+        if (unsubscribeParticipants) unsubscribeParticipants();
+      });
+    }
+
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initialize);
+    } else {
+      initialize();
+    }
+
+    // Global functions for HTML onclick handlers
+    window.startTimer = startTimer;
+    window.pauseTimer = pauseTimer;
+    window.resetTimer = resetTimer;
+    window.finishTimer = finishTimer;
+    window.setFocusDuration = setFocusDuration;
+    window.submitUser = submitUser;
+    window.copyInviteLink = copyInviteLink;
+
   </script>
 </body>
-</html> 
+</html>
