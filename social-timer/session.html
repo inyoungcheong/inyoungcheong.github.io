@@ -1366,6 +1366,17 @@
     
     // Session
     const session = new URLSearchParams(window.location.search).get("session") || "focus-room";
+
+    // URL host parameters 
+    const urlParams = new URLSearchParams(window.location.search);
+    const isHostFromUrl = urlParams.get('host') === 'true';
+    
+    if (isHostFromUrl) {
+      localStorage.setItem(roleKey, 'host');
+      console.log('👑 Host role set from URL parameter');
+    }
+
+
     
     // Timer variables
     let focusDuration = 1500;
@@ -1421,14 +1432,20 @@
     // Safe Firebase initialization
     function initializeFirebase() {
       try {
+        console.log('🔄 Attempting Firebase initialization...');
+        console.log('firebase available:', typeof firebase !== 'undefined');
+        
         if (typeof firebase !== 'undefined') {
           firebase.initializeApp(firebaseConfig);
           db = firebase.firestore();
-          console.log('Firebase initialized successfully');
+          console.log('✅ Firebase initialized successfully');
+          console.log('🔥 Firestore instance:', db ? 'Created' : 'Failed');
           return true;
+        } else {
+          console.warn('❌ Firebase SDK not loaded');
         }
       } catch (error) {
-        console.warn('Firebase initialization failed:', error);
+        console.warn('❌ Firebase initialization failed:', error);
       }
       return false;
     }
@@ -1572,13 +1589,24 @@
       localStorage.setItem(roleKey, role);
       
       safeFirebaseCall(() => {
-        db.collection("sessions").doc(session).collection("participants").doc(name).set({
-          name,
-          emoji,
-          goals: [],
-          timestamp: Date.now()
+      // 먼저 기존 참가자 확인
+      db.collection("sessions").doc(session).collection("participants").get()
+        .then(snapshot => {
+          if (snapshot.empty && role !== "host") {
+            role = "host";
+            localStorage.setItem(roleKey, role);
+            console.log('👑 First participant - you are now the host!');
+          }
+          
+          return db.collection("sessions").doc(session).collection("participants").doc(name).set({
+            name,
+            emoji,
+            goals: [],
+            role: role || "guest",
+            timestamp: Date.now()
+          });
         });
-      });
+    });
     
       const userSetup = document.getElementById("userSetup");
       const mainApp = document.getElementById("mainApp");
@@ -2153,7 +2181,16 @@
       // Add event listeners to the newly created elements
       goalsList.querySelectorAll('.goal-input').forEach(input => {
         const index = parseInt(input.getAttribute('data-index'));
-        input.addEventListener('blur', () => updateGoal(index, input.value));
+        input.addEventListener('blur', (e) => {
+          console.log('🎯 Input blur event:', e.target.value);
+          updateGoal(index, e.target.value);
+        });
+        input.addEventListener('input', (e) => {
+          // 실시간으로 userGoals 업데이트
+          if (index >= 0 && index < userGoals.length) {
+            userGoals[index] = e.target.value;
+          }
+        });
         input.addEventListener('keypress', (e) => {
           if (e.key === 'Enter') input.blur();
         });
@@ -2359,6 +2396,12 @@
         console.log('🧪 Testing with fake goals:', userGoals);
         saveGoals();
       }
+
+      // Timer function check 
+      console.log('Timer functions check:');
+      console.log('startTimer:', typeof window.startTimer);
+      console.log('Firebase initialized:', typeof db);
+      console.log('Role:', localStorage.getItem(roleKey));
       
       function checkFirebaseConnection() {
         console.log('🔥 Firebase app:', firebase.apps.length > 0);
