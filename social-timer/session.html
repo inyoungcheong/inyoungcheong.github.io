@@ -700,11 +700,19 @@
     #vibeBoard {
       flex: 1; 
       width: 100%;
-      max-height: 300px;
+      max-height: 400px;
       overflow-y: auto;
-      margin-bottom: 1rem;
+      margin-top: 1.5rem;
       padding-right: 0.5rem;
       min-height: 150px; 
+    }
+
+    .goals-list {
+      width: 100%;
+      max-height: 400px;
+      overflow-y: auto;
+      padding-right: 0.5rem;
+      margin-top: 1.5rem;
     }
 
     .public-dashboard:hover {
@@ -723,11 +731,12 @@
     }
 
     .vibe-card {
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.9);
       border-radius: 12px;
       padding: 1rem 1.25rem;
       margin-bottom: 0.75rem;
-      border: 2px solid #EAF0FB; /* 일관된 border 두께 */
+      border: 1px solid #EAF0FB; /* 일관된 border 두께 */
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); 
       transition: all 0.2s ease;
       backdrop-filter: blur(10px);
       width: 100%;
@@ -755,7 +764,7 @@
     
     /* Fixed Goal Input - consistent sizing */
     .goal-input-container {
-      margin-top: auto; 
+      margin-bottom: 1rem; 
       width: 100%;
       position: relative;
       flex-shrink: 0; 
@@ -777,7 +786,8 @@
       padding: 0.75rem 3rem 0.75rem 1rem; /* 오른쪽에 버튼 공간 확보 */
       border: 2px solid #EAF0FB; /* vibe-card와 동일한 border */
       border-radius: 12px;
-      background: rgba(255, 255, 255, 0.8); /* vibe-card와 동일 */
+      background: rgba(255, 255, 255, 0.9); /* vibe-card와 동일 */
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); 
       backdrop-filter: blur(10px);
       font-size: 1rem;
       font-family: 'Inter', sans-serif;
@@ -847,7 +857,6 @@
     .goal-input-container > div:first-child {
       font-size: 0.9rem;
       color: #64748b;
-      text-align: center;
       margin-bottom: 0.75rem;
       font-weight: 500;
     }
@@ -1350,20 +1359,20 @@
       
       <!-- Dashboard Section -->
       <div class="dashboard-section">
-        <div class="public-dashboard">
-          <div class="section-title">Today's Focus</div>
-          <p style="font-size: 1.1rem; color: #64748b; text-align: center; margin-bottom: 1.5rem; line-height: 1.5;">Write down the main task you'll focus on today. See what others are working on and stay motivated together.</p>
+        <div class="section-title">Today's Focus</div>
+        <p style="font-size: 1.1rem; color: #64748b; text-align: center; margin-bottom: 1.5rem; line-height: 1.5;">Write down the main task you'll focus on today. See what others are working on and stay motivated together.</p>
+
+        <div class="goal-input-container">
+          <div style="font-size: 0.9rem; color: #64748b; text-align: center; margin-bottom: 0.75rem; font-weight: 500;">✏️ Update your focus goal:</div>
+          <div id="editableGoal" contenteditable="true" data-placeholder="What's one meaningful task you'll focus on?"></div>
+          <button id="saveGoalBtn">✓</button>
+        </div>
+
+        <div id="vibeBoard"></div>
           
-          <div id="vibeBoard"></div>
-          
-          <div class="goal-input-container">
-            <div style="font-size: 0.9rem; color: #64748b; text-align: center; margin-bottom: 0.75rem; font-weight: 500;">✏️ Update your focus goal:</div>
-            <div id="editableGoal" contenteditable="true" data-placeholder="What's one meaningful task you'll focus on?"></div>
-            <button id="saveGoalBtn">✓</button>
-          </div>
         </div>
       </div>
-    </div>
+   
 
     <!-- Private Board Header -->
     <div style="text-align: center; margin: 1.5rem 0 0.5rem 0;">
