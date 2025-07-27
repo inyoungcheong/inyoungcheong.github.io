@@ -1262,20 +1262,21 @@
       
       <!-- Dashboard Section -->
       <div class="dashboard-section">
-        <div class="section-title">Today's Focus</div>
+        <div class="section-title">Goal Dashboard</div>
         <p style="font-size: 1.1rem; color: #64748b; text-align: center; margin-bottom: 1.5rem; line-height: 1.5; padding: 0 1rem;">Write down the main task you'll focus on today. See what others are working on and stay motivated together.</p>
 
         <div class="goals-input-container">
           <div>✏️ Update your focus goals:</div>
           <div id="goalsList"></div>
-          <!-- 이 부분을 <div id="goalsList"></div> 바로 아래에 추가: -->
-          <button onclick="testSave()" style="background: red; color: white; margin: 10px; padding: 5px 10px; border: none; border-radius: 5px;">
-            🔍 Debug Test
-          </button>
           <button id="addGoalBtn">+ Add goal (0/3)</button>
         </div>
-
-        <div id="vibeBoard"></div>
+        
+        <div class="public-dashboard">
+          <div class="dashboard-title">
+            🎯 Everyone's Goals
+          </div>
+          <div id="vibeBoard"></div>
+        </div>
       </div>
     </div>
 
@@ -1371,10 +1372,6 @@
     const urlParams = new URLSearchParams(window.location.search);
     const isHostFromUrl = urlParams.get('host') === 'true';
     
-    if (isHostFromUrl) {
-      localStorage.setItem(roleKey, 'host');
-      console.log('👑 Host role set from URL parameter');
-    }
 
 
     
@@ -1413,6 +1410,13 @@
     const emojiKey = `vibeUserAnimal-${session}`;
     const roleKey = `vibeUserRole-${session}`;
 
+   if (isHostFromUrl) {
+      localStorage.setItem(roleKey, 'host');
+      console.log('👑 Host role set from URL parameter');
+    }
+
+
+    
     function getRandomOpeningMessage() {
       return openingMessages[Math.floor(Math.random() * openingMessages.length)];
     }
@@ -1684,14 +1688,18 @@
     function startLocalTimer() {
       stopLocalTimer();
       timerStartTime = Date.now();
+      
       localTimer = setInterval(() => {
-        const elapsed = Math.floor((Date.now() - timerStartTime) / 1000);
-        localSeconds = Math.max(0, duration - elapsed);
-        
-        updateProgress();
-        if (localSeconds <= 0) {
-          beep.play();
-          nextPhase();
+        if (timerStartTime && duration > 0) {
+          const elapsed = Math.floor((Date.now() - timerStartTime) / 1000);
+          localSeconds = Math.max(0, duration - elapsed);
+          
+          updateProgress();
+          
+          if (localSeconds <= 0) {
+            beep.play().catch(e => console.log('Audio play failed:', e));
+            nextPhase();
+          }
         }
       }, 1000);
     }
@@ -1702,6 +1710,9 @@
     }
     
     function pauseTimer() {
+      console.log('⏸️ Pausing timer');
+      stopLocalTimer();
+      isRunning = false;
       updateRemoteTimer({
         isRunning: false,
         remainingSeconds: localSeconds,
@@ -1712,7 +1723,13 @@
     }
     
     function resetTimer() {
-      localSeconds = duration;
+      console.log('🔄 Resetting timer');
+      stopLocalTimer();
+      isRunning = false;
+      localSeconds = phases[phaseIndex].duration;
+      duration = localSeconds;
+      displayTime(localSeconds);
+      
       updateRemoteTimer({
         isRunning: false,
         remainingSeconds: localSeconds,
@@ -1720,7 +1737,6 @@
         phaseIndex: phaseIndex,
         duration: duration
       });
-      displayTime(localSeconds);
     }
     
     function setFocusDuration(sec) {
@@ -1741,9 +1757,13 @@
     }
     
     function startTimer() {
-      updatePhaseLabel();
+      console.log('▶️ Starting timer');
+      stopLocalTimer(); // 기존 타이머 정리
+      isRunning = true;
       timerStartTime = Date.now();
       duration = localSeconds;
+      
+      updatePhaseLabel();
       updateRemoteTimer({
         isRunning: true,
         remainingSeconds: localSeconds,
@@ -1751,6 +1771,9 @@
         phaseIndex: phaseIndex,
         duration: duration
       });
+      
+      // 로컬 타이머 시작
+      startLocalTimer();
     }
     
     function finishTimer() {
@@ -2224,7 +2247,12 @@
       if (index >= 0 && index < userGoals.length) {
         userGoals[index] = value.trim();
         console.log('📝 userGoals updated:', userGoals);
-        saveGoals();
+        
+        // 즉시 저장하지 말고 debounce 적용
+        if (updateGoal.timeout) clearTimeout(updateGoal.timeout);
+        updateGoal.timeout = setTimeout(() => {
+          saveGoals();
+        }, 500);
       }
     }
 
@@ -2385,17 +2413,7 @@
         });
       });
 
-      window.testSave = function() {
-        console.log('=== DEBUG INFO ===');
-        console.log('name:', name);
-        console.log('userGoals:', userGoals);
-        console.log('db:', db);
-        console.log('session:', session);
-        
-        userGoals = ['Test Goal 1', 'Test Goal 2'];
-        console.log('🧪 Testing with fake goals:', userGoals);
-        saveGoals();
-      }
+      
 
       // Timer function check 
       console.log('Timer functions check:');
@@ -2424,17 +2442,18 @@
         document.getElementById("mainApp").style.display = "block";
 
         if (firebaseInitialized) {
+          setupFirebaseListeners();
+          loadBlocks();
+          
           safeFirebaseCall(() => {
             db.collection("sessions").doc(session).collection("participants").doc(name).set({
               name,
               emoji,
               goals: [], 
+              role: role || "guest",
               timestamp: Date.now()
             });
           });
-          
-          setupFirebaseListeners();
-          loadBlocks();
         }
         
         initializeGoalSystem();
