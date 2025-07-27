@@ -59,6 +59,16 @@
       flex-direction: column;
       height: 700px;
     }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      padding: 2rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+      border: 1px solid #EAF0FB;
+      transition: all 0.3s ease;
+    }
     
     .card-title {
       font-family: 'Plus Jakarta Sans', sans-serif;
@@ -578,19 +588,6 @@
     .footer-link:hover {
       opacity: 0.8;
       text-decoration: underline;
-    }
-
-    .dashboard-section {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(20px);
-      border-radius: 24px;
-      padding: 2rem;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
-      border: 1px solid #EAF0FB;
-      justify-content: flex-start;
     }
     
     /* Ambient Sound */
@@ -1212,8 +1209,8 @@
     
     @media (max-width: 768px) {
       .container {
-        padding: 1rem 0.5rem; 
-        gap: 1rem;
+        padding: 1rem 0.5rem 
+        gap: 1rem
       }
       
       .timer-section,
@@ -1362,7 +1359,7 @@
       
       <!-- Dashboard Section -->
       <div class="dashboard-section">
-        <div class="section-title">🎯 Goal Dashboard</div>
+        <div class="section-title">Today's Focus</div>
         <p style="font-size: 1.1rem; color: #64748b; text-align: center; margin-bottom: 1.5rem; line-height: 1.5;">Write down the main task you'll focus on today. See what others are working on and stay motivated together.</p>
 
         <div class="goal-input-container">
@@ -1373,6 +1370,7 @@
 
         <div id="vibeBoard"></div>
           
+        </div>
       </div>
    
 
@@ -1388,7 +1386,7 @@
 
     <div class="container">
       <!-- Chatbot Section -->
-      <div class="chatbot-section">
+      <div class="glass-card chatbot-section">
         <div class="card-title">✨ AI Motivation Partner</div>
         <p style="font-size: 0.9rem; color: #94a3b8; text-align: center; margin-bottom: 1rem; font-style: italic;">
           Declutter blockers. Conversation history is not saved.
@@ -1424,7 +1422,7 @@
       
       <!-- Focus Blocks Section -->
       <div class="focus-blocks-section">
-        <div class="section-title">✍️ Session Reflections</div>
+        <div class="section-title">⚡ Focus Sessions</div>
           <p style="font-size: 0.9rem; color: #94a3b8; text-align: center; margin-bottom: 1rem; font-style: italic;">
             Track what you accomplished in each session
           </p>
@@ -1463,16 +1461,16 @@
     const maxMessages = 30;
     const usageKey = 'dailyPlanner_usage_' + getTodayKey();
     const openingMessages = [
-      "What's calling for your attention today? ✨",
-      "How are you feeling about today's possibilities? 🌟",
-      "What's one thing you're looking forward to tackling? 🎯",
-      "What's been stirring in your mind this morning? 💭",
-      "How would you like this day to unfold? 🌈",
-      "What feels most important to focus on right now? ⚡",
-      "What's awakening your creative energy today? 🚀",
-      "How are you hoping to spend your time today? ⏰",
-      "What would make today feel meaningful for you? 💫",
-      "What thoughts are pulling at you today? 🧠"
+      "What's your most important task today? And what's blocking you? 🎯",
+      "Tell me what you need to focus on - and what's getting in the way 💭",
+      "What's one key thing you want to accomplish? What's stopping you? ⚡",
+      "What feels most urgent right now? And what obstacles are you facing? 🚀",
+      "What's the main task on your mind? What's making it difficult? 💫",
+      "What would you like to tackle first? What's holding you back? ✨",
+      "What's your priority today? Feel free to tell me what's blocking you 🧠",
+      "What's the most important thing you need to get done? What's in your way? 🎪",
+      "What task is calling for your attention? What challenges are you facing? 💪",
+      "What would make today feel productive? What barriers do you see? 🌟"
     ];
     
     let sessionLog = [];
@@ -1771,19 +1769,6 @@
       } else {
         showRateLimit();
       }
-
-      function syncDashboardHeight() {
-        const timer = document.querySelector('.timer-section');
-        const dashboard = document.querySelector('.dashboard-section');
-        
-        if (timer && dashboard) {
-          const timerHeight = timer.offsetHeight;
-          dashboard.style.minHeight = timerHeight + 'px';
-        }
-      }
-    
-      window.addEventListener('resize', syncDashboardHeight);
-      setTimeout(syncDashboardHeight, 500);
     
       const userName = name || "there"; // 이름이 없으면 "there" 사용
       const personalizedMessage = `Hi, ${userName}! ${getRandomOpeningMessage()}`;
