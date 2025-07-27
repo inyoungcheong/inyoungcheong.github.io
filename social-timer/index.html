@@ -279,6 +279,14 @@
       navigator.clipboard.writeText(window.location.origin + url).then(() => {
         alert("Session created! Link copied to clipboard:\n" + window.location.origin + url);
         window.location.href = url;
+
+      // 페이드아웃 효과 추가
+        document.body.style.transition = "opacity 0.3s ease";
+        document.body.style.opacity = "0";
+        
+        setTimeout(() => {
+          window.location.href = url;
+        }, 300);
       });
     }
 
