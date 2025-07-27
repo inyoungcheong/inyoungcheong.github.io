@@ -53,7 +53,7 @@
       transition: all 0.3s ease;
     }
 
-    /* Chatbot Section - timer에서 복사 */
+    /* Chatbot Section */
     .chatbot-section {
       display: flex;
       flex-direction: column;
@@ -121,7 +121,7 @@
       color: white;
       margin-left: auto;
       text-align: right;
-      border-radius: 18px 18px 4px 18px; /* 사용자 메시지 꼬리 */
+      border-radius: 18px 18px 4px 18px;
     }
     
     .message.bot {
@@ -137,7 +137,7 @@
 
     .message.user + .message.bot,
     .message.bot + .message.user {
-      margin-top: 1rem; /* 화자 바뀔 때 간격 더 벌림 */
+      margin-top: 1rem;
     }
 
     .message.system {
@@ -272,14 +272,14 @@
       font-size: 0.9rem;
     }
     .focus-blocks-section {
-      height: 700px; /* 챗봇과 동일한 높이 */
+      height: 700px;
       display: flex;
       flex-direction: column;
     }
     #logList {
-      flex: 1; /* 남은 공간 차지 */
-      overflow-y: auto; /* 스크롤 추가 */
-      max-height: calc(700px - 200px); /* 제목과 입력칸 제외한 높이 */
+      flex: 1;
+      overflow-y: auto;
+      max-height: calc(700px - 200px);
     }
 
     /* Theme Selector */
@@ -297,14 +297,13 @@
       transform: scale(1.05);
     }
 
-
     .settings-bar {
       display: flex;
-      flex-direction: row; /* column에서 row로 변경 */
+      flex-direction: row;
       align-items: center;
       justify-content: center;
-      gap: 3rem; /* 간격 늘림 */
-      margin-top: 1.5rem; /* 마진 줄임 */
+      gap: 3rem;
+      margin-top: 1.5rem;
     }
     
     header {
@@ -429,7 +428,6 @@
       color: white;
     }
 
-    
     .theme-dots {
       display: flex;
       gap: 0.5rem;
@@ -458,9 +456,8 @@
       box-shadow: 0 0 0 2px rgba(255,255,255,0.8);
     }
     
-    /* 기존 CSS를 이렇게 수정 */
     .theme-dots .theme-dot[data-theme="purple"] {
-      background: #7C83FD !important; /* 메인 테마 색상 + !important */
+      background: #7C83FD !important;
     }
     
     .theme-dots .theme-dot[data-theme="red"] {
@@ -475,8 +472,6 @@
       background: #F5DF4D !important;
     }
 
-
-    
     /* Timer Section */
     .timer-section {
       display: flex;
@@ -562,7 +557,7 @@
       cursor: not-allowed;
     }
 
-    /* Footer - Fixed styling */
+    /* Footer */
     footer {
       margin-top: 3rem;
       padding: 2rem 1.5rem;
@@ -670,13 +665,13 @@
 
     .timer-section,
     .public-dashboard {
-      min-height: 560px; /* 타이머 섹션과 동일한 높이 */
+      min-height: 560px;
       display: flex;
       flex-direction: column;
     }
     
     .public-dashboard {
-      justify-content: flex-start; /* 위쪽부터 배치 시작 */
+      justify-content: flex-start;
     }
     
     /* Dashboard Section */
@@ -735,15 +730,14 @@
       border-radius: 12px;
       padding: 1rem 1.25rem;
       margin-bottom: 0.75rem;
-      border: 1px solid #EAF0FB; /* 일관된 border 두께 */
+      border: 1px solid #EAF0FB;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); 
       transition: all 0.2s ease;
       backdrop-filter: blur(10px);
       width: 100%;
-      min-height: 3rem; /* 최소 높이 설정 */
+      min-height: 3rem;
       box-sizing: border-box;
     }
-    
     
     .vibe-card:hover {
       background: rgba(255, 255, 255, 0.95);
@@ -762,7 +756,7 @@
       border-width: 2px !important;
     }
     
-    /* Fixed Goal Input - consistent sizing */
+    /* Goal Input */
     .goal-input-container {
       margin-bottom: 1rem; 
       width: 100%;
@@ -776,17 +770,17 @@
     }
     
     .section-title {
-      flex-shrink: 0; /* 제목도 고정 */
+      flex-shrink: 0;
     }
     
     #editableGoal {
       width: 100%;
-      min-height: 3rem; /* vibe-card와 동일한 최소 높이 */
-      max-height: 6rem; /* 최대 높이 제한 */
-      padding: 0.75rem 3rem 0.75rem 1rem; /* 오른쪽에 버튼 공간 확보 */
-      border: 2px solid #EAF0FB; /* vibe-card와 동일한 border */
+      min-height: 3rem;
+      max-height: 6rem;
+      padding: 0.75rem 3rem 0.75rem 1rem;
+      border: 2px solid #EAF0FB;
       border-radius: 12px;
-      background: rgba(255, 255, 255, 0.9); /* vibe-card와 동일 */
+      background: rgba(255, 255, 255, 0.9);
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); 
       backdrop-filter: blur(10px);
       font-size: 1rem;
@@ -799,7 +793,7 @@
       overflow-y: auto;
       line-height: 1.5;
       display: flex;
-      align-items: center; /* 세로 중앙 정렬 */
+      align-items: center;
     }
     
     #editableGoal:focus {
@@ -1026,8 +1020,109 @@
       transform: scale(1.1);
     }
 
-    /* Mobile adjustments for user setup */
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+       .container {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+          "timer"
+          "dashboard" 
+          "chatbot"
+          "blocks";
+      }
+
+      .focus-blocks-section,
+      .chatbot-section {
+        min-height: 500px;
+      }
+      .chat-messages {
+        min-height: 300px;
+      }
+    }
+
     @media (max-width: 768px) {
+      .settings-bar {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      
+      .theme-btn {
+        width: 32px;
+        height: 32px;
+      }
+      
+      .ambient-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+      }
+
+      .container {
+        padding: 1rem 0.5rem;
+        gap: 1rem;
+      }
+      
+      .timer-section,
+      .public-dashboard,
+      .chatbot-section,
+      .focus-blocks-section {
+        padding: 1.5rem;
+      }
+      
+      .chatbot-section {
+        height: auto; 
+        min-height: fit-content; 
+      }
+
+      .chat-messages {
+        flex: 1; 
+        height: auto; 
+        max-height: none; 
+        min-height: 300px;
+      }
+
+      .focus-blocks-section {
+        height: auto;
+        min-height: 400px;
+      }
+
+      #logList {
+        max-height: 300px;
+        overflow-y: auto;
+      }
+      
+      #timerText {
+        font-size: 2rem;
+      }
+      
+      .controls {
+        flex-direction: column;
+        width: 100%;
+      }
+      
+      .controls button,
+      .controls select {
+        width: 100%;
+      }
+
+      .vibe-card,
+      #editableGoal {
+        max-width: 100%;
+        min-height: 2.5rem;
+      }
+      
+      #editableGoal {
+        padding: 0.6rem 2.5rem 0.6rem 0.8rem;
+        font-size: 0.9rem;
+      }
+      
+      #saveGoalBtn {
+        width: 1.8rem;
+        height: 1.8rem;
+        right: 0.4rem;
+        font-size: 0.9rem;
+      }
+
       #userSetup {
         padding: 2rem 1.5rem;
         margin: 1rem auto;
@@ -1053,141 +1148,8 @@
         font-size: 1.5rem;
         padding: 0.75rem;
       }
-    
-
-      @media (max-width: 768px) {
-      .vibe-card,
-      #editableGoal {
-        max-width: 100%;
-        min-height: 2.5rem;
-      }
-      
-      #editableGoal {
-        padding: 0.6rem 2.5rem 0.6rem 0.8rem;
-        font-size: 0.9rem;
-      }
-      
-      #saveGoalBtn {
-        width: 1.8rem;
-        height: 1.8rem;
-        right: 0.4rem;
-        font-size: 0.9rem;
-      }
     }
 
-    /* Section Cards */
-    .section {
-      background: rgba(255,255,255,0.97);
-      backdrop-filter: blur(16px);
-      padding: 2.3rem 2rem;
-      border-radius: 20px;
-      box-shadow: 0 8px 32px rgba(124, 131, 253, 0.07);
-      border: 1.5px solid #EAF0FB;
-      margin-bottom: 3rem;
-      width: 100%;
-      transition: box-shadow 0.2s;
-    }
-    .section:hover {
-      box-shadow: 0 12px 36px rgba(124, 131, 253, 0.13);
-    }
-
-    .circle-btn {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      border: 2px solid transparent;
-      background: rgba(255,255,255,0.9);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.2s ease;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-    }
-    
-    .circle-btn:hover {
-      transform: scale(1.1);
-      border-color: var(--accent-primary);
-    }
-    
-    .circle-btn.active {
-      background: var(--accent-primary);
-      color: white;
-      border-color: var(--accent-primary);
-    }
-
-    
-    /* Responsive Design */
-
-    @media (max-width: 768px) {
-      .settings-bar {
-        flex-direction: column;
-        gap: 1.5rem;
-      }
-      
-      .theme-btn {
-        width: 32px;
-        height: 32px;
-      }
-      
-      .ambient-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
-      }
-    }
-    @media (max-width: 1024px) {
-       .container {
-        grid-template-columns: 1fr;
-        grid-template-areas: 
-          "timer"
-          "dashboard" 
-          "chatbot"
-          "blocks";
-      }
-    }
-
-      .focus-blocks-section,
-      .chatbot-section {
-        min-height: 500px; /* 최소 높이 설정 */
-      }
-      .chat-messages {
-        min-height: 300px;
-      }
-    }
-
-      .chatbot-section.glass-card {
-        border-radius: 16px;
-        padding: 2rem;
-        box-shadow: 0 8px 32px rgba(124, 131, 253, 0.04);
-        transition: box-shadow 0.3s ease;
-      }
-      
-      .chatbot-section.glass-card:hover {
-        box-shadow: 0 12px 36px rgba(124, 131, 253, 0.08);
-      }
-
-      .focus-blocks-section {
-        display: flex;
-        flex-direction: column;
-        border-radius: 16px;
-        padding: 2rem;
-        box-shadow: 0 8px 32px rgba(124, 131, 253, 0.04);
-      }
-        
-      .notes-section {
-        grid-template-columns: 1fr;
-      }
-
-      .theme-inline-palette {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        margin-bottom: 1rem;
-        margin-top: 1rem;
-      }
-      
-    /* Add better mobile responsiveness */
     @media (max-width: 480px) {
       .container {
         padding: 0.5rem;
@@ -1204,72 +1166,9 @@
         gap: 0.5rem;
       }
     }
-
-
-    
-    @media (max-width: 768px) {
-      .container {
-        padding: 1rem 0.5rem 
-        gap: 1rem
-      }
-      
-      .timer-section,
-      .public-dashboard,
-      .note-card {
-        padding: 1.5rem;
-      }
-      
-      .chatbot-section {
-        height: auto; 
-        min-height: 400px; 
-        margin-bottom: 1.5rem;
-      }
-
-      .chat-messages {
-        min-height: 250px; /* 모바일에서 더 작은 높이 */
-        max-height: 300px; /* 최대 높이 제한 */
-      }
-
-      .focus-blocks-section {
-        height: auto; /* 고정 높이 제거 */
-        min-height: 400px;
-      }
-
-      #logList {
-        max-height: 300px; /* 스크롤 영역 높이 제한 */
-        overflow-y: auto;
-      }
-      
-      #timerText {
-        font-size: 2rem;
-      }
-      
-      .controls {
-        flex-direction: column;
-        width: 100%;
-      }
-      
-      .controls button,
-      .controls select {
-        width: 100%;
-      }
-
-      .theme-selector {
-        top: 0.5rem;
-        gap: 0.5rem;
-        padding: 0.5rem;
-      }
-
-      .theme-btn {
-        width: 14px;
-        height: 14px;
-      }
-    }
   </style>
 </head>
 <body>
-  <!-- Theme Selector -->
-
   <header id="sessionHeader" onclick="copyInviteLink()">
     <div class="invitation-container">
       <div class="pulse-dot"></div>
@@ -1293,9 +1192,8 @@
 
   <audio src="assets/beep.wav" id="beep"></audio>
   
-  
   <div id="mainApp">
-    <!-- Social Board 헤더 추가 -->
+    <!-- Social Board 헤더 -->
    <div style="text-align: center; margin: 1.5rem 0 0.5rem 0;">
     <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.8rem; font-weight: 700; color: var(--accent-primary); margin-bottom: 0.25rem;">
        👥 Social Board
@@ -1305,7 +1203,6 @@
       </p>
     </div>
 
-    
     <div class="container">
       <!-- Timer Section -->
       <div class="timer-section">
@@ -1352,10 +1249,8 @@
           </div>
         </div>
 
-
         <audio id="ambientPlayer" loop></audio>
       </div>
-      
       
       <!-- Dashboard Section -->
       <div class="dashboard-section">
@@ -1369,10 +1264,8 @@
         </div>
 
         <div id="vibeBoard"></div>
-          
-        </div>
       </div>
-   
+    </div>
 
     <!-- Private Board Header -->
     <div style="text-align: center; margin: 1.5rem 0 0.5rem 0;">
@@ -1396,8 +1289,7 @@
           <small>💬 Usage: <span id="usage-count">0</span>/30 messages today</small>
         </div>
   
-        <div id="chat-messages" class="chat-messages">
-        </div>
+        <div id="chat-messages" class="chat-messages"></div>
   
         <div class="chat-input-container">
           <input type="text" id="message-input" placeholder="Tell me what's blocking you...">
@@ -1418,8 +1310,6 @@
         </div>
       </div>
 
-
-      
       <!-- Focus Blocks Section -->
       <div class="focus-blocks-section">
         <div class="section-title">⚡ Focus Sessions</div>
@@ -1433,12 +1323,9 @@
         <div id="logList"></div>
       </div>
     </div>
-
-      
   </div>
     
-    <div id="saveToast">Saved ✔️</div>
-
+  <div id="saveToast">Saved ✔️</div>
 
   <footer>
     <div class="footer-content">
@@ -1461,25 +1348,22 @@
     const maxMessages = 30;
     const usageKey = 'dailyPlanner_usage_' + getTodayKey();
     const openingMessages = [
-      "What's your most important task today? And what's blocking you? 🎯",
-      "Tell me what you need to focus on - and what's getting in the way 💭",
-      "What's one key thing you want to accomplish? What's stopping you? ⚡",
-      "What feels most urgent right now? And what obstacles are you facing? 🚀",
-      "What's the main task on your mind? What's making it difficult? 💫",
-      "What would you like to tackle first? What's holding you back? ✨",
-      "What's your priority today? Feel free to tell me what's blocking you 🧠",
-      "What's the most important thing you need to get done? What's in your way? 🎪",
-      "What task is calling for your attention? What challenges are you facing? 💪",
-      "What would make today feel productive? What barriers do you see? 🌟"
+      "Hi wonderful, I am your motivation partner! 🎯",
+      "Hi gorgeous, I am here to help you make a productive day!",
+      "Heyy, what's on your mind?",
+      "Hi I am your motivation partner! Together, I can achieve wonderful things! 🚀",
+      "Hi my friends, what's your priority today? Feel free to tell me anything.", 
+      "Hey there, what would make today feel productive? Let me help you 🌟"
     ];
     
+    // Session log - make it session-specific
+    const session = new URLSearchParams(window.location.search).get("session") || "focus-room";
+    const sessionLogKey = `sessionLog-${session}`;
     let sessionLog = [];
     
     function getRandomOpeningMessage() {
       return openingMessages[Math.floor(Math.random() * openingMessages.length)];
     }
-
-
     
     const firebaseConfig = {
       apiKey: "AIzaSyAW3sw__h-YyGOBowZULt2iZ59CP8KkU34",
@@ -1492,41 +1376,35 @@
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
   
-    const session = new URLSearchParams(window.location.search).get("session");
-    document.getElementById("sessionName").textContent = session || "focus-room";
+    document.getElementById("sessionName").textContent = session;
     
     // Theme functions
     function setTheme(theme) {
       document.documentElement.setAttribute('data-theme', theme);
       localStorage.setItem('pomodoro-theme', theme);
       
-      // theme-btn 업데이트 (기존)
       document.querySelectorAll('.theme-btn').forEach(btn => {
         btn.classList.remove('active');
       });
       const themeBtn = document.querySelector(`.theme-btn[data-theme="${theme}"]`);
       if (themeBtn) themeBtn.classList.add('active');
       
-      // theme-dot 업데이트 (새로 추가)
       document.querySelectorAll('.theme-dot').forEach(btn => {
         btn.classList.remove('active');
       });
       const themeDot = document.querySelector(`.theme-dot[data-theme="${theme}"]`);
       if (themeDot) themeDot.classList.add('active');
     }
-      
-      
-      
+    
     function loadTheme() {
       const savedTheme = localStorage.getItem('pomodoro-theme') || 'purple';
       setTheme(savedTheme);
-      }
+    }
     
     // Copy invite link function
     function copyInviteLink() {
       const inviteUrl = window.location.href;
       navigator.clipboard.writeText(inviteUrl).then(() => {
-        // Show success feedback
         const header = document.getElementById("sessionHeader");
         const originalHTML = header.innerHTML;
         
@@ -1542,7 +1420,6 @@
           header.innerHTML = originalHTML;
         }, 2000);
       }).catch(() => {
-        // Fallback for browsers that don't support clipboard API
         alert('Copy this link to invite others:\n' + window.location.href);
       });
     }
@@ -1569,12 +1446,11 @@
     }
 
     function showErrorMessage(message) {
-      alert(message); // Simple fallback
+      alert(message);
     }
     
     function showErrorToast(message) {
       console.error(message);
-      // Could show a toast notification
     }
   
     function renderAvatarGrid() {
@@ -1608,7 +1484,7 @@
     function submitUser() {
       const input = document.getElementById("nameInput");
       const userName = input.value.trim();
-    // Better validation
+      
       if (!userName) {
         showErrorMessage("Please enter your name.");
         return;
@@ -1619,11 +1495,9 @@
         return;
       }
       
-      // Sanitize input
       const sanitizedName = userName.replace(/[<>]/g, '');
-
     
-      name = userName;
+      name = sanitizedName;
       emoji = selectedEmoji;
       role = localStorage.getItem(roleKey) || "guest";
     
@@ -1650,7 +1524,6 @@
         mainApp.style.opacity = "0";
         mainApp.style.transition = "opacity 0.3s ease";
         
-        // 페이지 맨 위로 스크롤
         window.scrollTo(0, 0);
         
         setTimeout(() => {
@@ -1695,7 +1568,6 @@
       loadTheme();
       displayTime(localSeconds);
       
-      // 테마 이벤트 리스너 추가
       document.querySelectorAll('.theme-dot').forEach(btn => {
         btn.addEventListener('click', () => {
           const theme = btn.getAttribute('data-theme');
@@ -1706,7 +1578,6 @@
       });
       
       if (name && emoji) {
-        // 사용자가 이미 설정되어 있으면 맨 위에서 시작
         window.scrollTo(0, 0);
         document.getElementById("userSetup").style.display = "none";
         document.getElementById("mainApp").style.display = "block";
@@ -1726,7 +1597,6 @@
       if (localStorage.getItem(roleKey) !== "host") {
         controls.querySelectorAll("button").forEach(btn => {
           if (btn.onclick && btn.onclick.toString().includes('finishTimer')) {
-            // Hide finish button for guests
             btn.style.display = 'none';
           } else {
             btn.disabled = true;
@@ -1742,7 +1612,6 @@
           setFocusDuration(focusSelect.value);
         }
       
-        // Add leave button for guests
         const leaveBtn = document.createElement("button");
         leaveBtn.textContent = "Leave Session";
         leaveBtn.style.background = "#6b7280";
@@ -1770,33 +1639,18 @@
         showRateLimit();
       }
     
-      const userName = name || "there"; // 이름이 없으면 "there" 사용
+      const userName = name || "there";
       const personalizedMessage = `Hi, ${userName}! ${getRandomOpeningMessage()}`;
       addMessage(personalizedMessage, 'bot');
     };
 
-    // Organize code into modules
-      const TimerManager = {
-        init() { /* timer initialization */ },
-        start() { /* start timer */ },
-        pause() { /* pause timer */ },
-        reset() { /* reset timer */ }
-      };
-      
-      const ChatManager = {
-        init() { /* chat initialization */ },
-        sendMessage() { /* send message */ },
-        handleResponse() { /* handle response */ }
-      };
-
-    
     let focusDuration = 1500;
     let phaseIndex = 0;
     let localSeconds = focusDuration;
     let duration = focusDuration;
     let isRunning = false;
     let localTimer = null;
-    let timerStartTime = null; // Track when timer actually started
+    let timerStartTime = null;
     
     const beep = document.getElementById("beep");
     
@@ -1828,7 +1682,6 @@
       stopLocalTimer();
       timerStartTime = Date.now();
       localTimer = setInterval(() => {
-        // Calculate elapsed time since start to stay in sync
         const elapsed = Math.floor((Date.now() - timerStartTime) / 1000);
         localSeconds = Math.max(0, duration - elapsed);
         
@@ -1837,7 +1690,7 @@
           beep.play();
           nextPhase();
         }
-      }, 1000); // Update more frequently for smoother display
+      }, 1000);
     }
     
     function stopLocalTimer() {
@@ -1885,7 +1738,7 @@
     function startTimer() {
       updatePhaseLabel();
       timerStartTime = Date.now();
-      duration = localSeconds; // Set duration to current remaining time
+      duration = localSeconds;
       updateRemoteTimer({
         isRunning: true,
         remainingSeconds: localSeconds,
@@ -1895,41 +1748,37 @@
       });
     }
     
-        function finishTimer() {
-          // Show confirmation dialog for host
-          if (!confirm("Are you sure you want to finish this timer session for everyone?\n\nThis will end the session for all participants.\n\nClick OK to finish\nClick Cancel to continue")) {
-            return; // Host clicked Cancel - go back to timer
-          }
-          
-          updateRemoteTimer({
-            isRunning: false,
-            remainingSeconds: 0,
-            lastUpdated: Date.now(),
-            phaseIndex: phaseIndex,
-            duration: duration,
-            finished: true
-          });
-          
-          // Show completion message
-          const phaseLabel = document.getElementById("phaseLabel");
-          phaseLabel.textContent = "Session Complete! 🎉";
-          phaseLabel.style.color = "#10b981";
-        }
+    function finishTimer() {
+      if (!confirm("Are you sure you want to finish this timer session for everyone?\n\nThis will end the session for all participants.\n\nClick OK to finish\nClick Cancel to continue")) {
+        return;
+      }
+      
+      updateRemoteTimer({
+        isRunning: false,
+        remainingSeconds: 0,
+        lastUpdated: Date.now(),
+        phaseIndex: phaseIndex,
+        duration: duration,
+        finished: true
+      });
+      
+      const phaseLabel = document.getElementById("phaseLabel");
+      phaseLabel.textContent = "Session Complete! 🎉";
+      phaseLabel.style.color = "#10b981";
+    }
         
-        db.collection("sessions").doc(session).collection("state").doc("timer")
-          .onSnapshot(doc => {
-            const data = doc.data();
-            if (!data) return;
-            
-            console.log("Timer sync data:", data); // Debug log
-            
-        // Sync phase if different
+    db.collection("sessions").doc(session).collection("state").doc("timer")
+      .onSnapshot(doc => {
+        const data = doc.data();
+        if (!data) return;
+        
+        console.log("Timer sync data:", data);
+        
         if (data.phaseIndex !== undefined && data.phaseIndex !== phaseIndex) {
           phaseIndex = data.phaseIndex;
           updatePhaseLabel();
         }
         
-        // Always use the server data as source of truth
         if (data.isRunning && data.lastUpdated) {
           const now = Date.now();
           const elapsed = Math.floor((now - data.lastUpdated) / 1000);
@@ -1944,7 +1793,6 @@
         
         isRunning = data.isRunning || false;
         
-        // Handle finish state
         if (data.finished) {
           localSeconds = 0;
           isRunning = false;
@@ -1977,7 +1825,6 @@
           const div = document.createElement("div");
           div.className = "vibe-card";
           
-          // Add special styling for your own goal
           if (participantName === name) {
             div.style.background = "rgba(var(--accent-primary), 0.08)";
             div.style.borderColor = "var(--accent-primary)";
@@ -1989,7 +1836,6 @@
           if (p.role === "host") {
             nameSpan.innerHTML += ' 👑';
           }
-          // Add "You" indicator for your own goal
           if (participantName === name) {
             nameSpan.innerHTML += ' (You)';
           }
@@ -2013,7 +1859,7 @@
     }
     
     function nextPhase() {
-        if (phases[phaseIndex].label === "Focus") {
+      if (phases[phaseIndex].label === "Focus") {
         const endTime = new Date();
         const timeStr = endTime.toLocaleDateString() + ' ' + endTime.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
         sessionLog.push({
@@ -2042,7 +1888,7 @@
       });
     }
 
-        // Chatbot functions
+    // Chatbot functions
     function getTodayKey() {
       const today = new Date();
       return today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
@@ -2170,19 +2016,13 @@
       document.getElementById('send-button').disabled = true;
     }
 
-    // Add loading indicators for async operations
-    function showLoading(message = "Loading...") {
-      const loader = document.createElement('div');
-      loader.className = 'loading-overlay';
-      loader.innerHTML = `<div class="spinner">${message}</div>`;
-      document.body.appendChild(loader);
+    function showLoading() {
+      document.getElementById('loading').classList.remove('hidden');
     }
 
     function hideLoading() {
       document.getElementById('loading').classList.add('hidden');
     }
-
-  
 
     const ambientPlayer = document.getElementById("ambientPlayer");
     const ambientMap = {
@@ -2204,131 +2044,41 @@
         player.src = "";
       }
     
-      // Update active state
       document.querySelectorAll(".ambient-btn").forEach(btn => btn.classList.remove("active"));
       if (el) el.classList.add("active");
     }
 
-    
-      const ambientButtons = document.querySelectorAll('.ambient-btn[data-sound]');
-      const loadingMsg = document.getElementById('sound-loading-msg');
-    
-      ambientButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          const soundName = btn.getAttribute('data-sound');
-          
-          // Set ambient sound
-          if (soundName === 'Fire') {
-            setAmbient('fire', btn);
-          } else if (soundName === 'Rain') {
-            setAmbient('rain', btn);
-          } else if (soundName === 'Ocean') {
-            setAmbient('wind', btn);
-          } else if (soundName === 'Forest') {
-            setAmbient('forest', btn);
-          } else if (soundName === 'Muted') {
-            setAmbient(null, btn);
-          }
-      
-          // Loading message (기존 코드 유지)
-          if (soundName === 'Muted') {
-            loadingMsg.textContent = 'Sound off';
-          } else {
-            loadingMsg.textContent = `Loading ${soundName} sound...`;
-          }
-      
-          loadingMsg.classList.remove('hidden');
-          setTimeout(() => {
-            loadingMsg.classList.add('hidden');
-          }, 3000);
-        });
-      });
-   
+    const ambientButtons = document.querySelectorAll('.ambient-btn[data-sound]');
+    const loadingMsg = document.getElementById('sound-loading-msg');
 
-
-
-    const checklistKey = `goalChecklist-${session}`;
-
-    function saveChecklistToStorage() {
-      const items = [];
-      document.querySelectorAll("#goalChecklist .goal-row").forEach(row => {
-        const input = row.querySelector('input[type="text"]');
-        const checkbox = row.querySelector('input[type="checkbox"]');
-        const timeInput = row.querySelector('input[type="number"]');
-        if (input && input.value.trim()) {
-          items.push({ text: input.value, done: checkbox.checked, time: timeInput.value });
+    ambientButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const soundName = btn.getAttribute('data-sound');
+        
+        if (soundName === 'Fire') {
+          setAmbient('fire', btn);
+        } else if (soundName === 'Rain') {
+          setAmbient('rain', btn);
+        } else if (soundName === 'Ocean') {
+          setAmbient('wind', btn);
+        } else if (soundName === 'Forest') {
+          setAmbient('forest', btn);
+        } else if (soundName === 'Muted') {
+          setAmbient(null, btn);
         }
+    
+        if (soundName === 'Muted') {
+          loadingMsg.textContent = 'Sound off';
+        } else {
+          loadingMsg.textContent = `Loading ${soundName} sound...`;
+        }
+    
+        loadingMsg.classList.remove('hidden');
+        setTimeout(() => {
+          loadingMsg.classList.add('hidden');
+        }, 3000);
       });
-      localStorage.setItem(checklistKey, JSON.stringify(items));
-    }
-    
-    function loadChecklistFromStorage() {
-      const saved = localStorage.getItem(checklistKey);
-      if (saved) {
-        const container = document.getElementById("goalChecklist");
-        container.innerHTML = "";
-        JSON.parse(saved).forEach(item => addGoalRow(item.text, item.done, item.time));
-      } else {
-        addGoalRow();
-      }
-    }
-
-    function addGoalRow(text = "", checked = false, time = "") {
-      const container = document.getElementById("goalChecklist");
-      const row = document.createElement("div");
-      row.className = "goal-row";
-    
-      const checkbox = document.createElement("input");
-      checkbox.type = "checkbox";
-      checkbox.checked = checked;
-      checkbox.onchange = () => {
-        row.classList.toggle("checked", checkbox.checked);
-        saveChecklistToStorage();
-      };
-      
-      // Apply checked state immediately if loaded as checked
-      if (checked) {
-        row.classList.add("checked");
-      }
-      
-      const input = document.createElement("input");
-      input.type = "text";
-      input.placeholder = "Write a small actionable item...";
-      input.value = text;
-      input.maxLength = 80;
-      input.oninput = saveChecklistToStorage;
-    
-      const timeInput = document.createElement("input");
-      timeInput.type = "number";
-      timeInput.placeholder = "15";
-      timeInput.min = 1;
-      timeInput.max = 999;
-      timeInput.value = time;
-      timeInput.oninput = saveChecklistToStorage;
-    
-      const minutesLabel = document.createElement("span");
-      minutesLabel.className = "minutes-label";
-      minutesLabel.textContent = "min";
-    
-      const remove = document.createElement("button");
-      remove.innerHTML = "✕";
-      remove.className = "remove-goal";
-      remove.onclick = () => {
-        container.removeChild(row);
-        saveChecklistToStorage();
-      };
-    
-      row.appendChild(checkbox);
-      row.appendChild(input);
-      row.appendChild(timeInput);
-      row.appendChild(minutesLabel);
-      row.appendChild(remove);
-    
-      if (checked) row.classList.add("checked");
-      container.appendChild(row);
-    }
-
-    window.addEventListener("load", loadChecklistFromStorage);
+    });
 
     const editable = document.getElementById("editableGoal");
     const saveBtn = document.getElementById("saveGoalBtn");
@@ -2341,7 +2091,6 @@
       setTimeout(() => mark.remove(), 1000);
     }
 
-    // Show save button when user starts typing
     editable.addEventListener("input", () => {
       if (editable.textContent.trim()) {
         saveBtn.style.display = "block";
@@ -2349,7 +2098,6 @@
       }
     });
 
-    // Save goal when clicking save button
     saveBtn.addEventListener("click", () => {
       let goalText = editable.textContent.trim();
       if (goalText === "") {
@@ -2374,7 +2122,6 @@
       }
     });
     
-    // Auto-save when clicking outside (original behavior preserved)
     editable.addEventListener("blur", () => {
       let goalText = editable.textContent.trim();
       if (goalText === "") {
@@ -2383,7 +2130,6 @@
         return;
       }
       
-      // Only auto-save if the save button is visible (meaning there are unsaved changes)
       if (saveBtn.style.display === "block" && !saveBtn.classList.contains("saved")) {
         saveGoal(goalText);
         showSaveToast();
@@ -2399,7 +2145,6 @@
         goal: text
       }).catch(error => {
         console.error("Error saving goal:", error);
-        // Show user-friendly error message
         showErrorToast("Failed to save goal. Please try again.");
       });
     }
@@ -2434,7 +2179,7 @@
       });
     });
 
-        // Focus blocks functions
+    // Focus blocks functions - Fixed to use session-specific storage
     function labelLastBlock() {
       const input = document.getElementById('taskInput');
       const label = input.value.trim();
@@ -2453,12 +2198,11 @@
     }
 
     function saveBlocks() {
-      localStorage.setItem('pomodoro-blocks', JSON.stringify(sessionLog));
+      localStorage.setItem(sessionLogKey, JSON.stringify(sessionLog));
     }
 
-    // 최신 10개만 표시하도록 수정
     function loadBlocks() {
-      const saved = localStorage.getItem('pomodoro-blocks');
+      const saved = localStorage.getItem(sessionLogKey);
       if (saved) {
         sessionLog = JSON.parse(saved);
       }
@@ -2466,9 +2210,8 @@
       const logList = document.getElementById('logList');
       logList.innerHTML = '';
       
-      // 최신 15개만 표시
       const focusSessions = sessionLog.filter(session => session.type === 'focus');
-      const recentSessions = focusSessions.slice(-15); // 최신 15개
+      const recentSessions = focusSessions.slice(-15);
       
       recentSessions.forEach((session, index) => {
         const block = document.createElement('div');
@@ -2493,8 +2236,7 @@
         logList.appendChild(block);
       });
       
-      // 더 많은 세션이 있다면 표시
-      if (focusSessions.length > 10) {
+      if (focusSessions.length > 15) {
         const moreInfo = document.createElement('div');
         moreInfo.innerHTML = `
           <div style="text-align: center; color: #94a3b8; font-size: 0.8rem; margin-top: 1rem;">
@@ -2505,12 +2247,8 @@
       }
     }
 
-    // Rotate placeholder every 4 seconds
     setInterval(rotatePlaceholder, 4000);
-
-    // Initial placeholder setup
     document.addEventListener("DOMContentLoaded", rotatePlaceholder);
-
   </script>
 </body>
 </html>
