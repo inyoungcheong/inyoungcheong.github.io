@@ -6,7 +6,7 @@
   <title>Pomodoro Session</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet">
-  <style>
+  <style> 
     * {
       box-sizing: border-box;
     }
@@ -17,6 +17,9 @@
       --accent-secondary: #96baff;
       --accent-gradient: linear-gradient(135deg, #7C83FD 0%, #96baff 100%);
       --pie-color: rgba(124, 131, 253, 0.25);
+      --border-color: rgba(226, 232, 240, 0.6);
+      --text-primary: #1e293b;
+      --glass-bg: rgba(255, 255, 255, 0.1);
     }
     /* Theme: Red */
     [data-theme="red"] {
@@ -48,6 +51,214 @@
       line-height: 1.6;
       min-height: 100vh;
       transition: all 0.3s ease;
+    }
+
+    /* Chatbot Section - timer에서 복사 */
+    .chatbot-section {
+      display: flex;
+      flex-direction: column;
+      height: 600px;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      padding: 2rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+      border: 1px solid #EAF0FB;
+      transition: all 0.3s ease;
+    }
+    
+    .card-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: var(--accent-gradient);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      letter-spacing: -0.02em;
+    }
+    
+    .usage-info {
+      text-align: center;
+      margin-bottom: 1rem;
+      padding: 0.5rem 1rem;
+      background: rgba(124, 131, 253, 0.1);
+      border: 1px solid var(--accent-primary);
+      border-radius: 15px;
+      color: var(--accent-primary);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    
+    .chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      border: 1px solid #EAF0FB;
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+    }
+    
+    .message {
+      margin-bottom: 1rem;
+      padding: 0.75rem 1rem;
+      border-radius: 15px;
+      max-width: 85%;
+      word-wrap: break-word;
+      line-height: 1.4;
+    }
+    
+    .message.user {
+      background: var(--accent-gradient);
+      color: white;
+      margin-left: auto;
+      text-align: right;
+    }
+    
+    .message.bot {
+      background: rgba(255, 255, 255, 0.9);
+      color: #334155;
+      border: 1px solid #EAF0FB;
+      margin-right: auto;
+    }
+    
+    .message.system {
+      background: rgba(255, 255, 255, 0.1);
+      color: #94a3b8;
+      text-align: center;
+      font-style: italic;
+      margin: 0.5rem auto;
+      max-width: 90%;
+    }
+    
+    .chat-input-container {
+      display: flex;
+      gap: 0.5rem;
+    }
+    
+    #message-input {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      border: 1px solid #EAF0FB;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      outline: none;
+      background: rgba(255, 255, 255, 0.9);
+      color: #334155;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    #send-button {
+      padding: 0.75rem 1.5rem;
+      background: var(--accent-gradient);
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    .loading {
+      text-align: center;
+      padding: 0.5rem;
+    }
+    
+    .typing-indicator {
+      display: inline-block;
+    }
+    
+    .typing-indicator span {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-primary);
+      margin: 0 2px;
+      animation: typing 1.4s infinite;
+    }
+    
+    @keyframes typing {
+      0%, 60%, 100% {
+        transform: translateY(0);
+        opacity: 0.5;
+      }
+      30% {
+        transform: translateY(-8px);
+        opacity: 1;
+      }
+    }
+    
+    .rate-limit-warning {
+      background: rgba(239, 68, 68, 0.1);
+      color: #dc2626;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      border-radius: 12px;
+      padding: 1rem;
+      margin-top: 1rem;
+      text-align: center;
+      font-weight: 600;
+    }
+    
+    /* Focus Blocks Section */
+    .block-controls {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      align-items: center;
+    }
+    
+    .block-input {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      border: 1px solid #EAF0FB;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #334155;
+      font-size: 0.9rem;
+      outline: none;
+      transition: all 0.3s ease;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    .block-item {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid #EAF0FB;
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 0.75rem;
+      transition: all 0.3s ease;
+    }
+    
+    .block-item.unlabeled {
+      opacity: 0.7;
+      font-style: italic;
+      border-style: dashed;
+      cursor: pointer;
+    }
+    
+    .block-time {
+      font-size: 0.8rem;
+      color: #64748b;
+      margin-bottom: 0.25rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+    }
+    
+    .block-label {
+      font-weight: 600;
+      color: #334155;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
     }
 
     /* Theme Selector */
@@ -143,7 +354,6 @@
       padding: 1.5rem 2rem;
       text-align: center;
       background: linear-gradient(135deg, #F5F7FA 0%, #EAF0FB 100%);
-      border-bottom: 1px solid #EAF0FB;
       color: #22223B;
       backdrop-filter: blur(20px);
       border-bottom: 1px solid rgba(223, 207, 190, 0.3);
@@ -233,6 +443,22 @@
       letter-spacing: 0.5px;
       color: var(--accent-primary);
       margin-bottom: 1rem;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    .btn-primary {
+      background: var(--accent-gradient);
+      color: white;
     }
 
     
@@ -1035,7 +1261,36 @@
         grid-template-columns: 1fr;
         gap: 2rem;
       }
+
+      .focus-blocks-section,
+      .chatbot-section {
+        min-height: 500px; /* 최소 높이 설정 */
+      }
+    }
+
+      .chatbot-section.glass-card {
+        background: rgba(255, 255, 255, 0.8);
+        border: 1.5px solid #EAF0FB;
+        border-radius: 16px;
+        padding: 2rem;
+        box-shadow: 0 8px 32px rgba(124, 131, 253, 0.04);
+        transition: box-shadow 0.3s ease;
+      }
       
+      .chatbot-section.glass-card:hover {
+        box-shadow: 0 12px 36px rgba(124, 131, 253, 0.08);
+      }
+
+      .focus-blocks-section {
+        display: flex;
+        flex-direction: column;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 16px;
+        padding: 2rem;
+        border: 1.5px solid #EAF0FB;
+        box-shadow: 0 8px 32px rgba(124, 131, 253, 0.04);
+      }
+        
       .notes-section {
         grid-template-columns: 1fr;
       }
@@ -1046,9 +1301,25 @@
         gap: 1rem;
         margin-bottom: 1rem;
         margin-top: 1rem;
-      }}
+      }
       
+    /* Add better mobile responsiveness */
+    @media (max-width: 480px) {
+      .container {
+        padding: 0.5rem;
+        gap: 1rem;
+      }
       
+      .timer-circle svg {
+        width: 200px;
+        height: 200px;
+      }
+      
+      .controls {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
 
 
     
@@ -1061,6 +1332,15 @@
       .public-dashboard,
       .note-card {
         padding: 1.5rem;
+      }
+
+      .focus-blocks-section,
+      .chatbot-section {
+        margin-bottom: 1.5rem;
+      }
+      
+      .chatbot-section {
+        height: 450px; /* 모바일에서 적당한 높이 */
       }
       
       #timerText {
@@ -1118,6 +1398,17 @@
   
   
   <div id="mainApp">
+    <!-- Social Board 헤더 추가 -->
+    <div style="text-align: center; margin: 2rem 0 1rem 0;">
+      <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.8rem; font-weight: 700; color: var(--accent-primary); margin-bottom: 0.5rem;">
+        👥 Social Board
+      </h2>
+      <p style="font-size: 1rem; color: #64748b; margin-bottom: 2rem;">
+        Shared with everyone in this session
+      </p>
+    </div>
+
+    
     <div class="container">
       <!-- Timer Section -->
       <div class="timer-section">
@@ -1184,37 +1475,65 @@
           </div>
         </div>
       </div>
-      
-      <!-- Notes Section -->
-      <div class="notes-section">
-        <div class="note-card">
-          <div class="section-title" style="text-align: center;">De-cluttering</div>
-          <p style="font-size: 1.1rem; color: #94a3b8; font-style: italic; text-align: center; margin-bottom: 1.5rem;">*not visible to others</p>
-          
-          <label style="font-size: 1.1rem; margin-bottom: 1rem;">Break your goals into small, doable chunks with time estimates. Check them off as you go.</label>
-          <div id="goalChecklist">
-            <div class="goal-row">
-              <input type="checkbox" />
-              <input type="text" placeholder="Write a small actionable item..." />
-              <input type="number" placeholder="15" min="1" max="999" />
-              <span class="minutes-label">min</span>
-              <button class="remove-goal">✕</button>
-            </div>
-          </div>
-          <button onclick="addGoalRow()" class="add-goal-button">+ Add item</button>
+
+      <!-- Private Board Header -->
+      <div style="grid-column: 1 / -1; text-align: center; margin: 3rem 0 1rem 0;">
+        <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.8rem; font-weight: 700; color: var(--accent-primary); margin-bottom: 0.5rem;">
+          🔒 Private Board
+        </h2>
+        <p style="font-size: 1rem; color: #64748b; margin-bottom: 2rem;">
+          Only visible to you - not shared with others
+        </p>
+      </div>
+
+      <!-- Focus Blocks Section -->
+      <div class="focus-blocks-section">
+        <div class="section-title">⚡ Focus Sessions</div>
+          <p style="font-size: 0.9rem; color: #94a3b8; text-align: center; margin-bottom: 1rem; font-style: italic;">
+            Track what you accomplished in each session
+          </p>
+        <div class="block-controls">
+          <input type="text" class="block-input" id="taskInput" placeholder="What did you accomplish?">
+          <button class="btn btn-primary" onclick="labelLastBlock()">Save</button>
         </div>
-        
-        <div class="note-card">
-          <div class="section-title" style="text-align: center;">Reflections</div>
-          <p style="font-size: 1.1rem; color: #94a3b8; font-style: italic; text-align: center; margin-bottom: 1.5rem;">*not visible to others</p>
-          
-          <label style="margin-bottom: 1rem; font-size: 1.1rem;">🚧 What are the barriers?</label>
-          <textarea placeholder="What's stopping you from starting? What thoughts are holding you back? What would you tell a friend facing this same challenge?" style="min-height: 160px; margin-bottom: 1.5rem; font-size: 1.1rem;"></textarea>
-          
-          <label style="font-size: 1.1rem;">💭 What am I noticing?</label>
-          <textarea id="noteInput" placeholder="What are you grateful for today? What patterns are you noticing in your work? What's energizing you right now? What would help you feel more focused?" style="min-height: 180px; font-size: 1.1rem;"></textarea>
+        <div id="logList"></div>
+      </div>
+
+      <!-- Chatbot Section -->
+      <div class="glass-card chatbot-section">
+        <div class="card-title">💡 AI Motivation Partner</div>
+        <p style="font-size: 0.9rem; color: #94a3b8; text-align: center; margin-bottom: 1rem; font-style: italic;">
+          Declutter blockers. Conversation history is not saved.
+        </p>
+   
+        <div class="usage-info">
+          <small>💬 Usage: <span id="usage-count">0</span>/30 messages today</small>
+        </div>
+  
+        <div id="chat-messages" class="chat-messages">
+        </div>
+  
+        <div class="chat-input-container">
+          <input type="text" id="message-input" placeholder="Tell me what's blocking you...">
+          <button id="send-button">Send</button>
+        </div>
+  
+        <div id="loading" class="loading hidden">
+          <div class="typing-indicator">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+  
+        <div id="rate-limit-warning" class="rate-limit-warning hidden">
+          <p>⚠️ You've reached the daily message limit (30 messages). Please try again tomorrow!</p>
+          <small>This helps manage server costs. Thank you for understanding! 💝</small>
         </div>
       </div>
+    </div>
+
+      
     </div>
     
     <div id="saveToast">Saved ✔️</div>
@@ -1235,6 +1554,32 @@
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
   <script>
+    // Chatbot variables
+    let conversationId = null;
+    const apiUrl = 'https://working-chatbot-api-production.up.railway.app/api/chat';
+    const maxMessages = 30;
+    const usageKey = 'dailyPlanner_usage_' + getTodayKey();
+    const openingMessages = [
+      "What's calling for your attention today? ✨",
+      "How are you feeling about today's possibilities? 🌟",
+      "What's one thing you're looking forward to tackling? 🎯",
+      "What's been stirring in your mind this morning? 💭",
+      "How would you like this day to unfold? 🌈",
+      "What feels most important to focus on right now? ⚡",
+      "What's awakening your creative energy today? 🚀",
+      "How are you hoping to spend your time today? ⏰",
+      "What would make today feel meaningful for you? 💫",
+      "What thoughts are pulling at you today? 🧠"
+    ];
+    
+    let sessionLog = [];
+    
+    function getRandomOpeningMessage() {
+      return openingMessages[Math.floor(Math.random() * openingMessages.length)];
+    }
+
+
+    
     const firebaseConfig = {
       apiKey: "AIzaSyAW3sw__h-YyGOBowZULt2iZ59CP8KkU34",
       authDomain: "social-timer-a2315.firebaseapp.com",
@@ -1254,35 +1599,26 @@
       document.documentElement.setAttribute('data-theme', theme);
       localStorage.setItem('pomodoro-theme', theme);
       
+      // theme-btn 업데이트 (기존)
       document.querySelectorAll('.theme-btn').forEach(btn => {
         btn.classList.remove('active');
       });
-      document.querySelector(`[data-theme="${theme}"]`).classList.add('active');
-    }
-
-     document.querySelectorAll('.theme-dot').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const theme = btn.getAttribute('data-theme');
-          if (theme) {
-            setTheme(theme);
-          }
-        });
+      const themeBtn = document.querySelector(`.theme-btn[data-theme="${theme}"]`);
+      if (themeBtn) themeBtn.classList.add('active');
+      
+      // theme-dot 업데이트 (새로 추가)
+      document.querySelectorAll('.theme-dot').forEach(btn => {
+        btn.classList.remove('active');
       });
+      const themeDot = document.querySelector(`.theme-dot[data-theme="${theme}"]`);
+      if (themeDot) themeDot.classList.add('active');
+    }
       
-      function setTheme(theme) {
-        document.documentElement.setAttribute('data-theme', theme);
-        localStorage.setItem('pomodoro-theme', theme);
-        
-        // theme-dot 활성화 상태 업데이트 (이 부분이 추가로 필요!)
-        document.querySelectorAll('.theme-dot').forEach(btn => {
-          btn.classList.remove('active');
-        });
-        document.querySelector(`[data-theme="${theme}"]`).classList.add('active');
-      }
       
-      function loadTheme() {
-        const savedTheme = localStorage.getItem('pomodoro-theme') || 'purple';
-        setTheme(savedTheme);
+      
+    function loadTheme() {
+      const savedTheme = localStorage.getItem('pomodoro-theme') || 'purple';
+      setTheme(savedTheme);
       }
     
     // Copy invite link function
@@ -1330,6 +1666,15 @@
         toast.classList.remove("show");
       }, 2000);
     }
+
+    function showErrorMessage(message) {
+      alert(message); // Simple fallback
+    }
+    
+    function showErrorToast(message) {
+      console.error(message);
+      // Could show a toast notification
+    }
   
     function renderAvatarGrid() {
       const grid = document.getElementById("emojiGrid");
@@ -1362,7 +1707,20 @@
     function submitUser() {
       const input = document.getElementById("nameInput");
       const userName = input.value.trim();
-      if (!userName) return alert("Please enter your name.");
+    // Better validation
+      if (!userName) {
+        showErrorMessage("Please enter your name.");
+        return;
+      }
+      
+      if (userName.length > 50) {
+        showErrorMessage("Name must be less than 50 characters.");
+        return;
+      }
+      
+      // Sanitize input
+      const sanitizedName = userName.replace(/[<>]/g, '');
+
     
       name = userName;
       emoji = selectedEmoji;
@@ -1421,12 +1779,23 @@
     window.onload = () => {
       loadTheme();
       displayTime(localSeconds);
+      
+      // 테마 이벤트 리스너 추가
+      document.querySelectorAll('.theme-dot').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const theme = btn.getAttribute('data-theme');
+          if (theme) {
+            setTheme(theme);
+          }
+        });
+      });
+      
       if (name && emoji) {
         // 사용자가 이미 설정되어 있으면 맨 위에서 시작
         window.scrollTo(0, 0);
         document.getElementById("userSetup").style.display = "none";
         document.getElementById("mainApp").style.display = "block";
-  
+    
         db.collection("sessions").doc(session).collection("participants").doc(name).set({
           name,
           emoji,
@@ -1438,7 +1807,7 @@
         document.getElementById("userSetup").style.display = "block";
         document.getElementById("mainApp").style.display = "none";
       }
-  
+    
       if (localStorage.getItem(roleKey) !== "host") {
         controls.querySelectorAll("button").forEach(btn => {
           if (btn.onclick && btn.onclick.toString().includes('finishTimer')) {
@@ -1476,8 +1845,35 @@
       }
               
       updatePhaseLabel(); 
-    };
-  
+      updateUsageDisplay();
+      setupChatEventListeners();
+      loadBlocks();
+      
+      if (!isRateLimited()) {
+        enableChatInput();
+      } else {
+        showRateLimit();
+      }
+    
+      const initialMessage = getRandomOpeningMessage();
+      addMessage(initialMessage, 'bot');
+    }; 
+
+    // Organize code into modules
+      const TimerManager = {
+        init() { /* timer initialization */ },
+        start() { /* start timer */ },
+        pause() { /* pause timer */ },
+        reset() { /* reset timer */ }
+      };
+      
+      const ChatManager = {
+        init() { /* chat initialization */ },
+        sendMessage() { /* send message */ },
+        handleResponse() { /* handle response */ }
+      };
+
+    
     let focusDuration = 1500;
     let phaseIndex = 0;
     let localSeconds = focusDuration;
@@ -1525,7 +1921,7 @@
           beep.play();
           nextPhase();
         }
-      }, 100); // Update more frequently for smoother display
+      }, 1000); // Update more frequently for smoother display
     }
     
     function stopLocalTimer() {
@@ -1571,46 +1967,46 @@
     }
     
     function startTimer() {
-  updatePhaseLabel();
-  timerStartTime = Date.now();
-  duration = localSeconds; // Set duration to current remaining time
-  updateRemoteTimer({
-    isRunning: true,
-    remainingSeconds: localSeconds,
-    lastUpdated: Date.now(),
-    phaseIndex: phaseIndex,
-    duration: duration
-  });
-}
-
-    function finishTimer() {
-      // Show confirmation dialog for host
-      if (!confirm("Are you sure you want to finish this timer session for everyone?\n\nThis will end the session for all participants.\n\nClick OK to finish\nClick Cancel to continue")) {
-        return; // Host clicked Cancel - go back to timer
-      }
-      
+      updatePhaseLabel();
+      timerStartTime = Date.now();
+      duration = localSeconds; // Set duration to current remaining time
       updateRemoteTimer({
-        isRunning: false,
-        remainingSeconds: 0,
+        isRunning: true,
+        remainingSeconds: localSeconds,
         lastUpdated: Date.now(),
         phaseIndex: phaseIndex,
-        duration: duration,
-        finished: true
+        duration: duration
       });
-      
-      // Show completion message
-      const phaseLabel = document.getElementById("phaseLabel");
-      phaseLabel.textContent = "Session Complete! 🎉";
-      phaseLabel.style.color = "#10b981";
     }
     
-    db.collection("sessions").doc(session).collection("state").doc("timer")
-      .onSnapshot(doc => {
-        const data = doc.data();
-        if (!data) return;
+        function finishTimer() {
+          // Show confirmation dialog for host
+          if (!confirm("Are you sure you want to finish this timer session for everyone?\n\nThis will end the session for all participants.\n\nClick OK to finish\nClick Cancel to continue")) {
+            return; // Host clicked Cancel - go back to timer
+          }
+          
+          updateRemoteTimer({
+            isRunning: false,
+            remainingSeconds: 0,
+            lastUpdated: Date.now(),
+            phaseIndex: phaseIndex,
+            duration: duration,
+            finished: true
+          });
+          
+          // Show completion message
+          const phaseLabel = document.getElementById("phaseLabel");
+          phaseLabel.textContent = "Session Complete! 🎉";
+          phaseLabel.style.color = "#10b981";
+        }
         
-        console.log("Timer sync data:", data); // Debug log
-        
+        db.collection("sessions").doc(session).collection("state").doc("timer")
+          .onSnapshot(doc => {
+            const data = doc.data();
+            if (!data) return;
+            
+            console.log("Timer sync data:", data); // Debug log
+            
         // Sync phase if different
         if (data.phaseIndex !== undefined && data.phaseIndex !== phaseIndex) {
           phaseIndex = data.phaseIndex;
@@ -1701,6 +2097,19 @@
     }
     
     function nextPhase() {
+        if (phases[phaseIndex].label === "Focus") {
+        const endTime = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+        sessionLog.push({
+          text: '',
+          duration: `${focusDuration / 60} min`,
+          time: endTime,
+          type: 'focus',
+          label: ''
+        });
+        saveBlocks();
+        loadBlocks();
+      }
+      
       phaseIndex = (phaseIndex + 1) % phases.length;
       const phase = phases[phaseIndex];
       localSeconds = phase.duration;
@@ -1715,6 +2124,148 @@
         duration: duration
       });
     }
+
+        // Chatbot functions
+    function getTodayKey() {
+      const today = new Date();
+      return today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    }
+
+    function getUsageCount() {
+      const stored = localStorage.getItem(usageKey);
+      return stored ? parseInt(stored) : 0;
+    }
+
+    function incrementUsage() {
+      const current = getUsageCount();
+      localStorage.setItem(usageKey, (current + 1).toString());
+      updateUsageDisplay();
+    }
+
+    function updateUsageDisplay() {
+      const usage = getUsageCount();
+      document.getElementById('usage-count').textContent = usage;
+      
+      if (usage >= maxMessages) {
+        showRateLimit();
+      }
+    }
+
+    function showRateLimit() {
+      disableChatInput();
+      document.getElementById('rate-limit-warning').classList.remove('hidden');
+      addMessage('You\'ve reached today\'s message limit. See you tomorrow! 🌅', 'system');
+    }
+
+    function isRateLimited() {
+      return getUsageCount() >= maxMessages;
+    }
+
+    function setupChatEventListeners() {
+      document.getElementById('send-button').addEventListener('click', () => sendMessage());
+      document.getElementById('message-input').addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          sendMessage();
+        }
+      });
+    }
+
+    async function sendMessage() {
+      if (isRateLimited()) {
+        showRateLimit();
+        return;
+      }
+
+      const message = document.getElementById('message-input').value.trim();
+      if (!message) return;
+
+      addMessage(message, 'user');
+      document.getElementById('message-input').value = '';
+      disableChatInput();
+
+      incrementUsage();
+
+      try {
+        const response = await callAPI(message);
+        addMessage(response.message, 'bot');
+        
+        if (response.conversationId) {
+          conversationId = response.conversationId;
+        }
+      } catch (error) {
+        addMessage('Sorry, I encountered an error. Please try again later.', 'bot');
+        console.error('Error:', error);
+      } finally {
+        if (!isRateLimited()) {
+          enableChatInput();
+        }
+      }
+    }
+
+    async function callAPI(message) {
+      showLoading();
+      
+      try {
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            message,
+            conversationId: conversationId
+          })
+        });
+
+        hideLoading();
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        return await response.json();
+      } catch (error) {
+        hideLoading();
+        throw error;
+      }
+    }
+
+    function addMessage(text, sender) {
+      const messageDiv = document.createElement('div');
+      messageDiv.className = `message ${sender}`;
+      messageDiv.textContent = text;
+      
+      const chatMessages = document.getElementById('chat-messages');
+      chatMessages.appendChild(messageDiv);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function enableChatInput() {
+      if (!isRateLimited()) {
+        document.getElementById('message-input').disabled = false;
+        document.getElementById('send-button').disabled = false;
+      }
+    }
+
+    function disableChatInput() {
+      document.getElementById('message-input').disabled = true;
+      document.getElementById('send-button').disabled = true;
+    }
+
+    // Add loading indicators for async operations
+    function showLoading(message = "Loading...") {
+      const loader = document.createElement('div');
+      loader.className = 'loading-overlay';
+      loader.innerHTML = `<div class="spinner">${message}</div>`;
+      document.body.appendChild(loader);
+    }
+
+    function hideLoading() {
+      document.getElementById('loading').classList.add('hidden');
+    }
+
+  
 
     const ambientPlayer = document.getElementById("ambientPlayer");
     const ambientMap = {
@@ -1926,8 +2477,13 @@
     
     function saveGoal(text) {
       if (!session || !name) return;
+      
       db.collection("sessions").doc(session).collection("participants").doc(name).update({
         goal: text
+      }).catch(error => {
+        console.error("Error saving goal:", error);
+        // Show user-friendly error message
+        showErrorToast("Failed to save goal. Please try again.");
       });
     }
 
@@ -1952,11 +2508,6 @@
       }
     }
 
-    document.querySelectorAll('.theme-dot').forEach(btn => {
-      btn.classList.remove('active');
-    });
-    document.querySelector(`.theme-dot[data-theme="${theme}"]`).classList.add('active');
-
     document.querySelectorAll('.theme-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const theme = btn.getAttribute('data-theme');
@@ -1966,6 +2517,62 @@
       });
     });
 
+        // Focus blocks functions
+    function labelLastBlock() {
+      const input = document.getElementById('taskInput');
+      const label = input.value.trim();
+      
+      if (label && sessionLog.length > 0) {
+        for (let i = sessionLog.length - 1; i >= 0; i--) {
+          if (sessionLog[i].type === 'focus' && !sessionLog[i].label) {
+            sessionLog[i].label = label;
+            break;
+          }
+        }
+        input.value = '';
+        saveBlocks();
+        loadBlocks();
+      }
+    }
+
+    function saveBlocks() {
+      localStorage.setItem('pomodoro-blocks', JSON.stringify(sessionLog));
+    }
+
+    function loadBlocks() {
+      const saved = localStorage.getItem('pomodoro-blocks');
+      if (saved) {
+        sessionLog = JSON.parse(saved);
+      }
+      
+      const logList = document.getElementById('logList');
+      logList.innerHTML = '';
+      
+      sessionLog.forEach((session, index) => {
+        if (session.type === 'focus') {
+          const block = document.createElement('div');
+          block.className = `block-item ${session.label ? '' : 'unlabeled'}`;
+          
+          block.innerHTML = `
+            <div class="block-time">${session.time} • ${session.duration} focus session</div>
+            <div class="block-label">${session.label || 'Click to add what you accomplished...'}</div>
+          `;
+          
+          if (!session.label) {
+            block.addEventListener('click', () => {
+              const newLabel = prompt('What did you accomplish in this session?');
+              if (newLabel && newLabel.trim()) {
+                session.label = newLabel.trim();
+                saveBlocks();
+                loadBlocks();
+              }
+            });
+          }
+          
+          logList.appendChild(block);
+        }
+      });
+    }
 
     // Rotate placeholder every 4 seconds
     setInterval(rotatePlaceholder, 4000);
