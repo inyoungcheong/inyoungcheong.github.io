@@ -1510,8 +1510,14 @@
         return;
       }
       
-      const sanitizedName = userName.replace(/[<>]/g, '');
-    
+      function sanitizeInput(input) {
+        const div = document.createElement('div');
+        div.textContent = input;
+        return div.innerHTML.substring(0, 50); // Also enforce length limit
+      }
+      
+      const sanitizedName = sanitizeInput(userName);
+          
       name = sanitizedName;
       emoji = selectedEmoji;
       role = localStorage.getItem(roleKey) || "guest";
@@ -1666,6 +1672,12 @@
       const userName = name || "there";
       const personalizedMessage = `Hi, ${userName}! ${getRandomOpeningMessage()}`;
       addMessage(personalizedMessage, 'bot');
+
+      window.addEventListener('beforeunload', () => {
+        if (unsubscribeTimer) unsubscribeTimer();
+        if (unsubscribeParticipants) unsubscribeParticipants();
+      });
+      
     };
 
     let focusDuration = 1500;
@@ -1675,6 +1687,9 @@
     let isRunning = false;
     let localTimer = null;
     let timerStartTime = null;
+
+    let unsubscribeTimer = null;
+    let unsubscribeParticipants = null;
     
     const beep = document.getElementById("beep");
     
@@ -1791,7 +1806,8 @@
       phaseLabel.style.color = "#10b981";
     }
         
-    db.collection("sessions").doc(session).collection("state").doc("timer")
+    
+    unsubscribeTimer = db.collection("sessions").doc(session).collection("state").doc("timer")
       .onSnapshot(doc => {
         const data = doc.data();
         if (!data) return;
@@ -1834,7 +1850,8 @@
         }
       });
 
-    db.collection("sessions").doc(session).collection("participants")
+    
+    unsubscribeParticipants = db.collection("sessions").doc(session).collection("participants")
       .orderBy("timestamp")
       .onSnapshot(snapshot => {
         const board = document.getElementById("vibeBoard");
@@ -2060,7 +2077,10 @@
     
       if (url) {
         player.src = url;
-        player.play();
+        player.play().catch(error => {
+          console.warn('Audio playback failed:', error);
+          loadingMsg.textContent = 'Audio playback blocked';
+        });
       } else {
         player.pause();
         player.src = "";
