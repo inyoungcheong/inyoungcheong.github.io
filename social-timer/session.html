@@ -271,6 +271,16 @@
       font-family: 'Inter', sans-serif;
       font-size: 0.9rem;
     }
+    .focus-blocks-section {
+      height: 700px; /* 챗봇과 동일한 높이 */
+      display: flex;
+      flex-direction: column;
+    }
+    #logList {
+      flex: 1; /* 남은 공간 차지 */
+      overflow-y: auto; /* 스크롤 추가 */
+      max-height: calc(700px - 200px); /* 제목과 입력칸 제외한 높이 */
+    }
 
     /* Theme Selector */
     .theme-btn:hover {
@@ -382,7 +392,15 @@
       grid-template-columns: 1fr 1fr;
       gap: 3rem;
       align-items: start;
+      grid-template-areas: 
+        "timer dashboard"
+        "chatbot blocks";
     }
+
+    .timer-section { grid-area: timer; }
+    .dashboard-section { grid-area: dashboard; }
+    .chatbot-section { grid-area: chatbot; }
+    .focus-blocks-section { grid-area: blocks; }
 
     .section-title {
       font-family: 'Plus Jakarta Sans', sans-serif;
@@ -410,6 +428,53 @@
       background: var(--accent-gradient);
       color: white;
     }
+
+    
+    .theme-dots {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      justify-content: center;
+    }
+    
+    .theme-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      opacity: 0.4;
+    }
+    
+    .theme-dot:hover {
+      opacity: 0.8;
+      transform: scale(1.2);
+    }
+    
+    .theme-dot.active {
+      opacity: 1;
+      transform: scale(1.1);
+      box-shadow: 0 0 0 2px rgba(255,255,255,0.8);
+    }
+    
+    /* 기존 CSS를 이렇게 수정 */
+    .theme-dots .theme-dot[data-theme="purple"] {
+      background: #7C83FD !important; /* 메인 테마 색상 + !important */
+    }
+    
+    .theme-dots .theme-dot[data-theme="red"] {
+      background: #BB2649 !important;
+    }
+    
+    .theme-dots .theme-dot[data-theme="teal"] {
+      background: #009473 !important;
+    }
+    
+    .theme-dots .theme-dot[data-theme="yellow"] {
+      background: #F5DF4D !important;
+    }
+
 
     
     /* Timer Section */
@@ -447,11 +512,18 @@
     }
     
     #timerText {
-      font-size: 1.3rem;
-      font-weight: 600;
+      font-size: 2rem;
+      font-weight: 500;
       fill: #64748b;
-      font-family: 'Inter', sans-serif;
-      letter-spacing: 0.5px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      letter-spacing: 0.1em;
+      text-anchor: middle;
+      font-variant-numeric: tabular-nums;
+    }
+    
+    svg text {
+      text-rendering: optimizeLegibility;
+      shape-rendering: crispEdges;
     }
     
     .controls {
@@ -584,6 +656,18 @@
       visibility: hidden;
     }
 
+    .timer-section,
+    .public-dashboard,
+    .chatbot-section,
+    .focus-blocks-section {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      padding: 2rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+      border: 1px solid #EAF0FB;
+    }
+
 
     
     /* Dashboard Section */
@@ -598,8 +682,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      background: #ffffff;
-      border: 1.5px solid #EAF0FB;
       border-radius: 16px;
       box-shadow: 0 8px 32px rgba(124, 131, 253, 0.04);
       transition: box-shadow 0.3s ease;
@@ -972,74 +1054,30 @@
       box-shadow: 0 12px 36px rgba(124, 131, 253, 0.13);
     }
 
-    .theme-dots {
-      display: flex;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-      justify-content: center;
-    }
-    
-    .theme-dot {
-      width: 12px;
-      height: 12px;
+    .circle-btn {
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
-      border: none;
+      border: 2px solid transparent;
+      background: rgba(255,255,255,0.9);
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       transition: all 0.2s ease;
-      opacity: 0.4;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
     }
     
-    .theme-dot:hover {
-      opacity: 0.8;
-      transform: scale(1.2);
-    }
-    
-    .theme-dot.active {
-      opacity: 1;
+    .circle-btn:hover {
       transform: scale(1.1);
-      box-shadow: 0 0 0 2px rgba(255,255,255,0.8);
+      border-color: var(--accent-primary);
     }
     
-    .theme-dot[data-theme="purple"] {
-      background: #a5b4fc;
+    .circle-btn.active {
+      background: var(--accent-primary);
+      color: white;
+      border-color: var(--accent-primary);
     }
-    
-    .theme-dot[data-theme="red"] {
-      background: #fca5a5;
-    }
-    
-    .theme-dot[data-theme="teal"] {
-      background: #5eead4;
-    }
-    
-    .theme-dot[data-theme="yellow"] {
-      background: #fde047;
-    }
-
-      .circle-btn {
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        border: 2px solid transparent;
-        background: rgba(255,255,255,0.9);
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.2s ease;
-        box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-      }
-      
-      .circle-btn:hover {
-        transform: scale(1.1);
-        border-color: var(--accent-primary);
-      }
-      
-      .circle-btn.active {
-        background: var(--accent-primary);
-        color: white;
-        border-color: var(--accent-primary);
-      }
 
     
     /* Responsive Design */
@@ -1062,10 +1100,15 @@
       }
     }
     @media (max-width: 1024px) {
-      .container {
+       .container {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        grid-template-areas: 
+          "timer"
+          "dashboard" 
+          "chatbot"
+          "blocks";
       }
+    }
 
       .focus-blocks-section,
       .chatbot-section {
@@ -1077,8 +1120,6 @@
     }
 
       .chatbot-section.glass-card {
-        background: rgba(255, 255, 255, 0.8);
-        border: 1.5px solid #EAF0FB;
         border-radius: 16px;
         padding: 2rem;
         box-shadow: 0 8px 32px rgba(124, 131, 253, 0.04);
@@ -1092,10 +1133,8 @@
       .focus-blocks-section {
         display: flex;
         flex-direction: column;
-        background: rgba(255, 255, 255, 0.8);
         border-radius: 16px;
         padding: 2rem;
-        border: 1.5px solid #EAF0FB;
         box-shadow: 0 8px 32px rgba(124, 131, 253, 0.04);
       }
         
@@ -1294,18 +1333,6 @@
         </p>
       </div>
 
-      <!-- Focus Blocks Section -->
-      <div class="focus-blocks-section">
-        <div class="section-title">⚡ Focus Sessions</div>
-          <p style="font-size: 0.9rem; color: #94a3b8; text-align: center; margin-bottom: 1rem; font-style: italic;">
-            Track what you accomplished in each session
-          </p>
-        <div class="block-controls">
-          <input type="text" class="block-input" id="taskInput" placeholder="What did you accomplish?">
-          <button class="btn btn-primary" onclick="labelLastBlock()">Save</button>
-        </div>
-        <div id="logList"></div>
-      </div>
 
       <!-- Chatbot Section -->
       <div class="glass-card chatbot-section">
@@ -1338,6 +1365,21 @@
           <p>⚠️ You've reached the daily message limit (30 messages). Please try again tomorrow!</p>
           <small>This helps manage server costs. Thank you for understanding! 💝</small>
         </div>
+      </div>
+
+
+      
+      <!-- Focus Blocks Section -->
+      <div class="focus-blocks-section">
+        <div class="section-title">⚡ Focus Sessions</div>
+          <p style="font-size: 0.9rem; color: #94a3b8; text-align: center; margin-bottom: 1rem; font-style: italic;">
+            Track what you accomplished in each session
+          </p>
+        <div class="block-controls">
+          <input type="text" class="block-input" id="taskInput" placeholder="What did you accomplish?">
+          <button class="btn btn-primary" onclick="labelLastBlock()">Save</button>
+        </div>
+        <div id="logList"></div>
       </div>
     </div>
 
@@ -1663,9 +1705,10 @@
         showRateLimit();
       }
     
-      const initialMessage = getRandomOpeningMessage();
-      addMessage(initialMessage, 'bot');
-    }; 
+      const userName = name || "there"; // 이름이 없으면 "there" 사용
+      const personalizedMessage = `Hi, ${userName}! ${getRandomOpeningMessage()}`;
+      addMessage(personalizedMessage, 'bot');
+    };
 
     // Organize code into modules
       const TimerManager = {
