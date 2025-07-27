@@ -57,7 +57,7 @@
     .chatbot-section {
       display: flex;
       flex-direction: column;
-      height: 600px;
+      height: 700px;
     }
 
     .glass-card {
@@ -98,6 +98,7 @@
     .chat-messages {
       flex: 1;
       overflow-y: auto;
+      min-height: 400px;
       border: 1px solid #EAF0FB;
       border-radius: 12px;
       padding: 1rem;
@@ -120,6 +121,7 @@
       color: white;
       margin-left: auto;
       text-align: right;
+      border-radius: 18px 18px 4px 18px; /* 사용자 메시지 꼬리 */
     }
     
     .message.bot {
@@ -128,7 +130,16 @@
       border: 1px solid #EAF0FB;
       margin-right: auto;
     }
-    
+
+    .message + .message {
+      margin-top: 0.5rem;
+    }
+
+    .message.user + .message.bot,
+    .message.bot + .message.user {
+      margin-top: 1rem; /* 화자 바뀔 때 간격 더 벌림 */
+    }
+
     .message.system {
       background: rgba(255, 255, 255, 0.1);
       color: #94a3b8;
@@ -262,49 +273,6 @@
     }
 
     /* Theme Selector */
-    /* 기존 fixed 스타일 제거하고 inline화 */
-    .theme-selector-wrapper {
-      position: static; /* or remove this line entirely */
-      transform: none;
-      margin-top: 1rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-    }
-    
-    
-    /* theme 버튼 스타일 통일: ambient와 동일하게 */
-    .theme-buttons,
-    .ambient-buttons {
-      display: flex;
-      gap: 0.75rem;
-      justify-content: center;
-    }
-    
-    .theme-label,
-    .ambient-section label {
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: #64748b;
-      margin-bottom: 0.25rem;
-      text-align: center;
-    }
-    
-    .theme-btn {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      border: 2px solid rgba(255,255,255,0.8);
-      cursor: pointer;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.08), 
-                  0 1px 3px rgba(0,0,0,0.06);
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    
     .theme-btn:hover {
       transform: scale(1.1);
       box-shadow: 0 4px 20px rgba(0,0,0,0.12), 
@@ -319,25 +287,6 @@
       transform: scale(1.05);
     }
 
-    .theme-btn[data-theme="purple"] {
-      background: linear-gradient(135deg, #e0e7ff 0%, #f3f4f6 100%);
-      border: 2px solid #a5b4fc;
-    }
-    
-    .theme-btn[data-theme="red"] {
-      background: linear-gradient(135deg, #fee2e2 0%, #f3f4f6 100%);
-      border: 2px solid #fca5a5;
-    }
-    
-    .theme-btn[data-theme="teal"] {
-      background: linear-gradient(135deg, #ccfbf1 0%, #f3f4f6 100%);
-      border: 2px solid #5eead4;
-    }
-    
-    .theme-btn[data-theme="yellow"] {
-      background: linear-gradient(135deg, #fefce8 0%, #f3f4f6 100%);
-      border: 2px solid #fde047;
-    }
 
     .settings-bar {
       display: flex;
@@ -440,6 +389,7 @@
       font-size: 1.35rem;
       font-weight: 600;
       text-transform: uppercase;
+      text-align: center;
       letter-spacing: 0.5px;
       color: var(--accent-primary);
       margin-bottom: 1rem;
@@ -669,18 +619,21 @@
       align-items: center;
       gap: 0.5rem;
     }
-    
+
     .vibe-card {
       background: rgba(255, 255, 255, 0.8);
       border-radius: 12px;
       padding: 1rem 1.25rem;
       margin-bottom: 0.75rem;
-      border: 1px solid #EAF0FB;
+      border: 2px solid #EAF0FB; /* 일관된 border 두께 */
       transition: all 0.2s ease;
       backdrop-filter: blur(10px);
       width: 100%;
       max-width: 400px;
+      min-height: 3rem; /* 최소 높이 설정 */
+      box-sizing: border-box;
     }
+    
     
     .vibe-card:hover {
       background: rgba(255, 255, 255, 0.95);
@@ -691,6 +644,12 @@
     .vibe-card strong {
       color: #1e293b;
       font-weight: 600;
+    }
+
+    .vibe-card[style*="border-color: var(--accent-primary)"] {
+      background: rgba(var(--accent-primary), 0.08) !important;
+      border-color: var(--accent-primary) !important;
+      border-width: 2px !important;
     }
     
     /* Fixed Goal Input - consistent sizing */
@@ -703,11 +662,12 @@
     
     #editableGoal {
       width: 100%;
-      min-height: 3.5rem;
-      padding: 1rem 1.25rem;
-      border: 2px solid #EAF0FB;
+      min-height: 3rem; /* vibe-card와 동일한 최소 높이 */
+      max-height: 6rem; /* 최대 높이 제한 */
+      padding: 0.75rem 3rem 0.75rem 1rem; /* 오른쪽에 버튼 공간 확보 */
+      border: 2px solid #EAF0FB; /* vibe-card와 동일한 border */
       border-radius: 12px;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.8); /* vibe-card와 동일 */
       backdrop-filter: blur(10px);
       font-size: 1rem;
       font-family: 'Inter', sans-serif;
@@ -716,10 +676,12 @@
       box-sizing: border-box;
       transition: all 0.3s ease;
       outline: none;
-      overflow: hidden;
+      overflow-y: auto;
       line-height: 1.5;
+      display: flex;
+      align-items: center; /* 세로 중앙 정렬 */
     }
-
+    
     #editableGoal:focus {
       border-color: var(--accent-primary);
       background: rgba(255, 255, 255, 0.95);
@@ -736,32 +698,48 @@
     /* Goal save button */
     #saveGoalBtn {
       position: absolute;
-      top: 0.75rem;
-      right: 0.75rem;
-      font-size: 1.5rem;
-      opacity: 0.7;
+      top: 50%;
+      right: 0.5rem;
+      transform: translateY(-50%);
+      width: 2rem;
+      height: 2rem;
+      font-size: 1rem;
       color: #94a3b8;
-      background: none;
-      border: none;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid #e2e8f0;
+      border-radius: 50%;
       cursor: pointer;
       transition: all 0.2s ease;
       display: none;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     }
     
-    .goal-input-container:hover #saveGoalBtn {
-      opacity: 1;
-      color: var(--accent-primary);
-    }
-
+    .goal-input-container:hover #saveGoalBtn,
+    #editableGoal:focus + #saveGoalBtn {
+      display: flex;
+   }
+    
     #saveGoalBtn:hover {
-      opacity: 1;
       background: rgba(var(--accent-primary), 0.1);
       color: var(--accent-primary);
+      border-color: var(--accent-primary);
+      transform: translateY(-50%) scale(1.05);
     }
     
     #saveGoalBtn.saved {
       color: #10b981;
-      opacity: 0.8;
+      background: rgba(16, 185, 129, 0.1);
+      border-color: #10b981;
+    }
+
+    .goal-input-container > div:first-child {
+      font-size: 0.9rem;
+      color: #64748b;
+      text-align: center;
+      margin-bottom: 0.75rem;
+      font-weight: 500;
     }
 
     h2,
@@ -771,81 +749,14 @@
       font-weight: 700;
       letter-spacing: -0.01em;
     }
-    
-    /* Notes Section */
-    .notes-section {
-      grid-column: 1 / -1;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      margin-top: 2rem;
-    }
-    
-    .note-card {
-      background: #ffffff;
-      border: 1.5px solid #EAF0FB;
-      border-radius: 16px;
-      padding: 2.5rem;
-      box-shadow: 0 8px 32px rgba(124, 131, 253, 0.04);
-      transition: box-shadow 0.3s ease;
-    }
 
-    .note-card:hover {
-      box-shadow: 0 12px 36px rgba(124, 131, 253, 0.08);
+    .block-item:not(.unlabeled) {
+      border-left: 4px solid var(--accent-primary);
+      background: rgba(var(--accent-primary), 0.02);
     }
     
-    .note-card h3 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      color: #334155;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    
-    .note-card p {
-      font-size: 0.85rem;
-      color: #64748b;
-      margin-bottom: 2rem;
-      line-height: 1.5;
-    }
-    
-    .note-card label {
-      display: block;
-      font-size: 1.1rem;
-      font-weight: 500;
-      margin-bottom: 1rem;
-      color: #475569;
-    }
-    
-    .note-card textarea {
-      width: 100%;
-      min-height: 200px; /* 180px에서 150px로 줄임 */
-      padding: 1.25rem; /* 1rem에서 1.25rem으로 증가 */
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(10px);
-      font-size: 1.1rem; 
-      font-family: 'Inter', sans-serif;
-      color: #334155;
-      line-height: 1.7; /* 1.6에서 1.7로 증가 */
-      resize: vertical;
-      outline: none;
-      transition: all 0.2s ease;
-      margin-bottom: 1.5rem; /* 하단 여백 추가 */
-    }
-    
-    .note-card textarea:focus {
-      border-color: var(--accent-primary);
-      background: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 0 0 3px rgba(var(--accent-primary), 0.1);
-    }
-    
-    .note-card textarea::placeholder {
-      color: #94a3b8;
-      font-style: italic;
+    .block-item.unlabeled {
+      border-left: 4px solid #e2e8f0;
     }
 
     /* Primary Button */
@@ -902,132 +813,6 @@
     input[type="text"]::placeholder {
       color: #B3B8C3;
       font-style: italic;
-    }
-
-    /* Checklist checked state styling */
-    .goal-row.checked {
-      opacity: 0.6;
-      transition: all 0.3s ease; 
-    }
-    
-    .goal-row.checked input[type="text"] {
-      text-decoration: line-through;
-      color: #94a3b8;
-    }
-    
-    .goal-row.checked input[type="checkbox"] {
-      opacity: 0.7;
-    }
-    
-    .goal-row.checked input[type="number"] {
-      opacity: 0.7;
-      color: #94a3b8;
-    }
-    
-    .goal-row.checked .minutes-label {
-      opacity: 0.7;
-      color: #94a3b8;
-    }
-    /* Checklist with time estimates */
-    .goal-row {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 0.75rem;
-      padding: 0.75rem;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-    }
-    
-    .goal-row input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
-      border-radius: 4px;
-      border: 2px solid #d1d5db;
-      cursor: pointer;
-      flex-shrink: 0;
-      accent-color: var(--accent-primary);
-    }
-    
-    .goal-row input[type="text"] {
-      flex: 1;
-      padding: 0.5rem 0.75rem;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.8);
-      font-size: 1.1rem;
-      font-family: 'Inter', sans-serif;
-      color: #334155;
-      outline: none;
-      transition: all 0.2s ease;
-    }
-    
-    .goal-row input[type="number"] {
-      width: 70px;
-      padding: 0.5rem 0.5rem;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.8);
-      font-size: 0.85rem;
-      font-family: 'Inter', sans-serif;
-      color: #334155;
-      outline: none;
-      transition: all 0.2s ease;
-      flex-shrink: 0;
-      text-align: center;
-    }
-    
-    .goal-row input[type="number"]:focus {
-      border-color: var(--accent-primary);
-      background: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 0 0 2px rgba(var(--accent-primary), 0.1);
-    }
-    
-    .minutes-label {
-      font-size: 0.8rem;
-      color: #6C757D;
-      flex-shrink: 0;
-    }
-    
-    .remove-goal {
-      background: none;
-      border: none;
-      color: #94a3b8;
-      cursor: pointer;
-      font-size: 1rem;
-      padding: 0.25rem;
-      border-radius: 4px;
-      transition: all 0.2s ease;
-      opacity: 0;
-    }
-    
-    .goal-row:hover .remove-goal {
-      opacity: 1;
-    }
-    
-    .remove-goal:hover {
-      background: rgba(239, 68, 68, 0.1);
-      color: #ef4444;
-    }
-    
-    .add-goal-button {
-      background: none;
-      border: 2px dashed #d1d5db;
-      color: #64748b;
-      padding: 1rem;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 1.1rem;
-      font-family: 'Inter', sans-serif;
-      transition: all 0.2s ease;
-      width: 100%;
-      margin-top: 0.5rem;
-    }
-    
-    .add-goal-button:hover {
-      border-color: var(--accent-primary);
-      color: var(--accent-primary);
-      background: rgba(var(--accent-primary), 0.05);
     }
     
     /* Toast */
@@ -1149,6 +934,26 @@
         font-size: 1.5rem;
         padding: 0.75rem;
       }
+    
+
+      @media (max-width: 768px) {
+      .vibe-card,
+      #editableGoal {
+        max-width: 100%;
+        min-height: 2.5rem;
+      }
+      
+      #editableGoal {
+        padding: 0.6rem 2.5rem 0.6rem 0.8rem;
+        font-size: 0.9rem;
+      }
+      
+      #saveGoalBtn {
+        width: 1.8rem;
+        height: 1.8rem;
+        right: 0.4rem;
+        font-size: 0.9rem;
+      }
     }
 
     /* Section Cards */
@@ -1266,6 +1071,9 @@
       .chatbot-section {
         min-height: 500px; /* 최소 높이 설정 */
       }
+      .chat-messages {
+        min-height: 300px;
+      }
     }
 
       .chatbot-section.glass-card {
@@ -1340,7 +1148,7 @@
       }
       
       .chatbot-section {
-        height: 450px; /* 모바일에서 적당한 높이 */
+        height: 500px; /* 모바일에서 적당한 높이 */
       }
       
       #timerText {
@@ -2539,6 +2347,7 @@
       localStorage.setItem('pomodoro-blocks', JSON.stringify(sessionLog));
     }
 
+    // 최신 10개만 표시하도록 수정
     function loadBlocks() {
       const saved = localStorage.getItem('pomodoro-blocks');
       if (saved) {
@@ -2548,30 +2357,43 @@
       const logList = document.getElementById('logList');
       logList.innerHTML = '';
       
-      sessionLog.forEach((session, index) => {
-        if (session.type === 'focus') {
-          const block = document.createElement('div');
-          block.className = `block-item ${session.label ? '' : 'unlabeled'}`;
-          
-          block.innerHTML = `
-            <div class="block-time">${session.time} • ${session.duration} focus session</div>
-            <div class="block-label">${session.label || 'Click to add what you accomplished...'}</div>
-          `;
-          
-          if (!session.label) {
-            block.addEventListener('click', () => {
-              const newLabel = prompt('What did you accomplish in this session?');
-              if (newLabel && newLabel.trim()) {
-                session.label = newLabel.trim();
-                saveBlocks();
-                loadBlocks();
-              }
-            });
-          }
-          
-          logList.appendChild(block);
+      // 최신 15개만 표시
+      const focusSessions = sessionLog.filter(session => session.type === 'focus');
+      const recentSessions = focusSessions.slice(-15); // 최신 15개
+      
+      recentSessions.forEach((session, index) => {
+        const block = document.createElement('div');
+        block.className = `block-item ${session.label ? '' : 'unlabeled'}`;
+        
+        block.innerHTML = `
+          <div class="block-time">${session.time} • ${session.duration} focus session</div>
+          <div class="block-label">${session.label || 'Click to add what you accomplished...'}</div>
+        `;
+        
+        if (!session.label) {
+          block.addEventListener('click', () => {
+            const newLabel = prompt('What did you accomplish in this session?');
+            if (newLabel && newLabel.trim()) {
+              session.label = newLabel.trim();
+              saveBlocks();
+              loadBlocks();
+            }
+          });
         }
+        
+        logList.appendChild(block);
       });
+      
+      // 더 많은 세션이 있다면 표시
+      if (focusSessions.length > 10) {
+        const moreInfo = document.createElement('div');
+        moreInfo.innerHTML = `
+          <div style="text-align: center; color: #94a3b8; font-size: 0.8rem; margin-top: 1rem;">
+            Showing latest 15 of ${focusSessions.length} sessions
+          </div>
+        `;
+        logList.appendChild(moreInfo);
+      }
     }
 
     // Rotate placeholder every 4 seconds
