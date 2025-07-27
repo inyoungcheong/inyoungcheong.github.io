@@ -221,41 +221,6 @@
     }
     
     /* Focus Blocks Section */
-    .block-controls {
-      display: flex;
-      gap: 0.75rem;
-      margin-bottom: 1rem;
-      align-items: center;
-    }
-    
-    .block-input {
-      flex: 1;
-      padding: 0.75rem 1rem;
-      border: 1px solid #EAF0FB;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.9);
-      color: #334155;
-      font-size: 0.9rem;
-      outline: none;
-      transition: all 0.3s ease;
-      font-family: 'Inter', sans-serif;
-    }
-    
-    .block-item {
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid #EAF0FB;
-      border-radius: 12px;
-      padding: 1rem;
-      margin-bottom: 0.75rem;
-      transition: all 0.3s ease;
-    }
-    
-    .block-item.unlabeled {
-      opacity: 0.7;
-      font-style: italic;
-      border-style: dashed;
-      cursor: pointer;
-    }
     
     .block-time {
       font-size: 0.8rem;
@@ -1335,8 +1300,7 @@
     
     // Session log - make it session-specific
     const session = new URLSearchParams(window.location.search).get("session") || "focus-room";
-    const sessionLogKey = `sessionLog-${session}`;
-    let sessionLog = [];
+
     
     function getRandomOpeningMessage() {
       return openingMessages[Math.floor(Math.random() * openingMessages.length)];
@@ -2211,17 +2175,7 @@
       if (diff < 1440) return `${Math.floor(diff / 60)} hours ago`;
       return 'yesterday';
     }
-      
-      if (focusSessions.length > 15) {
-        const moreInfo = document.createElement('div');
-        moreInfo.innerHTML = `
-          <div style="text-align: center; color: #94a3b8; font-size: 0.8rem; margin-top: 1rem;">
-            Showing latest 15 of ${focusSessions.length} sessions
-          </div>
-        `;
-        logList.appendChild(moreInfo);
-      }
-    }
+    
 
     setInterval(rotatePlaceholder, 4000);
     document.addEventListener("DOMContentLoaded", rotatePlaceholder);
