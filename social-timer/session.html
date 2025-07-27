@@ -737,6 +737,64 @@
     .section-title {
       flex-shrink: 0;
     }
+
+    .goal-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    
+    .goal-item::before {
+      content: "•";
+      margin-right: 0.5rem;
+      color: var(--accent-primary);
+      font-weight: bold;
+    }
+    
+    .goal-input {
+      flex: 1;
+      padding: 0.6rem;
+      border: 1px solid #EAF0FB;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+    }
+    
+    .goal-input:focus {
+      border-color: var(--accent-primary);
+    }
+    
+    .remove-goal {
+      margin-left: 0.5rem;
+      color: #94a3b8;
+      cursor: pointer;
+      padding: 0.2rem;
+      border-radius: 4px;
+    }
+    
+    .remove-goal:hover {
+      background: rgba(239, 68, 68, 0.1);
+      color: #dc2626;
+    }
+
+    #addGoalBtn {
+      font-size: 0.8rem;
+      color: #94a3b8;
+      background: none;
+      border: 1px dashed #e2e8f0;
+      border-radius: 8px;
+      padding: 0.5rem;
+      width: 100%;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    #addGoalBtn:hover {
+      background: rgba(var(--accent-primary), 0.05);
+      border-color: var(--accent-primary);
+      color: var(--accent-primary);
+    }
     
     #editableGoal {
       width: 100%;
@@ -1222,10 +1280,10 @@
         <div class="section-title">Today's Focus</div>
         <p style="font-size: 1.1rem; color: #64748b; text-align: center; margin-bottom: 1.5rem; line-height: 1.5;">Write down the main task you'll focus on today. See what others are working on and stay motivated together.</p>
 
-        <div class="goal-input-container">
-          <div style="font-size: 0.9rem; color: #64748b; text-align: center; margin-bottom: 0.75rem; font-weight: 500;">✏️ Update your focus goal:</div>
-          <div id="editableGoal" contenteditable="true" data-placeholder="What's one meaningful task you'll focus on?"></div>
-          <button id="saveGoalBtn">✓</button>
+        <div class="goals-input-container">
+          <div>✏️ Update your focus goals:</div>
+          <div id="goalsList"></div>
+          <button id="addGoalBtn">+ Add goal (0/3)</button>
         </div>
 
         <div id="vibeBoard"></div>
@@ -1465,7 +1523,7 @@
       db.collection("sessions").doc(session).collection("participants").doc(name).set({
         name,
         emoji,
-        goal: "",
+        goals: "",
         timestamp: Date.now()
       });
     
@@ -1542,9 +1600,18 @@
         db.collection("sessions").doc(session).collection("participants").doc(name).set({
           name,
           emoji,
-          goal: "",
+          goals: [], 
           timestamp: Date.now()
         });
+        
+        document.getElementById('addGoalBtn').addEventListener('click', addGoal);
+        userGoals = ['']; // 빈 골 하나로 시작
+        renderGoals();
+        // focus on the first input 
+        setTimeout(() => {
+          const firstInput = document.querySelector('.goal-input');
+          if (firstInput) firstInput.focus();
+        }, 100);
       } else {
         renderAvatarGrid();
         document.getElementById("userSetup").style.display = "block";
@@ -1775,7 +1842,7 @@
     
         snapshot.forEach(doc => {
           const p = doc.data();
-          const goal = p.goal || "";
+          const goals = p.goals || (p.goal ? [p.goal] : []);
           const participantName = p.name || "Anonymous";
           const emoji = p.emoji || "🐾";
     
@@ -1797,10 +1864,12 @@
             nameSpan.innerHTML += ' (You)';
           }
     
+          const goalText = goals.length > 0 ? goals.map(g => `• ${g}`).join('\n') : "Setting up focus goals...";
           const goalSpan = document.createElement("span");
-          goalSpan.innerText = goal || "Setting up their focus goal...";
-          goalSpan.style.color = goal ? "#475569" : "#94a3b8";
-          goalSpan.style.fontStyle = goal ? "normal" : "italic";
+          goalSpan.innerText = goalText;
+          goalSpan.style.color = goals.length > 0 ? "#475569" : "#94a3b8";
+          goalSpan.style.fontStyle = goals.length > 0 ? "normal" : "italic";
+          goalSpan.style.whiteSpace = 'pre-line';
     
           div.appendChild(document.createTextNode(emoji + " "));
           div.appendChild(nameSpan);
@@ -2033,8 +2102,6 @@
       });
     });
 
-    const editable = document.getElementById("editableGoal");
-    const saveBtn = document.getElementById("saveGoalBtn");
     
     function showCheckMark(el) {
       const mark = document.createElement("span");
@@ -2044,63 +2111,70 @@
       setTimeout(() => mark.remove(), 1000);
     }
 
-    editable.addEventListener("input", () => {
-      if (editable.textContent.trim()) {
-        saveBtn.style.display = "block";
-        saveBtn.classList.remove("saved");
-      }
-    });
-
-    saveBtn.addEventListener("click", () => {
-      let goalText = editable.textContent.trim();
-      if (goalText === "") {
-        saveBtn.style.display = "none";
-        return;
-      }
+    // social goal setting 
+    let userGoals = [];
     
-      saveGoal(goalText);
-      saveBtn.classList.add("saved");
-      showSaveToast();
-      showCheckMark(editable);
+    function renderGoals() {
+      const goalsList = document.getElementById('goalsList');
+      const addBtn = document.getElementById('addGoalBtn');
       
-      setTimeout(() => {
-        saveBtn.style.display = "none";
-        saveBtn.classList.remove("saved");
-      }, 2000);
-    });
-    
-    editable.addEventListener("focus", () => {
-      if (editable.innerText.trim() === "What's one meaningful task you'll focus on?") {
-        editable.innerHTML = "";
-      }
-    });
-    
-    editable.addEventListener("blur", () => {
-      let goalText = editable.textContent.trim();
-      if (goalText === "") {
-        editable.innerHTML = "";
-        saveBtn.style.display = "none";
-        return;
-      }
+      goalsList.innerHTML = '';
       
-      if (saveBtn.style.display === "block" && !saveBtn.classList.contains("saved")) {
-        saveGoal(goalText);
-        showSaveToast();
-        showCheckMark(editable);
-        saveBtn.style.display = "none";
-      }
-    });
-    
-    function saveGoal(text) {
-      if (!session || !name) return;
+      userGoals.forEach((goal, index) => {
+        const goalItem = document.createElement('div');
+        goalItem.className = 'goal-item';
+        
+        // 플레이스홀더 선택: 첫 번째는 고정, 나머지는 랜덤
+        let placeholder;
+        if (index === 0 && userGoals.length === 1 && goal === '') {
+          placeholder = "Complete today's priority task ✨";
+        } else {
+          placeholder = placeholderList[Math.floor(Math.random() * placeholderList.length)];
+        }
+        
+        goalItem.innerHTML = `
+          <input type="text" class="goal-input" value="${goal}" 
+                 placeholder="${placeholder}"
+                 onblur="updateGoal(${index}, this.value)"
+                 onkeypress="if(event.key==='Enter') this.blur()">
+          <span class="remove-goal" onclick="removeGoal(${index})">×</span>
+        `;
+        goalsList.appendChild(goalItem);
+      });
       
+      addBtn.textContent = `+ Add goal (${userGoals.length}/3)`;
+      addBtn.style.display = userGoals.length >= 3 ? 'none' : 'block';
+    }
+    
+    function addGoal() {
+      if (userGoals.length < 3) {
+        userGoals.push('');
+        renderGoals();
+        setTimeout(() => {
+        const inputs = document.querySelectorAll('.goal-input');
+        inputs[inputs.length - 1].focus();
+      }, 50);
+      }
+    }
+    
+    function updateGoal(index, value) {
+      userGoals[index] = value.trim();
+      saveGoals();
+    }
+    
+    function removeGoal(index) {
+      userGoals.splice(index, 1);
+      renderGoals();
+      saveGoals();
+    }
+    
+    function saveGoals() {
+      const filteredGoals = userGoals.filter(goal => goal.trim() !== '');
       db.collection("sessions").doc(session).collection("participants").doc(name).update({
-        goal: text
-      }).catch(error => {
-        console.error("Error saving goal:", error);
-        showErrorToast("Failed to save goal. Please try again.");
+        goals: filteredGoals
       });
     }
+    
 
     const placeholderList = [
       "Finish sh**ty first draft ✍️",
