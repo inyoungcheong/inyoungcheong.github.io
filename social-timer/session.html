@@ -1268,6 +1268,10 @@
         <div class="goals-input-container">
           <div>✏️ Update your focus goals:</div>
           <div id="goalsList"></div>
+          <!-- 이 부분을 <div id="goalsList"></div> 바로 아래에 추가: -->
+          <button onclick="testSave()" style="background: red; color: white; margin: 10px; padding: 5px 10px; border: none; border-radius: 5px;">
+            🔍 Debug Test
+          </button>
           <button id="addGoalBtn">+ Add goal (0/3)</button>
         </div>
 
@@ -2177,12 +2181,16 @@
       }
     }
     
+    
     function updateGoal(index, value) {
+      console.log('🎯 updateGoal called:', index, value);
       if (index >= 0 && index < userGoals.length) {
         userGoals[index] = value.trim();
+        console.log('📝 userGoals updated:', userGoals);
         saveGoals();
       }
     }
+
     
     function removeGoal(index) {
       if (index >= 0 && index < userGoals.length) {
@@ -2196,15 +2204,25 @@
     }
     
     function saveGoals() {
+      console.log('💾 saveGoals called');
       const filteredGoals = userGoals.filter(goal => goal.trim() !== '');
-      if (name) {
+      console.log('🔧 filteredGoals:', filteredGoals);
+      console.log('👤 name:', name);
+      console.log('🔥 db:', db);
+
+        if (name) {
         safeFirebaseCall(() => {
+          console.log('🚀 Attempting Firebase save...');
           db.collection("sessions").doc(session).collection("participants").doc(name).update({
             goals: filteredGoals
+          }).then(() => {
+            console.log('✅ Goals saved successfully!');
           }).catch(error => {
-            console.error("Error saving goals:", error);
+            console.error("❌ Error saving goals:", error);
           });
         });
+      } else {
+        console.warn('⚠️ No name found, cannot save goals');
       }
     }
 
@@ -2329,6 +2347,29 @@
           }
         });
       });
+
+      window.testSave = function() {
+        console.log('=== DEBUG INFO ===');
+        console.log('name:', name);
+        console.log('userGoals:', userGoals);
+        console.log('db:', db);
+        console.log('session:', session);
+        
+        userGoals = ['Test Goal 1', 'Test Goal 2'];
+        console.log('🧪 Testing with fake goals:', userGoals);
+        saveGoals();
+      }
+      
+      function checkFirebaseConnection() {
+        console.log('🔥 Firebase app:', firebase.apps.length > 0);
+        console.log('📊 Firestore:', db ? 'Connected' : 'Not connected');
+        
+        if (db) {
+          db.collection("sessions").doc(session).get()
+            .then(doc => console.log('✅ Firebase read test success'))
+            .catch(err => console.error('❌ Firebase read test failed:', err));
+        }
+      }
       
       // Initialize Firebase
       const firebaseInitialized = initializeFirebase();
