@@ -1630,7 +1630,14 @@
         
         setTimeout(() => {
           mainApp.style.opacity = "1";
+          
+          if (db) {  // initializeFirebase() 대신 db 체크
+            setupFirebaseListeners();
+            loadBlocks();
+          }
+          
           initializeGoalSystem();
+          setupTimerControls();
         }, 50);
       }, 300);
     }
