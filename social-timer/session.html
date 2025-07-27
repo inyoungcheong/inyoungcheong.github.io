@@ -837,6 +837,15 @@
       border-left: 4px solid #e2e8f0;
     }
 
+    .block-item {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid #EAF0FB;
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 0.75rem;
+      transition: all 0.3s ease;
+    }
+
     /* Primary Button */
     .primary-btn {
       padding: 1rem 1.5rem;
@@ -1284,6 +1293,13 @@
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
   <script>
+
+    function getTodayKey() {
+      const today = new Date();
+      return today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    }
+
+    
     // Chatbot variables
     let conversationId = null;
     const apiUrl = 'https://working-chatbot-api-production.up.railway.app/api/chat';
@@ -1829,10 +1845,7 @@
     }
 
     // Chatbot functions
-    function getTodayKey() {
-      const today = new Date();
-      return today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-    }
+
 
     function getUsageCount() {
       const stored = localStorage.getItem(usageKey);
