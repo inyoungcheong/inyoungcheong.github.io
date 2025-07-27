@@ -668,7 +668,16 @@
       border: 1px solid #EAF0FB;
     }
 
-
+    .timer-section,
+    .public-dashboard {
+      min-height: 560px; /* 타이머 섹션과 동일한 높이 */
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .public-dashboard {
+      justify-content: flex-start; /* 위쪽부터 배치 시작 */
+    }
     
     /* Dashboard Section */
     .dashboard-section {
@@ -689,11 +698,13 @@
     }
 
     #vibeBoard {
+      flex: 1; 
       width: 100%;
       max-height: 300px;
       overflow-y: auto;
       margin-bottom: 1rem;
       padding-right: 0.5rem;
+      min-height: 150px; 
     }
 
     .public-dashboard:hover {
@@ -744,9 +755,19 @@
     
     /* Fixed Goal Input - consistent sizing */
     .goal-input-container {
+      margin-top: auto; 
       width: 100%;
-      margin-top: 1rem;
       position: relative;
+      flex-shrink: 0; 
+    }
+
+    .public-dashboard > p {
+      margin-bottom: 1.5rem;
+      flex-shrink: 0;
+    }
+    
+    .section-title {
+      flex-shrink: 0; /* 제목도 고정 */
     }
     
     #editableGoal {
@@ -1179,7 +1200,8 @@
     
     @media (max-width: 768px) {
       .container {
-        padding: 1rem;
+        padding: 1rem 0.5rem 
+        gap: 1rem
       }
       
       .timer-section,
@@ -1187,14 +1209,26 @@
       .note-card {
         padding: 1.5rem;
       }
-
-      .focus-blocks-section,
-      .chatbot-section {
-        margin-bottom: 1.5rem;
-      }
       
       .chatbot-section {
-        height: 500px; /* 모바일에서 적당한 높이 */
+        height: auto; 
+        min-height: 400px; 
+        margin-bottom: 1.5rem;
+      }
+
+      .chat-messages {
+        min-height: 250px; /* 모바일에서 더 작은 높이 */
+        max-height: 300px; /* 최대 높이 제한 */
+      }
+
+      .focus-blocks-section {
+        height: auto; /* 고정 높이 제거 */
+        min-height: 400px;
+      }
+
+      #logList {
+        max-height: 300px; /* 스크롤 영역 높이 제한 */
+        overflow-y: auto;
       }
       
       #timerText {
@@ -1253,11 +1287,11 @@
   
   <div id="mainApp">
     <!-- Social Board 헤더 추가 -->
-    <div style="text-align: center; margin: 2rem 0 1rem 0;">
-      <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.8rem; font-weight: 700; color: var(--accent-primary); margin-bottom: 0.5rem;">
-        👥 Social Board
+   <div style="text-align: center; margin: 1.5rem 0 0.5rem 0;">
+    <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.8rem; font-weight: 700; color: var(--accent-primary); margin-bottom: 0.25rem;">
+       👥 Social Board
       </h2>
-      <p style="font-size: 1rem; color: #64748b; margin-bottom: 2rem;">
+      <p style="font-size: 1rem; color: #64748b; margin-bottom: 1rem;">
         Shared with everyone in this session
       </p>
     </div>
@@ -1331,15 +1365,15 @@
       </div>
     </div>
 
-      <!-- Private Board Header -->
-      <div style="grid-column: 1 / -1; text-align: center; margin: 3rem 0 1rem 0;">
-        <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.8rem; font-weight: 700; color: var(--accent-primary); margin-bottom: 0.5rem;">
-          🔒 Private Board
-        </h2>
-        <p style="font-size: 1rem; color: #64748b; margin-bottom: 2rem;">
-        👇🏻The sections below are only visible to you.
-        </p>
-      </div>
+    <!-- Private Board Header -->
+    <div style="text-align: center; margin: 1.5rem 0 0.5rem 0;">
+      <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.8rem; font-weight: 700; color: var(--accent-primary); margin-bottom: 0.25rem;">
+        🔒 Private Board
+      </h2>
+      <p style="font-size: 1rem; color: #64748b; margin-bottom: 1rem;">
+        👇🏻Everything below is private to you
+      </p>
+    </div>
 
     <div class="container">
       <!-- Chatbot Section -->
