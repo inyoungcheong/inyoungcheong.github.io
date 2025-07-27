@@ -59,16 +59,6 @@
       flex-direction: column;
       height: 700px;
     }
-
-    .glass-card {
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(20px);
-      border-radius: 24px;
-      padding: 2rem;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
-      border: 1px solid #EAF0FB;
-      transition: all 0.3s ease;
-    }
     
     .card-title {
       font-family: 'Plus Jakarta Sans', sans-serif;
@@ -588,6 +578,19 @@
     .footer-link:hover {
       opacity: 0.8;
       text-decoration: underline;
+    }
+
+    .dashboard-section {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      padding: 2rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+      border: 1px solid #EAF0FB;
+      justify-content: flex-start;
     }
     
     /* Ambient Sound */
@@ -1209,8 +1212,8 @@
     
     @media (max-width: 768px) {
       .container {
-        padding: 1rem 0.5rem 
-        gap: 1rem
+        padding: 1rem 0.5rem; 
+        gap: 1rem;
       }
       
       .timer-section,
@@ -1359,7 +1362,7 @@
       
       <!-- Dashboard Section -->
       <div class="dashboard-section">
-        <div class="section-title">Today's Focus</div>
+        <div class="section-title">🎯 Goal Dashboard</div>
         <p style="font-size: 1.1rem; color: #64748b; text-align: center; margin-bottom: 1.5rem; line-height: 1.5;">Write down the main task you'll focus on today. See what others are working on and stay motivated together.</p>
 
         <div class="goal-input-container">
@@ -1370,7 +1373,6 @@
 
         <div id="vibeBoard"></div>
           
-        </div>
       </div>
    
 
@@ -1386,7 +1388,7 @@
 
     <div class="container">
       <!-- Chatbot Section -->
-      <div class="glass-card chatbot-section">
+      <div class="chatbot-section">
         <div class="card-title">✨ AI Motivation Partner</div>
         <p style="font-size: 0.9rem; color: #94a3b8; text-align: center; margin-bottom: 1rem; font-style: italic;">
           Declutter blockers. Conversation history is not saved.
@@ -1422,7 +1424,7 @@
       
       <!-- Focus Blocks Section -->
       <div class="focus-blocks-section">
-        <div class="section-title">⚡ Focus Sessions</div>
+        <div class="section-title">✍️ Session Reflections</div>
           <p style="font-size: 0.9rem; color: #94a3b8; text-align: center; margin-bottom: 1rem; font-style: italic;">
             Track what you accomplished in each session
           </p>
@@ -1769,6 +1771,19 @@
       } else {
         showRateLimit();
       }
+
+      function syncDashboardHeight() {
+        const timer = document.querySelector('.timer-section');
+        const dashboard = document.querySelector('.dashboard-section');
+        
+        if (timer && dashboard) {
+          const timerHeight = timer.offsetHeight;
+          dashboard.style.minHeight = timerHeight + 'px';
+        }
+      }
+    
+      window.addEventListener('resize', syncDashboardHeight);
+      setTimeout(syncDashboardHeight, 500);
     
       const userName = name || "there"; // 이름이 없으면 "there" 사용
       const personalizedMessage = `Hi, ${userName}! ${getRandomOpeningMessage()}`;
