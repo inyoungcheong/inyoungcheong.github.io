@@ -1193,15 +1193,6 @@
   <audio src="assets/beep.wav" id="beep"></audio>
   
   <div id="mainApp">
-    <!-- Social Board 헤더 -->
-   <div style="text-align: center; margin: 1.5rem 0 0.5rem 0;">
-    <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.8rem; font-weight: 700; color: var(--accent-primary); margin-bottom: 0.25rem;">
-       👥 Social Board
-      </h2>
-      <p style="font-size: 1rem; color: #64748b; margin-bottom: 1rem;">
-        Shared with everyone in this session
-      </p>
-    </div>
 
     <div class="container">
       <!-- Timer Section -->
@@ -1267,22 +1258,12 @@
       </div>
     </div>
 
-    <!-- Private Board Header -->
-    <div style="text-align: center; margin: 1.5rem 0 0.5rem 0;">
-      <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.8rem; font-weight: 700; color: var(--accent-primary); margin-bottom: 0.25rem;">
-        🔒 Private Board
-      </h2>
-      <p style="font-size: 1rem; color: #64748b; margin-bottom: 1rem;">
-        👇🏻Everything below is private to you
-      </p>
-    </div>
-
     <div class="container">
       <!-- Chatbot Section -->
       <div class="glass-card chatbot-section">
         <div class="card-title">✨ AI Motivation Partner</div>
         <p style="font-size: 0.9rem; color: #94a3b8; text-align: center; margin-bottom: 1rem; font-style: italic;">
-          Declutter blockers. Conversation history is not saved.
+          🔒 Private messages - only you can see this conversation
         </p>
    
         <div class="usage-info">
@@ -1312,14 +1293,10 @@
 
       <!-- Focus Blocks Section -->
       <div class="focus-blocks-section">
-        <div class="section-title">⚡ Focus Sessions</div>
-          <p style="font-size: 0.9rem; color: #94a3b8; text-align: center; margin-bottom: 1rem; font-style: italic;">
-            Track what you accomplished in each session
-          </p>
-        <div class="block-controls">
-          <input type="text" class="block-input" id="taskInput" placeholder="What did you accomplish?">
-          <button class="btn btn-primary" onclick="labelLastBlock()">Save</button>
-        </div>
+        <div class="section-title">👥 Team Focus Log</div>
+        <p style="font-size: 0.9rem; color: #94a3b8; text-align: center; margin-bottom: 1rem; font-style: italic;">
+          See what everyone accomplished together
+        </p>
         <div id="logList"></div>
       </div>
     </div>
@@ -1860,17 +1837,16 @@
     
     function nextPhase() {
       if (phases[phaseIndex].label === "Focus") {
-        const endTime = new Date();
-        const timeStr = endTime.toLocaleDateString() + ' ' + endTime.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-        sessionLog.push({
-          text: '',
-          duration: `${focusDuration / 60} min`,
-          time: timeStr,
-          type: 'focus',
-          label: ''
-        });
-        saveBlocks();
-        loadBlocks();
+        const logData = {
+          userName: name,
+          userEmoji: emoji,
+          timestamp: Date.now(),
+          label: '', 
+          type: 'focus'
+        };
+        
+        // Firebase
+        db.collection("sessions").doc(session).collection("teamLogs").add(logData);
       }
       
       phaseIndex = (phaseIndex + 1) % phases.length;
@@ -2179,62 +2155,62 @@
       });
     });
 
-    // Focus blocks functions - Fixed to use session-specific storage
-    function labelLastBlock() {
-      const input = document.getElementById('taskInput');
-      const label = input.value.trim();
-      
-      if (label && sessionLog.length > 0) {
-        for (let i = sessionLog.length - 1; i >= 0; i--) {
-          if (sessionLog[i].type === 'focus' && !sessionLog[i].label) {
-            sessionLog[i].label = label;
-            break;
-          }
-        }
-        input.value = '';
-        saveBlocks();
-        loadBlocks();
-      }
-    }
-
     function saveBlocks() {
-      localStorage.setItem(sessionLogKey, JSON.stringify(sessionLog));
     }
 
     function loadBlocks() {
-      const saved = localStorage.getItem(sessionLogKey);
-      if (saved) {
-        sessionLog = JSON.parse(saved);
-      }
-      
-      const logList = document.getElementById('logList');
-      logList.innerHTML = '';
-      
-      const focusSessions = sessionLog.filter(session => session.type === 'focus');
-      const recentSessions = focusSessions.slice(-15);
-      
-      recentSessions.forEach((session, index) => {
-        const block = document.createElement('div');
-        block.className = `block-item ${session.label ? '' : 'unlabeled'}`;
-        
-        block.innerHTML = `
-          <div class="block-time">${session.time} • ${session.duration} focus session</div>
-          <div class="block-label">${session.label || 'Click to add what you accomplished...'}</div>
-        `;
-        
-        if (!session.label) {
-          block.addEventListener('click', () => {
-            const newLabel = prompt('What did you accomplish in this session?');
-            if (newLabel && newLabel.trim()) {
-              session.label = newLabel.trim();
-              saveBlocks();
-              loadBlocks();
+      db.collection("sessions").doc(session).collection("teamLogs")
+        .orderBy("timestamp", "desc")
+        .limit(15)
+        .onSnapshot(snapshot => {
+          const logList = document.getElementById('logList');
+          logList.innerHTML = '';
+          
+          snapshot.forEach(doc => {
+            const log = doc.data();
+            const isMyLog = log.userName === name;
+            const block = document.createElement('div');
+            block.className = 'block-item';
+            
+            if (isMyLog && !log.label) {
+              // clickable 
+              block.innerHTML = `
+                <div class="block-time">${log.userEmoji} You • ${getRelativeTime(log.timestamp)}</div>
+                <div class="block-label" style="color: #94a3b8; font-style: italic; cursor: pointer;">Click to add what you did...</div>
+              `;
+              block.addEventListener('click', () => {
+                const newLabel = prompt('What did you accomplish in this session?');
+                if (newLabel && newLabel.trim()) {
+                  doc.ref.update({ label: newLabel.trim() });
+                }
+              });
+            } else if (!log.label) {
+              // other's unlabeld logs 
+              block.innerHTML = `
+                <div class="block-time">${log.userEmoji} ${log.userName} • ${getRelativeTime(log.timestamp)}</div>
+                <div class="block-label" style="color: #94a3b8; font-style: italic;">(hasn't shared yet)</div>
+              `;
+            } else {
+              // Labeled logs 
+              block.innerHTML = `
+                <div class="block-time">${log.userEmoji} ${isMyLog ? 'You' : log.userName} • ${getRelativeTime(log.timestamp)}</div>
+                <div class="block-label">${log.label}</div>
+              `;
             }
+            
+            logList.appendChild(block);
           });
-        }
-        
-        logList.appendChild(block);
-      });
+        });
+    }
+    
+    function getRelativeTime(timestamp) {
+      const now = Date.now();
+      const diff = Math.floor((now - timestamp) / 1000 / 60);
+      if (diff < 1) return 'just now';
+      if (diff < 60) return `${diff} min ago`;
+      if (diff < 1440) return `${Math.floor(diff / 60)} hours ago`;
+      return 'yesterday';
+    }
       
       if (focusSessions.length > 15) {
         const moreInfo = document.createElement('div');
