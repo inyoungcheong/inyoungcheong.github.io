@@ -439,8 +439,7 @@
 
     /* Timer Section */
     .timer-section {
-      display: flex;
-      height: 560px; 
+      height: 560px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -555,7 +554,7 @@
     /* Ambient Sound */
     .ambient-section {
       text-align: center;
-      margin-top: 1.5rem;
+      margin-top: 1rem;
     }
     
     .ambient-section label {
@@ -1043,10 +1042,12 @@
       
       .dashboard-section {
         padding: 0;
+        gap: 1rem;
       }
 
       .goals-input-container {
         padding: 0 0.75rem;
+        margin-bottom: 0.75rem;
       }
       
       .chatbot-section {
@@ -1078,6 +1079,10 @@
       .timer-circle svg {
         width: 240px;
         height: 240px;
+      }
+
+      .ambient-section {
+        margin-top: 1rem; /* 1.5rem → 1rem */
       }
       
       .controls {
@@ -1142,6 +1147,10 @@
       .container {
         padding: 0.75rem 0.5rem;
         gap: 1rem;
+      }
+        
+      .dashboard-section {
+        gap: 0.75rem; /* 추가 */
       }
       
       .timer-circle svg {
@@ -1352,8 +1361,8 @@
     const usageKey = 'dailyPlanner_usage_' + getTodayKey();
     const openingMessages = [
       "I am your motivation partner! 🎯",
-      "What's on your mind? I'm here to hearing you out.",
-      "I am your motivation partner! Together, we can achieve wonderful things! 🚀",
+      "What's on your mind? I'm here to hear you out.",
+      "Together, you can achieve wonderful things with me! 🚀",
       "What's your priority today? Feel free to tell me anything.", 
       "What would make today feel productive?🌟"
     ];
@@ -1920,9 +1929,6 @@
               
               // 기존 스타일 제거하고 새로 설정
               goalSpan.style.whiteSpace = 'normal';
-              goalSpan.style.color = goals.length > 0 ? "#475569" : "#94a3b8";
-              goalSpan.style.fontStyle = goals.length > 0 ? "normal" : "italic";
-              goalSpan.style.whiteSpace = 'pre-line';
         
               div.appendChild(document.createTextNode(emoji + " "));
               div.appendChild(nameSpan);
@@ -2420,73 +2426,7 @@
         });
       });
 
-      
-
-      // Timer function check 
-      console.log('Timer functions check:');
-      console.log('startTimer:', typeof window.startTimer);
-      console.log('Firebase initialized:', typeof db);
-      console.log('Role:', localStorage.getItem(roleKey));
-
-      console.log('=== USER STATUS CHECK ===');
-      console.log('Name:', name);
-      console.log('Emoji:', emoji);
-      console.log('Role:', role);
-      console.log('Session:', session);
-      console.log('User setup visible:', document.getElementById("userSetup").style.display);
-      console.log('Main app visible:', document.getElementById("mainApp").style.display);
-
-      console.log('=== LOCALSTORAGE CHECK ===');
-      console.log('nameKey:', `vibeUserName-${session}`);
-      console.log('emojiKey:', `vibeUserAnimal-${session}`);
-      console.log('roleKey:', `vibeUserRole-${session}`);
-      console.log('Stored name:', localStorage.getItem(`vibeUserName-${session}`));
-      console.log('Stored emoji:', localStorage.getItem(`vibeUserAnimal-${session}`));
-      console.log('Stored role:', localStorage.getItem(`vibeUserRole-${session}`));
-
-      // 강제로 사용자 설정 완료
-      name = "TestUser";
-      emoji = "🐢";
-      role = "host";
-      
-      // localStorage에 저장
-      localStorage.setItem(`vibeUserName-${session}`, name);
-      localStorage.setItem(`vibeUserAnimal-${session}`, emoji);
-      localStorage.setItem(`vibeUserRole-${session}`, role);
-      
-      // UI 전환
-      document.getElementById("userSetup").style.display = "none";
-      document.getElementById("mainApp").style.display = "block";
-      
-      // Firebase에 저장
-      if (db) {
-        db.collection("sessions").doc(session).collection("participants").doc(name).set({
-          name: name,
-          emoji: emoji,
-          goals: ["Test goal"],
-          role: role,
-          timestamp: Date.now()
-        }).then(() => {
-          console.log('✅ User data saved to Firebase');
-          // 리스너 설정
-          setupFirebaseListeners();
-        });
-      }
-      
-      console.log('✅ User setup completed manually');
-
-      
-      
-      function checkFirebaseConnection() {
-        console.log('🔥 Firebase app:', firebase.apps.length > 0);
-        console.log('📊 Firestore:', db ? 'Connected' : 'Not connected');
-        
-        if (db) {
-          db.collection("sessions").doc(session).get()
-            .then(doc => console.log('✅ Firebase read test success'))
-            .catch(err => console.error('❌ Firebase read test failed:', err));
-        }
-      }
+    
       
       // Initialize Firebase
       const firebaseInitialized = initializeFirebase();
