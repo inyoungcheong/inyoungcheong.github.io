@@ -1378,7 +1378,7 @@
     let userGoals = [];
     
     // Chatbot variables
-    const apiUrl = 'https://working-chatbot-api-production.up.railway.app/api/chat';
+    const apiUrl = 'https://working-chatbot-api-theta.vercel.app/api/chat';
     const maxMessages = 30;
     const usageKey = 'dailyPlanner_usage_' + getTodayKey();
     const openingMessages = [
@@ -1388,17 +1388,16 @@
       "What's your priority today? Feel free to tell me anything.", 
       "What would make today feel productive?🌟"
     ];
+
     
     // Session
     const session = new URLSearchParams(window.location.search).get("session") || "focus-room";
-
     // URL host parameters 
     const urlParams = new URLSearchParams(window.location.search);
     const isHostFromUrl = urlParams.get('host') === 'true';
     
-
-
     
+        
     // Timer variables
     let focusDuration = 1500;
     let phaseIndex = 0;
