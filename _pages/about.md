@@ -81,7 +81,7 @@ I'm a postdoctoral researcher at the [Princeton Center for Information Technolog
   </colgroup>
   <tbody>
     <tr>
-      <td markdown="span">📑 <a href="/assets/pdf/cv20250201.pdf"><strong>CV</strong></a> 🔗 <a href="https://www.linkedin.com/in/inyoungcheong"><strong>LinkedIn</strong></a>   🎓 <a href="https://scholar.google.com/citations?user=xwZI_jcAAAAJ"><strong>Google Scholar</strong></a>   📖 <a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=3864423"><strong>SSRN</strong></a>   🌐 <a href="https://github.com/inyoungcheong"><strong>GitHub</strong></a>
+      <td markdown="span">📑 <a href="/assets/pdf/cv_12152025.pdf"><strong>CV</strong></a> 🔗 <a href="https://www.linkedin.com/in/inyoungcheong"><strong>LinkedIn</strong></a>   🎓 <a href="https://scholar.google.com/citations?user=xwZI_jcAAAAJ"><strong>Google Scholar</strong></a>   📖 <a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=3864423"><strong>SSRN</strong></a>   🌐 <a href="https://github.com/inyoungcheong"><strong>GitHub</strong></a>
 </td>
     </tr>
   </tbody>
@@ -100,6 +100,18 @@ I'm a postdoctoral researcher at the [Princeton Center for Information Technolog
     <col width="80%" />
   </colgroup>
   <tbody>
+    <tr>
+      <td markdown="span">November 2025</td>
+      <td markdown="span">My manuscript, {Epistemic and Emotional Harms of Generative AI}(https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5435335), is accepted for the Michigan Technology Law Review!</td>
+    </tr>
+    <tr>
+      <td markdown="span">November 2025</td>
+      <td markdown="span">My thoughts on emotional reliance on AI was featured in [The Pulse](https://open.spotify.com/episode/5dVHC4Bjdbo8ACcoRuxV5V), a Philadelphia-based, NPR-affiliated radio program!</td>
+    </tr>
+    <tr>
+      <td markdown="span">October 2025</td>
+      <td markdown="span">Our [preprint](https://arxiv.org/abs/2510.22933) is up! We interviewed fourteen public defenders to explore benefits and risks of AI adoption in criminal defense practice.</td>
+    </tr>
     <tr>
       <td markdown="span">June 2025</td>
       <td markdown="span">Run a tutorial on [the Emotional Reliance on AI](https://sites.google.com/princeton.edu/emotion) at [CHAI 2025 Workshop](https://workshop.humancompatible.ai/).</td>
