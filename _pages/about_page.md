@@ -7,9 +7,15 @@ nav_order: 1
 ---
 
 <div class="about-profile">
+
+  <br><br>
+
   <div class="about-photo-wrap">
     <img src="{{ '/assets/img/blog/inyoung-profile.png' | relative_url }}" alt="Inyoung Cheong" class="about-photo">
   </div>
+
+  <br><br>
+  <br>
 
   <div class="about-bio">
 
