@@ -1,0 +1,100 @@
+# Good News / Bad News data
+# type: good | bad
+
+- date: "November 2025"
+  type: good
+  text: "Manuscript accepted for Michigan Technology Law Review — Epistemic and Emotional Harms of Generative AI"
+
+- date: "November 2025"
+  type: good
+  text: "Featured in The Pulse (NPR-affiliated) on emotional reliance on AI"
+
+- date: "October 2025"
+  type: good
+  text: "Preprint on AI adoption in criminal defense practice is up"
+  link: "https://arxiv.org/abs/2510.22933"
+
+- date: "June 2025"
+  type: good
+  text: "Tutorial on Emotional Reliance on AI at CHAI 2025 Workshop"
+
+- date: "May 2025"
+  type: good
+  text: "Present 'Human-centered First Amendment' at Privacy Law Scholars Conference 2025"
+
+- date: "April 2025"
+  type: good
+  text: "Present at Freedom of Expression Scholars Conference 2025 at Yale"
+
+- date: "February 2025"
+  type: good
+  text: "Talk at IASEAI 2025, featured in CITP blog post"
+
+- date: "October 2024"
+  type: good
+  text: "Present 'AI Manipulation and Individual Autonomy' at PLSC-Europe in Amsterdam"
+
+- date: "October 2024"
+  type: good
+  text: "Talk at Stanford Legal Design Lab — AI & Access to Justice"
+
+- date: "August 2024"
+  type: good
+  text: "Defended my dissertation! 'Collaborative Approaches to AI Governance'"
+
+- date: "July 2024"
+  type: good
+  text: "(A)I Am Not a Lawyer, But... published in ACM library (FAccT 2024)"
+
+- date: "May 2024"
+  type: good
+  text: "Safeguarding Human Values article published in AI and Ethics journal"
+
+- date: "April 2024"
+  type: good
+  text: "Present at Freedom of Expression Scholars Conference 2024 at Yale"
+
+- date: "March 2024"
+  type: good
+  text: "Paper accepted at ACM FAccT 2024!"
+
+- date: "February 2024"
+  type: good
+  text: "Invited as panelist at Yale Conference on Governing (with) AI"
+
+- date: "January 2024"
+  type: good
+  text: "Talk on AI regulation to Korean scholars at AI Law and Policy Association"
+
+- date: "December 2023"
+  type: good
+  text: "Paper presented at NeurIPS 2023 MP2 Workshop in New Orleans"
+
+- date: "November 2023"
+  type: good
+  text: "Case-based Reasoning on AI Alignment project website launched"
+
+- date: "September 2023"
+  type: good
+  text: "Talk at Stanford Trust & Safety Research Conference"
+
+- date: "August 2023"
+  type: good
+  text: "Selected for OpenAI Democratic Inputs to AI grant (among 800+ teams)"
+
+# Bad News — CV of Failures
+# Add your rejections and setbacks here. This section is meant to normalize
+# failure in academia. Edit this file to add entries.
+
+- date: "2024"
+  type: bad
+  text: "Example: Add your rejections and setbacks here to normalize academic failure"
+
+# Uncomment and edit entries like these:
+# - date: "2024"
+#   type: bad
+#   text: "Paper rejected from [Conference Name]"
+#
+# - date: "2023"
+#   type: bad
+#   text: "Grant application unsuccessful — [Grant Name]"

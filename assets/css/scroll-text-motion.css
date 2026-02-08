@@ -1,0 +1,281 @@
+/* ============================================================
+   ScrollTextMotion — Dark full-screen kinetic typography
+   Adapted from Codrops ScrollTextMotion for Inyoung Cheong
+   ============================================================ */
+
+/* --- Page-level dark override --- */
+.scroll-motion-page {
+  margin: 0;
+  color: #fff;
+  background-color: #000;
+  font-family: 'Space Mono', monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-transform: uppercase;
+}
+
+/* Override navbar for dark bg */
+.scroll-motion-page .navbar {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+.scroll-motion-page .navbar .nav-link,
+.scroll-motion-page .navbar .navbar-brand {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+.scroll-motion-page .navbar .nav-link:hover,
+.scroll-motion-page .navbar .navbar-brand:hover {
+  color: #fff !important;
+}
+.scroll-motion-page .navbar .nav-item.active .nav-link {
+  color: #fff !important;
+}
+/* Hamburger bars */
+.scroll-motion-page .navbar-toggler .icon-bar {
+  background-color: #fff !important;
+}
+/* Progress bar hide on landing */
+.scroll-motion-page #progress {
+  display: none;
+}
+/* Hide dark mode toggle on landing page */
+.scroll-motion-page .toggle-container {
+  display: none !important;
+}
+
+/* --- Fixed center logo --- */
+.logo.fixed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  gap: 0.5rem;
+}
+
+.logo-name {
+  font-family: 'Space Mono', monospace;
+  font-size: clamp(1.8rem, 8vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.logo-title {
+  font-family: 'Space Mono', monospace;
+  font-size: clamp(0.7rem, 2vw, 0.9rem);
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+/* --- Main scroll content area --- */
+.scroll-motion-wrap {
+  position: relative;
+  z-index: 20;
+}
+
+.scroll-motion-wrap .content {
+  padding: 100vh 1.5rem 25vh;
+}
+
+/* --- Group --- */
+.scroll-motion-wrap .group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10vh;
+}
+
+/* --- Text element --- */
+.scroll-motion-wrap .el {
+  white-space: nowrap;
+  filter: blur(0px);
+  text-transform: uppercase;
+  opacity: 0.6;
+  font-size: clamp(0.75rem, 1.5vw, 1rem);
+  letter-spacing: 0.08em;
+  color: #fff;
+  font-family: 'Space Mono', monospace;
+  line-height: 1.8;
+}
+
+/* --- Question / phrase element --- */
+.scroll-motion-wrap .el--question {
+  font-size: clamp(1rem, 3vw, 1.6rem);
+  opacity: 0.85;
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* --- Position classes (faithful to Codrops original) --- */
+.scroll-motion-wrap .pos-1 { /* default: left aligned */ }
+
+.scroll-motion-wrap .pos-2 {
+  margin-left: 25vw;
+}
+
+.scroll-motion-wrap .pos-3 {
+  margin-left: 70vw;
+}
+
+.scroll-motion-wrap .pos-4 {
+  margin-left: auto;
+}
+
+.scroll-motion-wrap .pos-5 {
+  margin-top: 200px;
+  opacity: 1;
+}
+
+.scroll-motion-wrap .pos-6 {
+  margin-left: auto;
+  margin-top: 200px;
+  opacity: 1;
+}
+
+.scroll-motion-wrap .pos-7 {
+  margin-top: 200px;
+  opacity: 1;
+  filter: blur(1.2px);
+}
+
+.scroll-motion-wrap .pos-8 {
+  margin-left: 25vw;
+  margin-top: 50px;
+  opacity: 1;
+  filter: blur(2px);
+}
+
+.scroll-motion-wrap .pos-9 {
+  margin-left: 25vw;
+  margin-top: 250px;
+}
+
+.scroll-motion-wrap .pos-10 {
+  margin-left: 70vw;
+  margin-top: 40vh;
+}
+
+/* --- Blinking cursor --- */
+@keyframes blink-cursor {
+  from, to { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.typing-indicator {
+  display: inline-block;
+  animation: blink-cursor 0.7s linear infinite;
+}
+
+/* --- Bottom navigation cards (Codrops style) --- */
+.landing-nav {
+  padding: 5rem 1.5rem 4rem;
+  text-align: center;
+  container-type: inline-size;
+}
+
+.landing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  max-width: 1000px;
+  margin: 0 auto 3rem;
+  padding: 0 1rem;
+}
+
+.landing-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: #fff;
+  background: #111;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+.landing-card:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.landing-card:hover .landing-card__img {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.landing-card__img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.4;
+  transition: all 0.5s ease;
+}
+
+.landing-card__title {
+  padding: 1rem;
+  font-family: 'Space Mono', monospace;
+  font-size: clamp(0.8rem, 1.5vw, 0.95rem);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.landing-card:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+}
+
+/* Social links */
+.landing-social {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  font-size: 1.3rem;
+  padding-bottom: 2rem;
+}
+
+.landing-social a {
+  color: rgba(255, 255, 255, 0.4);
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.landing-social a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .scroll-motion-wrap .pos-2 { margin-left: 10vw; }
+  .scroll-motion-wrap .pos-3 { margin-left: 45vw; }
+  .scroll-motion-wrap .pos-8 { margin-left: 10vw; }
+  .scroll-motion-wrap .pos-9 { margin-left: 15vw; }
+  .scroll-motion-wrap .pos-10 { margin-left: 50vw; }
+}
+
+@container (max-width: 700px) {
+  .landing-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+  .landing-card__img {
+    display: none;
+  }
+  .landing-card__title {
+    padding: 0.5rem 1rem;
+  }
+}

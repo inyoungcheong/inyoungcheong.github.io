@@ -6,7 +6,7 @@ title:  Inyoung Cheong  # the website title (if blank, full name will be used in
 first_name: Inyoung
 # middle_name: R.
 last_name: Cheong
-email: iycheong@princeton.edu
+# email: iycheong@princeton.edu  # hidden from social icons
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
 footer_text: Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> & <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
@@ -120,7 +120,7 @@ google-site-verification: r_j_Vx3bXyzhgNP8CF8wq_3IoXfgcu4mE5jQ3stD5yg
 # -----------------------------------------------------------------------------
 
 #blog_name: Law, Tech, and Academic Life # blog_name will be displayed in your blog page
-blog_nav_title: blog # your blog must have a title for it to be displayed in the nav bar
+blog_nav_title: writing # your blog must have a title for it to be displayed in the nav bar
 blog_description: Law, Tech, and Life 
 permalink: /blog/:year/:title/
 
@@ -207,6 +207,8 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - vendor
+  - assets/jupyter
+  - assets/js/typewriter.js
 keep_files:
   - CNAME
   - .nojekyll
@@ -253,7 +255,7 @@ jekyll-minifier:
 # -----------------------------------------------------------------------------
 
 jekyll-archives:
-  enabled: [year, tags, categories] # enables year, tag and category archives (remove if you need to disable one of them).
+  enabled: [year, categories] # enables year and category archives (tags disabled) (remove if you need to disable one of them).
   layouts:
     year: archive-year
     tag: archive-tag
@@ -271,9 +273,9 @@ display_categories: ['Musings_on_AI', 'Academic_life', 'Book_review', 'Personal_
 # -----------------------------------------------------------------------------
 
 scholar:
-
+  # Google Scholar에서 BibTeX 복사 → papers.bib에 붙여넣기만 하면 됨. 아래 이름이 자동 bold 처리됨
   last_name: [Cheong]
-  first_name: [Inyoung, I.]
+  first_name: [Inyoung, I., "In-Young"]
 
   style: apa
   locale: en
@@ -300,9 +302,6 @@ scholar:
 badges: # Display different badges for your publications
   altmetric_badge: true # Altmetric badge (https://www.altmetric.com/products/altmetric-badges/)
   dimensions_badge: true # Dimensions badge (https://badge.dimensions.ai/)
-
-exclude:
-  - assets/js/typewriter.js
 
 # Filter out certain bibtex entry keywords used internally from the bib output
 filtered_bibtex_keywords: [abbr, abstract, arxiv, bibtex_show, html, pdf, url, selected, supp, blog, code, poster, slides, website, preview, altmetric]
@@ -365,7 +364,7 @@ enable_masonry:             true   # enables automatic project cards arrangement
 enable_math:                true   # enables math typesetting (uses MathJax)
 enable_tooltips:            false  # enables automatic tooltip links generated
                                    # for each section titles on pages and posts
-enable_darkmode:            true   # enables switching between light/dark modes
+enable_darkmode:            false  # disabled — dark mode only via CSS
 enable_navbar_social:       true  # enables displaying social links in the
                                    # navbar on the about page
 enable_project_categories:  true   # enables categorization of projects into

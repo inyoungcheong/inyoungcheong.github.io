@@ -2,28 +2,36 @@
  * Styles for the base elements of the theme.
  ******************************************************************************/
 
-// Typography
+// Typography — Space Mono for headings/nav, Inter for body text
 
 p {
   color: var(--global-text-color);
-  font-family: 'PT Serif', sans-serif;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.75;
 }
 h1 {
   color: var(--global-text-color);
-  font-family: 'Exo 2', serif;
+  font-family: 'Space Mono', monospace;
+  margin-bottom: 1rem;
 }
-h2,
+h2 {
+  color: var(--global-text-color);
+  font-family: 'Space Mono', monospace;
+  margin-bottom: 0.8rem;
+  margin-top: 2rem;
+}
 h3 {
   color: var(--global-text-color);
-  font-family: 'Titillium Web', sans-serif;
+  font-family: 'Space Mono', monospace;
+  margin-bottom: 0.6rem;
+  margin-top: 1.5rem;
 }
 
-/* Add the following lines to set the font for the body content */
 body {
   padding-bottom: 70px;
   color: var(--global-text-color);
   background-color: var(--global-bg-color);
-  font-family: 'Noto Sans', sans-serif; /* Replace 'Your Chosen Font' with the actual font you want to use */
+  font-family: 'Inter', sans-serif;
   h1, h2, h3, h4, h5, h6 {
     scroll-margin-top: 66px;
   }
@@ -37,11 +45,14 @@ hr {
 table {
   td,
   th {
-    font-size: 1rem;
+    font-size: 0.9rem;
+    color: var(--global-text-color);
+    border-color: var(--global-divider-color);
   }
 
   th {
     font-weight: bold;
+    color: var(--global-text-color);
   }
 }
 
@@ -182,6 +193,7 @@ blockquote {
   border-bottom: 1px solid var(--global-divider-color);
   background-color: var(--global-bg-color);
   opacity: 0.95;
+  padding: 0.6rem 1rem;
 }
 
 .navbar .dropdown-menu {
@@ -219,20 +231,39 @@ blockquote {
 
   .navbar-brand {
     color: var(--global-text-color);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 
   .navbar-nav .nav-item .nav-link {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
     color: var(--global-text-color);
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
 
     &:hover {
       color: var(--global-hover-color);
+      opacity: 1;
     }
   }
 
   .navbar-nav .nav-item.active>.nav-link {
     background-color: inherit;
-    font-weight: bolder;
+    font-weight: 700;
     color: var(--global-theme-color);
+    opacity: 1;
 
     &:hover {
       color: var(--global-hover-color);
@@ -451,6 +482,11 @@ footer.sticky-bottom {
     padding-top: 2rem;
     padding-bottom: 2rem;
 
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
     .post-meta {
       color: var(--global-text-color-light);
       font-size: 0.875rem;
@@ -587,13 +623,70 @@ footer.sticky-bottom {
     text-align: right;
   }
 
+  .pub-entry {
+    padding: 1.35rem 1.5rem;
+    margin-bottom: 1.25rem;
+    background: var(--global-bg-color);
+    border: 1px solid var(--global-divider-color);
+    border-radius: 10px;
+    border-left: 4px solid var(--global-theme-color);
+    transition: box-shadow 0.25s ease, border-color 0.25s ease;
+
+    &:hover {
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+      border-left-color: var(--global-theme-color);
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .pub-title {
+      font-weight: 600;
+      font-size: 0.98rem;
+      line-height: 1.45;
+      margin-bottom: 0.35rem;
+
+      a {
+        color: var(--global-text-color);
+        text-decoration: none;
+        &:hover {
+          color: var(--global-theme-color);
+        }
+      }
+    }
+
+    .pub-authors {
+      font-size: 0.85rem;
+      color: var(--global-text-color-light);
+      line-height: 1.5;
+      margin-bottom: 0.2rem;
+
+      strong {
+        color: var(--global-text-color);
+        font-weight: 600;
+      }
+    }
+
+    .pub-venue {
+      font-size: 0.82rem;
+      color: var(--global-text-color-light);
+      line-height: 1.4;
+      font-style: italic;
+    }
+  }
+
   ol.bibliography {
     list-style: none;
+    list-style-type: none;
     padding: 0;
-    margin-top: 0;
+    margin: 0;
+    counter-reset: none;
 
     li {
-      margin-bottom: 1rem;
+      margin-bottom: 0;
+      list-style: none;
+      list-style-type: none;
 
       .preview {
         width: 100%;
@@ -1011,6 +1104,41 @@ nav[data-toggle="toc"] {
     h1, h2, h3, h4, h5, h6 {
       color: var(--global-danger-block-title);
     }
+  }
+}
+
+// About profile page
+.about-profile {
+  max-width: 700px;
+  margin: 0 auto;
+
+  .about-photo-wrap {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 2rem;
+
+    &:hover .about-photo {
+      filter: grayscale(0%) saturate(1.5) hue-rotate(160deg) brightness(0.9) contrast(1.2);
+    }
+  }
+
+  .about-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 55% 25%;
+    transform: scale(1.4);
+    filter: grayscale(100%);
+    transition: filter 0.6s ease;
+  }
+
+  .about-bio {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: var(--global-text-color);
   }
 }
 

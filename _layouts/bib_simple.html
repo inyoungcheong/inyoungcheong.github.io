@@ -1,0 +1,49 @@
+---
+{%- comment -%}
+  bib_simple: Google Scholar 호환. 그대로 붙여넣으면 됨.
+  - 링크: website, url, pdf 중 하나 있으면 제목 클릭 가능
+  - 본인 이름: _config.yml scholar.first_name, last_name에 등록된 이름만 자동 볼드
+{%- endcomment -%}
+<div class="pub-entry">
+  <div class="pub-title">
+    {%- assign pub_url = entry.website | default: entry.url -%}
+    {%- if pub_url -%}
+      <a href="{{ pub_url }}">{{ entry.title }}</a>
+    {%- elsif entry.pdf -%}
+      {%- if entry.pdf contains '://' -%}
+        <a href="{{ entry.pdf }}">{{ entry.title }}</a>
+      {%- else -%}
+        <a href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}">{{ entry.title }}</a>
+      {%- endif -%}
+    {%- else -%}
+      {{ entry.title }}
+    {%- endif -%}
+  </div>
+  <div class="pub-authors">
+    {%- for author in entry.author_array -%}
+      {%- assign author_is_self = false -%}
+      {%- assign author_last = author.last | strip | remove: "¶" | remove: "&" | remove: "*" | remove: "†" | remove: "^" -%}
+      {%- assign author_first = author.first | strip -%}
+      {%- if site.scholar.last_name contains author_last -%}
+        {%- if site.scholar.first_name contains author_first -%}
+          {%- assign author_is_self = true -%}
+        {%- else -%}
+          {%- for fn in site.scholar.first_name -%}
+            {%- if author_first == fn or author_first contains fn or fn contains author_first -%}
+              {%- assign author_is_self = true -%}
+              {%- break -%}
+            {%- endif -%}
+          {%- endfor -%}
+        {%- endif -%}
+      {%- endif -%}
+      {%- if forloop.length > 1 -%}
+        {%- if forloop.first == false -%}, {%- endif -%}
+        {%- if forloop.last -%}and {%- endif -%}
+      {%- endif -%}
+      {%- if author_is_self -%}<strong>{{ author.first }} {{ author.last }}</strong>{%- else -%}{{ author.first }} {{ author.last }}{%- endif -%}
+    {%- endfor -%}
+  </div>
+  <div class="pub-venue">
+    <em>{{ entry.journal }}{% if entry.booktitle %}{{ entry.booktitle }}{% endif %}</em>, {{ entry.year }}.
+  </div>
+</div>

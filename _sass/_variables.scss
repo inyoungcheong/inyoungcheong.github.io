@@ -4,7 +4,7 @@
  ******************************************************************************/
 
 
-// Colors
+// Colors — Dark Monotone Palette
 $red-color:           #FF3636 !default;
 $red-color-dark:      #B71C1C !default;
 $orange-color:        #F29105 !default;
@@ -16,8 +16,8 @@ $green-color:         #00ab37 !default;
 $green-color-lime:    #B7D12A !default;
 $green-color-dark:    #009f06 !default;
 $emerald-color:       #00a170 !default;
-$magenta-color:       #be3455 !default;
-$magenta-color-light: #f87c56 !default;
+$magenta-color:       #333333 !default;
+$magenta-color-light: #FFFFFF !default;
 $green-color-light:   #ddffdd !default;
 $green-color-bright:  #11D68B !default;
 $purple-color:        #B509AC !default;
@@ -26,16 +26,16 @@ $pink-color:          #f92080 !default;
 $pink-color-light:    #ffdddd !default;
 $yellow-color:        #efcc00 !default;
 
-$grey-color:          #828282 !default;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:     #1C1C1D;
-$grey-900:            #212529;
+$grey-color:          #6B7280 !default;
+$grey-color-light:    #E5E5E5;
+$grey-color-dark:     #0A0A0A;
+$grey-900:            #111111;
 
-$white-color: #edebebe5 !default;
-$black-color: #000000 !default;
+$white-color: #FAFAFA !default;
+$black-color: #111111 !default;
 
 
 // Theme colors
 
-$code-bg-color-light:     #be3455 !default;
-$code-bg-color-dark:      #2c3237 !default;
+$code-bg-color-light:     #f4f4f4 !default;
+$code-bg-color-dark:      #1a1a1a !default;

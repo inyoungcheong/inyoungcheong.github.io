@@ -1,72 +1,152 @@
----
-layout: default
----
-<div class="post">
-  <header class="post-header">
-    <h1 class="post-title">
-     {% if site.title == "blank" -%}<span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }} {{ site.last_name }}{%- else -%}{{ site.title }}{%- endif %}
-    </h1>
-    <p class="desc">{{ page.subtitle }}</p>
-  </header>
+<!DOCTYPE html>
+<html lang="{{ site.lang }}">
+  <head>
+  {%- if page.redirect -%}
+    <meta http-equiv="refresh" content="3; url={{ site.baseurl }}/" />
+  {%- endif -%}
+  {% include head.html %}
+  <link rel="stylesheet" href="{{ '/assets/css/scroll-text-motion.css' | relative_url }}">
+  </head>
 
+  <body class="scroll-motion-page {% if site.navbar_fixed %}fixed-top-nav{% endif %}">
 
-<!-- about.html -->
+    <!-- Header (navbar) -->
+    {%- include header.html %}
 
+    <!-- Fixed center logo — fades on scroll -->
+    <div class="logo fixed">
+      <span class="logo-name">Inyoung Cheong</span>
+      <span class="logo-title">AI governance researcher</span>
+    </div>
 
+    <!-- Scroll Motion Content -->
+    <main class="scroll-motion-wrap">
+      <div class="content">
 
-  <article>
-    {% if page.profile -%}
-    <div class="profile float-{%- if page.profile.align == 'left' -%}left{%- else -%}right{%- endif -%}">
-      {%- if page.profile.image %}
-        {%- assign profile_image_path = page.profile.image | prepend: 'assets/img/' -%}
-
-        {% if page.profile.image_circular %}
-          {%- assign profile_image_class = "img-fluid z-depth-1 rounded-circle" -%}
-        {% else %}
-          {%- assign profile_image_class = "img-fluid z-depth-1 rounded" -%}
-        {% endif %}
-
-        {% include figure.html 
-          path=profile_image_path 
-          class=profile_image_class
-          alt=page.profile.image -%}
-        {% endif -%}
-        {%- if page.profile.address %}
-        <div class="address">
-          {{ page.profile.address }}
+        <!-- Group 1 -->
+        <div class="group">
+          <div class="el pos-4" data-alt-pos="pos-2">AI Governance</div>
+          <div class="el pos-4" data-alt-pos="pos-2">Content Moderation</div>
+          <div class="el pos-4" data-alt-pos="pos-2">Free Speech</div>
         </div>
-        {%- endif %}
+
+        <!-- Group 2 -->
+        <div class="group">
+          <div class="el pos-1" data-alt-pos="pos-3">LLM Policy</div>
+          <div class="el pos-1" data-alt-pos="pos-3">Legal Ethics</div>
+          <div class="el pos-1" data-alt-pos="pos-3">Algorithmic Fairness</div>
+          <div class="el pos-1" data-alt-pos="pos-3">Human Values</div>
+        </div>
+
+        <!-- Group 3: question -->
+        <div class="group">
+          <div class="el el--question pos-2" data-alt-pos="pos-5" data-scramble-duration="1.5">Who governs the machine?</div>
+        </div>
+
+        <!-- Group 4 -->
+        <div class="group">
+          <div class="el pos-3" data-alt-pos="pos-1">AI's Societal Impacts</div>
+          <div class="el pos-3" data-alt-pos="pos-1">Privacy</div>
+          <div class="el pos-3" data-alt-pos="pos-1">Digital Autonomy</div>
+        </div>
+
+        <!-- Group 5: question -->
+        <div class="group">
+          <div class="el el--question pos-1" data-alt-pos="pos-6" data-scramble-duration="1.5">Can machines be loyal?</div>
+        </div>
+
+        <!-- Group 6 -->
+        <div class="group">
+          <div class="el pos-2" data-alt-pos="pos-4">Generative AI</div>
+          <div class="el pos-2" data-alt-pos="pos-4">Responsible AI</div>
+          <div class="el pos-2" data-alt-pos="pos-4">AI Alignment</div>
+          <div class="el pos-2" data-alt-pos="pos-4">Transparency</div>
+        </div>
+
+        <!-- Group 7: question -->
+        <div class="group">
+          <div class="el el--question pos-3" data-alt-pos="pos-9" data-scramble-duration="2">Code is law, but whose law?</div>
+        </div>
+
+        <!-- Group 8 -->
+        <div class="group">
+          <div class="el pos-4" data-alt-pos="pos-2">Bridging law and technology</div>
+          <div class="el pos-4" data-alt-pos="pos-2">Cross-disciplinary</div>
+          <div class="el pos-4" data-alt-pos="pos-2">Social Impact</div>
+        </div>
+
+        <!-- Group 9: question -->
+        <div class="group">
+          <div class="el el--question pos-1" data-alt-pos="pos-3" data-scramble-duration="2">What is the intentionality of machines?</div>
+        </div>
+
+        <!-- Group 10 -->
+        <div class="group">
+          <div class="el pos-2" data-alt-pos="pos-5">Rights in the age of AI</div>
+          <div class="el pos-2" data-alt-pos="pos-5">Equity in digital spaces</div>
+        </div>
+
+        <!-- Group 11 -->
+        <div class="group">
+          <div class="el pos-3" data-alt-pos="pos-8">Accountability</div>
+          <div class="el pos-3" data-alt-pos="pos-8">Fairness</div>
+          <div class="el pos-3" data-alt-pos="pos-8">Autonomy</div>
+          <div class="el pos-3" data-alt-pos="pos-8">Expression</div>
+          <div class="el pos-3" data-alt-pos="pos-8">Trust</div>
+          <div class="el pos-3" data-alt-pos="pos-8">Justice</div>
+        </div>
+
+        <!-- Group 12: final scatter -->
+        <div class="group">
+          <div class="el pos-1" data-alt-pos="pos-2">Research</div>
+          <div class="el pos-1" data-alt-pos="pos-4">Policy</div>
+          <div class="el pos-1" data-alt-pos="pos-5">Ethics</div>
+          <div class="el pos-1" data-alt-pos="pos-6">Law</div>
+          <div class="el pos-1" data-alt-pos="pos-3">Technology</div>
+        </div>
+
       </div>
-      {%- endif %}
 
-      <div class="clearfix">
-        {{ content }}
-      </div>
+      <!-- Bottom navigation cards (Codrops style with images) -->
+      <section class="landing-nav">
+        <div class="landing-grid">
+          <a class="landing-card" href="{{ '/about/' | relative_url }}">
+            <div class="landing-card__img" style="background-image: url('{{ '/assets/img/blog/inyoung-profile.png' | relative_url }}')"></div>
+            <h3 class="landing-card__title">About</h3>
+          </a>
+          <a class="landing-card" href="{{ '/publications/' | relative_url }}">
+            <div class="landing-card__img" style="background-image: url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&q=80')"></div>
+            <h3 class="landing-card__title">Publications</h3>
+          </a>
+          <a class="landing-card" href="{{ '/blog/' | relative_url }}">
+            <div class="landing-card__img" style="background-image: url('https://images.unsplash.com/photo-1455390582262-044cdead277a?w=600&q=80')"></div>
+            <h3 class="landing-card__title">Writing</h3>
+          </a>
+        </div>
+        <div class="landing-social">
+          <a href="https://scholar.google.com/citations?user=xwZI_jcAAAAJ" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
+          <a href="https://www.linkedin.com/in/inyoungcheong" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/inyoungcheong" title="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=3864423" title="SSRN"><i class="ai ai-ssrn"></i></a>
+        </div>
+      </section>
+    </main>
 
-      {% comment %}
-<!-- 
-          News -->
-          {% if page.news and site.announcements.enabled -%}
-            <h2><a href="{{ '/news/' | relative_url }}" style="color: inherit;">news</a></h2>
-            {%- include news.html limit=true %}
-          {%- endif %}
+    <!-- JavaScripts -->
+    {% include scripts/jquery.html %}
+    {% include scripts/bootstrap.html %}
+    {% include scripts/masonry.html %}
+    {% include scripts/misc.html %}
+    {% include scripts/badges.html %}
+    {% include scripts/mathjax.html %}
+    {% include scripts/analytics.html %}
+    {% include scripts/progressBar.html %}
 
-
-          <!-- Latest posts -->
-          {% if page.latest_posts -%}
-            <h2><a href="{{ '/blog/' | relative_url }}" style="color: inherit;">latest posts</a></h2>
-            {%- include latest_posts.html %}
-          {%- endif %}
-
-          <!-- Selected papers -->
-          {% if page.selected_papers -%}
-            <h2><a href="{{ '/publications/' | relative_url }}" style="color: inherit;">selected publications</a></h2>
-            {%- include selected_papers.html %}
-          {%- endif %} 
-
-          {% endcomment %}  
-        </article>
-
-</div>
-
-
+    <!-- GSAP -->
+    <script src="{{ '/assets/js/gsap.min.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/ScrollTrigger.min.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/Flip.min.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/ScrambleTextPlugin.min.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/scroll-text-motion.js' | relative_url }}"></script>
+  </body>
+</html>

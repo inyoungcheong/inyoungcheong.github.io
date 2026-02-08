@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'jekyll'
+gem 'fiddle'
+gem 'ostruct'
 
 group :jekyll_plugins do
     gem 'classifier-reborn'

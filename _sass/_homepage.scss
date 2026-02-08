@@ -1,0 +1,273 @@
+/*******************************************************************************
+ * Homepage — Hero + Interactive Grid
+ ******************************************************************************/
+
+// Hero Section
+.homepage-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  padding: 4rem 1.5rem 2rem;
+  text-align: center;
+
+  .hero-photo-wrap {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    flex-shrink: 0;
+
+    &:hover .hero-photo {
+      filter: grayscale(0%);
+    }
+  }
+
+  .hero-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 55% 25%;
+    transform: scale(1.4);
+    filter: grayscale(85%);
+    transition: filter 0.4s ease;
+  }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.3rem;
+    color: var(--global-text-color);
+  }
+
+  .hero-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: var(--global-text-color-light);
+    margin-bottom: 1rem;
+  }
+
+  .hero-typewriter {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    color: var(--global-text-color);
+
+    #verb {
+      transition: color 0.3s ease;
+    }
+  }
+
+  .hero-bio {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--global-text-color-light);
+    max-width: 520px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-links {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 1.2rem;
+
+    a {
+      color: var(--global-text-color-light);
+      transition: color 0.2s ease;
+      text-decoration: none;
+
+      &:hover {
+        color: var(--global-text-color);
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+// Interactive Grid
+.homepage-grid-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1.5rem 4rem;
+}
+
+.homepage-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  max-width: 400px;
+  width: 100%;
+  position: relative;
+}
+
+.grid-tile {
+  position: relative;
+  aspect-ratio: 1;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--global-text-color);
+  background: transparent;
+  overflow: hidden;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+
+  // Mouse-tracking glow overlay
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background: radial-gradient(
+      circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(255, 255, 255, 0.06) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+  }
+
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    text-decoration: none;
+    color: var(--global-text-color);
+
+    &::before {
+      opacity: 1;
+    }
+
+    .grid-tile-subtitle {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .grid-tile-title {
+      transform: translateY(-4px);
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.grid-tile-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+
+  .grid-tile:hover & {
+    opacity: 0.8;
+  }
+}
+
+.grid-tile-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  transition: transform 0.3s ease;
+}
+
+.grid-tile-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  color: var(--global-text-color-light);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  margin-top: 0.3rem;
+  text-align: center;
+  padding: 0 0.5rem;
+}
+
+// Border glow effect for nearby tiles (set via JS)
+.grid-tile[data-glow="true"] {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+// Dark mode adjustments
+html[data-theme='dark'] {
+  .grid-tile {
+    border-color: rgba(255, 255, 255, 0.08);
+
+    &:hover {
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    &::before {
+      background: radial-gradient(
+        circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(255, 255, 255, 0.08) 0%,
+        transparent 70%
+      );
+    }
+  }
+
+  .grid-tile[data-glow="true"] {
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+// Light mode glow uses dark tones
+:root {
+  .grid-tile {
+    &::before {
+      background: radial-gradient(
+        circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(0, 0, 0, 0.04) 0%,
+        transparent 70%
+      );
+    }
+
+    &:hover {
+      border-color: rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  .grid-tile[data-glow="true"] {
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+}
+
+// Responsive: mobile stacks vertically
+@media (max-width: 576px) {
+  .homepage-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 320px;
+  }
+
+  .homepage-hero {
+    min-height: 40vh;
+    padding: 3rem 1rem 1rem;
+
+    .hero-name {
+      font-size: 2rem;
+    }
+
+    .hero-photo-wrap {
+      width: 200px;
+      height: 200px;
+    }
+  }
+}
+
+@media (max-width: 380px) {
+  .homepage-grid {
+    grid-template-columns: 1fr;
+    max-width: 200px;
+  }
+}
