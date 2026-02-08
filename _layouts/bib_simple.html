@@ -20,29 +20,36 @@
     {%- endif -%}
   </div>
   <div class="pub-authors">
-    {%- for author in entry.author_array -%}
-      {%- assign author_is_self = false -%}
-      {%- assign author_last = author.last | strip | remove: "¶" | remove: "&" | remove: "*" | remove: "†" | remove: "^" -%}
-      {%- assign author_first = author.first | strip -%}
-      {%- if site.scholar.last_name contains author_last -%}
-        {%- if site.scholar.first_name contains author_first -%}
-          {%- assign author_is_self = true -%}
-        {%- else -%}
-          {%- for fn in site.scholar.first_name -%}
-            {%- if author_first == fn or author_first contains fn or fn contains author_first -%}
-              {%- assign author_is_self = true -%}
-              {%- break -%}
-            {%- endif -%}
-          {%- endfor -%}
-        {%- endif -%}
-      {%- endif -%}
-      {%- if forloop.length > 1 -%}
-        {%- if forloop.first == false -%}, {%- endif -%}
-        {%- if forloop.last -%}and {%- endif -%}
-      {%- endif -%}
-      {%- if author_is_self -%}<strong>{{ author.first }} {{ author.last }}</strong>{%- else -%}{{ author.first }} {{ author.last }}{%- endif -%}
-    {%- endfor -%}
-  </div>
+    {% assign n = entry.author_array | size %}
+    {% for author in entry.author_array %}
+      {% assign author_is_self = false %}
+      {% assign author_last = author.last | strip | remove: "¶" | remove: "&" | remove: "†" | remove: "^" %}
+      {% assign author_first = author.first | strip %}
+  
+      {% if site.scholar.last_name contains author_last %}
+        {% if site.scholar.first_name contains author_first %}
+          {% assign author_is_self = true %}
+        {% else %}
+          {% for fn in site.scholar.first_name %}
+            {% if author_first == fn or author_first contains fn or fn contains author_first %}
+              {% assign author_is_self = true %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      {% endif %}
+  
+      {% assign is_cofirst = false %}
+      {% if author.first contains "*" or author.last contains "*" %}
+        {% assign is_cofirst = true %}
+      {% endif %}
+  
+      {% assign clean_first = author.first | remove: "*" | strip %}
+      {% assign clean_last  = author.last  | remove: "*" | strip %}
+  
+      {% if author_is_self %}<strong>{{ clean_first }} {{ clean_last }}</strong>{% else %}{{ clean_first }} {{ clean_last }}{% endif %}{% if is_cofirst %}<sup>*</sup>{% endif %}{% if forloop.last == false %}{% if n == 2 %} and {% elsif forloop.index == n-1 %}, and {% else %}, {% endif %}{% endif %}
+    {% endfor %}
+  </div>  
   <div class="pub-venue">
     <em>{{ entry.journal }}{% if entry.booktitle %}{{ entry.booktitle }}{% endif %}</em>, {{ entry.year }}.
   </div>
