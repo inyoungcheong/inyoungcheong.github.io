@@ -99,7 +99,7 @@
   filter: blur(0px);
   text-transform: uppercase;
   opacity: 0.6;
-  font-size: clamp(0.75rem, 1.5vw, 1rem);
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
   letter-spacing: 0.08em;
   color: #fff;
   font-family: 'Space Mono', monospace;
@@ -108,7 +108,7 @@
 
 /* --- Question / phrase element --- */
 .scroll-motion-wrap .el--question {
-  font-size: clamp(1rem, 3vw, 1.6rem);
+  font-size: clamp(1.1rem, 3vw, 1.6rem);
   opacity: 0.85;
   font-style: italic;
   text-transform: none;
@@ -197,7 +197,8 @@
   flex-direction: column;
   text-decoration: none;
   color: #fff;
-  background: #111;
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 12px;
   overflow: hidden;
   transition: all 0.5s ease;
@@ -206,11 +207,13 @@
 .landing-card:hover {
   color: #fff;
   text-decoration: none;
+  border-color: rgba(255, 255, 255, 0.4);
+  background: #222;
 }
 
 .landing-card:hover .landing-card__img {
   transform: scale(1.1);
-  opacity: 1;
+  opacity: 0.85;
 }
 
 .landing-card__img {
@@ -218,19 +221,20 @@
   aspect-ratio: 4 / 3;
   background-size: cover;
   background-position: center;
-  opacity: 0.4;
+  opacity: 0.7;
   transition: all 0.5s ease;
 }
 
 .landing-card__title {
-  padding: 1rem;
+  padding: 1.25rem 1rem;
   font-family: 'Space Mono', monospace;
-  font-size: clamp(0.8rem, 1.5vw, 0.95rem);
-  font-weight: 400;
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   line-height: 1.4;
   margin: 0;
+  color: #fff;
 }
 
 .landing-card:focus-visible {
@@ -258,24 +262,62 @@
   text-decoration: none;
 }
 
-/* --- Responsive --- */
+/* --- Responsive (mobile) --- */
 @media (max-width: 768px) {
-  .scroll-motion-wrap .pos-2 { margin-left: 10vw; }
-  .scroll-motion-wrap .pos-3 { margin-left: 45vw; }
-  .scroll-motion-wrap .pos-8 { margin-left: 10vw; }
-  .scroll-motion-wrap .pos-9 { margin-left: 15vw; }
-  .scroll-motion-wrap .pos-10 { margin-left: 50vw; }
-}
+  .scroll-motion-wrap .content {
+    padding: 100vh 1rem 20vh;
+  }
 
-@container (max-width: 700px) {
+  .scroll-motion-wrap .group {
+    margin-bottom: 5vh;
+  }
+
+  .scroll-motion-wrap .el {
+    white-space: normal;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    font-size: clamp(0.85rem, 4vw, 1rem);
+  }
+
+  .scroll-motion-wrap .el--question {
+    font-size: clamp(1.1rem, 5vw, 1.5rem);
+  }
+
+  /* Position: use smaller margins to avoid overflow */
+  .scroll-motion-wrap .pos-1 { margin-left: 0; }
+  .scroll-motion-wrap .pos-2 { margin-left: 1rem; }
+  .scroll-motion-wrap .pos-3 { margin-left: 1rem; }
+  .scroll-motion-wrap .pos-4 { margin-left: auto; }
+  .scroll-motion-wrap .pos-5 { margin-top: 120px; margin-left: 0; }
+  .scroll-motion-wrap .pos-6 { margin-top: 120px; margin-left: auto; }
+  .scroll-motion-wrap .pos-7 { margin-top: 120px; margin-left: 0; }
+  .scroll-motion-wrap .pos-8 { margin-left: 1rem; margin-top: 30px; }
+  .scroll-motion-wrap .pos-9 { margin-left: 1rem; margin-top: 120px; }
+  .scroll-motion-wrap .pos-10 { margin-left: 1rem; margin-top: 20vh; }
+
+  .landing-nav {
+    padding: 4rem 1rem 3rem;
+  }
+
   .landing-grid {
     grid-template-columns: 1fr;
     max-width: 400px;
+    margin: 0 auto 2.5rem;
+    gap: 1.25rem;
   }
+
   .landing-card__img {
     display: none;
   }
+
+  .landing-card {
+    background: #1f1f1f;
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
   .landing-card__title {
-    padding: 0.5rem 1rem;
+    padding: 1.25rem 1.25rem;
+    font-size: 1rem;
+    font-weight: 600;
   }
 }
