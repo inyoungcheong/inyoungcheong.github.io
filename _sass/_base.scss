@@ -196,6 +196,28 @@ blockquote {
   padding: 0.6rem 1rem;
 }
 
+/* Mobile: reduce navbar jitter (fixed position + touch scroll) */
+@media (max-width: 768px) {
+  .navbar,
+  .navbar.fixed-top {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .navbar-collapse {
+    transform: translateZ(0);
+  }
+
+  .navbar-collapse.collapsing {
+    transition-duration: 0.15s;
+  }
+
+  html {
+    overflow-x: hidden;
+  }
+}
+
 .navbar .dropdown-menu {
   background-color: var(--global-bg-color);
   border: 1px solid var(--global-divider-color);
