@@ -8,12 +8,12 @@
   <div class="pub-title">
     {%- assign pub_url = entry.website | default: entry.url -%}
     {%- if pub_url -%}
-      <a href="{{ pub_url }}">{{ entry.title }}</a>
+      <a href="{{ pub_url }}" target="_blank" rel="noopener noreferrer">{{ entry.title }}</a>
     {%- elsif entry.pdf -%}
       {%- if entry.pdf contains '://' -%}
-        <a href="{{ entry.pdf }}">{{ entry.title }}</a>
+        <a href="{{ entry.pdf }}" target="_blank" rel="noopener noreferrer">{{ entry.title }}</a>
       {%- else -%}
-        <a href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}">{{ entry.title }}</a>
+        <a href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}" target="_blank" rel="noopener noreferrer">{{ entry.title }}</a>
       {%- endif -%}
     {%- else -%}
       {{ entry.title }}
