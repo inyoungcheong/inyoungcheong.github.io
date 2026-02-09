@@ -8,10 +8,11 @@
   margin: 0;
   color: #fff;
   background-color: #000;
-  font-family: 'Space Mono', monospace;
+  font-family: 'Chakra Petch', 'Space Mono', monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-transform: uppercase;
+  overflow-x: hidden;
 }
 
 /* Override navbar for dark bg */
@@ -50,6 +51,8 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  max-width: 100vw;
+  padding: 0 1rem;
   height: 100vh;
   pointer-events: none;
   position: fixed;
@@ -57,21 +60,24 @@
   top: 0;
   z-index: 10;
   gap: 0.5rem;
+  box-sizing: border-box;
 }
 
 .logo-name {
-  font-family: 'Space Mono', monospace;
-  font-size: clamp(1.8rem, 8vw, 3.5rem);
-  font-weight: 700;
-  letter-spacing: 0.05em;
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: clamp(1.6rem, 7vw, 3rem);
+  font-weight: 300;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
+  text-align: center;
+  max-width: 100%;
 }
 
 .logo-title {
-  font-family: 'Space Mono', monospace;
+  font-family: 'Chakra Petch', sans-serif;
   font-size: clamp(0.7rem, 2vw, 0.9rem);
-  font-weight: 400;
-  letter-spacing: 0.15em;
+  font-weight: 300;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   opacity: 0.5;
 }
@@ -83,7 +89,11 @@
 }
 
 .scroll-motion-wrap .content {
-  padding: 100vh 1.5rem 25vh;
+  padding: 85vh 5vw 25vh;
+  max-width: 1400px;
+  margin: 0 auto;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 /* --- Group --- */
@@ -93,75 +103,86 @@
   margin-bottom: 10vh;
 }
 
-/* --- Text element --- */
+/* Extra spacing for question groups */
+.scroll-motion-wrap .group + .group:has(.el--question) {
+  margin-top: 5vh;
+}
+
+/* --- Text element (background keywords) --- */
 .scroll-motion-wrap .el {
   white-space: nowrap;
   filter: blur(0px);
   text-transform: uppercase;
-  opacity: 0.6;
+  opacity: 0.35;
   font-size: clamp(0.85rem, 1.5vw, 1rem);
   letter-spacing: 0.08em;
-  color: #fff;
-  font-family: 'Space Mono', monospace;
+  color: rgba(255, 255, 255, 0.4);
+  font-family: 'Chakra Petch', sans-serif;
   line-height: 1.8;
 }
 
-/* --- Question / phrase element --- */
+/* --- Question / phrase element (hero text) --- */
 .scroll-motion-wrap .el--question {
   font-size: clamp(1.1rem, 3vw, 1.6rem);
-  opacity: 0.85;
+  opacity: 0.9;
   font-style: italic;
   text-transform: none;
   letter-spacing: 0.02em;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.95);
 }
 
-/* --- Position classes (faithful to Codrops original) --- */
-.scroll-motion-wrap .pos-1 { /* default: left aligned */ }
+/* --- Position classes (moderate range, padded from edges) --- */
+.scroll-motion-wrap .pos-1 {
+  margin-left: 3vw;
+}
 
 .scroll-motion-wrap .pos-2 {
-  margin-left: 25vw;
+  margin-left: 18vw;
 }
 
 .scroll-motion-wrap .pos-3 {
-  margin-left: 70vw;
+  margin-left: 42vw;
 }
 
 .scroll-motion-wrap .pos-4 {
   margin-left: auto;
+  margin-right: 3vw;
 }
 
 .scroll-motion-wrap .pos-5 {
+  margin-left: 3vw;
   margin-top: 200px;
   opacity: 1;
 }
 
 .scroll-motion-wrap .pos-6 {
   margin-left: auto;
+  margin-right: 3vw;
   margin-top: 200px;
   opacity: 1;
 }
 
 .scroll-motion-wrap .pos-7 {
+  margin-left: 3vw;
   margin-top: 200px;
   opacity: 1;
   filter: blur(1.2px);
 }
 
 .scroll-motion-wrap .pos-8 {
-  margin-left: 25vw;
+  margin-left: 18vw;
   margin-top: 50px;
   opacity: 1;
   filter: blur(2px);
 }
 
 .scroll-motion-wrap .pos-9 {
-  margin-left: 25vw;
+  margin-left: 18vw;
   margin-top: 250px;
 }
 
 .scroll-motion-wrap .pos-10 {
-  margin-left: 70vw;
+  margin-left: 42vw;
   margin-top: 40vh;
 }
 
@@ -173,10 +194,19 @@
 
 .typing-indicator {
   display: inline-block;
-  animation: blink-cursor 0.7s linear infinite;
+  animation: blink-cursor 0.8s step-end infinite;
+  margin-left: 0.1em;
+  font-weight: 300;
+  vertical-align: baseline;
 }
 
-/* --- Bottom navigation cards (Codrops style) --- */
+/* Cyberpunk bar animation (matches Publications page) */
+@keyframes landing-cyberpunk-bar {
+  0% { background-position: 0 0%; }
+  100% { background-position: 0 100%; }
+}
+
+/* --- Bottom navigation cards (Publications-style: open sides, cyberpunk bar on hover) --- */
 .landing-nav {
   padding: 5rem 1.5rem 4rem;
   text-align: center;
@@ -193,27 +223,53 @@
 }
 
 .landing-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   text-decoration: none;
   color: #fff;
-  background: #1a1a1a;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 12px;
+  background: rgba(20, 20, 20, 0.95);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: none;
+  border-right: none;
+  border-radius: 10px;
   overflow: hidden;
-  transition: all 0.5s ease;
+  transition: all 0.4s ease;
+}
+
+/* Cyberpunk gradient bar on hover (same as Publications) */
+.landing-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #5dd9ef, #c77dff, #7b2cbf, #5dd9ef);
+  background-size: 100% 300%;
+  background-position: 0 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
 }
 
 .landing-card:hover {
   color: #fff;
   text-decoration: none;
-  border-color: rgba(255, 255, 255, 0.4);
-  background: #222;
+  background: rgba(25, 25, 30, 0.98);
+  box-shadow: 0 4px 20px rgba(93, 217, 239, 0.08);
+}
+
+.landing-card:hover::before {
+  opacity: 1;
+  animation: landing-cyberpunk-bar 6s ease-in-out infinite;
 }
 
 .landing-card:hover .landing-card__img {
-  transform: scale(1.1);
-  opacity: 0.85;
+  transform: scale(1.08);
+  opacity: 0.75;
+  filter: grayscale(0.5);
 }
 
 .landing-card__img {
@@ -221,24 +277,25 @@
   aspect-ratio: 4 / 3;
   background-size: cover;
   background-position: center;
-  opacity: 0.7;
+  opacity: 0.55;
+  filter: grayscale(0.85);
   transition: all 0.5s ease;
 }
 
 .landing-card__title {
   padding: 1.25rem 1rem;
-  font-family: 'Space Mono', monospace;
+  font-family: 'Chakra Petch', sans-serif;
   font-size: clamp(0.95rem, 1.8vw, 1.1rem);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   line-height: 1.4;
   margin: 0;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .landing-card:focus-visible {
-  outline: 2px solid #fff;
+  outline: 2px solid #5dd9ef;
   outline-offset: 4px;
 }
 
@@ -252,20 +309,20 @@
 }
 
 .landing-social a {
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.35);
   transition: color 0.3s ease;
   text-decoration: none;
 }
 
 .landing-social a:hover {
-  color: #fff;
+  color: #5dd9ef;
   text-decoration: none;
 }
 
 /* --- Responsive (mobile) --- */
 @media (max-width: 768px) {
   .scroll-motion-wrap .content {
-    padding: 100vh 1rem 20vh;
+    padding: 85vh 4vw 20vh;
   }
 
   .scroll-motion-wrap .group {
@@ -276,24 +333,35 @@
     white-space: normal;
     overflow-wrap: break-word;
     hyphens: auto;
-    font-size: clamp(0.85rem, 4vw, 1rem);
+    font-size: clamp(0.75rem, 3.5vw, 0.9rem);
   }
 
   .scroll-motion-wrap .el--question {
-    font-size: clamp(1.1rem, 5vw, 1.5rem);
+    font-size: clamp(0.95rem, 4.5vw, 1.4rem);
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
-  /* Position: use smaller margins to avoid overflow */
-  .scroll-motion-wrap .pos-1 { margin-left: 0; }
-  .scroll-motion-wrap .pos-2 { margin-left: 1rem; }
-  .scroll-motion-wrap .pos-3 { margin-left: 1rem; }
-  .scroll-motion-wrap .pos-4 { margin-left: auto; }
-  .scroll-motion-wrap .pos-5 { margin-top: 120px; margin-left: 0; }
-  .scroll-motion-wrap .pos-6 { margin-top: 120px; margin-left: auto; }
-  .scroll-motion-wrap .pos-7 { margin-top: 120px; margin-left: 0; }
-  .scroll-motion-wrap .pos-8 { margin-left: 1rem; margin-top: 30px; }
-  .scroll-motion-wrap .pos-9 { margin-left: 1rem; margin-top: 120px; }
-  .scroll-motion-wrap .pos-10 { margin-left: 1rem; margin-top: 20vh; }
+  .logo-name {
+    font-size: clamp(1.4rem, 6.5vw, 2rem);
+    letter-spacing: 0.08em;
+  }
+
+  .logo-title {
+    font-size: clamp(0.6rem, 2.5vw, 0.75rem);
+  }
+
+  /* Position: constrain to screen, no edge touching */
+  .scroll-motion-wrap .pos-1 { margin-left: 4vw; }
+  .scroll-motion-wrap .pos-2 { margin-left: 8vw; }
+  .scroll-motion-wrap .pos-3 { margin-left: 12vw; }
+  .scroll-motion-wrap .pos-4 { margin-left: auto; margin-right: 4vw; }
+  .scroll-motion-wrap .pos-5 { margin-top: 80px; margin-left: 4vw; }
+  .scroll-motion-wrap .pos-6 { margin-top: 80px; margin-left: auto; margin-right: 4vw; }
+  .scroll-motion-wrap .pos-7 { margin-top: 80px; margin-left: 4vw; }
+  .scroll-motion-wrap .pos-8 { margin-left: 8vw; margin-top: 30px; }
+  .scroll-motion-wrap .pos-9 { margin-left: 8vw; margin-top: 80px; }
+  .scroll-motion-wrap .pos-10 { margin-left: 12vw; margin-top: 15vh; }
 
   .landing-nav {
     padding: 4rem 1rem 3rem;
@@ -311,13 +379,12 @@
   }
 
   .landing-card {
-    background: #1f1f1f;
-    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(20, 20, 20, 0.95);
   }
 
   .landing-card__title {
     padding: 1.25rem 1.25rem;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 600;
   }
 }

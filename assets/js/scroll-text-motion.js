@@ -43,6 +43,7 @@
 
   // -------------------------------------------------------
   // FLIP ANIMATION (position class swapping on scroll)
+  // scrub: 1 adds 1s smoothing lag for fluid motion
   // -------------------------------------------------------
   function initFlips() {
     resetTextElements();
@@ -70,7 +71,7 @@
           trigger: el,
           start: 'clamp(bottom bottom-=10%)',
           end: 'clamp(center center)',
-          scrub: true,
+          scrub: 1,
         },
       });
 
@@ -81,7 +82,7 @@
           trigger: el,
           start: 'clamp(center center)',
           end: 'clamp(top top)',
-          scrub: true,
+          scrub: 1,
         },
       });
     });
@@ -89,23 +90,43 @@
 
   // -------------------------------------------------------
   // SCRAMBLE TEXT
+  // Background: subtle scramble with minimal chars
+  // Questions: gentle reveal with cursor at end
   // -------------------------------------------------------
   function scramble(el, opts) {
     if (typeof ScrambleTextPlugin === 'undefined') return;
     opts = opts || {};
     var text = el.dataset.text || el.textContent;
+    var isQuestion = el.classList.contains('el--question');
     var duration = opts.duration != null
       ? opts.duration
       : (el.dataset.scrambleDuration ? parseFloat(el.dataset.scrambleDuration) : 1);
-    var revealDelay = opts.revealDelay || 0;
+    var revealDelay = opts.revealDelay || (isQuestion ? 0.4 : 0);
+    // Questions: clean reveal with no noisy chars
+    // Background: subtle dot-dash for ambient texture
+    // Logo: space only for minimal pre-reveal
+    var chars = opts.chars != null ? opts.chars : (isQuestion ? ' ' : '·-');
+
+    // Remove any existing cursor
+    var existingCursor = el.querySelector('.typing-indicator');
+    if (existingCursor) existingCursor.remove();
 
     gsap.killTweensOf(el);
     gsap.fromTo(
       el,
       { scrambleText: { text: '', chars: '' } },
       {
-        scrambleText: { text: text, chars: 'upperAndLowerCase', revealDelay: revealDelay },
+        scrambleText: { text: text, chars: chars, revealDelay: revealDelay },
         duration: duration,
+        onComplete: function () {
+          // Questions get a blinking cursor at the end
+          if (isQuestion) {
+            var cursor = document.createElement('span');
+            cursor.className = 'typing-indicator';
+            cursor.textContent = '\u2588';
+            el.appendChild(cursor);
+          }
+        },
       }
     );
   }
@@ -130,9 +151,9 @@
       });
     });
 
-    // Scramble logo on init
-    if (logoNameEl) scramble(logoNameEl, { revealDelay: 0.5, duration: 1.5 });
-    if (logoTitleEl) scramble(logoTitleEl, { revealDelay: 0.3, duration: 1 });
+    // Scramble logo on init (shorter, minimal chars — no bar/dash cycling)
+    if (logoNameEl) scramble(logoNameEl, { revealDelay: 0.15, duration: 0.7, chars: ' ' });
+    if (logoTitleEl) scramble(logoTitleEl, { revealDelay: 0.05, duration: 0.45, chars: ' ' });
   }
 
   // -------------------------------------------------------
@@ -158,16 +179,16 @@
   function initLandingNav() {
     if (!landingNav || landingCards.length === 0) return;
 
-    gsap.set(landingCards, { yPercent: 50, scale: 0.9, opacity: 0 });
+    gsap.set(landingCards, { yPercent: 10, scale: 0.98, opacity: 0 });
 
     ScrollTrigger.create({
       trigger: landingNav,
-      start: 'top center+=25%',
+      start: 'top center+=35%',
       onEnter: function () {
         gsap.to(landingCards, {
-          duration: 0.7,
-          ease: 'expo',
-          stagger: 0.12,
+          duration: 0.4,
+          ease: 'power2.out',
+          stagger: 0.05,
           yPercent: 0,
           scale: 1,
           opacity: 1,
@@ -175,12 +196,12 @@
       },
       onLeaveBack: function () {
         gsap.to(landingCards, {
-          duration: 0.4,
-          ease: 'power3.in',
-          scale: 0.9,
+          duration: 0.22,
+          ease: 'power2.in',
+          scale: 0.98,
           opacity: 0,
-          yPercent: 50,
-          stagger: 0.05,
+          yPercent: 10,
+          stagger: 0.02,
         });
       },
     });

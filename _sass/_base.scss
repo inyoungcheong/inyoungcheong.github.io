@@ -595,8 +595,14 @@ footer.sticky-bottom {
 
 // Publications
 
+@keyframes pub-cyberpunk-bar {
+  0% { background-position: 0 0%; }
+  100% { background-position: 0 100%; }
+}
+
 .publications {
   margin-top: 2rem;
+  padding-bottom: 4rem;
 
   h1 {
     color: var(--global-theme-color);
@@ -624,17 +630,45 @@ footer.sticky-bottom {
   }
 
   .pub-entry {
+    position: relative;
     padding: 1.35rem 1.5rem;
     margin-bottom: 1.25rem;
     background: var(--global-bg-color);
     border: 1px solid var(--global-divider-color);
+    border-left: none;
+    border-right: none;
     border-radius: 10px;
-    border-left: 4px solid var(--global-theme-color);
-    transition: box-shadow 0.25s ease, border-color 0.25s ease;
+    overflow: hidden;
+    transition: box-shadow 0.25s ease;
+
+    /* Cyberpunk bar: only on hover (user's cursor is on the paper) */
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(
+        180deg,
+        #5dd9ef,
+        #c77dff,
+        #7b2cbf,
+        #5dd9ef
+      );
+      background-size: 100% 300%;
+      background-position: 0 0;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
 
     &:hover {
       box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
-      border-left-color: var(--global-theme-color);
+
+      &::before {
+        opacity: 1;
+        animation: pub-cyberpunk-bar 6s ease-in-out infinite;
+      }
     }
 
     &:last-child {
@@ -642,13 +676,14 @@ footer.sticky-bottom {
     }
 
     .pub-title {
-      font-weight: 600;
-      font-size: 0.98rem;
-      line-height: 1.45;
-      margin-bottom: 0.35rem;
+      font-weight: 700;
+      font-size: 1.05rem;
+      line-height: 1.5;
+      margin-bottom: 0.4rem;
+      color: var(--global-text-color);
 
       a {
-        color: var(--global-text-color);
+        color: inherit;
         text-decoration: none;
         &:hover {
           color: var(--global-theme-color);
@@ -657,10 +692,11 @@ footer.sticky-bottom {
     }
 
     .pub-authors {
-      font-size: 0.85rem;
+      font-size: 0.88rem;
+      font-weight: 400;
       color: var(--global-text-color-light);
       line-height: 1.5;
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.25rem;
 
       strong {
         color: var(--global-text-color);
@@ -669,10 +705,12 @@ footer.sticky-bottom {
     }
 
     .pub-venue {
-      font-size: 0.82rem;
+      font-size: 0.8rem;
+      font-weight: 400;
       color: var(--global-text-color-light);
       line-height: 1.4;
       font-style: italic;
+      opacity: 0.9;
     }
   }
 
@@ -1052,6 +1090,25 @@ nav[data-toggle="toc"] {
       color: var(--global-hover-color);
       border-left-color: var(--global-hover-color);
     }
+  }
+}
+
+/* Publications mobile: prevent text cutoff */
+@media (max-width: 768px) {
+  .publications .pub-entry {
+    padding: 1rem 1rem;
+  }
+
+  .publications .pub-title {
+    font-size: 0.95rem;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  .publications .pub-authors,
+  .publications .pub-venue {
+    font-size: 0.82rem;
+    overflow-wrap: break-word;
   }
 }
 

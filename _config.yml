@@ -8,7 +8,7 @@ first_name: Inyoung
 last_name: Cheong
 # email: iycheong@princeton.edu  # hidden from social icons
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  Inyoung Cheong — AI governance researcher at Princeton CITP. Studies legal and technical governance for responsible AI, free speech, content moderation, and digital rights.
+  AI governance researcher at Princeton CITP. Studies legal and technical governance for responsible AI, free speech, content moderation, and digital rights.
 footer_text: Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> & <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   #Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
 keywords: Inyoung Cheong, AI, University of Washington, content moderation, free speech, legal research  # add your own keywords or leave empty
@@ -120,7 +120,7 @@ google-site-verification: r_j_Vx3bXyzhgNP8CF8wq_3IoXfgcu4mE5jQ3stD5yg
 # -----------------------------------------------------------------------------
 
 #blog_name: Law, Tech, and Academic Life # blog_name will be displayed in your blog page
-blog_nav_title: writing # your blog must have a title for it to be displayed in the nav bar
+blog_nav_title: Musings # your blog must have a title for it to be displayed in the nav bar
 blog_description: Law, Tech, and Life 
 permalink: /blog/:year/:title/
 
