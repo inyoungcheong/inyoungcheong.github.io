@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Literature Gap Analysis: LLMs in Higher Education</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #FAFAF7; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState } = React;
+
+const gaps = [
+  { id: 1, category: "Methodological", title: "No U.S. Longitudinal Panels", severity: "critical",
+    description: "78% of experimental studies originate from Asian educational contexts; only 5.4% from North America. No true longitudinal panel study exists tracking the same cohort of U.S. students over multiple semesters.",
+    implication: "Generalizability of findings to U.S. higher education remains unestablished. Cross-sectional snapshots cannot distinguish cohort effects from genuine attitude change.",
+    frameworks: ["ECT", "UTAUT2"], pillars: [3] },
+  { id: 2, category: "Methodological", title: "No Pre-Post Expectation Measurement", severity: "critical",
+    description: "Despite widespread use of Expectation-Confirmation Theory, no study directly measures student expectations before first LLM use and then re-measures after sustained use within the same sample.",
+    implication: "The 'disconfirmation' construct in ECT studies is inferred retrospectively rather than measured prospectively, weakening causal claims about expectation gaps.",
+    frameworks: ["ECT"], pillars: [1, 3] },
+  { id: 3, category: "Conceptual", title: "Task-Technology Fit Undertheorized by Discipline", severity: "high",
+    description: "TTF studies treat 'academic tasks' as monolithic. No study systematically varies task type (proof-writing vs. brainstorming vs. literature synthesis) within a single disciplinary context to isolate fit.",
+    implication: "The 'jagged frontier' is described anecdotally but not formally modeled. Instructors lack actionable guidance on which specific tasks benefit from LLM integration.",
+    frameworks: ["TTF"], pillars: [1, 2] },
+  { id: 4, category: "Substantive", title: "Emotional/Affective Dimensions Treated as Incidental", severity: "high",
+    description: "Findings about anxiety reduction, emotional scaffolding, and 'judgment-free' verification emerged as unplanned results in studies designed to measure cognitive outcomes. No study centers affect as the primary dependent variable.",
+    implication: "The serendipity factor (Pillar 2) remains theoretically orphaned — discovered but not systematically investigated or explained by existing frameworks.",
+    frameworks: [], pillars: [2] },
+  { id: 5, category: "Substantive", title: "Accessibility as Afterthought", severity: "high",
+    description: "Students with disabilities independently discovered LLM benefits without institutional support. Only two studies (Pierrès et al. 2024; Computers & Education 2025) examine this population directly, both with small samples.",
+    implication: "A potentially transformative use case for LLMs in higher education is almost entirely unexamined. Equity implications of subscription costs remain unquantified.",
+    frameworks: [], pillars: [2] },
+  { id: 6, category: "Conceptual", title: "Institutional Response Gap Unmeasured", severity: "critical",
+    description: "80% of students say institutional AI integration falls short; only 5% know AI guidelines; only 24% of institutions provide AI tools. Yet no study treats institutional policy as an independent variable in student outcome models.",
+    implication: "The most consequential expectation-reality gap may be about institutional response, not the technology itself — but this is asserted rather than tested.",
+    frameworks: ["UTAUT2"], pillars: [3] },
+  { id: 7, category: "Methodological", title: "Cognitive Debt Lacks Rigorous Evidence", severity: "moderate",
+    description: "The 'cognitive debt' concept (Kosmyna et al. 2025) and dependency paradox (Bastani et al. 2025) are supported by only two studies — one a preprint with n=54. The PNAS study uses high school, not college, students.",
+    implication: "The most alarming claims about LLM harm to learning rest on thin empirical foundations. Replication with college populations and larger samples is urgently needed.",
+    frameworks: [], pillars: [3] },
+  { id: 8, category: "Conceptual", title: "Prompt Engineering Sophistication Untracked", severity: "moderate",
+    description: "No study systematically measures how students' prompting strategies evolve over time, despite evidence that AI literacy predicts better outcomes (β = 0.583 for performance expectancy).",
+    implication: "The 'temporal shift' in Pillar 3 is documented at the attitude level but not at the skill level. A crucial mechanism of calibration remains a black box.",
+    frameworks: ["TAM", "TTF"], pillars: [3] }
+];
+
+const severityConfig = {
+  critical: { color: "#C41E3A", bg: "#FFF0F2", label: "Critical Gap" },
+  high: { color: "#CC7722", bg: "#FFF8F0", label: "High Priority" },
+  moderate: { color: "#4A6FA5", bg: "#F0F4FA", label: "Moderate" }
+};
+const categoryColors = { Methodological: "#2D5F2D", Conceptual: "#5B2C6F", Substantive: "#1A4A6B" };
+const pillarLabels = { 1: "Disillusionment", 2: "Serendipity", 3: "Temporal Shift" };
+const frameworkDescriptions = { ECT: "Expectation-Confirmation Theory", UTAUT2: "Unified Theory of Acceptance & Use of Technology 2", TTF: "Task-Technology Fit", TAM: "Technology Acceptance Model" };
+
+function App() {
+  const [selectedGap, setSelectedGap] = useState(null);
+  const [filterCategory, setFilterCategory] = useState("all");
+  const [filterSeverity, setFilterSeverity] = useState("all");
+
+  const filtered = gaps.filter(g => {
+    if (filterCategory !== "all" && g.category !== filterCategory) return false;
+    if (filterSeverity !== "all" && g.severity !== filterSeverity) return false;
+    return true;
+  });
+
+  const criticalCount = gaps.filter(g => g.severity === "critical").length;
+  const highCount = gaps.filter(g => g.severity === "high").length;
+  const moderateCount = gaps.filter(g => g.severity === "moderate").length;
+
+  return (
+    <div style={{ fontFamily: "'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif", maxWidth: 960, margin: "0 auto", padding: "40px 24px", color: "#1a1a1a", background: "#FAFAF7", minHeight: "100vh" }}>
+      <div style={{ borderBottom: "3px solid #1a1a1a", paddingBottom: 20, marginBottom: 32 }}>
+        <p style={{ fontSize: 11, letterSpacing: "0.2em", textTransform: "uppercase", color: "#666", margin: "0 0 8px", fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>Literature Gap Analysis</p>
+        <h1 style={{ fontSize: 28, fontWeight: 400, lineHeight: 1.25, margin: "0 0 8px", letterSpacing: "-0.01em" }}>Identified Gaps in LLM × Higher Education Research</h1>
+        <p style={{ fontSize: 14, color: "#555", margin: 0, lineHeight: 1.6 }}>Synthesized from 80+ empirical studies, 5 meta-analyses, and surveys covering 70,000+ students (2023–2026). Gaps mapped to three pillars and established theoretical frameworks.</p>
+      </div>
+
+      {/* Summary */}
+      <div style={{ display: "flex", gap: 16, marginBottom: 28, flexWrap: "wrap" }}>
+        {[{ label: "Critical", count: criticalCount, ...severityConfig.critical }, { label: "High Priority", count: highCount, ...severityConfig.high }, { label: "Moderate", count: moderateCount, ...severityConfig.moderate }].map(item => (
+          <div key={item.label} style={{ display: "flex", alignItems: "center", gap: 8, padding: "8px 16px", background: item.bg, borderLeft: `3px solid ${item.color}`, fontSize: 13, fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
+            <span style={{ fontSize: 22, fontWeight: 600, color: item.color }}>{item.count}</span>
+            <span style={{ color: "#444" }}>{item.label}</span>
+          </div>
+        ))}
+      </div>
+
+      {/* Filters */}
+      <div style={{ display: "flex", gap: 12, marginBottom: 24, flexWrap: "wrap", fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif", fontSize: 12 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+          <span style={{ color: "#888", textTransform: "uppercase", letterSpacing: "0.1em" }}>Type:</span>
+          {["all", "Methodological", "Conceptual", "Substantive"].map(cat => (
+            <button key={cat} onClick={() => setFilterCategory(cat)} style={{ padding: "4px 12px", border: filterCategory === cat ? "1px solid #1a1a1a" : "1px solid #ccc", background: filterCategory === cat ? "#1a1a1a" : "transparent", color: filterCategory === cat ? "#fff" : "#555", cursor: "pointer", fontSize: 11, letterSpacing: "0.05em" }}>{cat === "all" ? "All" : cat}</button>
+          ))}
+        </div>
+        <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+          <span style={{ color: "#888", textTransform: "uppercase", letterSpacing: "0.1em" }}>Severity:</span>
+          {["all", "critical", "high", "moderate"].map(sev => (
+            <button key={sev} onClick={() => setFilterSeverity(sev)} style={{ padding: "4px 12px", border: filterSeverity === sev ? "1px solid #1a1a1a" : "1px solid #ccc", background: filterSeverity === sev ? "#1a1a1a" : "transparent", color: filterSeverity === sev ? "#fff" : "#555", cursor: "pointer", fontSize: 11, letterSpacing: "0.05em" }}>{sev === "all" ? "All" : sev.charAt(0).toUpperCase() + sev.slice(1)}</button>
+          ))}
+        </div>
+      </div>
+
+      {/* Pillar map */}
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 2, marginBottom: 32, background: "#ddd" }}>
+        {[1, 2, 3].map(p => {
+          const gapsInPillar = filtered.filter(g => g.pillars.includes(p));
+          return (
+            <div key={p} style={{ background: "#FAFAF7", padding: "16px 12px" }}>
+              <div style={{ fontSize: 10, fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif", textTransform: "uppercase", letterSpacing: "0.15em", color: "#888", marginBottom: 4 }}>Pillar {p}</div>
+              <div style={{ fontSize: 15, fontWeight: 600, marginBottom: 12, fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>{pillarLabels[p]}</div>
+              <div style={{ display: "flex", gap: 4, flexWrap: "wrap" }}>
+                {gapsInPillar.length === 0 ? <span style={{ fontSize: 11, color: "#aaa", fontStyle: "italic" }}>No gaps match filters</span> :
+                  gapsInPillar.map(g => (
+                    <div key={g.id} onClick={() => setSelectedGap(selectedGap?.id === g.id ? null : g)} style={{ width: 28, height: 28, borderRadius: "50%", background: severityConfig[g.severity].color, display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: 11, fontWeight: 700, cursor: "pointer", fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif", border: selectedGap?.id === g.id ? "3px solid #1a1a1a" : "2px solid transparent", transition: "transform 0.15s ease", transform: selectedGap?.id === g.id ? "scale(1.2)" : "scale(1)" }} title={g.title}>{g.id}</div>
+                  ))
+                }
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Gap cards */}
+      <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+        {filtered.map(gap => {
+          const isOpen = selectedGap?.id === gap.id;
+          const sev = severityConfig[gap.severity];
+          const catColor = categoryColors[gap.category];
+          return (
+            <div key={gap.id} onClick={() => setSelectedGap(isOpen ? null : gap)} style={{ background: isOpen ? sev.bg : "#fff", borderLeft: `4px solid ${sev.color}`, padding: "16px 20px", cursor: "pointer", transition: "all 0.2s ease" }}>
+              <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 12 }}>
+                <div style={{ flex: 1 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4, flexWrap: "wrap" }}>
+                    <span style={{ fontSize: 10, fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif", textTransform: "uppercase", letterSpacing: "0.12em", color: catColor, fontWeight: 600, background: `${catColor}11`, padding: "2px 8px" }}>{gap.category}</span>
+                    <span style={{ fontSize: 10, fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif", textTransform: "uppercase", letterSpacing: "0.12em", color: sev.color, fontWeight: 600 }}>{sev.label}</span>
+                  </div>
+                  <h3 style={{ fontSize: 16, fontWeight: 600, margin: "4px 0 0", fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif", lineHeight: 1.3 }}>
+                    <span style={{ color: sev.color, marginRight: 8, fontSize: 13, fontWeight: 700 }}>G{gap.id}</span>{gap.title}
+                  </h3>
+                </div>
+                <span style={{ fontSize: 18, color: "#999", transition: "transform 0.2s", transform: isOpen ? "rotate(45deg)" : "rotate(0)", flexShrink: 0, marginTop: 4 }}>+</span>
+              </div>
+              {isOpen && (
+                <div style={{ marginTop: 16, paddingTop: 16, borderTop: `1px solid ${sev.color}33` }}>
+                  <div style={{ marginBottom: 14 }}>
+                    <p style={{ fontSize: 10, fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif", textTransform: "uppercase", letterSpacing: "0.15em", color: "#888", margin: "0 0 4px" }}>What's missing</p>
+                    <p style={{ fontSize: 14, lineHeight: 1.65, margin: 0, color: "#333" }}>{gap.description}</p>
+                  </div>
+                  <div style={{ marginBottom: 14 }}>
+                    <p style={{ fontSize: 10, fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif", textTransform: "uppercase", letterSpacing: "0.15em", color: "#888", margin: "0 0 4px" }}>Why it matters</p>
+                    <p style={{ fontSize: 14, lineHeight: 1.65, margin: 0, color: "#333", fontStyle: "italic" }}>{gap.implication}</p>
+                  </div>
+                  <div style={{ display: "flex", gap: 16, flexWrap: "wrap", fontSize: 12, fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
+                    <div>
+                      <span style={{ color: "#888", textTransform: "uppercase", letterSpacing: "0.1em", fontSize: 10 }}>Pillars: </span>
+                      {gap.pillars.map(p => <span key={p} style={{ display: "inline-block", padding: "2px 8px", background: "#1a1a1a", color: "#fff", fontSize: 10, marginRight: 4, letterSpacing: "0.05em" }}>P{p}: {pillarLabels[p]}</span>)}
+                    </div>
+                    {gap.frameworks.length > 0 && (
+                      <div>
+                        <span style={{ color: "#888", textTransform: "uppercase", letterSpacing: "0.1em", fontSize: 10 }}>Frameworks: </span>
+                        {gap.frameworks.map(f => <span key={f} title={frameworkDescriptions[f]} style={{ display: "inline-block", padding: "2px 8px", border: "1px solid #999", color: "#555", fontSize: 10, marginRight: 4, cursor: "help" }}>{f}</span>)}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Matrix */}
+      <div style={{ marginTop: 40, borderTop: "2px solid #1a1a1a", paddingTop: 24 }}>
+        <h2 style={{ fontSize: 18, fontWeight: 400, marginBottom: 16 }}>Gap × Framework Matrix</h2>
+        <p style={{ fontSize: 13, color: "#666", marginBottom: 16, lineHeight: 1.6 }}>Filled cells indicate which theoretical frameworks are implicated by each gap — revealing where existing frameworks fail to account for observed phenomena.</p>
+        <div style={{ overflowX: "auto" }}>
+          <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 12, fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
+            <thead>
+              <tr>
+                <th style={{ textAlign: "left", padding: "8px 12px", borderBottom: "2px solid #1a1a1a", fontSize: 10, textTransform: "uppercase", letterSpacing: "0.1em", color: "#666" }}>Gap</th>
+                {["ECT", "UTAUT2", "TTF", "TAM"].map(f => <th key={f} style={{ textAlign: "center", padding: "8px 12px", borderBottom: "2px solid #1a1a1a", fontSize: 10, textTransform: "uppercase", letterSpacing: "0.1em", color: "#666", minWidth: 60 }}>{f}</th>)}
+                <th style={{ textAlign: "center", padding: "8px 12px", borderBottom: "2px solid #1a1a1a", fontSize: 10, textTransform: "uppercase", letterSpacing: "0.1em", color: "#C41E3A", fontWeight: 700 }}>No Framework</th>
+              </tr>
+            </thead>
+            <tbody>
+              {gaps.map(g => {
+                const sev = severityConfig[g.severity];
+                const noFramework = g.frameworks.length === 0;
+                return (
+                  <tr key={g.id} style={{ borderBottom: "1px solid #eee", background: noFramework ? "#FFF8F5" : "transparent" }}>
+                    <td style={{ padding: "10px 12px", fontWeight: 500 }}><span style={{ color: sev.color, fontWeight: 700, marginRight: 6 }}>G{g.id}</span>{g.title}</td>
+                    {["ECT", "UTAUT2", "TTF", "TAM"].map(f => <td key={f} style={{ textAlign: "center", padding: "10px 12px" }}>{g.frameworks.includes(f) ? <span style={{ display: "inline-block", width: 16, height: 16, borderRadius: "50%", background: sev.color }} /> : <span style={{ color: "#ddd" }}>—</span>}</td>)}
+                    <td style={{ textAlign: "center", padding: "10px 12px" }}>{noFramework ? <span style={{ color: "#C41E3A", fontWeight: 700, fontSize: 14 }}>⚠</span> : <span style={{ color: "#ddd" }}>—</span>}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+        <p style={{ fontSize: 11, color: "#888", marginTop: 12, fontStyle: "italic", fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>⚠ = Gap has no established theoretical framework — a potential site for novel theoretical contribution.</p>
+      </div>
+
+      {/* Research agenda */}
+      <div style={{ marginTop: 40, borderTop: "2px solid #1a1a1a", paddingTop: 24 }}>
+        <h2 style={{ fontSize: 18, fontWeight: 400, marginBottom: 16 }}>Toward a Research Agenda</h2>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 2, background: "#ddd", fontSize: 13 }}>
+          {[
+            { q: "Can ECT explain the expectation gap if expectations are never measured prospectively?", gaps: "G2", type: "Methodological priority" },
+            { q: "What institutional variables (policy clarity, tool provision, training) moderate student outcomes?", gaps: "G6", type: "Policy-relevant" },
+            { q: "Does the emotional scaffolding benefit require a new theoretical construct beyond TAM/UTAUT?", gaps: "G4", type: "Theory-building" },
+            { q: "How do prompting strategies evolve, and does sophistication predict reduced hallucination frustration?", gaps: "G8, G3", type: "Skill development" }
+          ].map((item, i) => (
+            <div key={i} style={{ background: "#FAFAF7", padding: "16px 20px" }}>
+              <div style={{ fontSize: 10, fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif", textTransform: "uppercase", letterSpacing: "0.12em", color: "#888", marginBottom: 6 }}>{item.type} · {item.gaps}</div>
+              <p style={{ margin: 0, lineHeight: 1.6 }}>{item.q}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div style={{ marginTop: 32, paddingTop: 16, borderTop: "1px solid #ddd", fontSize: 11, color: "#999", fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>Generated from literature review synthesis · February 2026</div>
+    </div>
+  );
+}
+
+ReactDOM.render(<App />, document.getElementById("root"));
+</script>
+</body>
+</html>
