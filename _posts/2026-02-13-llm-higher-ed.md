@@ -6,25 +6,24 @@ description: Is LLMs' literature any better in early 2026?
 published: true
 ---
 
-# LLMs in Higher Education: The Structural Gap Between Student Expectations and Outcomes
-
-**I was intrigued by the recent excitement about Claude Opus 4.6. The literature review done by commercial LLMs had not been satisfying, as my co-authors and I stressed in our [COLM 2025 paper](https://arxiv.org/abs/2411.05025). Still, I found that the citations are flawed. For example, the second author (E. Wilder) is missing on fn. 25. Fn. 33 is written by J. Huang, not C. Huang. Fn. 32 is authored by M. Oliński and K. Sieciński, not Strzelecki, A. Authors' first names on Fn. 25 are slightly altered. Soom footnotes drop authors' names. Nonetheless, it was impressive that all articles do exist (no links are dead) and all titles in the footnotes appear to be correct.**
+<blockquote>
+<p><strong>A note on this literature review.</strong> I was intrigued by the recent excitement about Claude Opus 4.6. The literature review done by commercial LLMs had not been satisfying (if you ask my opinion, I have preferred to use AI2 Asta), as my co-authors and I stressed in our <a href="https://arxiv.org/abs/2411.05025">COLM 2025 paper</a>. I instructed Claude to conduct a literature review on college students' expectation gaps on LLMs for their education. The prompt is available below and the result is as follows. It was impressive that all articles do exist (no links are dead) and all titles in the footnotes appear to be correct. Still, I found that the citations are flawed. For example, the second author (E. Wilder) is missing from fn. 25. Fn. 33 is written by J. Huang, not C. Huang. Fn. 32 is authored by M. Oliński and K. Sieciński, not Strzelecki, A. Authors' first names on fn. 25 are slightly altered. Some footnotes drop authors' names. Therefore, it's still not reliable as a literature pointer. But it provides a very rough, bird's eye view of the scholarly landscape. I pushed it further and generated a [literature gap analysis]({{ '/assets/html/gap_analysis.html' | relative_url }}) This one was visually satisfying, though I found it harder to internalize the findings. </p>
 
 <details>
 <summary><strong>Prompt used for this literature review</strong></summary>
-
-Conduct a comprehensive literature review and synthesis of academic papers (2023–2026) regarding the use of Large Language Models (LLMs) in college-level education. I am specifically interested in the structural gap between student expectations and actual outcomes. > Please investigate and categorize findings into the following three pillars:
+<p>Conduct a comprehensive literature review and synthesis of academic papers (2023–2026) regarding the use of Large Language Models (LLMs) in college-level education. I am specifically interested in the structural gap between student expectations and actual outcomes. > Please investigate and categorize findings into the following three pillars:
 1. The Disillusionment Gap (Expectation > Reality): What specific tasks did students initially expect LLMs to master (e.g., deep critical analysis, factual accuracy in niche research, complex mathematical reasoning) where the technology ultimately underperformed or produced 'hallucinations'?
 2. The Serendipity Factor (Reality > Expectation): In which areas did students find unexpected value that they didn't initially prioritize? (e.g., personalized tutoring, brainstorming/ideation, code debugging, or emotional support/scaffolding).
 3. The Temporal Shift (Evolution of Perception): How has the 'User Expectation' evolved from the early 'ChatGPT hype' (late 2022/2023) to the current era of 'AI Literacy' (2025/2026)? Look for longitudinal studies or comparative surveys that track changes in student trust, dependency, and 'prompt engineering' sophistication.
 Methodological Focus: Please look for studies applying frameworks such as Expectation-Confirmation Theory (ECT), Technology Acceptance Model (TAM), or Task-Technology Fit (TTF).
-Output Requirement: Provide a summary of key papers, their core findings regarding the 'gap,' and a list of common 'points of friction' where students report the highest levels of frustration versus satisfaction.
-
+Output Requirement: Provide a summary of key papers, their core findings regarding the 'gap,' and a list of common 'points of friction' where students report the highest levels of frustration versus satisfaction.</p>
 </details>
+</blockquote>
+
 
 ---
 
-## Introduction
+## LLMs in Higher Education
 
 Large language models have simultaneously disappointed and surprised college students in ways that reveal a predictable but underexplored structural pattern. Across empirical studies, meta-analyses, and large-scale surveys published between 2023 and 2026, the literature converges on a consistent finding: students initially overestimate LLM capabilities for analytical tasks while underestimating their value for scaffolding, ideation, and emotional support. This expectation-outcome mismatch follows a temporal arc from the "ChatGPT hype" of early 2023 through a disillusionment phase and toward a more calibrated "AI literacy" era emerging in 2025–2026.
 

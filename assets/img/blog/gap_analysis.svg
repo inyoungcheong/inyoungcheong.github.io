@@ -1,0 +1,202 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 820" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
+  <rect width="900" height="820" fill="#FAFAF7"/>
+
+  <!-- Title -->
+  <text x="40" y="36" font-size="11" fill="#666" letter-spacing="2" text-transform="uppercase">LITERATURE GAP ANALYSIS</text>
+  <text x="40" y="66" font-size="22" fill="#1a1a1a" font-family="Palatino Linotype, Georgia, serif">Identified Gaps in LLM × Higher Education Research</text>
+  <line x1="40" y1="80" x2="860" y2="80" stroke="#1a1a1a" stroke-width="2.5"/>
+
+  <!-- Summary counts -->
+  <rect x="40" y="96" width="120" height="36" fill="#FFF0F2"/>
+  <rect x="40" y="96" width="3" height="36" fill="#C41E3A"/>
+  <text x="54" y="120" font-size="20" fill="#C41E3A" font-weight="600">3</text>
+  <text x="74" y="119" font-size="11" fill="#444">Critical</text>
+
+  <rect x="176" y="96" width="140" height="36" fill="#FFF8F0"/>
+  <rect x="176" y="96" width="3" height="36" fill="#CC7722"/>
+  <text x="190" y="120" font-size="20" fill="#CC7722" font-weight="600">3</text>
+  <text x="210" y="119" font-size="11" fill="#444">High Priority</text>
+
+  <rect x="332" y="96" width="130" height="36" fill="#F0F4FA"/>
+  <rect x="332" y="96" width="3" height="36" fill="#4A6FA5"/>
+  <text x="346" y="120" font-size="20" fill="#4A6FA5" font-weight="600">2</text>
+  <text x="366" y="119" font-size="11" fill="#444">Moderate</text>
+
+  <!-- Pillar headers -->
+  <rect x="40" y="150" width="270" height="80" fill="#fff" stroke="#ddd" stroke-width="1"/>
+  <text x="56" y="170" font-size="9" fill="#888" letter-spacing="1.5">PILLAR 1</text>
+  <text x="56" y="190" font-size="14" fill="#1a1a1a" font-weight="600">Disillusionment</text>
+  <!-- Gap dots for P1 -->
+  <circle cx="66" cy="215" r="12" fill="#C41E3A"/><text x="66" y="219" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">2</text>
+  <circle cx="94" cy="215" r="12" fill="#CC7722"/><text x="94" y="219" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">3</text>
+
+  <rect x="315" y="150" width="270" height="80" fill="#fff" stroke="#ddd" stroke-width="1"/>
+  <text x="331" y="170" font-size="9" fill="#888" letter-spacing="1.5">PILLAR 2</text>
+  <text x="331" y="190" font-size="14" fill="#1a1a1a" font-weight="600">Serendipity</text>
+  <circle cx="341" cy="215" r="12" fill="#CC7722"/><text x="341" y="219" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">3</text>
+  <circle cx="369" cy="215" r="12" fill="#CC7722"/><text x="369" y="219" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">4</text>
+  <circle cx="397" cy="215" r="12" fill="#CC7722"/><text x="397" y="219" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">5</text>
+
+  <rect x="590" y="150" width="270" height="80" fill="#fff" stroke="#ddd" stroke-width="1"/>
+  <text x="606" y="170" font-size="9" fill="#888" letter-spacing="1.5">PILLAR 3</text>
+  <text x="606" y="190" font-size="14" fill="#1a1a1a" font-weight="600">Temporal Shift</text>
+  <circle cx="616" cy="215" r="12" fill="#C41E3A"/><text x="616" y="219" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">1</text>
+  <circle cx="644" cy="215" r="12" fill="#C41E3A"/><text x="644" y="219" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">2</text>
+  <circle cx="672" cy="215" r="12" fill="#C41E3A"/><text x="672" y="219" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">6</text>
+  <circle cx="700" cy="215" r="12" fill="#4A6FA5"/><text x="700" y="219" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">7</text>
+  <circle cx="728" cy="215" r="12" fill="#4A6FA5"/><text x="728" y="219" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">8</text>
+
+  <!-- Gap list -->
+  <!-- G1 -->
+  <rect x="40" y="252" width="820" height="32" fill="#fff"/>
+  <rect x="40" y="252" width="4" height="32" fill="#C41E3A"/>
+  <text x="56" y="273" font-size="11" fill="#C41E3A" font-weight="700">G1</text>
+  <text x="80" y="273" font-size="12" fill="#1a1a1a" font-weight="500">No U.S. Longitudinal Panels</text>
+  <text x="340" y="273" font-size="10" fill="#2D5F2D">METHODOLOGICAL</text>
+  <text x="470" y="273" font-size="10" fill="#C41E3A">CRITICAL</text>
+  <text x="550" y="273" font-size="10" fill="#888">ECT · UTAUT2</text>
+
+  <!-- G2 -->
+  <rect x="40" y="286" width="820" height="32" fill="#FAFAF7"/>
+  <rect x="40" y="286" width="4" height="32" fill="#C41E3A"/>
+  <text x="56" y="307" font-size="11" fill="#C41E3A" font-weight="700">G2</text>
+  <text x="80" y="307" font-size="12" fill="#1a1a1a" font-weight="500">No Pre-Post Expectation Measurement</text>
+  <text x="340" y="307" font-size="10" fill="#2D5F2D">METHODOLOGICAL</text>
+  <text x="470" y="307" font-size="10" fill="#C41E3A">CRITICAL</text>
+  <text x="550" y="307" font-size="10" fill="#888">ECT</text>
+
+  <!-- G3 -->
+  <rect x="40" y="320" width="820" height="32" fill="#fff"/>
+  <rect x="40" y="320" width="4" height="32" fill="#CC7722"/>
+  <text x="56" y="341" font-size="11" fill="#CC7722" font-weight="700">G3</text>
+  <text x="80" y="341" font-size="12" fill="#1a1a1a" font-weight="500">Task-Technology Fit Undertheorized by Discipline</text>
+  <text x="400" y="341" font-size="10" fill="#5B2C6F">CONCEPTUAL</text>
+  <text x="500" y="341" font-size="10" fill="#CC7722">HIGH</text>
+  <text x="550" y="341" font-size="10" fill="#888">TTF</text>
+
+  <!-- G4 -->
+  <rect x="40" y="354" width="820" height="32" fill="#FAFAF7"/>
+  <rect x="40" y="354" width="4" height="32" fill="#CC7722"/>
+  <text x="56" y="375" font-size="11" fill="#CC7722" font-weight="700">G4</text>
+  <text x="80" y="375" font-size="12" fill="#1a1a1a" font-weight="500">Emotional/Affective Dimensions Treated as Incidental</text>
+  <text x="420" y="375" font-size="10" fill="#1A4A6B">SUBSTANTIVE</text>
+  <text x="520" y="375" font-size="10" fill="#CC7722">HIGH</text>
+  <text x="570" y="375" font-size="10" fill="#C41E3A">⚠ No framework</text>
+
+  <!-- G5 -->
+  <rect x="40" y="388" width="820" height="32" fill="#fff"/>
+  <rect x="40" y="388" width="4" height="32" fill="#CC7722"/>
+  <text x="56" y="409" font-size="11" fill="#CC7722" font-weight="700">G5</text>
+  <text x="80" y="409" font-size="12" fill="#1a1a1a" font-weight="500">Accessibility as Afterthought</text>
+  <text x="310" y="409" font-size="10" fill="#1A4A6B">SUBSTANTIVE</text>
+  <text x="410" y="409" font-size="10" fill="#CC7722">HIGH</text>
+  <text x="460" y="409" font-size="10" fill="#C41E3A">⚠ No framework</text>
+
+  <!-- G6 -->
+  <rect x="40" y="422" width="820" height="32" fill="#FAFAF7"/>
+  <rect x="40" y="422" width="4" height="32" fill="#C41E3A"/>
+  <text x="56" y="443" font-size="11" fill="#C41E3A" font-weight="700">G6</text>
+  <text x="80" y="443" font-size="12" fill="#1a1a1a" font-weight="500">Institutional Response Gap Unmeasured</text>
+  <text x="350" y="443" font-size="10" fill="#5B2C6F">CONCEPTUAL</text>
+  <text x="450" y="443" font-size="10" fill="#C41E3A">CRITICAL</text>
+  <text x="530" y="443" font-size="10" fill="#888">UTAUT2</text>
+
+  <!-- G7 -->
+  <rect x="40" y="456" width="820" height="32" fill="#fff"/>
+  <rect x="40" y="456" width="4" height="32" fill="#4A6FA5"/>
+  <text x="56" y="477" font-size="11" fill="#4A6FA5" font-weight="700">G7</text>
+  <text x="80" y="477" font-size="12" fill="#1a1a1a" font-weight="500">Cognitive Debt Lacks Rigorous Evidence</text>
+  <text x="350" y="477" font-size="10" fill="#2D5F2D">METHODOLOGICAL</text>
+  <text x="480" y="477" font-size="10" fill="#4A6FA5">MODERATE</text>
+  <text x="560" y="477" font-size="10" fill="#C41E3A">⚠ No framework</text>
+
+  <!-- G8 -->
+  <rect x="40" y="490" width="820" height="32" fill="#FAFAF7"/>
+  <rect x="40" y="490" width="4" height="32" fill="#4A6FA5"/>
+  <text x="56" y="511" font-size="11" fill="#4A6FA5" font-weight="700">G8</text>
+  <text x="80" y="511" font-size="12" fill="#1a1a1a" font-weight="500">Prompt Engineering Sophistication Untracked</text>
+  <text x="380" y="511" font-size="10" fill="#5B2C6F">CONCEPTUAL</text>
+  <text x="480" y="511" font-size="10" fill="#4A6FA5">MODERATE</text>
+  <text x="560" y="511" font-size="10" fill="#888">TAM · TTF</text>
+
+  <!-- Framework Matrix -->
+  <text x="40" y="560" font-size="11" fill="#666" letter-spacing="2">GAP × FRAMEWORK MATRIX</text>
+  <line x1="40" y1="568" x2="860" y2="568" stroke="#1a1a1a" stroke-width="2"/>
+
+  <!-- Header row -->
+  <text x="56" y="590" font-size="10" fill="#666" letter-spacing="1">GAP</text>
+  <text x="340" y="590" font-size="10" fill="#666" text-anchor="middle" letter-spacing="1">ECT</text>
+  <text x="440" y="590" font-size="10" fill="#666" text-anchor="middle" letter-spacing="1">UTAUT2</text>
+  <text x="540" y="590" font-size="10" fill="#666" text-anchor="middle" letter-spacing="1">TTF</text>
+  <text x="640" y="590" font-size="10" fill="#666" text-anchor="middle" letter-spacing="1">TAM</text>
+  <text x="760" y="590" font-size="10" fill="#C41E3A" text-anchor="middle" letter-spacing="1" font-weight="700">NONE</text>
+  <line x1="40" y1="598" x2="860" y2="598" stroke="#1a1a1a" stroke-width="1.5"/>
+
+  <!-- G1 row -->
+  <text x="56" y="618" font-size="11" fill="#1a1a1a"><tspan fill="#C41E3A" font-weight="700">G1</tspan> No U.S. Longitudinal Panels</text>
+  <circle cx="340" cy="614" r="7" fill="#C41E3A"/>
+  <circle cx="440" cy="614" r="7" fill="#C41E3A"/>
+  <text x="540" y="618" font-size="10" fill="#ddd" text-anchor="middle">—</text>
+  <text x="640" y="618" font-size="10" fill="#ddd" text-anchor="middle">—</text>
+  <text x="760" y="618" font-size="10" fill="#ddd" text-anchor="middle">—</text>
+  <line x1="40" y1="628" x2="860" y2="628" stroke="#eee" stroke-width="1"/>
+
+  <!-- G2 row -->
+  <text x="56" y="648" font-size="11" fill="#1a1a1a"><tspan fill="#C41E3A" font-weight="700">G2</tspan> No Pre-Post Measurement</text>
+  <circle cx="340" cy="644" r="7" fill="#C41E3A"/>
+  <text x="440" y="648" font-size="10" fill="#ddd" text-anchor="middle">—</text>
+  <text x="540" y="648" font-size="10" fill="#ddd" text-anchor="middle">—</text>
+  <text x="640" y="648" font-size="10" fill="#ddd" text-anchor="middle">—</text>
+  <text x="760" y="648" font-size="10" fill="#ddd" text-anchor="middle">—</text>
+  <line x1="40" y1="658" x2="860" y2="658" stroke="#eee" stroke-width="1"/>
+
+  <!-- G3 row -->
+  <text x="56" y="678" font-size="11" fill="#1a1a1a"><tspan fill="#CC7722" font-weight="700">G3</tspan> TTF Undertheorized</text>
+  <text x="340" y="678" font-size="10" fill="#ddd" text-anchor="middle">—</text>
+  <text x="440" y="678" font-size="10" fill="#ddd" text-anchor="middle">—</text>
+  <circle cx="540" cy="674" r="7" fill="#CC7722"/>
+  <text x="640" y="678" font-size="10" fill="#ddd" text-anchor="middle">—</text>
+  <text x="760" y="678" font-size="10" fill="#ddd" text-anchor="middle">—</text>
+  <line x1="40" y1="688" x2="860" y2="688" stroke="#eee" stroke-width="1"/>
+
+  <!-- G4 row - no framework -->
+  <rect x="40" y="692" width="820" height="28" fill="#FFF8F5"/>
+  <text x="56" y="710" font-size="11" fill="#1a1a1a"><tspan fill="#CC7722" font-weight="700">G4</tspan> Affective Dimensions</text>
+  <text x="340" y="710" font-size="10" fill="#ddd" text-anchor="middle">—</text>
+  <text x="440" y="710" font-size="10" fill="#ddd" text-anchor="middle">—</text>
+  <text x="540" y="710" font-size="10" fill="#ddd" text-anchor="middle">—</text>
+  <text x="640" y="710" font-size="10" fill="#ddd" text-anchor="middle">—</text>
+  <text x="760" y="710" font-size="13" fill="#C41E3A" text-anchor="middle" font-weight="700">⚠</text>
+  <line x1="40" y1="722" x2="860" y2="722" stroke="#eee" stroke-width="1"/>
+
+  <!-- G5 row - no framework -->
+  <rect x="40" y="722" width="820" height="28" fill="#FFF8F5"/>
+  <text x="56" y="740" font-size="11" fill="#1a1a1a"><tspan fill="#CC7722" font-weight="700">G5</tspan> Accessibility</text>
+  <text x="340" y="740" font-size="10" fill="#ddd" text-anchor="middle">—</text>
+  <text x="440" y="740" font-size="10" fill="#ddd" text-anchor="middle">—</text>
+  <text x="540" y="740" font-size="10" fill="#ddd" text-anchor="middle">—</text>
+  <text x="640" y="740" font-size="10" fill="#ddd" text-anchor="middle">—</text>
+  <text x="760" y="740" font-size="13" fill="#C41E3A" text-anchor="middle" font-weight="700">⚠</text>
+  <line x1="40" y1="752" x2="860" y2="752" stroke="#eee" stroke-width="1"/>
+
+  <!-- G6 row -->
+  <text x="56" y="770" font-size="11" fill="#1a1a1a"><tspan fill="#C41E3A" font-weight="700">G6</tspan> Institutional Response</text>
+  <text x="340" y="770" font-size="10" fill="#ddd" text-anchor="middle">—</text>
+  <circle cx="440" cy="766" r="7" fill="#C41E3A"/>
+  <text x="540" y="770" font-size="10" fill="#ddd" text-anchor="middle">—</text>
+  <text x="640" y="770" font-size="10" fill="#ddd" text-anchor="middle">—</text>
+  <text x="760" y="770" font-size="10" fill="#ddd" text-anchor="middle">—</text>
+  <line x1="40" y1="780" x2="860" y2="780" stroke="#eee" stroke-width="1"/>
+
+  <!-- G7 row - no framework -->
+  <rect x="40" y="780" width="820" height="28" fill="#FFF8F5"/>
+  <text x="56" y="798" font-size="11" fill="#1a1a1a"><tspan fill="#4A6FA5" font-weight="700">G7</tspan> Cognitive Debt Evidence</text>
+  <text x="340" y="798" font-size="10" fill="#ddd" text-anchor="middle">—</text>
+  <text x="440" y="798" font-size="10" fill="#ddd" text-anchor="middle">—</text>
+  <text x="540" y="798" font-size="10" fill="#ddd" text-anchor="middle">—</text>
+  <text x="640" y="798" font-size="10" fill="#ddd" text-anchor="middle">—</text>
+  <text x="760" y="798" font-size="13" fill="#C41E3A" text-anchor="middle" font-weight="700">⚠</text>
+
+  <!-- Footer -->
+  <text x="40" y="816" font-size="9" fill="#888" font-style="italic">⚠ = No established theoretical framework — potential site for novel contribution · Feb 2026</text>
+</svg>
