@@ -510,7 +510,11 @@ footer.sticky-bottom {
   }
 }
 
-.post-title {
+.post .post-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+
   mjx-container[jax="CHTML"][display="true"] {
     display: unset;
   }
