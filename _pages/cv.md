@@ -9,12 +9,12 @@ nav_order: 3
 <div class="cv-page">
   <div class="cv-header">
     <h1 class="cv-title">Curriculum Vitae</h1>
-    <a class="cv-download" href="{{ '/assets/pdf/CV_12152025.pdf' | relative_url }}" download>
+    <a class="cv-download" href="{{ '/assets/pdf/CV_20260321.pdf' | relative_url }}" download>
       <i class="fas fa-download"></i> Download PDF
     </a>
   </div>
   <div class="cv-viewer">
-    <iframe src="{{ '/assets/pdf/CV_12152025.pdf' | relative_url }}" width="100%" height="100%" frameborder="0"></iframe>
+    <iframe src="{{ '/assets/pdf/CV_20260321.pdf' | relative_url }}" width="100%" height="100%" frameborder="0"></iframe>
   </div>
 </div>
 
