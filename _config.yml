@@ -8,7 +8,7 @@ first_name: Inyoung
 last_name: Cheong
 # email: iycheong@princeton.edu  # hidden from social icons
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  AI governance researcher at Princeton CITP. Studies legal and technical governance for responsible AI, free speech, content moderation, and digital rights.
+  Fellow at Harvard's Berkman Klein Center for Internet & Society. Studies legal and technical governance for responsible AI, free speech, content moderation, and digital rights.
 footer_text: Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> & <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   #Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
 keywords: Inyoung Cheong, AI, University of Washington, content moderation, free speech, legal research  # add your own keywords or leave empty
